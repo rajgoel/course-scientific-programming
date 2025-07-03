@@ -6,19 +6,19 @@ https://rajgoel.github.io/course-scientific-programming
 
 ## Session overview
 
-| Session | Lecture                                                                                           |
-|---------|---------------------------------------------------------------------------------------------------|
-| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)         |
-| 02      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)                  |
-| 03      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)                  |
-| 04      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)                  |
-| 05      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)                  |
-| 06      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)                  |
-| 07      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)                  |
-| 08      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)                  |
-| 09      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)                  |
-| 10      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)                  |
-| 11      | Ask me anything                                                                                   |
+| Session | Lecture                                                                                           | Lab             |
+|---------|---------------------------------------------------------------------------------------------------|-----------------|
+| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)         | Project work    |
+| 02      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)                  | Project work    |
+| 03      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)                  | Project work    |
+| 04      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)                  | Project work    |
+| 05      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)                  | Project work    |
+| 06      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)                  | Project work    |
+| 07      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)                  | Project work    |
+| 08      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)                  | Project work    |
+| 09      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)                  | Project work    |
+| 10      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)                  | Project work    |
+| 11      | Ask me anything                                                                                   | Ask me anything |
 
 ## Grading
 
