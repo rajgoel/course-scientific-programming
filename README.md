@@ -1,41 +1,46 @@
-# reveal.js-template
+# Scientific Programming
 
-A template easing the use of reveal.js with my favorite configuration.
+## Lecture slides
 
-## Demo
+https://rajgoel.github.io/course-scientific-programming
 
-https://rajgoel.github.io/reveal.js-template/
+## Session overview
 
-## Usage
+| Session | Lecture                       |
+| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)         |
+| 02      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)                  |
+| 03      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)                  |
+| 04      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)                  |
+| 05      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)                  |
+| 06      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)                  |
+| 07      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)                  |
+| 08      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)                  |
+| 09      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)                  |
+| 10      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)                  |
+| 11      | Ask me anything               |
 
-- Clone or copy the repository, or use https://github.com/new/import
-- Add the course meta-data to `course.json`
-- Create markdown files as specified in the course meta-data 
-- Change `RevealConfig` in `index.html` if needed.
-- Update license if necessary
-- Update README.md
+## Grading
 
-## Admonitions
+Grading will be based to 100% on project work.
 
-Github style admonitions are supported in Markdown:
+## Bonus
 
-> [!NOTE]
-> A note highlights important information.
+A bonus of up to 10% of the final score can be obtained by meaningful contribution to the course materials. 
 
-> [!TIP]
-> A tip provides helpful information.
+## Module description
 
-> [!IMPORTANT]
-> Important information for success.
+N/A
 
-> [!WARNING]
-> A warning alerts users about potential risks.
+### Learning outcomes
 
-> [!CAUTION]
-> Caution should be taken to avoid negative consequences.
+N/A
+
+### Literature
+
+N/A
 
 ## License
 
-The Unlicense
+MIT licensed
 
-The file `logo.svg` is subject to the conditions of Github: https://github.com/logos
+Copyright (C) 2025 Asvin Goel
