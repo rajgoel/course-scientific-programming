@@ -6,7 +6,8 @@ https://rajgoel.github.io/course-scientific-programming
 
 ## Session overview
 
-| Session | Lecture                       |
+| Session | Lecture                                                                                           |
+|---------|---------------------------------------------------------------------------------------------------|
 | 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)         |
 | 02      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)                  |
 | 03      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)                  |
@@ -17,7 +18,7 @@ https://rajgoel.github.io/course-scientific-programming
 | 08      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)                  |
 | 09      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)                  |
 | 10      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)                  |
-| 11      | Ask me anything               |
+| 11      | Ask me anything                                                                                   |
 
 ## Grading
 
