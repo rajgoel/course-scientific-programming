@@ -46,7 +46,7 @@ Each of these corresponds to a **machine code instruction** the CPU can directly
 
 ### Example: "Hello, world!" on x86 Linux
 
-```asm
+```x86asm
 section	.text
    global _start
 	
