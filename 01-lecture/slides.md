@@ -69,7 +69,7 @@ len equ $ - msg
 [High-level programming languages](https://en.wikipedia.org/wiki/High-level_programming_language) have a strong abstraction from the details of the computer, focusing on being human-readable and -writable.
 
 > [!IMPORTANT]
-> In order to be executed by a computer, the code must to be translated into machine code. A simple instruction written in a high-level programming language, may result in a large number of machine code instructions.
+> In order to be executed by a computer, the code must be translated into machine code. A simple instruction written in a high-level programming language, may result in a large number of machine code instructions.
 
 ---
 
@@ -77,9 +77,9 @@ len equ $ - msg
 
 There are different strategies to convert code written in a high-level programming language to machine code:
 
-- **Interpretation**: Code is translated line-by-line by during program execution.
+- **Interpretation**: Code is translated line-by-line during program execution.
 - **Compilation**: Code is fully translated into machine code before execution.
-- **Hybrid interpretation/compilation**: The program is compiled to *bytecode* before execution, and the bytecode is then either interpreted or compiled just-in-time.
+- **Hybrid interpretation/compilation**: The program is compiled to **bytecode** before execution, and the bytecode is then either interpreted or compiled just-in-time.
 
 
 ---
@@ -152,11 +152,36 @@ Factors influencing the choice of a language:
 
 ## Focus
 
-This course will aims at explaining programming concepts that are language agnostic.
+This course aims at explaining programming concepts that are language agnostic.
 
 > [!NOTE]
-When examples are given, the focus is on the **Julia** language, but **C++** and **Python** examples are added occasionaly.
+For all concepts, examples in the **Julia** language will be given. **C++** and **Python** examples are added where reasonable.
 
+---
+
+===
+
+## Hello World!
+
+**Julia:**
+```julia
+print("Hello World!")
+```
+
+**Python3:**
+```python
+print("Hello World!")
+```
+
+**C++26:**
+```cpp
+import std;
+
+int main() {
+    std::println("Hello, World!");
+    return 0;
+}
+```
 ===
 
 # Scientific programming
@@ -181,7 +206,7 @@ Scientific programming has the same software quality requirements with a focus o
 
 - **Performance:** Efficient handling of large datasets and complex computations
 - **Correctness:** Ensuring results are accurate and reliable
-- **Reproducability:** Ability to reproduce results exactly under the same conditions
+- **Reproducibility:** Ability to reproduce results exactly under the same conditions
 - **Documentation:** Code must be easy to understand, verify, modify, and reuse.
 
 ---
@@ -216,26 +241,4 @@ Scientific code must be documented in such a way that other researchers can
 > [!IMPORTANT]
 > Documentation is also extremely important for yourself, so that you can do above yourself!
 
-===
 
-## Hello World!
-
-**Julia:**
-```julia
-print("Hello World!")
-```
-
-**Python3:**
-```python
-print("Hello World!")
-```
-
-**C++26:**
-```cpp
-import std;
-
-int main() {
-    std::println("Hello, World!");
-    return 0;
-}
-```
