@@ -7,6 +7,10 @@
 
 At the hardware level, a computer executes **very simple instructions** such as loading data from memory, performing arithmetic, or comparing values. 
 
+---
+
+### Instruction cycle
+
 The [instruction cycle](https://en.wikipedia.org/wiki/Instruction_cycle) of a [central processing unit (CPU)](https://en.wikipedia.org/wiki/Central_processing_unit) is:
 1. **Fetch** an instruction from memory
 2. **Decode** the instruction to determine what to do
@@ -61,6 +65,7 @@ section	.data
 msg db 'Hello, world!', 0xa  
 len equ $ - msg
 ```
+<!-- .element style="height:100%;" -->
 
 ---
 
@@ -173,15 +178,16 @@ print("Hello World!")
 print("Hello World!")
 ```
 
-**C++26:**
+**C++23:**
 ```cpp
-import std;
+#include <print>
 
 int main() {
-    std::println("Hello, World!");
+    std::println("Hello World!");
     return 0;
 }
 ```
+
 ===
 
 # Scientific programming
