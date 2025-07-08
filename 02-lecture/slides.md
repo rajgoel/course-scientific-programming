@@ -16,11 +16,11 @@ An $n$-bit representation of a non-negative whole number (an unsigned integer) $
 
 $$ x =  b_{n-1} 2^{n-1} + b_{n-2} 2^{n-2} + \ldots + b_0 2^0 $$
 
+The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
 
 <blockquote class="admonition note"> 
 An 8-bit representation of the <b>unsigned integer</b> 42 is:
-<div data-load="02-lecture/uint8.svg">
-</div>
+<div data-load="02-lecture/uint8.svg"></div>
 </blockquote> 
 
 ---
@@ -31,10 +31,11 @@ An $n$-bit representation of a whole number (an integer) $x$ consists of a seque
 
 $$ x =  \class{highlight}{- b_{n-1} 2^{n-1}} + b_{n-2} 2^{n-2} + b_{n-3} 2^{n-3} + \ldots + b_0 2^0 $$
 
+The range of numbers that can be represented by the $n$-bit representation is $[-2^{n-1}, 2^{n-1} - 1]$.
+
 <blockquote class="admonition note"> 
-An 8-bit representation of the <b>integer</b> 42 is:
-<div data-load="02-lecture/int8.svg">
-</div>
+An 8-bit representation of the <b>integer</b> -42 is:
+<div data-load="02-lecture/int8.svg"></div>
 </blockquote> 
 
 ===
