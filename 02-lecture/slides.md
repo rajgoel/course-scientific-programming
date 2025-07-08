@@ -163,8 +163,10 @@ where
 
 <blockquote class="admonition note"> 
 A 32-bit representation with base 2 of a floating point number:
+
 <div data-load="02-lecture/float.svg"></div>
-<small>Source: [Wikipedia](https://en.wikipedia.org/wiki/Single-precision_floating-point_format)</small>
+
+<small>Source: <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Wikipedia</a></small>
 </blockquote> 
 
 ---
