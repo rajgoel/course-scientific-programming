@@ -12,9 +12,9 @@ Computers store data as sequences of binary digits (bits), grouped into blocks o
 
 ### Unsigned integers
 
-An $n$-bit representation of a non-negative whole number (an unsigned integer) $x$ consists of a sequence of bits $b_i \in \lbrace 0,1\rbrace$ for $ i \in \lbrace n-1, n-2, \ldots , 0 \rbrace$ such that 
+An $n$-bit representation of a non-negative whole number, i.e., an **unsigned integer**, $x$ is a sequence of bits $b_i$ for $ i \in \lbrace 1, \ldots, n \rbrace$ such that 
 
-$$ x =  b_{n-1} 2^{n-1} + b_{n-2} 2^{n-2} + \ldots + b_0 2^0 $$
+$$ x =  b_{1} \cdot 2^{n-1} + b_{2} \cdot 2^{n-2} + \ldots + b_n \cdot 2^0 $$
 
 The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
 
@@ -27,9 +27,9 @@ An 8-bit representation of the <b>unsigned integer</b> 42 is:
 
 ### Integers
 
-An $n$-bit representation of a whole number (an integer) $x$ consists of a sequence of bits $b_i \in \lbrace 0,1\rbrace$ for $ i \in \lbrace n-1, n-2, \ldots , 0 \rbrace$ such that 
+An $n$-bit representation of a whole number, i.e., a **(signed) integer** $x$ is a sequence of bits $b_i \in \lbrace 0,1\rbrace$ for $ i \in \lbrace 1, \ldots, n \rbrace$ such that 
 
-$$ x =  \class{highlight}{- b_{n-1} 2^{n-1}} + b_{n-2} 2^{n-2} + b_{n-3} 2^{n-3} + \ldots + b_0 2^0 $$
+$$ x =  \class{highlight}{- b_{1} \cdot 2^{n-1}} + b_{2} \cdot 2^{n-2} + b_{3} \cdot 2^{n-3} + \ldots + b_n \cdot 2^0 $$
 
 The range of numbers that can be represented by the $n$-bit representation is $[-2^{n-1}, 2^{n-1} - 1]$.
 
