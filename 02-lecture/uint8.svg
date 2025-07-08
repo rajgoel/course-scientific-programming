@@ -1,5 +1,5 @@
-<svg width="410" height="110" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
-  <g transform="translate(10, 10)">
+<svg width="812" height="220" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <g transform="translate(10, 10) scale(2)">
     <!-- Bit boxes without space -->
     <rect x="0" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="50" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
