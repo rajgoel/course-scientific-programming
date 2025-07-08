@@ -167,6 +167,47 @@ A 32-bit representation with base 2 of a floating point number:
 <small>Source: [Wikipedia](https://en.wikipedia.org/wiki/Single-precision_floating-point_format)</small>
 </blockquote> 
 
+---
+
+### What can go wrong when calculating with fix point numbers?
+
+---
+
+### Basic arithmetic operations
+
+Basic arithmetic operations like addition, subtraction, multiplication, and division work well with floating point numbers.
+
+> [!WARNING]
+> Precision loss is inevitable due to rounding errors when representing real numbers as floating point numbers.
+
+---
+
+### Example
+
+A 64-bit floating point representation causes
+```julia
+0.1 + 0.2 == 0.3
+```
+or
+```julia
+0.1 + 0.2 <= 0.3 
+```
+to fail because rounding leads to this result:
+```julia
+0.1 + 0.2 == 0.30000000000000004
+```
+
+---
+
+### Floating point comparisons
+
+Comparisons of floating point numbers should always be made using a small threshold $\varepsilon$ to account for rounding errors.
+
+> [!TIP]
+> - Use $| 0.1 + 0.2 - 0.3 | \leq \varepsilon$ instead of $0.1 + 0.2 = 0.3$
+> - Use $(0.1 + 0.2 < 0.3) \vee ( 0.1 + 0.2 - 0.3 | \leq \varepsilon )$ instead of $0.1 + 0.2 \leq 0.3$
+
+
 ===
 
 ## Control flow
