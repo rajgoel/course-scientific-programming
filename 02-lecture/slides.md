@@ -10,6 +10,15 @@ Computers store data as sequences of binary digits (bits), grouped into blocks o
 
 ===
 
+## Booleans
+
+**Booleans** can be represnted using a single bit.
+
+- `1` correspond to **true**
+- `0` corresponds to **false**
+
+===
+
 ## Unsigned integers
 
 An $n$-bit representation of a non-negative whole number, i.e., an **unsigned integer**, $x$ is a sequence of bits $b_i$ for $ i \in \lbrace 1, \ldots, n \rbrace$ such that 
@@ -207,6 +216,22 @@ Comparisons of floating point numbers should **always** be made using a small th
 > - Use $| a + b - c | \leq \varepsilon$ instead of $a + b = c$
 > - Use $(a + b < c) \vee ( |a + b - c | \leq \varepsilon )$ instead of $a + b \leq c$
 > - ...
+
+===
+
+## Characters
+
+Characters represent individual symbols such as letters, digits, or punctuation marks.
+
+Computers store characters using standardized encoding schemes, the most common being **ASCII** and **Unicode**.
+
+- **ASCII** uses 7 or 8 bits to represent characters, covering basic English letters, digits, and common symbols.
+- **Unicode** extends this to support characters from almost all writing systems worldwide, using variable-length encodings like UTF-8, UTF-16, or UTF-32.
+
+Each character is stored as an unsigned integer code according to the encoding standard. For example, the letter `A` is represented by the unsigned integer `65` in ASCII.
+
+> [!NOTE]
+> Strings are not basic data types, they are sequences of characters.
 
 ===
 
