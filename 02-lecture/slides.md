@@ -96,12 +96,12 @@ Overflow and underflow can happen whenever a number becomes too large or too sma
 
 ## Fix point numbers
 
-**Fixed-point numbers** represent real numbers by allocating a share of the **bits for the fractional part**. For example, if 3 bits are used for the fractional part, the stored integer value  $x^\textrm{int}$ corresponds to the real number 
-$$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^3}$$
+**Fixed point numbers** represent real numbers by allocating $k$ **bits for the fractional part**. The stored integer value  $x^\textrm{int}$ corresponds to the real number 
+$$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^k}$$
 
 
 <blockquote class="admonition note"> 
-An 8-bit representation with 3 fractional bits of the number 5.25 is:
+An 8-bit representation with 3 fractional bits of the number $5.25 = \dfrac{42}{2^3}$ is:
 <div data-load="02-lecture/fixpoint.svg"></div>
 </blockquote> 
 
@@ -122,23 +122,23 @@ Addition and subtraction work equally well as with integers.
 
 Assume we have two numbers
 
- $x^\textrm{real}_1 = \tfrac{x^\textrm{int}_1}{2^4}$ and $x^\textrm{real}_2 = \tfrac{x^\textrm{int}_2}{2^4}$, 
+ $x^\textrm{real}_1 = \tfrac{x^\textrm{int}_1}{2^3}$ and $x^\textrm{real}_2 = \tfrac{x^\textrm{int}_2}{2^3}$, 
 
 then
 
 $$
-x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \dfrac{x^\textrm{int}_1}{2^4} \cdot \dfrac{x^\textrm{int}_2}{2^4} = \dfrac{( x^\textrm{int}_1 \cdot x^\textrm{int}_2 ) / 2^4}{2^4}
+x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \dfrac{x^\textrm{int}_1}{2^3} \cdot \dfrac{x^\textrm{int}_2}{2^3} = \dfrac{( x^\textrm{int}_1 \cdot x^\textrm{int}_2 ) / 2^3}{2^3}
 $$
 
 > [!WARNING]
-> When determining a fix point number result  with 4 fractional bits, one of the following problems may occur:
+> When determining a fix point number result  with 3 fractional bits, one of the following problems may occur:
 > - $( x^\textrm{int}_1 \cdot x^\textrm{int}_2 )$ may overflow, 
-> - $x^\textrm{int}_1 / 2^4$ may lose precision and even may become 0
-> - $x^\textrm{int}_2 / 2^4$ may lose precision and even may become 0
+> - $x^\textrm{int}_1 / 2^3$ may lose precision and even may become 0
+> - $x^\textrm{int}_2 / 2^3$ may lose precision and even may become 0
 
 ---
 
-It is unclear how to calculate the product of arbitrary fix point numbers and even multiplying by 1 may cause an overflow.
+It is unclear how to calculate the product of arbitrary fix point numbers and even multiplying by 1 is not trivial.
 
 > [!NOTE]
 > Fix point numbers are rarely used.
