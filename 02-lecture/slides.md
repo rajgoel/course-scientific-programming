@@ -123,20 +123,18 @@ $$
 x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \dfrac{x^\textrm{int}_1}{2^4} \cdot \dfrac{x^\textrm{int}_2}{2^4} = \dfrac{( x^\textrm{int}_1 \cdot x^\textrm{int}_2 ) / 2^4}{2^4}
 $$
 
-The problem is that
-- $( x^\textrm{int}_1 \cdot x^\textrm{int}_2 )$ may overflow, 
-- $x^\textrm{int}_1 / 2^4$ may lose precision and even may become 0
-- $x^\textrm{int}_2 / 2^4$ may lose precision and even may become 0
-
-Thus, any way to calcluate the product of the two real numbers may cause issues.
-
-> [!CAUTION]
-> Even multiplying by 1 may cause an overflow.
+> [!WARNING]
+> When determining a fix point number result  with 4 fractional bits, one of the following problems may occur:
+> - $( x^\textrm{int}_1 \cdot x^\textrm{int}_2 )$ may overflow, 
+> - $x^\textrm{int}_1 / 2^4$ may lose precision and even may become 0
+> - $x^\textrm{int}_2 / 2^4$ may lose precision and even may become 0
 
 ---
 
+It is unclear how to calculate the product of arbitrary fix point numbers and even multiplying by 1 may cause an overflow.
+
 > [!NOTE]
-> Fix point numbers are usually not used.
+> Fix point numbers are rarely used.
 
 
 ===
