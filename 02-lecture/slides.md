@@ -127,7 +127,7 @@ Assume we have two numbers
 then
 
 $$
-x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \dfrac{x^\textrm{int}_1}{2^3} \cdot \dfrac{x^\textrm{int}_2}{2^3} = \dfrac{ \tfrac{x^\textrm{int}_1 \cdot x^\textrm{int}_2}{2^3}}{2^3}
+x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \dfrac{x^\textrm{int}_1}{2^3} \cdot \dfrac{x^\textrm{int}_2}{2^3} = \dfrac{ \class{highlight}{\tfrac{x^\textrm{int}_1 \cdot x^\textrm{int}_2}{2^3}}}{2^3}
 $$
 
 > [!WARNING]
