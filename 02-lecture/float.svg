@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="590" height="75">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1180" height="150">
 	<style>
 		text {
 			font-size: 14px;
@@ -17,7 +17,7 @@
 			<text x="8" y="18.3" fill="#000">1</text>
 		</g>
 	</defs>
-	
+	<g transform="scale(2)">	
 	<g transform="translate(14.25,28.75)">
 		<use xlink:href="#bit-0" fill="#c5fcff"/>
 		<g fill="#9fffad">
@@ -89,4 +89,5 @@
 	</g>
 	
 	<text x="504" y="48.4" style="text-anchor: start; font-size: 18.7px;">= 0.15625</text>
+	</g>
 </svg>
