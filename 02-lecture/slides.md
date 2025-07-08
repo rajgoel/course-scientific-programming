@@ -151,6 +151,21 @@ It is unclear how to calculate the product of arbitrary fix point numbers and ev
 <!-- Way of representing real numbers that is better for calculations -->
 
 
+**Floating point numbers** represent real numbers in the form
+
+$$ x= \plusminus \cdot m \cdot b^e $$
+
+where
+
+- $m$ is called the **mantissa**
+- $b$ is the **base**, i.e., $b=2$ for computers or $b=10$ for humans 
+- $e$ is the **exponent** 
+
+<blockquote class="admonition note"> 
+A 32-bit representation with base 2 of the number $0.15625$ is:
+<div data-load="02-lecture/float.svg"></div>
+<small>Source: [Wikipedia](https://en.wikipedia.org/wiki/Single-precision_floating-point_format)</small>
+</blockquote> 
 
 ===
 

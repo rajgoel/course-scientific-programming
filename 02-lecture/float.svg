@@ -1,0 +1,4 @@
+text { font-size: 14px; font-family: Arial, sans-serif; text-anchor:
+middle; } 0 1 sign exponent (8 bits) fraction (23 bits) 31 30 23 22 0
+(bit index) = 0.15625
+
