@@ -65,7 +65,7 @@ section	.data
 msg db 'Hello, world!', 0xa  
 len equ $ - msg
 ```
-<!-- .element style="height:100vh;" -->
+<!-- .element style="height:21em;" -->
 
 ---
 
@@ -155,9 +155,9 @@ Factors influencing the choice of a language:
 
 ---
 
-## Main languagem
+## Main course language
 
-The main language used in this course is the **Julia** language because it provides a reasonable tradeoff between ease of learning, performance, and ecosystem.
+The main language used in this course is the **Julia** language, because it provides a reasonable trade-off between ease of learning, performance, and ecosystem.
 
 > [!NOTE]
 > Where appropriate examples in **C++** and **Python** are given to show how they compare to **Julia**.
