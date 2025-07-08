@@ -12,24 +12,27 @@ Computers store data as sequences of binary digits (bits), grouped into blocks o
 
 ### Unsigned integers
 
-A non-negative whole number (an unsigned integer) is stored using its binary representation, where each bit represents a power of 2. 
+An $n$-bit representation of a non-negative whole number (an unsigned integer) $x$ consists of a sequence of bits $b_i \in \lbrace 0,1\rbrace$ for $ i \in \lbrace n-1, n-2, \ldots , 0 \rbrace such that 
 
-**For example:**
-An 8-bit representation of the **unsigned integer** 42 is:
+$$ x =  b_{n-1} 2^{n-1} + b_{n-2} 2^{n-2} + \ldots + b_0 2^0 $$
 
+
+<blockquote class="admonition note"> 
+An 8-bit representation of the <b>unsigned integer</b> 42 is:
 <div data-load="02-lecture/uint8.svg">
 </div>
-
+</blockquote> 
 
 ---
 
 ### Integers
 
-A whole number (an integer) is stored using its binary representation, where the first bit represents the negative of a power of 2 and all other bits represent a power of 2.
+An $n$-bit representation of a whole number (an integer) $x$ consists of a sequence of bits $b_i \in \lbrace 0,1\rbrace$ for $ i \in \lbrace n-1, n-2, \ldots , 0 \rbrace such that 
 
+$$ x =  \class{highlight}{- b_{n-1} 2^{n-1}} + b_{n-2} 2^{n-2} + \ldots + b_0 2^0 $$
 
 <blockquote class="admonition note"> 
-**For example:** An 8-bit representation of the **integer** 42 is:
+An 8-bit representation of the <b>integer</b> 42 is:
 <div data-load="02-lecture/int8.svg">
 </div>
 </blockquote> 
