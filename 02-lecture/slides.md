@@ -101,7 +101,7 @@ $$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^k}$$
 
 
 <blockquote class="admonition note"> 
-An 8-bit representation with 3 fractional bits of the number $5.25 = \dfrac{42}{2^3}$ is:
+An 8-bit representation with 3 fractional bits of the number $5.25 = \tfrac{42}{2^3}$ is:
 <div data-load="02-lecture/fixpoint.svg"></div>
 </blockquote> 
 
