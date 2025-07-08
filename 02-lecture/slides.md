@@ -96,7 +96,8 @@ Overflow and underflow can happen whenever a number becomes too large or too sma
 
 ## Fix point numbers
 
-Fixed-point numbers represent real numbers by allocating a share of the bits for the fractional part. For example, if 4 bits are used for the fractional part, the stored integer value  $x^\textrm{int}$ corresponds to the real number $x^\textrm{real} = \tfrac{x^\textrm{int}}{2^4}$.
+Fixed-point numbers represent real numbers by allocating a share of the bits for the fractional part. For example, if 4 bits are used for the fractional part, the stored integer value  $x^\textrm{int}$ corresponds to the real number 
+$$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^4}$$
 
 ---
 
@@ -112,15 +113,30 @@ Addition and subtraction work equally well as with integers.
 
 ### Multiplication 
 
-Assume we have two number $x^\textrm{real}_1 = \tfrac{x^\textrm{int}_1}{2^4}$ and $x^\textrm{real}_2 = \tfrac{x^\textrm{int}_2}{2^4}$, then
+Assume we have two numbers
+
+ $x^\textrm{real}_1 = \tfrac{x^\textrm{int}_1}{2^4}$ and $x^\textrm{real}_2 = \tfrac{x^\textrm{int}_2}{2^4}$, 
+
+then
 
 $$
-x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \tfrac{x^\textrm{int}_1}{2^4} \cdot \tfrac{x^\textrm{int}_2}{2^4} = \dfrac{x^\textrm{int}_1 \cdot x^\textrm{int}_2}{2^4 \cdot 2^4}
+x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \dfrac{x^\textrm{int}_1}{2^4} \cdot \dfrac{x^\textrm{int}_2}{2^4} = \dfrac{( x^\textrm{int}_1 \cdot x^\textrm{int}_2 ) / 2^4}{2^4}
 $$
+
+The problem is that
+- $( x^\textrm{int}_1 \cdot x^\textrm{int}_2 )$ may overflow, 
+- $x^\textrm{int}_1 / 2^4$ may lose precision and even may become 0
+- $x^\textrm{int}_2 / 2^4$ may lose precision and even may become 0
+
+Thus, any way to calcluate the product of the two real numbers may cause issues.
+
+> [!CAUTION]
+> Even multiplying by 1 may cause an overflow.
 
 ---
 
-### Division
+> [!NOTE]
+> Fix point numbers are usually not used.
 
 
 ===
