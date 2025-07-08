@@ -158,14 +158,12 @@ $$ x= \pm \cdot m \cdot b^e $$
 where
 
 - $m$ is called the **mantissa**
-- $b$ is the **base**, i.e., $b=2$ for computers or $b=10$ for humans 
+- $b$ is the **base** ($b=2$ for computers or $b=10$ for humans) 
 - $e$ is the **exponent** 
 
 <blockquote class="admonition note"> 
 A 32-bit representation with base 2 of a floating point number:
-
-<div data-load="02-lecture/float.svg"></div>
-
+<div data-load="02-lecture/float.svg" style="margin-top:1em;margin-bottom:1em;"></div>
 <small>Source: <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Wikipedia</a></small>
 </blockquote> 
 
