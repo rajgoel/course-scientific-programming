@@ -41,17 +41,17 @@ An 8-bit representation of the unsigned integer 42 is:
 
 The **Y2K (year 2000)** problem was a very prominent example of overflow (in the decimal representation). 
 
-Due to scarcity of memory in old computer programs, years were represented by 2-digits, i.e., the year 1999 was represented as `99`. The next year as `00`.
+Due to scarcity of memory in old computer programs, years were represented by 2-digits, i.e., the year 1999 was represented as `99`. The next year was represented as `00`.
 
 ---
 
 ### Y2038 Problem
 
-The ** Y2038 (year 2038)** problem, is a less known example of overflow.
+The **Y2038 (year 2038)** problem, is a less known example of overflow.
 
-Many Unix-based systems represent time as the number of seconds since `00:00:00 UTC on 1 January 1970`, using a signed 32-bit integer with a range $[-2^{31},2^{31}-1]$.
+Many Unix-based systems represent time as the number of seconds since `00:00:00 UTC on 1 January 1970`. Traditionally, a signed 32-bit integer with a range $[-2^{31},2^{31}-1]$ was used.
 
-The last time that can be represented with a 32-bit representation before overflow is `03:14:07 UTC on 19 January 2038`. One second later it will be `20:45:52 UTC on 13 December 1901`.
+The largest time that can be represented with a 32-bit representation before overflow is `03:14:07 UTC on 19 January 2038`. One second later it will be `20:45:52 UTC on 13 December 1901`.
 
 ---
 
@@ -153,7 +153,7 @@ It is unclear how to calculate the product of arbitrary fix point numbers and ev
 
 **Floating point numbers** represent real numbers in the form
 
-$$ x= \pm \cdot m \cdot b^e $$
+$$ x= \pm m \cdot b^e $$
 
 where
 
@@ -169,7 +169,7 @@ A 32-bit representation with base 2 of a floating point number:
 
 ---
 
-### What can go wrong when calculating with fix point numbers?
+### What can go wrong when calculating with floating point numbers?
 
 ---
 
@@ -201,7 +201,7 @@ to fail because rounding leads to this result:
 
 ### Floating point comparisons
 
-Comparisons of floating point numbers should always be made using a small threshold $\varepsilon$ to account for rounding errors.
+Comparisons of floating point numbers should **always** be made using a small threshold $\varepsilon$ to account for rounding errors.
 
 > [!TIP]
 > - Use $| a + b - c | \leq \varepsilon$ instead of $a + b = c$
