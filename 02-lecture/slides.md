@@ -19,7 +19,7 @@ $$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $
 The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
 
 <blockquote class="admonition note"> 
-An 8-bit representation of the <b>unsigned integer</b> 42 is:
+An 8-bit representation of the unsigned integer 42 is:
 <div data-load="02-lecture/uint8.svg"></div>
 </blockquote> 
 
@@ -79,7 +79,7 @@ $$ x =  \class{highlight}{- b_{n-1} \cdot 2^{n-1}} + b_{n-2} \cdot 2^{n-2} + b_{
 The range of numbers that can be represented by the $n$-bit representation is $[-2^{n-1}, 2^{n-1} - 1]$.
 
 <blockquote class="admonition note"> 
-An 8-bit representation of the <b>integer</b> -42 is:
+An 8-bit representation of the integer -42 is:
 <div data-load="02-lecture/int8.svg"></div>
 </blockquote> 
 
@@ -96,8 +96,15 @@ Overflow and underflow can happen whenever a number becomes too large or too sma
 
 ## Fix point numbers
 
-Fixed-point numbers represent real numbers by allocating a share of the bits for the fractional part. For example, if 4 bits are used for the fractional part, the stored integer value  $x^\textrm{int}$ corresponds to the real number 
-$$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^4}$$
+**Fixed-point numbers** represent real numbers by allocating a share of the **bits for the fractional part**. For example, if 3 bits are used for the fractional part, the stored integer value  $x^\textrm{int}$ corresponds to the real number 
+$$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^3}$$
+
+
+<blockquote class="admonition note"> 
+An 8-bit representation with 3 fractional bits of the number 5.25 is:
+<div data-load="02-lecture/fixpoint.svg"></div>
+</blockquote> 
+
 
 ---
 
