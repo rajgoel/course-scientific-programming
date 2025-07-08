@@ -162,7 +162,7 @@ where
 - $e$ is the **exponent** 
 
 <blockquote class="admonition note"> 
-A 32-bit representation with base 2 of the number $0.15625$ is:
+A 32-bit representation with base 2 of a floating point number:
 <div data-load="02-lecture/float.svg"></div>
 <small>Source: [Wikipedia](https://en.wikipedia.org/wiki/Single-precision_floating-point_format)</small>
 </blockquote> 
