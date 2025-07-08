@@ -153,7 +153,7 @@ It is unclear how to calculate the product of arbitrary fix point numbers and ev
 
 **Floating point numbers** represent real numbers in the form
 
-$$ x= \plusminus \cdot m \cdot b^e $$
+$$ x= \pm \cdot m \cdot b^e $$
 
 where
 
