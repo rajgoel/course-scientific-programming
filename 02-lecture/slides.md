@@ -66,7 +66,7 @@ The last time that can be represented with a 32-bit representation before overfl
 
 ### Infinite countdown
 
-An underflow problem can occur when decrementing a number as long as it is non-negative. With unsigned integers the countdown will be infinite.
+An underflow problem can occur when repeatedly decrementing a number as long as it is non-negative. With unsigned integers the countdown will be infinite.
 
 ===
 
@@ -87,18 +87,47 @@ An 8-bit representation of the <b>integer</b> -42 is:
 
 ### Overflow and underflow
 
-Overflow and underflow and underflow can happen whenever a number becomes too large or too small.
+Overflow and underflow can happen whenever a number becomes too large or too small.
 
 > [!WARNING]
-> Overflow and underflow can happen when any part of a calculation become too large or too small, e.g., $y = \sqrt{ x^2 }$. 
+> Overflow and underflow can happen when any part of a calculation  produces values outside the representable range, e.g., when calculating $y = \cbrt{ x^3 }$, the value of $x^3$ may cause over- or underflow. 
 
 ===
 
-### Fix point numbers
+## Fix point numbers
+
+Fixed-point numbers represent real numbers by allocating a share of the bits for the fractional part. For example, if 4 bits are used for the fractional part, the stored integer value  $x^\textr{int}$ corresponds to the real number $x^\textr{real} = \tfrac{x^\textr{int}}{2^4}$.
+
+---
+
+### What can go wrong when calculating with fix point numbers?
+
+---
+
+### Addition and subtraction
+
+Addition and subtraction work equally well as with integers.
+
+---
+
+### Multiplication 
+
+Assume we have two number $x^\textr{real}_1 = \tfrac{x^\textr{int}_1}{2^4}$ and $x^\textr{real}_2 = \tfrac{x^\textr{int}_2}{2^4}$, then
+
+$$
+x^\textr{real}_1 \cdot x^\textr{real}_2 = \tfrac{x^\textr{int}_1}{2^4} \cdot \tfrac{x^\textr{int}_2}{2^4} = \dfrac{x^\textr{int}_1 \cdot x^\textr{int}_2}{24 \cdot 2^4}
+$$
+
+---
+
+### Division
+
 
 ===
 
-### Floating point numbers
+## Floating point numbers
+
+<!-- Way of representing real numbers that is better for calculations -->
 
 
 
