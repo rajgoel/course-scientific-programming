@@ -150,7 +150,7 @@ blockquote.admonition.caution::before {
 /*********************************************
  * Display fractions properly
  *********************************************/
-.MathJax .mfrac > span {
+.MathJax .mfrac span {
   min-height: 1px!important;
 }
 
