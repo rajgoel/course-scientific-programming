@@ -90,13 +90,13 @@ An 8-bit representation of the <b>integer</b> -42 is:
 Overflow and underflow can happen whenever a number becomes too large or too small.
 
 > [!WARNING]
-> Overflow and underflow can happen when any part of a calculation  produces values outside the representable range, e.g., when calculating $y = \cbrt{ x^3 }$, the value of $x^3$ may cause over- or underflow. 
+> Overflow and underflow can happen when any part of a calculation  produces values outside the representable range, e.g., when calculating $y = ( x^3 )^{\tfrac{1}{3}}$, the value of $x^3$ may cause over- or underflow. 
 
 ===
 
 ## Fix point numbers
 
-Fixed-point numbers represent real numbers by allocating a share of the bits for the fractional part. For example, if 4 bits are used for the fractional part, the stored integer value  $x^\textr{int}$ corresponds to the real number $x^\textr{real} = \tfrac{x^\textr{int}}{2^4}$.
+Fixed-point numbers represent real numbers by allocating a share of the bits for the fractional part. For example, if 4 bits are used for the fractional part, the stored integer value  $x^\textrm{int}$ corresponds to the real number $x^\textrm{real} = \tfrac{x^\textrm{int}}{2^4}$.
 
 ---
 
@@ -112,10 +112,10 @@ Addition and subtraction work equally well as with integers.
 
 ### Multiplication 
 
-Assume we have two number $x^\textr{real}_1 = \tfrac{x^\textr{int}_1}{2^4}$ and $x^\textr{real}_2 = \tfrac{x^\textr{int}_2}{2^4}$, then
+Assume we have two number $x^\textrm{real}_1 = \tfrac{x^\textrm{int}_1}{2^4}$ and $x^\textrm{real}_2 = \tfrac{x^\textrm{int}_2}{2^4}$, then
 
 $$
-x^\textr{real}_1 \cdot x^\textr{real}_2 = \tfrac{x^\textr{int}_1}{2^4} \cdot \tfrac{x^\textr{int}_2}{2^4} = \dfrac{x^\textr{int}_1 \cdot x^\textr{int}_2}{24 \cdot 2^4}
+x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \tfrac{x^\textrm{int}_1}{2^4} \cdot \tfrac{x^\textrm{int}_2}{2^4} = \dfrac{x^\textrm{int}_1 \cdot x^\textrm{int}_2}{2^4 \cdot 2^4}
 $$
 
 ---
