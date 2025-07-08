@@ -188,7 +188,7 @@ A 64-bit floating point representation causes
 ```julia
 0.1 + 0.2 == 0.3
 ```
-or
+and
 ```julia
 0.1 + 0.2 <= 0.3 
 ```
@@ -204,9 +204,9 @@ to fail because rounding leads to this result:
 Comparisons of floating point numbers should always be made using a small threshold $\varepsilon$ to account for rounding errors.
 
 > [!TIP]
-> - Use $| 0.1 + 0.2 - 0.3 | \leq \varepsilon$ instead of $0.1 + 0.2 = 0.3$
-> - Use $(0.1 + 0.2 < 0.3) \vee ( 0.1 + 0.2 - 0.3 | \leq \varepsilon )$ instead of $0.1 + 0.2 \leq 0.3$
-
+> - Use $| a + b - c | \leq \varepsilon$ instead of $a + b = c$
+> - Use $(a + b < c) \vee ( |a + b - c | \leq \varepsilon )$ instead of $a + b \leq c$
+> - ...
 
 ===
 
