@@ -109,7 +109,7 @@ Moreover, most programming languages are designed for specific use cases and hav
 
 ---
 
-## Common programming languages
+### Common programming languages
 
 - **Interpreted languages**, e.g., Python, JavaScript
 - **Compiled languages**, e.g., C, C++
@@ -120,7 +120,7 @@ Moreover, most programming languages are designed for specific use cases and hav
 
 ---
 
-## Why are there so many languages?
+### Why are there so many languages?
 
 There is no single best language because programming needs vary widely. Different languages were created to address 
 
@@ -130,7 +130,7 @@ There is no single best language because programming needs vary widely. Differen
 
 ---
 
-## How to select a language?
+### How to select a language?
 
 Factors influencing the choice of a language:
 
@@ -141,7 +141,7 @@ Factors influencing the choice of a language:
 
 ---
 
-## Languages suitable for business analytics and data science
+### Languages suitable for business analytics and data science
 
 
 | Language         | Python   | C++      | Julia    |
@@ -155,18 +155,16 @@ Factors influencing the choice of a language:
 
 ---
 
-## Focus
+## Main languagem
 
-This course aims at explaining programming concepts that are language agnostic.
+The main language used in this course is the **Julia** language because it provides a reasonable tradeoff between ease of learning, performance, and ecosystem.
 
 > [!NOTE]
-For all concepts, examples in the **Julia** language will be given. **C++** and **Python** examples are added where reasonable.
+> Where appropriate examples in **C++** and **Python** are given to show how they compare to **Julia**.
 
 ---
 
-===
-
-## Hello World!
+### Examples: Hello World!
 
 **Julia:**
 ```julia
@@ -187,6 +185,47 @@ int main() {
     return 0;
 }
 ```
+
+
+===
+
+## How to learn a language?
+
+The best way to learn a language is to use the language in a project that you care for. 
+
+> [!IMPORTANT]
+> You don't learn a language by attending a lecture like this.
+
+---
+
+### Can large language models help?
+
+**Large language models (LLMs)** are great tools to help you learn programming, but you must use them to learn.
+
+> [!CAUTION]
+> Using LLMs as a replacement to learning may help you to meet formal criteria for passing a class, but [may have negative impact on your long-term success](https://www.brainonllm.com/). 
+
+---
+
+### How can LLMs help?
+
+- LLMs can help with any question relating syntax and semantics.
+- LLMs can help with error messages and bug fixing.
+- LLMs can help developing ideas on how to structure code.
+- LLMs can help with writing basic code for widespread problems.
+- LLMs can help with writing code for non-critical tasks for which validation is easy.
+
+> [!CAUTION]
+> LLMs can not be trusted, in particular when correctness, reliability, security, performance, or maintainability are important. LLMs may introduce subtle bugs that are very hard to find and fix.
+
+---
+
+### Focus of this course
+
+This course aims at explaining programming concepts that are helpful for identifying an appropriate structure for your code. Most of these concepts are language agnostic.
+
+> [!NOTE]
+> The course assumes that you do use LLMs, in particular, for questions regarding syntax, semantics, error messages, bug fixing.
 
 ===
 
