@@ -428,13 +428,12 @@ else:
   y = x
 print("y =", y)
 ```
+</div>
+</div>
+
 
 > [!NOTE]
 > Numeric comparisons require a numeric type.
-</div>
-</div>
-
-
 
 ---
 
