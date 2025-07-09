@@ -335,7 +335,7 @@ Control flow determines the order in which instructions in a program are execute
 ### Linear execution
 
 <div class="twocolumn">
-<div load-content="linear.svg">
+<div load-content="02-lecture/linear.svg">
 <!--
 @startuml
 start
