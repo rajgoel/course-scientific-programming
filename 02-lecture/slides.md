@@ -274,6 +274,7 @@ In Julia variables can be declared without specifying the type:
 flag = true     # inferred type: Bool
 x = 42          # inferred type: Int64
 π = 3.14        # inferred type: Float64
+c = 'A'         # inferred type: Char
 ```
 
 The type can also be explicitly specified:
@@ -281,6 +282,7 @@ The type can also be explicitly specified:
 flag::Bool = true
 x::Int64 = 42
 π::Float64 = 3.14
+c::Char = 'A'
 ```
 
 > [!NOTE]
@@ -295,7 +297,12 @@ In Python variables are declared without specifying the type:
 flag = True     # inferred type: bool
 x = 42          # inferred type: int
 pi = 3.14       # inferred type: float
+c = 'A'         # inferred type: str (1-character string)
 ```
+
+> [!NOTE]
+> Python does not have a dedicated character data type.
+
 
 ---
 
@@ -306,6 +313,7 @@ In C++ variables are declared by explicitly specifying the type:
 bool flag = true;
 int x = 42;
 double pi = 3.14;
+char c = 'A';
 ```
 
 The type can also be deduced through initialisation:
@@ -313,6 +321,7 @@ The type can also be deduced through initialisation:
 auto flag = true; // inferred type: bool 
 auto x = 42;      // inferred type: int
 auto pi = 3.14;   // inferred type: double
+auto c = 'A';     // inferred type: char
 ```
 
 > [!NOTE]
