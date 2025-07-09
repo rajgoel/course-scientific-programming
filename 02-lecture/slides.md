@@ -415,7 +415,7 @@ convert -density 200 branching.svg branching.png
 **Julia:**
 ```julia
 print("Enter x: ")
-x = parse(Int, readline())
+x = parse(Int, readline()) # read input and convert to integer type
 if x < 0
   y = -x
 else
@@ -426,7 +426,7 @@ println("y = ", y)
 
 **Python:**
 ```python
-x = int(input("Enter x: "))
+x = int(input("Enter x: ")) # read input and convert to integer type
 if x < 0:
   y = -x
 else:
@@ -438,7 +438,7 @@ print("y =", y)
 
 
 > [!NOTE]
-> The input must be converted to an integer type.
+> Numeric comparisons require a numeric type.
 
 ---
 
@@ -450,7 +450,7 @@ int main() {
   int x; // x must be declared before the input can be assigned to it
   std::cout << "Enter x: ";
   std::cin >> x;
-  int y; 
+  int y; // x must be declared before the value can be assigned to it
   if (x < 0) {
     y = -x;
   }
@@ -462,10 +462,10 @@ int main() {
   return 0;
 }
 ```
-<!-- .element style="height:600px;" -->
+<!-- .element style="height:500px;" -->
 
 > [!NOTE]
-> In C++, variable declaration without assigning a value may be required.
+> In C++, variable declaration before assigning a value may be required.
 
 
 ---
