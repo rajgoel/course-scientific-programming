@@ -333,4 +333,35 @@ Control flow determines the order in which instructions in a program are execute
 
 ### Linear execution
 
+<div class="twocolumn">
+<div>
+<!--
+@startuml
+start
+:initialise x := 5;
+:initialise y := 3;
+:set z := x * y;
+stop
+@enduml
+-->
 
+![UML](02-lecture/linear.png)
+</div>
+<div>
+**Julia:**
+```julia
+x = 5
+y = 3
+z = x * y
+```
+</div>
+</div>
+
+
+---
+
+### Branching
+
+---
+
+### Loops
