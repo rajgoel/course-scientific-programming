@@ -332,7 +332,7 @@ Control flow determines the order in which instructions in a program are execute
 ### Linear execution
 
 <div class="twocolumn">
-<div>
+<div data-load="02-lecture/linear.svg">
 <!--
 @startuml
 start
@@ -342,7 +342,6 @@ start
 stop
 @enduml
 -->
-<div load-content="02-lecture/linear.svg"></div>
 </div>
 <div>
 
