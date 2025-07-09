@@ -8,14 +8,14 @@
     { "topic": "Introduction", "src": "slides.md", "folder": "01-lecture" },
     { "topic": "Requirements & prerequisites", "src": "slides.md", "folder": "01-lab" },
     { "topic": "Programming basics", "src": "slides.md", "folder": "02-lecture" },
-    { "topic": "N/A", "src": "slides.md", "folder": "03-lecture" },
-    { "topic": "N/A", "src": "slides.md", "folder": "04-lecture" },
-    { "topic": "N/A", "src": "slides.md", "folder": "05-lecture" },
-    { "topic": "N/A", "src": "slides.md", "folder": "06-lecture" },
-    { "topic": "N/A", "src": "slides.md", "folder": "07-lecture" },
-    { "topic": "N/A", "src": "slides.md", "folder": "08-lecture" },
-    { "topic": "N/A", "src": "slides.md", "folder": "09-lecture" },
-    { "topic": "N/A", "src": "slides.md", "folder": "10-lecture" }
+    { "topic": "Containers and user-defined types", "src": "slides.md", "folder": "03-lecture" },
+    { "topic": "Functions and modules", "src": "slides.md", "folder": "04-lecture" },
+    { "topic": "Input and output", "src": "slides.md", "folder": "05-lecture" },
+    { "topic": "Error handling and exceptions", "src": "slides.md", "folder": "06-lecture" },
+    { "topic": "Testing", "src": "slides.md", "folder": "07-lecture" },
+    { "topic": "Documentation", "src": "slides.md", "folder": "08-lecture" },
+    { "topic": "Design patterns", "src": "slides.md", "folder": "09-lecture" },
+    { "topic": "Complexity", "src": "slides.md", "folder": "10-lecture" }
   ]
 }
 
