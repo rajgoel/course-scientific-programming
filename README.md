@@ -8,8 +8,8 @@ https://rajgoel.github.io/course-scientific-programming
 
 | Session | Lecture                                                                                           | Lab             |
 |---------|---------------------------------------------------------------------------------------------------|-----------------|
-| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)         | Project work    |
-| 02      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)                  | Project work    |
+| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)         | [Requirements & prerequisites](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    |
+| 02      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)   | Project work    |
 | 03      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)                  | Project work    |
 | 04      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)                  | Project work    |
 | 05      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)                  | Project work    |

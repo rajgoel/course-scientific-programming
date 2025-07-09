@@ -233,6 +233,89 @@ Each character is stored as an unsigned integer code according to the encoding s
 > [!NOTE]
 > Strings are not basic data types, they are sequences of characters.
 
+
+===
+
+## Variables
+
+---
+
+Variables are symbolic names used to store data values in memory.
+
+A variable has:
+
+- a name
+- a type (e.g., boolean, integer, float)
+- a value
+
+---
+
+## Typed vs. untyped languages
+
+- **Statically typed:** the type of every variable is known before runtime (e.g., C++)
+    → Type errors are caught at compile time
+    → Can be more efficient and safer
+- **Dynamically typed:** variable types are determined at runtime based on how data flows through the program (e.g., Python)
+    → More flexible, but type may errors occur at runtime
+    → Some type errors may be silently ignored and cause unexpected behaviour
+
+Julia is a dynamically typed language, but it allows optional **type annotations** and uses **type inference** to optimise performance.
+
+
+---
+
+## Variable declaration in Julia
+
+In Julia variables can be declared without specifying the type:
+```julia
+flag = true     # inferred type: Bool
+x = 42          # inferred type: Int64
+pi = 3.14       # inferred type: Float64
+```
+
+The type can also be explicitly specified:
+```julia
+flag::Bool = true
+x::Int64 = 42
+pi::Float64 = 3.14
+```
+
+[!NOTE]
+Type annotations can improve performance and help catch type-related errors.
+
+---
+
+## Variable declaration in Python
+
+In Python variables are declared without specifying the type:
+```python
+flag = True     # inferred type: bool
+x = 42          # inferred type: int
+pi = 3.14       # inferred type: float
+```
+
+---
+
+## Variable declaration in C++
+
+In C++ variables are declared by explicitly specifying the type:
+```cpp
+bool flag = true;
+int x = 42;
+double pi = 3.14;
+```
+
+The type can also be deduced through initialisation:
+```cpp
+auto flag = true; // inferred type: bool 
+auto x = 42;      // inferred type: int
+auto pi = 3.14;   // inferred type: double
+```
+
+[!NOTE]
+Type deduction must be possible at compile time.
+
+
 ===
 
 ## Control flow
