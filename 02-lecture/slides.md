@@ -272,17 +272,20 @@ In Julia variables can be declared without specifying the type:
 ```julia
 flag = true     # inferred type: Bool
 x = 42          # inferred type: Int64
-pi = 3.14       # inferred type: Float64
+π = 3.14       # inferred type: Float64
 ```
 
 The type can also be explicitly specified:
 ```julia
 flag::Bool = true
 x::Int64 = 42
-pi::Float64 = 3.14
+π::Float64 = 3.14
 ```
 
 > [!NOTE]
+> Julia allows Unicode characters in variable names, so you can use letters from many languages and mathematical symbols as variable names.
+
+> [!TIP]
 > Type annotations can improve performance and help catch type-related errors.
 
 ---
