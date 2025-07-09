@@ -352,8 +352,7 @@ stop
 convert -density 200 linear.svg linear.png
 -->
 
-![UML](02-lecture/linear.svg)
-<!-- .element style="height:600px;" -->
+![UML](02-lecture/linear.svg)<!-- .element style="height:600px;" -->
 
 </div>
 <div>
@@ -405,8 +404,7 @@ stop
 convert -density 200 branching.svg branching.png
 -->
 
-![UML](02-lecture/branching.svg)
-<!-- .element style="height:600px;" -->
+![UML](02-lecture/branching.svg)<!-- .element style="height:600px;" -->
 
 </div>
 <div>
@@ -485,8 +483,7 @@ stop
 convert -density 200 loop.svg loop.png
 -->
 
-![UML](02-lecture/loop.svg)
-<!-- .element style="height:600px;" -->
+![UML](02-lecture/loop.svg)<!-- .element style="height:600px;" -->
 
 </div>
 <div>
