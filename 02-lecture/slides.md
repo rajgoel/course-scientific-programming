@@ -50,17 +50,19 @@ An 8-bit representation of the unsigned integer 42 is:
 
 The **Y2K (year 2000)** problem was a very prominent example of overflow (in the decimal representation). 
 
-Due to scarcity of memory in old computer programs, years were represented by 2-digits, i.e., the year 1999 was represented as `99`. The next year was represented as `00`.
+> [!NOTE]
+> Due to scarcity of memory in old computer programs, years were represented by 2-digits, i.e., the year 1999 was represented as `99`. The next year was represented as `00`.
 
 ---
 
 ### Y2038 Problem
 
-The **Y2038 (year 2038)** problem, is a less known example of overflow.
+The **Y2038 (year 2038)** problem, is a less known example of overflow that still may cause problems.
 
-Many Unix-based systems represent time as the number of seconds since `00:00:00 UTC on 1 January 1970`. Traditionally, a signed 32-bit integer with a range $[-2^{31},2^{31}-1]$ was used.
-
-The largest time that can be represented with a 32-bit representation before overflow is `03:14:07 UTC on 19 January 2038`. One second later it will be `20:45:52 UTC on 13 December 1901`.
+> [!NOTE]
+> Many Unix-based systems represent time as the number of seconds since `00:00:00 UTC on 1 January 1970`. Traditionally, a signed 32-bit integer with a range $[-2^{31},2^{31}-1]$ was used.
+> 
+> The largest time that can be represented with a 32-bit representation before overflow is `03:14:07 UTC on 19 January 2038`. One second later it will be `20:45:52 UTC on 13 December 1901`.
 
 ---
 
@@ -221,19 +223,22 @@ Comparisons of floating point numbers should **always** be made using a small th
 
 ## Characters
 
-Characters represent individual symbols such as letters, digits, or punctuation marks.
+Characters represent individual symbols such as letters, digits, or punctuation marks. They can be stored as an **unsigned integer** code according to a given **encoding standard**.
 
-Computers store characters using standardized encoding schemes, the most common being **ASCII** and **Unicode**.
+> [!NOTE]
+> Strings are not basic data types, they are sequences of characters.
+
+---
+
+## Character encoding 
+
+The most common encoding standards for characters are **ASCII** and **Unicode**.
 
 - **ASCII** uses 7 or 8 bits to represent characters, covering basic English letters, digits, and common symbols.
 - **Unicode** extends this to support characters from almost all writing systems worldwide, using variable-length encodings like UTF-8, UTF-16, or UTF-32.
 
----
-
-Characters can be stored as an **unsigned integer** code according to the **encoding standard**. For example, the letter `A` is represented by the unsigned integer `65` in ASCII.
-
 > [!NOTE]
-> Strings are not basic data types, they are sequences of characters.
+> In ASCII, the letter `A` is represented by the unsigned integer `65`.
 
 ===
 
@@ -241,9 +246,7 @@ Characters can be stored as an **unsigned integer** code according to the **enco
 
 ---
 
-Variables are symbolic names used to store data values in memory.
-
-A variable has:
+Variables are used to store data values in memory. A variable has:
 
 - a name
 - a type (e.g., boolean, integer, float)
@@ -258,7 +261,7 @@ A variable has:
   - Can be more efficient and safer
 
 - **Dynamically typed:** variable types are determined at runtime based on how data flows through the program (e.g., Python)
-  - Type may errors occur at runtime
+  - Type errors may occur at runtime
   - Some type errors may be silently ignored and cause unexpected behaviour
 
 > [!NOTE]
@@ -330,7 +333,7 @@ auto c = 'A';     // inferred type: char
 
 ===
 
-## Control flow
+## Control flow basics
 
 ---
 
