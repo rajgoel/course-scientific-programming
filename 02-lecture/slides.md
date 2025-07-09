@@ -25,7 +25,8 @@ An $n$-bit representation of a non-negative whole number, i.e., an **unsigned in
 
 $$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $$
 
-The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
+> [!TIP]
+> The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
 
 > [!NOTE]
 > An 8-bit representation of the unsigned integer 42 is:
@@ -86,7 +87,8 @@ An $n$-bit representation of a whole number, i.e., a **(signed) integer** $x$ is
 
 $$ x =  \class{highlight}{- b_{n-1} \cdot 2^{n-1}} + b_{n-2} \cdot 2^{n-2} + b_{n-3} \cdot 2^{n-3} + \ldots + b_0 \cdot 2^0 $$
 
-The range of numbers that can be represented by the $n$-bit representation is $[-2^{n-1}, 2^{n-1} - 1]$.
+> [!TIP]
+> The range of numbers that can be represented by the $n$-bit representation is $[-2^{n-1}, 2^{n-1} - 1]$.
 
 > [!NOTE]
 > An 8-bit representation of the integer -42 is:
