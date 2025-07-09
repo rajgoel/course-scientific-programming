@@ -520,3 +520,12 @@ while (i < 5) {
 </div>
 </div>
 
+---
+
+### Parallel execution
+
+On modern computers with many CPUs, parallel execution can significantly speed up computer programs. However, parallel computing requires special care, particularly with regard to memory management and synchronization.
+
+> [!NOTE]
+> Parallel computing is beyond the scope of this course.
+
