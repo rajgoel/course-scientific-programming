@@ -11,16 +11,16 @@
     <rect x="100" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />    <!-- d -->
     <rect x="150" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- c -->
     <rect x="200" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- b -->
-    <rect x="250" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- a -->
-    <rect x="350" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" opacity=".4" />   <!-- a -->
+    <rect x="250" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" opacity=".4" />   <!-- a -->
+    <rect x="350" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- a -->
 
     <!-- Element labels -->
     <text x="20" y="35" font-size="24" font-weight="bold" fill="#000">e</text>
     <text x="120" y="35" font-size="24" font-weight="bold" fill="#000">d</text>
     <text x="170" y="35" font-size="24" font-weight="bold" fill="#000">c</text>
     <text x="220" y="35" font-size="24" font-weight="bold" fill="#000" >b</text>
-    <text x="270" y="35" font-size="24" font-weight="bold" fill="#000">a</text>
-    <text x="370" y="35" font-size="24" font-weight="bold" fill="#000" opacity=".4" >a</text>
+    <text x="270" y="35" font-size="24" font-weight="bold" fill="#000" opacity=".4">a</text>
+    <text x="370" y="35" font-size="24" font-weight="bold" fill="#000" >a</text>
 
     <path d="M50 25 100 25" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />   <!-- e -> d -->
     <path d="M300 25 350 25" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />  <!-- a -> a -->
