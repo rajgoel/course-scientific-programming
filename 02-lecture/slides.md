@@ -436,6 +436,10 @@ print("y =", y)
 </div>
 </div>
 
+
+> [!NOTE]
+> The input must be converted to an integer type.
+
 ---
 
 **C++:**
@@ -443,7 +447,7 @@ print("y =", y)
 #include <iostream>
 
 int main() {
-  int x;
+  int x; // x must be declared before the input can be assigned to it
   std::cout << "Enter x: ";
   std::cin >> x;
   int y; 
@@ -458,6 +462,10 @@ int main() {
   return 0;
 }
 ```
+<!-- .element style="height:600px;" -->
+
+> [!NOTE]
+> In C++, variable declaration without assigning a value may be required.
 
 
 ---
