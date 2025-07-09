@@ -334,7 +334,7 @@ auto c = 'A';     // inferred type: char
 
 ---
 
-Control flow determines the order in which instructions in a program are executed. Common control flow constructs include:
+Control flow determines the order in which instructions in a program are executed. 
 
 ---
 
@@ -354,7 +354,7 @@ convert -density 200 linear.svg linear.png
 -->
 
 ![UML](02-lecture/linear.png)
-<!-- .element style="height:100vh;" -->
+<!-- .element style="height:600px;" -->
 
 </div>
 <div>
@@ -388,8 +388,79 @@ auto z = x * y;
 
 ### Branching
 
-Control flow can branch based on conditions, allowing the program to take different paths.
+<div class="twocolumn">
+<div>
+<!--
+@startuml
+start
+:declare y;
+:read x;
+if () then (x<0)
+  :set y := -x;
+else (x >= 0)
+  :set y := x;
+endif
+:write y;
+stop
+@enduml
+convert -density 200 branching.svg branching.png
+-->
 
+![UML](02-lecture/branching.png)
+<!-- .element style="height:600px;" -->
+
+</div>
+<div>
+
+**Julia:**
+```julia
+print("Enter x: ")
+x = parse(Int, readline())
+if x < 0
+  y = -x
+else
+  y = x
+end
+println("y = ", y)
+```
+
+**Python:**
+```python
+x = int(input("Enter x: "))
+if x < 0:
+  y = -x
+else:
+  y = x
+print("y =", y)
+```
+</div>
+</div>
+
+---
+
+**C++:**
+```cpp
+#include <iostream>
+
+int main() {
+  int x;
+  std::cout << "Enter x: ";
+  std::cin >> x;
+  int y; 
+  if (x < 0) {
+    y = -x;
+  }
+  else {
+    y = x;
+  }
+
+  std::cout << "y = " << y << std::endl;
+  return 0;
+}
+```
+
+
+---
 
 ---
 
