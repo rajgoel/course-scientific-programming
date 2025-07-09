@@ -10,14 +10,14 @@ https://rajgoel.github.io/course-scientific-programming
 |---------|---------------------------------------------------------------------------------------------------|-----------------|
 | 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)         | [Requirements & prerequisites](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    |
 | 02      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)   | Project work    |
-| 03      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)                  | Project work    |
-| 04      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)                  | Project work    |
-| 05      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)                  | Project work    |
-| 06      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)                  | Project work    |
-| 07      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)                  | Project work    |
-| 08      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)                  | Project work    |
-| 09      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)                  | Project work    |
-| 10      | [N/A](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)                  | Project work    |
+| 03      | [Software engineering basics](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)                  | Project work    |
+| 04      | [Containers and user-defined types](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)                  | Project work    |
+| 05      | [Documentation](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)                  | Project work    |
+| 06      | [Functions and modules](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)                  | Project work    |
+| 07      | [Input/output and file handling](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)                  | Project work    |
+| 08      | [Error handling and exceptions](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)                  | Project work    |
+| 09      | [Design patterns](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)                  | Project work    |
+| 10      | [Complexity](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)                  | Project work    |
 | 11      | Ask me anything                                                                                   | Ask me anything |
 
 ## Grading
