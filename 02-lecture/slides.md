@@ -350,7 +350,6 @@ start
 :set z := x * y;
 stop
 @enduml
-
 convert -density 200 linear.svg linear.png
 -->
 
