@@ -45,6 +45,7 @@
     <line x1="-50" y1="125" x2="400" y2="125" stroke="#000" stroke-width="2" />
 
     <!-- Bit boxes without space -->
+    <rect x="-50" y="135" width="50" height="50" fill="#e0e0e0" stroke="#333" opacity=".4" />
     <rect x="0" y="135" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="50" y="135" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="100" y="135" width="50" height="50" fill="#e0e0e0" stroke="#333" />
@@ -54,6 +55,7 @@
     <rect x="300" y="135" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="350" y="135" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <!-- Bit values -->
+    <text x="-30" y="170" font-size="24" font-weight="bold" fill="#000" opacity=".4">0</text>
     <text x="20" y="170" font-size="24" font-weight="bold" fill="#000">1</text>
     <text x="70" y="170" font-size="24" font-weight="bold" fill="#000">1</text>
     <text x="120" y="170" font-size="24" font-weight="bold" fill="#000">1</text>
