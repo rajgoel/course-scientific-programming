@@ -415,7 +415,7 @@ convert -density 200 branching.svg branching.png
 **Julia:**
 ```julia
 print("Enter x: ")
-x = parse(Int, readline()) # read input and convert to integer type
+x = parse(Int, readline()) # read input and convert to Int
 if x < 0
   y = -x
 else
@@ -426,7 +426,7 @@ println("y = ", y)
 
 **Python:**
 ```python
-x = int(input("Enter x: ")) # read input and convert to integer type
+x = int(input("Enter x: ")) # read input and convert to int
 if x < 0:
   y = -x
 else:
@@ -450,7 +450,7 @@ int main() {
   int x; // x must be declared before the input can be assigned to it
   std::cout << "Enter x: ";
   std::cin >> x;
-  int y; // x must be declared before the value can be assigned to it
+  int y; // y must be declared before a value can be assigned to it
   if (x < 0) {
     y = -x;
   }
@@ -470,6 +470,37 @@ int main() {
 
 ---
 
----
-
 ### Loops
+
+<div class="twocolumn">
+<div>
+<!--
+@startuml
+start
+:initialise i := 0;
+repeat
+  :set i := i + 1;
+repeat while () is ( i < 5 ) not (i >= 5)
+stop
+@enduml
+convert -density 200 loop.svg loop.png
+-->
+
+![UML](02-lecture/loop.png)
+<!-- .element style="height:600px;" -->
+
+</div>
+<div>
+
+**Julia:**
+```julia
+# todo
+```
+
+**Python:**
+```python
+# todo
+```
+</div>
+</div>
+
