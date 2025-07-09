@@ -97,10 +97,10 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 
 ### Map, dictionary, or associative array
 
-[Maps, dictionaries, or associative arrays](https://en.wikipedia.org/wiki/Map_(data_structure)) are containers that store key-value pairs, allowing fast retrieval, insertion, and deletion based on unique keys.
+[Maps, dictionaries, or associative arrays](https://en.wikipedia.org/wiki/Map_(data_structure)) are containers that store key-value pairs, allowing retrieval, insertion, and deletion based on unique keys.
 
----
-
-Visualisation svg
+![Figure](03-lecture/map.svg)
 
 ===
+
+## User-defined types

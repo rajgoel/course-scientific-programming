@@ -1,0 +1,17 @@
+<svg width="800" height="150" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <g transform="translate(20, 40) scale(2)">
+    <!-- Key-value boxes -->
+    <rect x="0" y="0" width="80" height="40" fill="#e0e0e0" stroke="#333" />
+    <text x="10" y="25" font-size="16">"a" → 1</text>
+
+    <rect x="100" y="0" width="80" height="40" fill="#e0e0e0" stroke="#333" />
+    <text x="110" y="25" font-size="16">"b" → 4</text>
+
+    <rect x="200" y="0" width="80" height="40" fill="#e0e0e0" stroke="#333" />
+    <text x="210" y="25" font-size="16">"z" → 2</text>
+
+    <rect x="300" y="0" width="80" height="40" fill="#e0e0e0" stroke="#333" />
+    <text x="310" y="25" font-size="16">"m" → 4</text>
+  </g>
+</svg>
+
