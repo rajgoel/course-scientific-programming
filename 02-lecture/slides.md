@@ -346,14 +346,17 @@ stop
 -->
 
 ![UML](02-lecture/linear.png)
+
 </div>
 <div>
+
 **Julia:**
 ```julia
 x = 5
 y = 3
 z = x * y
 ```
+
 </div>
 </div>
 
@@ -361,6 +364,9 @@ z = x * y
 ---
 
 ### Branching
+
+Control flow can branch based on conditions, allowing the program to take different paths.
+
 
 ---
 
