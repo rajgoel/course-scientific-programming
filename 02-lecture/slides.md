@@ -230,7 +230,7 @@ Computers store characters using standardized encoding schemes, the most common 
 
 ---
 
-Each character is stored as an **unsigned integer** code according to the **encoding standard**. For example, the letter `A` is represented by the unsigned integer `65` in ASCII.
+Characters can be stored as an **unsigned integer** code according to the **encoding standard**. For example, the letter `A` is represented by the unsigned integer `65` in ASCII.
 
 > [!NOTE]
 > Strings are not basic data types, they are sequences of characters.
@@ -273,7 +273,7 @@ In Julia variables can be declared without specifying the type:
 ```julia
 flag = true     # inferred type: Bool
 x = 42          # inferred type: Int64
-π = 3.14       # inferred type: Float64
+π = 3.14        # inferred type: Float64
 ```
 
 The type can also be explicitly specified:
@@ -315,8 +315,8 @@ auto x = 42;      // inferred type: int
 auto pi = 3.14;   // inferred type: double
 ```
 
-[!NOTE]
-Type deduction must be possible at compile time.
+> [!NOTE]
+> Type deduction must be possible at compile time.
 
 
 ===
@@ -332,7 +332,7 @@ Control flow determines the order in which instructions in a program are execute
 ### Linear execution
 
 <div class="twocolumn">
-<div load-content="02-lecture/linear.svg">
+<div>
 <!--
 @startuml
 start
@@ -342,6 +342,7 @@ start
 stop
 @enduml
 -->
+<div load-content="02-lecture/linear.svg"></div>
 </div>
 <div>
 
