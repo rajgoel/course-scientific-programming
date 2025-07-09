@@ -434,7 +434,7 @@ print("y =", y)
 </div>
 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Numeric comparisons require a numeric type.
 
 ---
