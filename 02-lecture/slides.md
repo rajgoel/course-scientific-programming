@@ -286,9 +286,6 @@ x::Int64 = 42
 > [!NOTE]
 > Julia allows Unicode characters in variable names, so you can use letters from many languages and mathematical symbols as variable names.
 
-> [!TIP]
-> Type annotations can improve performance and help catch type-related errors.
-
 ---
 
 ## Variable declaration in Python
