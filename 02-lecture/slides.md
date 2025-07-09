@@ -342,6 +342,7 @@ start
 stop
 @enduml
 -->
+
 ![UML](02-lecture/linear.png)
 <!-- convert -density 300 linear.svg linear.png -->
 
