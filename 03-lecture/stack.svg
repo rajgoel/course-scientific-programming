@@ -8,17 +8,17 @@
   <g transform="translate(10, 10) scale(2)">
     <!-- Stack cells (bottom to top) -->
     <rect x="0" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- e -->
-    <rect x="160" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" opacity=".4" />   <!-- d -->
+    <rect x="160" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- d -->
 
-    <rect x="80" y="70" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- d -->
+    <rect x="80" y="70" width="50" height="50" fill="#e0e0e0" stroke="#333" opacity=".4" />   <!-- d -->
     <rect x="80" y="120" width="50" height="50" fill="#e0e0e0" stroke="#333" />  <!-- c -->
     <rect x="80" y="170" width="50" height="50" fill="#e0e0e0" stroke="#333" /> <!-- b -->
     <rect x="80" y="220" width="50" height="50" fill="#e0e0e0" stroke="#333" /> <!-- a -->
 
     <!-- Labels -->
-    <text x="20" y="30" font-size="24" font-weight="bold" fill="#000">e</text>
-    <text x="180" y="30" font-size="24" font-weight="bold" fill="#000" opacity=".4" >d</text>
-    <text x="100" y="100" font-size="24" font-weight="bold" fill="#000">d</text>
+    <text x="20" y="30" font-size="24" font-weight="bold" fill="#000">d</text>
+    <text x="180" y="30" font-size="24" font-weight="bold" fill="#000" >d</text>
+    <text x="100" y="100" font-size="24" font-weight="bold" fill="#000" opacity=".4">d</text>
     <text x="100" y="150" font-size="24" font-weight="bold" fill="#000">c</text>
     <text x="100" y="200" font-size="24" font-weight="bold" fill="#000">b</text>
     <text x="100" y="250" font-size="24" font-weight="bold" fill="#000">a</text>
