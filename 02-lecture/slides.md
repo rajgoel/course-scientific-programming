@@ -30,7 +30,7 @@ $$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $
 
 > [!NOTE]
 > An 8-bit representation of the unsigned integer 42 is:
-> ![Image](02-lecture/uint8.svg)
+> ![Image](02-lecture/uint8.svg)<!-- .element style="margin-bottom:-40px;" -->
 
 
 ---
@@ -92,7 +92,7 @@ $$ x =  \class{highlight}{- b_{n-1} \cdot 2^{n-1}} + b_{n-2} \cdot 2^{n-2} + b_{
 
 > [!NOTE]
 > An 8-bit representation of the integer -42 is:
-> ![Image](02-lecture/int8.svg)
+> ![Image](02-lecture/int8.svg)<!-- .element style="margin-bottom:-40px;" -->
 
 ---
 
@@ -113,7 +113,7 @@ $$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^k}$$
 
 > [!NOTE]
 > An 8-bit representation with 3 fractional bits of the number 5.25 is:
-> ![Image](02-lecture/fixpoint.svg)
+> ![Image](02-lecture/fixpoint.svg)<!-- .element style="margin-bottom:-40px;" -->
 
 
 ---
