@@ -350,10 +350,12 @@ start
 :set z := x * y;
 stop
 @enduml
+
+convert -density 200 linear.svg linear.png
 -->
 
 ![UML](02-lecture/linear.png)
-<!-- convert -density 200 linear.svg linear.png -->
+<!-- .element style="height:100vh;" -->
 
 </div>
 <div>
