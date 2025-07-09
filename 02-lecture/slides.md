@@ -494,12 +494,25 @@ convert -density 200 loop.svg loop.png
 
 **Julia:**
 ```julia
-# todo
+i = 0
+while i < 5
+  i += 1
+end
 ```
 
 **Python:**
 ```python
-# todo
+i = 0
+while i < 5:
+  i += 1
+```
+
+**C++:**
+```cpp
+int i = 0;
+while (i < 5) {
+  i += 1;
+}
 ```
 </div>
 </div>
