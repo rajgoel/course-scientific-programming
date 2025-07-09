@@ -61,7 +61,6 @@ The **Y2038 (year 2038)** problem, is a less known example of overflow that stil
 
 > [!NOTE]
 > Many Unix-based systems represent time as the number of seconds since `00:00:00 UTC on 1 January 1970`. Traditionally, a signed 32-bit integer with a range $[-2^{31},2^{31}-1]$ was used.
-> 
 > The largest time that can be represented with a 32-bit representation before overflow is `03:14:07 UTC on 19 January 2038`. One second later it will be `20:45:52 UTC on 13 December 1901`.
 
 ---
@@ -238,7 +237,7 @@ The most common encoding standards for characters are **ASCII** and **Unicode**.
 - **Unicode** extends this to support characters from almost all writing systems worldwide, using variable-length encodings like UTF-8, UTF-16, or UTF-32.
 
 > [!NOTE]
-> In ASCII, the letter `A` is represented by the unsigned integer `65`.
+> **Example:** In ASCII, the letter `A` is represented by the unsigned integer `65`.
 
 ===
 
