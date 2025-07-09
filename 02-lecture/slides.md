@@ -253,13 +253,15 @@ A variable has:
 ## Typed vs. untyped languages
 
 - **Statically typed:** the type of every variable is known before runtime (e.g., C++)
-    → Type errors are caught at compile time
-    → Can be more efficient and safer
-- **Dynamically typed:** variable types are determined at runtime based on how data flows through the program (e.g., Python)
-    → More flexible, but type may errors occur at runtime
-    → Some type errors may be silently ignored and cause unexpected behaviour
+  - Type errors are caught at compile time
+  - Can be more efficient and safer
 
-Julia is a dynamically typed language, but it allows optional **type annotations** and uses **type inference** to optimise performance.
+- **Dynamically typed:** variable types are determined at runtime based on how data flows through the program (e.g., Python)
+  - Type may errors occur at runtime
+  - Some type errors may be silently ignored and cause unexpected behaviour
+
+> [!NOTE]
+> Julia is a dynamically typed language, but it allows optional **type annotations** and uses **type inference** to optimise performance.
 
 
 ---
@@ -280,8 +282,8 @@ x::Int64 = 42
 pi::Float64 = 3.14
 ```
 
-[!NOTE]
-Type annotations can improve performance and help catch type-related errors.
+> [!NOTE]
+> Type annotations can improve performance and help catch type-related errors.
 
 ---
 
@@ -319,5 +321,13 @@ Type deduction must be possible at compile time.
 ===
 
 ## Control flow
+
+---
+
+Control flow determines the order in which instructions in a program are executed. Common control flow constructs include:
+
+---
+
+### Linear execution
 
 
