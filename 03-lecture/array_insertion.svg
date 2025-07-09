@@ -21,7 +21,7 @@
     <rect x="0" y="65" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="50" y="65" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="100" y="65" width="50" height="50" fill="#e0e0e0" stroke="#333" />
-    <rect x="150" y="65" width="50" height="50" fill="#e0e0e0" stroke="#333" opacity=".4" />
+
     <rect x="200" y="65" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="250" y="65" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="300" y="65" width="50" height="50" fill="#e0e0e0" stroke="#333" />

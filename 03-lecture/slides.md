@@ -17,6 +17,9 @@ Containers are data structure capable of holding a collection of elements.
 
 ![Figure](03-lecture/array.svg)
 
+> [!NOTE]
+> Given an index, the memory location of each element can be determined without effort.
+
 ---
 
 #### Removal of element
@@ -25,7 +28,7 @@ Containers are data structure capable of holding a collection of elements.
 
 
 > [!NOTE]
-> To guarantee contiguous block of memory, a removal of an element may require to move the memory location of many elements.
+> To guarantee contiguous block of memory, a removal of an element may require to **move the memory location of many elements**.
 
 ---
 
@@ -34,7 +37,7 @@ Containers are data structure capable of holding a collection of elements.
 ![Figure](03-lecture/array_insertion.svg)
 
 > [!NOTE]
-> To guarantee contiguous block of memory, an insertion of an element may require to move the memory location of all elements.
+> To guarantee contiguous block of memory, an insertion of an element may require to **move the memory location of all elements**.
 
 ===
 
@@ -44,17 +47,26 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 
 ![Figure](03-lecture/list.svg)
 
+> [!NOTE]
+> To access a particular element, a large share of the list may have to be traversed.
+
 ---
 
 #### Removal of element
 
 ![Figure](03-lecture/list_removal.svg)
 
+> [!NOTE]
+> No memory relocation is necessary.
+
 ---
 
 #### Insertion of element
 
 ![Figure](03-lecture/list_insertion.svg)
+
+> [!NOTE]
+> No memory relocation is necessary.
 
 ===
 
