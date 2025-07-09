@@ -344,7 +344,7 @@ stop
 -->
 
 ![UML](02-lecture/linear.png)
-<!-- convert -density 300 linear.svg linear.png -->
+<!-- convert -density 200 linear.svg linear.png -->
 
 </div>
 <div>
