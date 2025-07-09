@@ -15,6 +15,8 @@ Containers are data structure capable of holding a collection of elements.
 
 [Arrays](https://en.wikipedia.org/wiki/Array_(data_structure)) are containers that hold elements of equal size in contiguous block of memory. They provide direct access to each element using an index operation.
 
+![Figure](03-lecture/array.svg)
+
 ---
 
 #### Removal of element
@@ -39,6 +41,8 @@ Containers are data structure capable of holding a collection of elements.
 ### List
 
 Lists are containers that hold sequences of elements in non-contiguous blocks of memory. [Doubly linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list) provide direct access to the start and end of the sequence, as well as to the predecessor and successor of any element.
+
+![Figure](03-lecture/list.svg)
 
 ---
 

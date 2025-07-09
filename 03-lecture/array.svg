@@ -1,0 +1,23 @@
+<svg width="820" height="120" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <g transform="translate(10, 10) scale(2)">
+    <!-- Memory boxes without space -->
+    <rect x="0" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <rect x="50" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <rect x="100" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <rect x="150" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <rect x="200" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <rect x="250" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <rect x="300" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <rect x="350" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <!-- Element labels -->
+    <text x="20" y="35" font-size="24" font-weight="bold" fill="#000">a</text>
+    <text x="70" y="35" font-size="24" font-weight="bold" fill="#000">b</text>
+    <text x="120" y="35" font-size="24" font-weight="bold" fill="#000">c</text>
+    <text x="170" y="35" font-size="24" font-weight="bold" fill="#000">d</text>
+    <text x="220" y="35" font-size="24" font-weight="bold" fill="#000">e</text>
+    <text x="270" y="35" font-size="24" font-weight="bold" fill="#000">f</text>
+    <text x="320" y="35" font-size="24" font-weight="bold" fill="#000">g</text>
+    <text x="370" y="35" font-size="24" font-weight="bold" fill="#000">h</text>
+  </g>
+</svg>
+

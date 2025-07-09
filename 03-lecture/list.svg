@@ -10,7 +10,7 @@
     <rect x="0" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />     <!-- a -->
     <rect x="60" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />    <!-- b -->
     <rect x="120" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- c -->
-    <rect x="180" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" opacity=".4" />   <!-- d -->
+    <rect x="180" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- d -->
     <rect x="240" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- e -->
     <rect x="300" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />   <!-- f -->
 
@@ -18,20 +18,22 @@
     <text x="20" y="35" font-size="24" font-weight="bold" fill="#000">a</text>
     <text x="80" y="35" font-size="24" font-weight="bold" fill="#000">b</text>
     <text x="140" y="35" font-size="24" font-weight="bold" fill="#000">c</text>
-    <text x="200" y="35" font-size="24" font-weight="bold" fill="#000" opacity=".4" >d</text>
+    <text x="200" y="35" font-size="24" font-weight="bold" fill="#000" >d</text>
     <text x="260" y="35" font-size="24" font-weight="bold" fill="#000">e</text>
     <text x="320" y="35" font-size="24" font-weight="bold" fill="#000">f</text>
 
     <!-- Top arrows (center to center) -->
     <path d="M30 0 C 40 -10, 60 -10, 80 0" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />   <!-- a -> b -->
     <path d="M90 0 C 100 -10, 120 -10, 140 0" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- b -> c -->
-    <path d="M150 0 C 160 -10, 240 -10, 260 0" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- c -> e  -->
+    <path d="M150 0 C 160 -10, 180 -10, 200 0" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- c -> e  -->
+    <path d="M210 0 C 220 -10, 240 -10, 260 0" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- c -> e  -->
     <path d="M270 0 C 280 -10, 300 -10, 320 0" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- e -> f -->
 
     <!-- Bottom arrows (center to center of previous cell) -->
     <path d="M80 50 C 70 60, 50 60, 30 50" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />   <!-- b -> a -->
     <path d="M140 50 C 130 60, 110 60, 90 50" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- c -> b -->
-    <path d="M260 50 C 250 60, 170 60, 150 50" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- e -> c -->
+    <path d="M200 50 C 190 60, 170 60, 150 50" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- e -> d -->
+    <path d="M260 50 C 250 60, 230 60, 210 50" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- d -> c -->
     <path d="M320 50 C 310 60, 290 60, 270 50" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" /> <!-- f -> e -->
   </g>
 </svg>
