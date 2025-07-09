@@ -228,11 +228,12 @@ Computers store characters using standardized encoding schemes, the most common 
 - **ASCII** uses 7 or 8 bits to represent characters, covering basic English letters, digits, and common symbols.
 - **Unicode** extends this to support characters from almost all writing systems worldwide, using variable-length encodings like UTF-8, UTF-16, or UTF-32.
 
-Each character is stored as an unsigned integer code according to the encoding standard. For example, the letter `A` is represented by the unsigned integer `65` in ASCII.
+---
+
+Each character is stored as an **unsigned integer** code according to the **encoding standard**. For example, the letter `A` is represented by the unsigned integer `65` in ASCII.
 
 > [!NOTE]
 > Strings are not basic data types, they are sequences of characters.
-
 
 ===
 
@@ -334,7 +335,7 @@ Control flow determines the order in which instructions in a program are execute
 ### Linear execution
 
 <div class="twocolumn">
-<div>
+<div load-content="linear.svg">
 <!--
 @startuml
 start
@@ -344,9 +345,6 @@ start
 stop
 @enduml
 -->
-
-![UML](02-lecture/linear.png)
-
 </div>
 <div>
 
@@ -355,6 +353,20 @@ stop
 x = 5
 y = 3
 z = x * y
+```
+
+**Python:**
+```python
+x = 5
+y = 3
+z = x * y
+```
+
+**C++:**
+```cpp
+auto x = 5;
+auto y = 3;
+auto z = x * y;
 ```
 
 </div>
