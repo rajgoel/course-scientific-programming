@@ -349,7 +349,6 @@ start
 :set z := x * y;
 stop
 @enduml
-convert -density 200 linear.svg linear.png
 -->
 
 ![UML](02-lecture/linear.svg)<!-- .element style="height:600px;" -->
@@ -401,7 +400,6 @@ endif
 :write y;
 stop
 @enduml
-convert -density 200 branching.svg branching.png
 -->
 
 ![UML](02-lecture/branching.svg)<!-- .element style="height:600px;" -->
@@ -430,12 +428,13 @@ else:
   y = x
 print("y =", y)
 ```
-</div>
-</div>
-
 
 > [!NOTE]
 > Numeric comparisons require a numeric type.
+</div>
+</div>
+
+
 
 ---
 
@@ -480,7 +479,6 @@ repeat
 repeat while () is ( i < 5 ) not (i >= 5)
 stop
 @enduml
-convert -density 200 loop.svg loop.png
 -->
 
 ![UML](02-lecture/loop.svg)<!-- .element style="height:600px;" -->
