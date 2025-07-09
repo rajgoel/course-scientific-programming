@@ -27,10 +27,10 @@ $$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $
 
 The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
 
-<blockquote class="admonition note"> 
-An 8-bit representation of the unsigned integer 42 is:
-<div data-load="02-lecture/uint8.svg"></div>
-</blockquote> 
+> [!NOTE]
+> An 8-bit representation of the unsigned integer 42 is:
+> ![Image](02-lecture/uint8.svg)
+
 
 ---
 
@@ -42,7 +42,7 @@ An 8-bit representation of the unsigned integer 42 is:
 
 **Overflow** occurs when a result exceeds the maximum value that can be represented:
 
-<div data-load="02-lecture/overflow.svg"></div>
+![Image](02-lecture/overflow.svg)
 
 ---
 
@@ -70,7 +70,7 @@ The **Y2038 (year 2038)** problem, is a less known example of overflow that stil
 
 **Underflow** occurs when a result falls below the minimum value that can be represented:
 
-<div data-load="02-lecture/underflow.svg"></div>
+![Image](02-lecture/underflow.svg)
 
 ---
 
@@ -88,10 +88,9 @@ $$ x =  \class{highlight}{- b_{n-1} \cdot 2^{n-1}} + b_{n-2} \cdot 2^{n-2} + b_{
 
 The range of numbers that can be represented by the $n$-bit representation is $[-2^{n-1}, 2^{n-1} - 1]$.
 
-<blockquote class="admonition note"> 
-An 8-bit representation of the integer -42 is:
-<div data-load="02-lecture/int8.svg"></div>
-</blockquote> 
+> [!NOTE]
+> An 8-bit representation of the integer -42 is:
+> ![Image](02-lecture/int8.svg)
 
 ---
 
@@ -110,10 +109,9 @@ Overflow and underflow can happen whenever a number becomes too large or too sma
 $$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^k}$$
 
 
-<blockquote class="admonition note"> 
-An 8-bit representation with 3 fractional bits of the number $5.25 = \tfrac{42}{2^3}$ is:
-<div data-load="02-lecture/fixpoint.svg"></div>
-</blockquote> 
+> [!NOTE]
+> An 8-bit representation with 3 fractional bits of the number $5.25 = \tfrac{42}{2^3}$ is:
+> ![Image](02-lecture/fixpoint.svg)
 
 
 ---
@@ -171,11 +169,10 @@ where
 - $b$ is the **base** ($b=2$ for computers or $b=10$ for humans) 
 - $e$ is the **exponent** 
 
-<blockquote class="admonition note"> 
-A 32-bit representation with base 2 of a floating point number:
-<div data-load="02-lecture/float.svg" style="margin-top:1em;margin-bottom:1em;"></div>
-<small>Source: <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Wikipedia</a></small>
-</blockquote> 
+> [!NOTE]
+> A 32-bit representation with base 2 of a floating point number:
+> ![Image](02-lecture/float.svg)
+> <small>Source: <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Wikipedia</a></small>
 
 ---
 
@@ -355,7 +352,7 @@ stop
 convert -density 200 linear.svg linear.png
 -->
 
-![UML](02-lecture/linear.png)
+![UML](02-lecture/linear.svg)
 <!-- .element style="height:600px;" -->
 
 </div>
@@ -408,7 +405,7 @@ stop
 convert -density 200 branching.svg branching.png
 -->
 
-![UML](02-lecture/branching.png)
+![UML](02-lecture/branching.svg)
 <!-- .element style="height:600px;" -->
 
 </div>
@@ -488,7 +485,7 @@ stop
 convert -density 200 loop.svg loop.png
 -->
 
-![UML](02-lecture/loop.png)
+![UML](02-lecture/loop.svg)
 <!-- .element style="height:600px;" -->
 
 </div>
