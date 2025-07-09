@@ -4,7 +4,7 @@
 
 ## Containers
 
-Containers are data structure capable of holding a collection of elements.
+Containers are data structures capable of holding a collection of elements.
 
 > [!IMPORTANT]
 > There are many alternative types of containers and the choice of container highly depends on the use case.
@@ -13,7 +13,7 @@ Containers are data structure capable of holding a collection of elements.
 
 ### Array
 
-[Arrays](https://en.wikipedia.org/wiki/Array_(data_structure)) are containers that hold elements of equal size in contiguous block of memory. They provide direct access to each element using an index operation.
+[Arrays](https://en.wikipedia.org/wiki/Array_(data_structure)) are containers that hold elements of equal size in a contiguous block of memory. They provide direct access to each element using an index operation.
 
 ![Figure](03-lecture/array.svg)
 
@@ -48,7 +48,7 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 ![Figure](03-lecture/list.svg)
 
 > [!NOTE]
-> To access a particular element, a large share of the list may have to be traversed.
+> To find a particular element, a large share of the list may have to be traversed.
 
 ---
 
@@ -72,11 +72,10 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 
 ### Set
 
-[Sets](https://en.wikipedia.org/wiki/Set_(data_structure)) are containers that hold a collection of unique elements. Sets are primarily used to tests a value for membership in a set and to remove duplicates.
+[Sets](https://en.wikipedia.org/wiki/Set_(data_structure)) are containers that hold a collection of unique elements. Sets are primarily used to tests a value for membership and to remove duplicates.
 
----
-
-Visualisation svg
+> [!NOTE]
+> Insertion, removal, and access may require the traversal of a large share of the elements in the set.
 
 ===
 
@@ -84,29 +83,19 @@ Visualisation svg
 
 [Stacks](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) are containers that follow a **last-in-first-out (LIFO)** principle. Elements are added (pushed) and removed (popped) only from the top of the stack.
 
----
-
-Visualisation svg
+![Figure](03-lecture/stack.svg)
 
 ===
 
-## Queue
+### Queue
 
 [Queues](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) are containers that follow a **first-in-first-out (FIFO)** principle. Elements are added at the back and removed from the front.
 
-===
-
-## Priority queue
-
-[Priority queues](https://en.wikipedia.org/wiki/Priority_queue) are containers where each element has a priority, and elements are removed based on highest priority rather than insertion order.
-
----
-
-Visualisation svg
+![Figure](03-lecture/queue.svg)
 
 ===
 
-## Map, dictionary, or associative array
+### Map, dictionary, or associative array
 
 [Maps, dictionaries, or associative arrays](https://en.wikipedia.org/wiki/Map_(data_structure)) are containers that store key-value pairs, allowing fast retrieval, insertion, and deletion based on unique keys.
 
