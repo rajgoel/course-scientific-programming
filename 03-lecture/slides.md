@@ -298,21 +298,21 @@ int main() {
 ```julia [1-3| 5-8|10-11|13-14|16-17]
 using DataStructures
 
-stack = Stack{Int}()  # create an empty stack of integers
+mystack = Stack{Int}()  # create an empty stack of integers
 
 # Push
-push!(stack, 1)
-push!(stack, 2)
-push!(stack, 3)
+push!(mystack, 1)
+push!(mystack, 2)
+push!(mystack, 3)
 
 # Top
-top = first(stack)    # look at the top element without removing it
+top = first(mystack)    # look at the top element without removing it
 
 # Pop
-popped = pop!(stack)  # remove and return the top element
+popped = pop!(mystack)  # remove and return the top element
 
 # Check if empty
-isempty(stack)
+isempty(mystack)
 ```
 
 ---
@@ -327,18 +327,18 @@ isempty(stack)
 #include <stack>
 
 int main() {
-  std::stack<int> stack;
+  std::stack<int> mystack;
 
   // Push
-  stack.push(1);
-  stack.push(2);
-  stack.push(3);
+  mystack.push(1);
+  mystack.push(2);
+  mystack.push(3);
 
   // Top
-  int top = stack.top();
+  int top = mystack.top();
 
   // Pop
-  stack.pop();
+  mystack.pop();
 
   return 0;
 }
@@ -360,21 +360,21 @@ int main() {
 ```julia [1,3|5-8|10-11|13-14|16-17]
 using DataStructures
 
-queue = Queue{Int}()  # create an empty queue
+myqueue = Queue{Int}()  # create an empty queue
 
 # Enqueue
-enqueue!(queue, 1)
-enqueue!(queue, 2)
-enqueue!(queue, 3)
+enqueue!(myqueue, 1)
+enqueue!(myqueue, 2)
+enqueue!(myqueue, 3)
 
 # Peek first element of queue (does not remove element)
-x = first(queue)
+x = first(myqueue)
 
 # Dequeue (returns element)
-x = dequeue!(queue)
+x = dequeue!(myqueue)
 
 # Check if empty
-isempty(queue)
+isempty(myqueue)
 ```
 
 ---
@@ -389,21 +389,21 @@ isempty(queue)
 #include <queue>
 
 int main() {
-  std::queue<int> queue;
+  std::queue<int> myqueue;
 
   // Enqueue
-  queue.push(1);
-  queue.push(2);
-  queue.push(3);
+  myqueue.push(1);
+  myqueue.push(2);
+  myqueue.push(3);
 
   // Peek front
-  int front = queue.front();
+  int front = myqueue.front();
 
   // Dequeue (does not return element)
-  queue.pop();
+  myqueue.pop();
 
   // Check if empty
-  bool is_empty = queue.empty();
+  bool is_empty = myqueue.empty();
 
   return 0;
 }
@@ -423,24 +423,24 @@ int main() {
 ```julia
 using DataStructures
 
-deque = Deque{Int}()  # create empty deque
+mydeque = Deque{Int}()  # create empty deque
 
 # Push to back and front
-push!(deque, 1)        # push to back
-push!(deque, 2)        # push to back
-push!(deque, 3)        # push to back
-pushfirst!(deque, 4)   # push to front
+push!(mydeque, 1)        # push to back
+push!(mydeque, 2)        # push to back
+push!(mydeque, 3)        # push to back
+pushfirst!(mydeque, 4)   # push to front
 
 # Peek at front and back
-front = first(deque)
-back = last(deque)
+front = first(mydeque)
+back = last(mydeque)
 
 # Pop from front and back
-a = popfirst!(deque)
-b = pop!(deque)
+a = popfirst!(mydeque)
+b = pop!(mydeque)
 
 # Check if empty
-is_empty = isempty(deque)
+is_empty = isempty(mydeque)
 ```
 
 ---
@@ -449,24 +449,24 @@ is_empty = isempty(deque)
 ```python [1-3|5-9|11-13|15-17|19-20]
 from collections import deque
 
-deque_obj = deque()
+mydeque = deque()
 
 # Push to back and front
-deque_obj.append(1)
-deque_obj.append(2)
-deque_obj.append(3)
-deque_obj.appendleft(4)
+mydeque.append(1)
+mydeque.append(2)
+mydeque.append(3)
+mydeque.appendleft(4)
 
 # Peek at front and back
-front = deque_obj[0]
-back = deque_obj[-1]
+front = mydeque[0]
+back = mydeque[-1]
 
 # Pop from front and back
-a = deque_obj.popleft()
-b = deque_obj.pop()
+a = mydeque.popleft()
+b = mydeque.pop()
 
 # Check if empty
-is_empty = len(deque_obj) == 0
+is_empty = len(mydeque) == 0
 ```
 
 ---
@@ -476,24 +476,24 @@ is_empty = len(deque_obj) == 0
 #include <deque>
 
 int main() {
-  std::deque<int> deque;
+  std::deque<int> mydeque;
 
   // Push to back and front
-  deque.push_back(1);
-  deque.push_back(2);
-  deque.push_back(3);
-  deque.push_front(4);
-
-  // Pop from front and back
-  int a = deque.front(); deque.pop_front();
-  int b = deque.back();  deque.pop_back();
+  mydeque.push_back(1);
+  mydeque.push_back(2);
+  mydeque.push_back(3);
+  mydeque.push_front(4);
 
   // Peek at front and back
-  int front = deque.front();
-  int back  = deque.back();
+  int front = mydeque.front();
+  int back  = mydeque.back();
+
+  // Pop from front and back
+  mydeque.pop_front();
+  mydeque_back();
 
   // Check if empty
-  bool is_empty = deque.empty();
+  bool is_empty = mydeque.empty();
 
   return 0;
 }
@@ -600,7 +600,7 @@ int main() {
 
 ### Set
 
-[Sets](https://en.wikipedia.org/wiki/Set_(data_structure)) are containers that hold a collection of unique elements. Sets are primarily used to tests a value for membership and to remove duplicates.
+[Sets](https://en.wikipedia.org/wiki/Set_(data_structure)) are containers that hold a collection of unique elements. Sets are primarily used to test a value for membership and to remove duplicates.
 
 > [!NOTE]
 > Insertion, removal, and access may require traversing through multiple elements and possibly reorganising parts of the data.
@@ -612,20 +612,20 @@ int main() {
 using DataStructures
 
 # Creation
-s = Set([1, 2, 3])
+myset = Set([1, 2, 3])
 
 # Insert
-push!(s, 3)
-push!(s, 4)
+push!(myset, 3)
+push!(myset, 4)
 
 # Remove
-delete!(s, 2)
+delete!(myset, 2)
 
 # Check membership
-exists = 3 in s
+exists = 3 in myset
 
 # Iterate
-for element in s
+for element in myset
   println(element)
 end
 ```
@@ -635,20 +635,20 @@ end
 **Python:**
 ```python  [1-2|4-6|8-9|11-12|14-16]
 # Creation
-s = {1, 2, 3}
+myset = {1, 2, 3}
 
 # Insert
-s.add(3)
-s.add(4)
+myset.add(3)
+myset.add(4)
 
 # Remove
-s.remove(2)
+myset.remove(2)
 
 # Check membership
-exists = 3 in s
+exists = 3 in myset
 
 # Iterate
-for element in s:
+for element in myset:
   print(element)
 ```
 
@@ -661,21 +661,21 @@ for element in s:
 
 int main() {
   // Creation
-  std::unordered_set<int> s = {1, 2, 3};
+  std::unordered_set<int> myset = {1, 2, 3};
 
   // Insert
-  s.insert(3);
-  s.insert(4);
+  myset.insert(3);
+  myset.insert(4);
 
   // Remove
-  s.erase(2);
+  myset.erase(2);
 
   // Check membership
-  auto exists = s.contains(3);
+  auto exists = myset.contains(3);
 
   // Iterate
-  for (auto& x : s) {
-    std::cout << x << std::endl;
+  for (auto& element : myset) {
+    std::cout << element << std::endl;
   }
 
   return 0;
@@ -764,7 +764,7 @@ int main() {
 [Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) organizes code by combining data (fields) and behavior (methods) into objects.
 
 > [!NOTE]
-> In OOP languages like Python and C++, functions (called methods) can be attached to types and operate directly on an instance's data.
+> In OOP languages like Python and C++, functions (called methods) can be attached to types and operate directly on the data of the type.
 
 > [!WARNING]
 > Julia does not support traditional OOP.
@@ -806,7 +806,7 @@ int main() {
   p.greet();
 }
 ```
-<!-- .element style="height:600px;" -->
+<!-- .element style="height:500px;" -->
 
 
 ---
