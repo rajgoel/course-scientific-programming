@@ -353,6 +353,62 @@ int main() {
 
 ![Figure](03-lecture/queue.svg)
 
+
+---
+
+**Julia:**
+```julia [1,3|5-8|10-11|13-14|16-17]
+using DataStructures
+
+queue = Queue{Int}()  # create an empty queue
+
+# Enqueue
+enqueue!(queue, 1)
+enqueue!(queue, 2)
+enqueue!(queue, 3)
+
+# Peek first element of queue (does not remove element)
+x = first(queue)
+
+# Dequeue (returns element)
+x = dequeue!(queue)
+
+# Check if empty
+isempty(queue)
+```
+
+---
+
+> [!WARNING]
+> Python does not have a built-in queue.
+
+---
+
+**C++:**
+```cpp [1,4|6-9|12-13|15-16]
+#include <queue>
+
+int main() {
+  std::queue<int> queue;
+
+  // Enqueue
+  queue.push(1);
+  queue.push(2);
+  queue.push(3);
+
+  // Peek front
+  int front = queue.front();
+
+  // Dequeue (does not return element)
+  queue.pop();
+
+  // Check if empty
+  bool is_empty = queue.empty();
+
+  return 0;
+}
+```
+
 ===
 
 ### Double-ended queue (deque)
