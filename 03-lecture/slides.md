@@ -208,14 +208,14 @@ int main() {
 
 ===
 
-### List
+### Doubly linked lists
 
-Lists are containers that hold sequences of elements in non-contiguous blocks of memory. [Doubly linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list) provide direct access to the start and end of the sequence, as well as to the predecessor and successor of any element.
+Doubly linked lists are containers that hold sequences of elements in non-contiguous blocks of memory. [Doubly linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list) provide direct access to the start and end of the sequence, as well as to the predecessor and successor of any element.
 
 ![Figure](03-lecture/list.svg)
 
 > [!NOTE]
-> To find a particular element, a large share of the list may have to be traversed.
+> To find a particular element, a large share of the elements may have to be traversed.
 
 ---
 
@@ -238,7 +238,7 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 ---
 
 > [!WARNING]
-> Python does not have a built-in doubly linked list, but you [can implement one on your own](https://www.geeksforgeeks.org/dsa/doubly-linked-list-in-python/)
+> Julia and Python do not have a built-in doubly linked list.
 
 ===
 
