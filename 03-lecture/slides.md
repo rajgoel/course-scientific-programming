@@ -385,7 +385,7 @@ isempty(queue)
 ---
 
 **C++:**
-```cpp [1,4|6-9|12-13|15-16]
+```cpp [1,4|6-9|11-12|14-15|17-18]
 #include <queue>
 
 int main() {
@@ -416,6 +416,89 @@ int main() {
 [Double-ended queues](https://en.wikipedia.org/wiki/Double-ended_queue) are containers allowing to add and remove elements at the front and the back.
 
 ![Figure](03-lecture/deque.svg)
+
+---
+
+**Julia:**
+```julia
+using DataStructures
+
+deque = Deque{Int}()  # create empty deque
+
+# Push to back and front
+push!(deque, 1)        # push to back
+push!(deque, 2)        # push to back
+push!(deque, 3)        # push to back
+pushfirst!(deque, 4)   # push to front
+
+# Peek at front and back
+front = first(deque)
+back = last(deque)
+
+# Pop from front and back
+a = popfirst!(deque)
+b = pop!(deque)
+
+# Check if empty
+is_empty = isempty(deque)
+```
+
+---
+
+**Python:**
+```python [1-3|5-9|11-13|15-17|19-20]
+from collections import deque
+
+deque_obj = deque()
+
+# Push to back and front
+deque_obj.append(1)
+deque_obj.append(2)
+deque_obj.append(3)
+deque_obj.appendleft(4)
+
+# Peek at front and back
+front = deque_obj[0]
+back = deque_obj[-1]
+
+# Pop from front and back
+a = deque_obj.popleft()
+b = deque_obj.pop()
+
+# Check if empty
+is_empty = len(deque_obj) == 0
+```
+
+---
+
+**C++:**
+```cpp [1,4|6-10|12-14|16-18|20-21]
+#include <deque>
+
+int main() {
+  std::deque<int> deque;
+
+  // Push to back and front
+  deque.push_back(1);
+  deque.push_back(2);
+  deque.push_back(3);
+  deque.push_front(4);
+
+  // Pop from front and back
+  int a = deque.front(); deque.pop_front();
+  int b = deque.back();  deque.pop_back();
+
+  // Peek at front and back
+  int front = deque.front();
+  int back  = deque.back();
+
+  // Check if empty
+  bool is_empty = deque.empty();
+
+  return 0;
+}
+```
+
 
 ===
 
