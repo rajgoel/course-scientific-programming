@@ -744,16 +744,16 @@ int main() {
 
 ## When to use which container
 
-| Container              | When to Use                                                   | Characteristics / Notes                             |
-|------------------------|---------------------------------------------------------------|----------------------------------------------------|
-| **Array**              | When you need fast access by position and resize occasionally | Elements stored next to each other in memory       |
-| **Tuple**              | When you want a fixed collection of different types           | Fixed size, elements can be different types          |
-| **Doubly linked list** | When you often insert or remove elements in the middle        | Elements linked by pointers, no direct indexing    |
-| **Stack**           | When you need last-in, first-out behavior            | Push and pop only at one end                         |
-| **Queue**           | When you need first-in, first-out behavior           | Add at one end, remove from the other                |
-| **Deque**           | When you need to add or remove elements efficiently at both ends | Supports insert/delete at front and back           |
-| **Map / Dictionary**| When you want to associate keys to values and look them up quickly | Key-value pairs                                      |
-| **Set**             | When you need to store unique elements and test membership | No duplicate elements                                |
+| Container              | When to use                                           | When to avoid                               |
+|------------------------|-------------------------------------------------------|---------------------------------------------|
+| **Array**              | Frequent access of elements by index                  | Frequent insertion or removal in the middle |
+| **Tuple**              | Fixed-size, heterogeneous data                        | Variable sized, homogeneous data            |
+| **Doubly linked list** | Frequent insertion or removal in the middle           | Frequent access of individual elements      |
+| **Stack**              | Last-in, first-out behavior                           | Access of elements other than the top       |
+| **Queue**              | First-in, first-out behavior                          | Access of elements other than front or back |
+| **Deque**              | Frequent addition or removal of elements at both ends | Access of elements in the middle            |
+| **Map / Dictionary**   | Access element by key                                 | Access of elements by index                 |
+| **Set**                | Elimnate duplicates, check membership                 | Frequent access of individual elements      |
 
 
 ===
