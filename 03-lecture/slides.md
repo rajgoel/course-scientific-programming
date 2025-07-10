@@ -420,7 +420,7 @@ int main() {
 ---
 
 **Julia:**
-```julia
+```julia [1-3|5-8|9|11-13|15-17|19-20]
 using DataStructures
 
 mydeque = Deque{Int}()  # create empty deque
@@ -446,16 +446,16 @@ is_empty = isempty(mydeque)
 ---
 
 **Python:**
-```python [1-3|5-9|11-13|15-17|19-20]
+```python [1-3|6-8|9|11-13|15-17|19-20]
 from collections import deque
 
 mydeque = deque()
 
 # Push to back and front
-mydeque.append(1)
-mydeque.append(2)
-mydeque.append(3)
-mydeque.appendleft(4)
+mydeque.append(1)      # push to back
+mydeque.append(2)      # push to back
+mydeque.append(3)      # push to back
+mydeque.appendleft(4)  # push to front
 
 # Peek at front and back
 front = mydeque[0]
@@ -472,17 +472,17 @@ is_empty = len(mydeque) == 0
 ---
 
 **C++:**
-```cpp [1,4|6-10|12-14|16-18|20-21]
+```cpp [1,4|7-9|10|12-14|16-18|20-21]
 #include <deque>
 
 int main() {
   std::deque<int> mydeque;
 
   // Push to back and front
-  mydeque.push_back(1);
-  mydeque.push_back(2);
-  mydeque.push_back(3);
-  mydeque.push_front(4);
+  mydeque.push_back(1);  // push to back
+  mydeque.push_back(2);  // push to back
+  mydeque.push_back(3);  // push to back
+  mydeque.push_front(4); // push to front
 
   // Peek at front and back
   int front = mydeque.front();
