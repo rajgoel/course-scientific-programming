@@ -39,6 +39,98 @@ Containers are data structures capable of holding a collection of elements.
 > [!NOTE]
 > To guarantee contiguous block of memory, an insertion of an element may require to **move the memory location of all elements**.
 
+---
+
+**Julia:**
+```julia [1-2|3-4|5-6|7-8|9-10|11-12|13-17]
+# Creation
+myarray = [1, 2, 3, 4]
+# Access
+x = myarray[1]           # Julia uses 1-based indexing
+# Append (copies all data if allocated memory is exceeded)
+push!(myarray, 5)        # myarray becomes [1, 2, 3, 4, 5]
+# Pop last element (no copying)
+pop!(myarray)            # myarray becomes [1, 2, 3, 4]
+# Insert at position 2 (copies all data if allocated memory is exceeded)
+insert!(myarray, 2, 99)  # myarray becomes [1, 99, 2, 3, 4]
+# Remove element at position 3
+deleteat!(myarray, 3)    # myarray becomes [1, 99, 3, 4]
+# Iterate
+sum = 0;
+for element in myarray
+  sum += element
+end
+```
+
+---
+
+**Python:**
+```python
+import numpy as np
+
+# Creation
+myarray = np.array([1, 2, 3, 4])
+
+# Access
+x = myarray[0]                       # 0-based indexing
+
+# Append (creates a new array)
+myarray = np.append(myarray, 5)      # New array created: [1 2 3 4 5]
+
+# Pop last element (creates a new array)
+myarray = myarray[:-1]               # New array created: [1 2 3 4]
+
+# Insert at index 1 (creates a new array)
+myarray = np.insert(myarray, 1, 99)  # New array created: [1 99 2 3 4]
+
+# Remove element at index 2 (creates a new array)
+myarray = np.delete(myarray, 2)      # New array created: [1 99 3 4]
+
+# Iterate
+sum = 0
+for element in myarray:
+  sum += element
+```
+
+> [!IMPORTANT]
+> Python does not have a built-in array type.
+
+---
+
+**C++:**
+```cpp
+#include <vector>
+
+int main() {
+  std::vector<int> myarray = {1, 2, 3, 4};
+
+  // Access
+  auto x = myarray[0];   // C++ uses 0-based indexing
+
+  // Reserve capacity
+  myarray.reserve(5);    // may trigger copying
+
+  // Append (may trigger copying if capacity exceeded)
+  myarray.push_back(5);  // myarray becomes {1, 2, 3, 4, 5}
+
+  // Pop last element
+  myarray.pop_back();    // myarray becomes {1, 2, 3, 4}
+
+  // Insert at position 1 (may trigger copying if capacity exceeded)
+  myarray.insert(myarray.begin() + 1, 99);  // myarray becomes {1, 99, 2, 3, 4}
+
+  // Remove element at position 2
+  myarray.erase(myarray.begin() + 2);       // myarray becomes {1, 99, 3, 4}
+
+  // Iterate
+  int sum = 0;
+  for (auto& element : myarray) {
+    sum += element;
+  }
+  return 0;
+}
+```
+
 ===
 
 ### List
@@ -70,15 +162,6 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 
 ===
 
-### Set
-
-[Sets](https://en.wikipedia.org/wiki/Set_(data_structure)) are containers that hold a collection of unique elements. Sets are primarily used to tests a value for membership and to remove duplicates.
-
-> [!NOTE]
-> Insertion, removal, and access may require the traversal of a large share of the elements in the set.
-
-===
-
 ### Stack
 
 [Stacks](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) are containers that follow a **last-in-first-out (LIFO)** principle. Elements are added (pushed) and removed (popped) only from the top of the stack.
@@ -100,6 +183,18 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 [Maps, dictionaries, or associative arrays](https://en.wikipedia.org/wiki/Map_(data_structure)) are containers that store key-value pairs, allowing retrieval, insertion, and deletion based on unique keys.
 
 ![Figure](03-lecture/map.svg)
+
+> [!NOTE]
+> Insertion, removal, and access may require traversing through multiple elements and possibly reorganising parts of the data.
+
+===
+
+### Set
+
+[Sets](https://en.wikipedia.org/wiki/Set_(data_structure)) are containers that hold a collection of unique elements. Sets are primarily used to tests a value for membership and to remove duplicates.
+
+> [!NOTE]
+> Insertion, removal, and access may require traversing through multiple elements and possibly reorganising parts of the data.
 
 ===
 
