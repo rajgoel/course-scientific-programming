@@ -182,11 +182,13 @@ A tuple is an ordered collection of elements, which can be of different types.
 **Julia:**
 ```julia
 mytuple = (1, "hello", 3.14)
+(index, word, value) = mytuple
 ```
 
 **Python:**
 ```python
 mytuple = (1, "hello", 3.14)
+index, word, value = mytuple
 ```
 
 **C++:**
@@ -196,10 +198,13 @@ mytuple = (1, "hello", 3.14)
 
 int main() {
   std::tuple<int, std::string, double> mytuple(1, "hello", 3.14);
+  auto& [ index, word, value ] = mytuple;
   return 0;
 }
 ```
 
+> [!NOTE]
+> In Julia and Python, tuples are immutable, meaning their elements cannot be changed after creation. To modify contents, you must create a new tuple.
 
 ===
 
