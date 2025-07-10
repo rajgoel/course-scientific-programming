@@ -98,38 +98,7 @@ for element in myarray:
 ```
 
 > [!WARNING]
-> Python lists behave like arrays from a usage perspective, but the official documentation focuses on their interface and not on the underlying implementation details.
-
----
-
-**Python:**
-```python [1|3-4|6-7|9-10|12-13|15-16|18-19|21-25]
-import numpy as np
-
-# Creation
-myarray = np.array([1, 2, 3, 4])
-
-# Access
-x = myarray[0]                       # 0-based indexing
-
-# Append (creates a new array)
-myarray = np.append(myarray, 5)      # myarray becomes [1 2 3 4 5]
-
-# Pop last element (creates a new array)
-myarray = myarray[:-1]               # myarray becomes [1 2 3 4]
-
-# Insert at index 1 (creates a new array)
-myarray = np.insert(myarray, 1, 99)  # myarray becomes [1 99 2 3 4]
-
-# Remove element at index 2 (creates a new array)
-myarray = np.delete(myarray, 2)      # myarray becomes [1 99 3 4]
-
-# Iterate
-sum = 0
-for element in myarray:
-  sum += element
-```
-<!-- .element style="height:600px;" -->
+> Python lists behave like arrays from a usage perspective, but the official documentation focuses on their interface and not on the underlying implementation details. When performance matters, [Numpy](https://numpy.org/) can be used.
 
 ---
 
@@ -199,9 +168,6 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 > [!NOTE]
 > No memory relocation is necessary.
 
-
----
-
 ---
 
 > [!WARNING]
@@ -222,6 +188,14 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 [Queues](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) are containers that follow a **first-in-first-out (FIFO)** principle. Elements are added at the back and removed from the front.
 
 ![Figure](03-lecture/queue.svg)
+
+===
+
+### Double-ended queue (deque)
+
+[Double-ended queues](https://en.wikipedia.org/wiki/Double-ended_queue) are containers allowing to add and remove elements at the front and the back.
+
+![Figure](03-lecture/deque.svg)
 
 ===
 

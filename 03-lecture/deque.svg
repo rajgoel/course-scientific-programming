@@ -22,8 +22,10 @@
     <text x="270" y="35" font-size="24" font-weight="bold" fill="#000" opacity=".4">a</text>
     <text x="370" y="35" font-size="24" font-weight="bold" fill="#000" >a</text>
 
-    <path d="M50 25 100 25" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />   <!-- d -> d -->
-    <path d="M300 25 350 25" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />  <!-- a -> a -->
+    <path d="M50 25 C 70 15, 80 15, 100 25" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />   <!-- d -> d -->
+    <path d="M100 25 C 80 35, 70 35, 50 25" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />   <!-- d <- d -->
+    <path d="M300 25 C 320 15, 330 15, 350 25" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />  <!-- a -> a -->
+    <path d="M350 25 C 330 35, 320 35, 300 25" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />  <!-- a <- a -->
 
   </g>
 </svg>
