@@ -685,3 +685,141 @@ int main() {
 ===
 
 ## User-defined types
+
+User-defined types allow you to define your own data structures, grouping multiple values. They are typically used to model **structured data**.
+
+> [!TIP]
+> Use user-defined types when you want to represent a concept or entity that has multiple components.
+
+---
+
+**Julia:**
+```julia
+struct Person
+  name::String
+  age::Int
+end
+
+p = Person("Alice", 30)
+println("Name: ",p.name)
+println("Age: ",p.age)
+```
+
+---
+
+**Python:**
+```python
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p = Person("Alice", 30)
+print("Name:", p.name)
+print("Age:",p.age)
+```
+
+---
+
+**C++:**
+```cpp
+#include <string>
+#include <print>
+
+struct Person {
+  std::string name;
+  int age;
+};
+
+int main() {
+  Person p{"Alice", 30};
+  std::println("Name: {}",p.name);
+  std::println("Age: {}",p.age);
+  
+  return 0;
+}
+```
+
+===
+
+## When to use which container
+
+| Container              | When to Use                                                   | Characteristics / Notes                             |
+|------------------------|---------------------------------------------------------------|----------------------------------------------------|
+| **Array**              | When you need fast access by position and resize occasionally | Elements stored next to each other in memory       |
+| **Tuple**              | When you want a fixed collection of different types           | Fixed size, elements can be different types          |
+| **Doubly linked list** | When you often insert or remove elements in the middle        | Elements linked by pointers, no direct indexing    |
+| **Stack**           | When you need last-in, first-out behavior            | Push and pop only at one end                         |
+| **Queue**           | When you need first-in, first-out behavior           | Add at one end, remove from the other                |
+| **Deque**           | When you need to add or remove elements efficiently at both ends | Supports insert/delete at front and back           |
+| **Map / Dictionary**| When you want to associate keys to values and look them up quickly | Key-value pairs                                      |
+| **Set**             | When you need to store unique elements and test membership | No duplicate elements                                |
+
+
+===
+
+## Object-oriented programming
+
+[Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) organizes code by combining data (fields) and behavior (methods) into objects.
+
+In OOP languages like Python and C++, functions (called methods) can be attached to types and operate directly on an instance's data.
+
+> [!NOTE]
+> Julia does not support traditional OOP.
+
+---
+
+**Python:**
+```python
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def greet(self):
+    print(f"Hello, my name is {self.name}.")
+
+p = Person("Alice", 30)
+p.greet()
+```
+
+---
+
+**C++:**
+```cpp
+#include <string>
+#include <print>
+
+struct Person {
+  std::string name;
+  int age;
+
+  void greet() const {
+    std::println("Hello, my name is {}", name);
+  }
+};
+
+int main() {
+  Person p{"Alice", 30};
+  p.greet();
+}
+```
+
+---
+
+**Julia:**
+```julia
+struct Person
+  name::String
+  age::Int
+end
+
+greet(p::Person) = println("Hello, my name is ", p.name)
+
+p = Person("Alice", 30)
+greet(p)
+```
+
+> [!NOTE]
+> Julia separates data and behavior: data is defined in structs, while behavior is implemented in functions that operate on those structs but are not part of them. This design, where a function’s behavior depends on the types of its arguments, is called **multiple dispatch**.
+
