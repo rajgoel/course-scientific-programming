@@ -4,7 +4,7 @@
 
 ## Containers
 
-Containers are data structures capable of holding a collection of elements.
+Containers are **data structures** capable of holding a collection of elements.
 
 > [!IMPORTANT]
 > There are many alternative types of containers and the choice of container highly depends on the use case.
@@ -138,6 +138,68 @@ int main() {
 }
 ```
 <!-- .element style="height:600px;" -->
+
+===
+
+### String
+
+A string is an array of characters.
+
+![Figure](03-lecture/string.svg)
+
+---
+
+**Julia:**
+```julia
+mystring = "Hello, world!"
+```
+
+**Python:**
+```python
+mystring = "Hello, world!"
+```
+
+**C++:**
+```cpp
+#include <string>
+
+int main() {
+  std::string mystring = "Hello, world!";
+  return 0;
+}
+```
+
+---
+
+### Tuple
+
+A tuple is an ordered collection of elements, which can be of different types.
+
+![Figure](03-lecture/tuple.svg)
+
+---
+
+**Julia:**
+```julia
+mytuple = (1, "hello", 3.14)
+```
+
+**Python:**
+```python
+mytuple = (1, "hello", 3.14)
+```
+
+**C++:**
+```cpp
+#include <tuple>
+#include <string>
+
+int main() {
+  std::tuple<int, std::string, double> mytuple(1, "hello", 3.14);
+  return 0;
+}
+```
+
 
 ===
 
