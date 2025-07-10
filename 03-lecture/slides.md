@@ -240,6 +240,49 @@ Doubly linked lists are containers that hold sequences of elements in non-contig
 > [!WARNING]
 > Julia and Python do not have a built-in doubly linked list.
 
+---
+
+**C++:**
+```cpp [1|4|6-9|11-14|16-23|25-23]
+#include <list>
+
+int main() {
+  std::list<int> mylist = {1, 2, 3, 4};
+
+  // Forward traversal
+  for (auto it = mylist.begin(); it != mylist.end(); ++it) {
+    auto value = *it;
+  }
+
+  // Backward traversal
+  for (auto it = mylist.rbegin(); it != mylist.rend(); ++it) {
+    auto value = *it;
+  }
+
+  // Insert 99 before list element with value 3
+  for (auto it = mylist.begin(); it != mylist.end(); ++it) {
+    auto& value = *it;
+    if (value == 3) {
+      mylist.insert(it, 99);  // insert 99 before 3
+      break;                  // interrupt loop
+    }
+  }
+
+  // Remove any list element with value 2
+  for (auto it = mylist.begin(); it != mylist.end(); ) {
+    auto& value = *it;
+    if (value == 2) {
+      it = mylist.erase(it);  // erase returns iterator to next element
+    }
+    else {
+      ++it;
+    }
+  }
+
+  return 0;
+}
+```
+
 ===
 
 ### Stack
