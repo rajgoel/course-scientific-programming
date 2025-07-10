@@ -605,6 +605,83 @@ int main() {
 > [!NOTE]
 > Insertion, removal, and access may require traversing through multiple elements and possibly reorganising parts of the data.
 
+---
+
+**Julia:**
+```julia [1-4|6-8|10-11|13-14|16-19]
+using DataStructures
+
+# Creation
+s = Set([1, 2, 3])
+
+# Insert
+push!(s, 3)
+push!(s, 4)
+
+# Remove
+delete!(s, 2)
+
+# Check membership
+exists = 3 in s
+
+# Iterate
+for element in s
+  println(element)
+end
+```
+
+---
+
+**Python:**
+```python  [1-4|6-8|10-11|13-14|16-18]
+# Creation
+s = {1, 2, 3}
+
+# Insert
+s.add(3)
+s.add(4)
+
+# Remove
+s.remove(2)
+
+# Check membership
+exists = 3 in s
+
+# Iterate
+for element in s:
+  print(element)
+```
+
+---
+
+**C++:**
+```cpp [1-2|5-6|8-10|12-13|15-16|18-21]
+#include <unordered_set>
+#include <iostream>
+
+int main() {
+  // Creation
+  std::unordered_set<int> s = {1, 2, 3};
+
+  // Insert
+  s.insert(3);
+  s.insert(4);
+
+  // Remove
+  s.erase(2);
+
+  // Check membership
+  auto exists = s.contains(3);
+
+  // Iterate
+  for (auto& x : s) {
+    std::cout << x << std::endl;
+  }
+
+  return 0;
+}
+```
+
 ===
 
 ## User-defined types
