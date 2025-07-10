@@ -42,19 +42,25 @@ Containers are data structures capable of holding a collection of elements.
 ---
 
 **Julia:**
-```julia [1-2|3-4|5-6|7-8|9-10|11-12|13-17]
+```julia [1-2|4-5|7-8|10-11|13-14|16-17|19-23]
 # Creation
 myarray = [1, 2, 3, 4]
+
 # Access
 x = myarray[1]           # Julia uses 1-based indexing
+
 # Append (copies all data if allocated memory is exceeded)
 push!(myarray, 5)        # myarray becomes [1, 2, 3, 4, 5]
+
 # Pop last element (no copying)
 pop!(myarray)            # myarray becomes [1, 2, 3, 4]
+
 # Insert at position 2 (copies all data if allocated memory is exceeded)
 insert!(myarray, 2, 99)  # myarray becomes [1, 99, 2, 3, 4]
+
 # Remove element at position 3
 deleteat!(myarray, 3)    # myarray becomes [1, 99, 3, 4]
+
 # Iterate
 sum = 0;
 for element in myarray
@@ -65,7 +71,7 @@ end
 ---
 
 **Python:**
-```python
+```python [1|3-4|6-7|9-10|12-13|15-16|18-19|21-25]
 import numpy as np
 
 # Creation
@@ -98,10 +104,11 @@ for element in myarray:
 ---
 
 **C++:**
-```cpp
+```cpp [1|4-5|7-8|10-11|13-14|16-17|19-20|22-23|25-29]
 #include <vector>
 
 int main() {
+  // Creation
   std::vector<int> myarray = {1, 2, 3, 4};
 
   // Access
@@ -127,6 +134,7 @@ int main() {
   for (auto& element : myarray) {
     sum += element;
   }
+
   return 0;
 }
 ```
