@@ -499,7 +499,6 @@ int main() {
 }
 ```
 
-
 ===
 
 ### Map, dictionary, or associative array
@@ -510,6 +509,92 @@ int main() {
 
 > [!NOTE]
 > Insertion, removal, and access may require traversing through multiple elements and possibly reorganising parts of the data.
+
+---
+
+**Julia:**
+```julia [1-2|4-5|7-8|10-11|13-14|16-18]
+# Creation
+mymap = Dict("apple" => 3, "banana" => 5, "cherry" => 2)
+
+# Check whether key exists
+exists = haskey(mymap, "apple")
+
+# Access
+x = mymap["apple"]
+
+# Insert / Update
+mymap["cherry"] = 3
+
+# Remove
+delete!(mymap, "banana")
+
+# Iterate
+for (k, v) in mymap
+  println("key = $k, value = $v")
+end
+```
+
+---
+
+**Python:**
+```python [1-2|4-5|7-8|10-11|13-14|16-18]
+# Creation
+mymap = {"apply": 3, "banana": 5, "cherry": 2}
+
+# Check whether key exists
+exists = "apple" in mymap
+
+# Access
+x = mymap["apple"]
+
+# Insert / Update
+mymap["cherry"] = 3
+
+# Remove
+del mymap["banana"]
+
+# Iterate
+for k, v in mymap.items():
+  print(f"key = {k}, value = {v}")
+```
+
+---
+
+**C++:**
+```cpp [1,2|6-11|12-13|15-16|18-19|21-24]
+#include <unordered_map>
+#include <iostream>
+#include <string>
+
+int main() {
+  // Creation
+  std::unordered_map<std::string, int> mymap{
+    {"apple", 3},
+    {"banana", 5},
+    {"cherry", 2}
+  };
+  
+  // Check whether key exists
+  auto exists = mymap.contains("apple");
+  
+  // Access
+  auto& x = mymap["apple"];
+
+  // Insert / Update
+  mymap["cherry"] = 3;
+
+  // Remove
+  mymap.erase("banana");
+
+  // Iterate
+  for (const auto& [key, value] : mymap) {
+    std::cout << key << ": " << value << std::endl;
+  }
+
+  return 0;
+}
+```
 
 ===
 
