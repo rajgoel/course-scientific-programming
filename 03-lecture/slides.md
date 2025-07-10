@@ -72,6 +72,37 @@ end
 ---
 
 **Python:**
+```python [1-2|4-5|7-8|10-11|13-14|16-17|19-22]
+# Creation
+myarray = [1, 2, 3, 4]   # Python list stores references in contiguous memory
+
+# Access
+x = myarray[0]           # Python uses 0-based indexing
+
+# Append (copies all data if allocated memory is exceeded)
+myarray.append(5)        # myarray becomes [1, 2, 3, 4, 5]
+
+# Pop last element (no copying)
+myarray.pop()            # myarray becomes [1, 2, 3, 4]
+
+# Insert at index 1 (copies all data if allocated memory is exceeded)
+myarray.insert(1, 99)    # myarray becomes [1, 99, 2, 3, 4]
+
+# Remove element at index 2
+del myarray[2]           # myarray becomes [1, 99, 3, 4]
+
+# Iterate
+sum = 0
+for element in myarray:
+  sum += element
+```
+
+> [!WARNING]
+> Python lists behave like arrays from a usage perspective, but the official documentation focuses on their interface and not on the underlying implementation details.
+
+---
+
+**Python:**
 ```python [1|3-4|6-7|9-10|12-13|15-16|18-19|21-25]
 import numpy as np
 
@@ -99,9 +130,6 @@ for element in myarray:
   sum += element
 ```
 <!-- .element style="height:600px;" -->
-
-> [!IMPORTANT]
-> Python does not have a built-in array type.
 
 ---
 
@@ -170,6 +198,14 @@ Lists are containers that hold sequences of elements in non-contiguous blocks of
 
 > [!NOTE]
 > No memory relocation is necessary.
+
+
+---
+
+---
+
+> [!WARNING]
+> Python does not have a built-in doubly linked list, but you [can implement one on your own](https://www.geeksforgeeks.org/dsa/doubly-linked-list-in-python/)
 
 ===
 
