@@ -754,6 +754,7 @@ int main() {
 | **Deque**              | Frequent addition or removal of elements at both ends | Access of elements in the middle            |
 | **Map / Dictionary**   | Access element by key                                 | Access of elements by index                 |
 | **Set**                | Elimnate duplicates, check membership                 | Frequent access of individual elements      |
+<!-- .element style="font-size:32px;" -->
 
 
 ===
@@ -762,9 +763,10 @@ int main() {
 
 [Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) organizes code by combining data (fields) and behavior (methods) into objects.
 
-In OOP languages like Python and C++, functions (called methods) can be attached to types and operate directly on an instance's data.
-
 > [!NOTE]
+> In OOP languages like Python and C++, functions (called methods) can be attached to types and operate directly on an instance's data.
+
+> [!WARNING]
 > Julia does not support traditional OOP.
 
 ---
@@ -804,6 +806,8 @@ int main() {
   p.greet();
 }
 ```
+<!-- .element style="height:600px;" -->
+
 
 ---
 
