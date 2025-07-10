@@ -292,6 +292,59 @@ int main() {
 
 ![Figure](03-lecture/stack.svg)
 
+---
+
+**Julia:**
+```julia [1-3| 5-8|10-11|13-14|16-17]
+using DataStructures
+
+stack = Stack{Int}()  # create an empty stack of integers
+
+# Push
+push!(stack, 1)
+push!(stack, 2)
+push!(stack, 3)
+
+# Top
+top = first(stack)    # look at the top element without removing it
+
+# Pop
+popped = pop!(stack)  # remove and return the top element
+
+# Check if empty
+isempty(stack)
+```
+
+---
+
+> [!WARNING]
+> Python does not have a built-in stack.
+
+---
+
+**C++:**
+```cpp [1,4|6-10|12-13|15-16]
+#include <stack>
+
+int main() {
+  std::stack<int> stack;
+
+  // Push
+  stack.push(1);
+  stack.push(2);
+  stack.push(3);
+
+  // Top
+  int top = stack.top();
+
+  // Pop
+  stack.pop();
+
+  return 0;
+}
+```
+
+
 ===
 
 ### Queue
