@@ -82,16 +82,16 @@ myarray = np.array([1, 2, 3, 4])
 x = myarray[0]                       # 0-based indexing
 
 # Append (creates a new array)
-myarray = np.append(myarray, 5)      # New array created: [1 2 3 4 5]
+myarray = np.append(myarray, 5)      # myarray becomes [1 2 3 4 5]
 
 # Pop last element (creates a new array)
-myarray = myarray[:-1]               # New array created: [1 2 3 4]
+myarray = myarray[:-1]               # myarray becomes [1 2 3 4]
 
 # Insert at index 1 (creates a new array)
-myarray = np.insert(myarray, 1, 99)  # New array created: [1 99 2 3 4]
+myarray = np.insert(myarray, 1, 99)  # myarray becomes [1 99 2 3 4]
 
 # Remove element at index 2 (creates a new array)
-myarray = np.delete(myarray, 2)      # New array created: [1 99 3 4]
+myarray = np.delete(myarray, 2)      # myarray becomes [1 99 3 4]
 
 # Iterate
 sum = 0
