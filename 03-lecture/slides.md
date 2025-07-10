@@ -243,7 +243,7 @@ Doubly linked lists are containers that hold sequences of elements in non-contig
 ---
 
 **C++:**
-```cpp [1|4|6-9|11-14|16-23|25-23]
+```cpp [1|4|6-9|11-14|16-23|25-33]
 #include <list>
 
 int main() {
@@ -251,12 +251,12 @@ int main() {
 
   // Forward traversal
   for (auto it = mylist.begin(); it != mylist.end(); ++it) {
-    auto value = *it;
+    auto& value = *it;
   }
 
   // Backward traversal
   for (auto it = mylist.rbegin(); it != mylist.rend(); ++it) {
-    auto value = *it;
+    auto& value = *it;
   }
 
   // Insert 99 before list element with value 3
@@ -275,7 +275,7 @@ int main() {
       it = mylist.erase(it);  // erase returns iterator to next element
     }
     else {
-      ++it;
+      it++;
     }
   }
 
