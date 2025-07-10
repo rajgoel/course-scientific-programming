@@ -513,7 +513,7 @@ int main() {
 ---
 
 **Julia:**
-```julia [1-2|4-5|7-8|10-11|13-14|16-18]
+```julia [1-2|4-5|7-8|10-11|13-14|16-19]
 # Creation
 mymap = Dict("apple" => 3, "banana" => 5, "cherry" => 2)
 
@@ -540,7 +540,7 @@ end
 **Python:**
 ```python [1-2|4-5|7-8|10-11|13-14|16-18]
 # Creation
-mymap = {"apply": 3, "banana": 5, "cherry": 2}
+mymap = {"apple": 3, "banana": 5, "cherry": 2}
 
 # Check whether key exists
 exists = "apple" in mymap
@@ -562,7 +562,7 @@ for k, v in mymap.items():
 ---
 
 **C++:**
-```cpp [1,2|6-11|12-13|15-16|18-19|21-24]
+```cpp [1-3|6-11|13-14|16-17|19-20|22-23|25-28]
 #include <unordered_map>
 #include <iostream>
 #include <string>
