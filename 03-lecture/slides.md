@@ -67,6 +67,7 @@ for element in myarray
   sum += element
 end
 ```
+<!-- .element style="height:600px;" -->
 
 ---
 
@@ -97,6 +98,7 @@ sum = 0
 for element in myarray:
   sum += element
 ```
+<!-- .element style="height:600px;" -->
 
 > [!IMPORTANT]
 > Python does not have a built-in array type.
@@ -138,6 +140,7 @@ int main() {
   return 0;
 }
 ```
+<!-- .element style="height:600px;" -->
 
 ===
 
