@@ -691,8 +691,12 @@ int main() {
 | **Queue**              | First-in, first-out behavior                          | Access of elements other than front or back |
 | **Deque**              | Frequent addition or removal of elements at both ends | Access of elements in the middle            |
 | **Map / Dictionary**   | Access element by key                                 | Access of elements by index                 |
-| **Set**                | Elimnate duplicates, check membership                 | Frequent access of individual elements      |
+| **Set**                | Eliminate duplicates, check membership                | Frequent access of individual elements      |
 <!-- .element style="font-size:32px;" -->
 
+---
+
+> [!TIP]
+> If there is no clear reason to favour a particular container type, the **array** type is a reasonable choice.
 
 
