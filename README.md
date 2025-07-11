@@ -10,8 +10,8 @@ https://rajgoel.github.io/course-scientific-programming
 |---------|----------------------------------------------------------------------------------------------------|-----------------|
 | 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)          | [Requirements & prerequisites](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    |
 | 02      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)    | Project work    |
-| 03      | [Containers and user-defined types](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture) | Project work    |
-| 04      | [Functions and modules](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture) | Project work    |
+| 03      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)     | Project work    |
+| 04      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)            | Project work    |
 | 05      | [Input and output](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)      | Project work    |
 | 06      | [Error handling and exceptions](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture) | Project work    |
 | 07      | [Testing](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)               | Project work    |
