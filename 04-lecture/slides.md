@@ -1,5 +1,7 @@
 # Containers
 
+---
+
 Containers are **data structures** capable of holding a collection of elements.
 
 > [!IMPORTANT]
