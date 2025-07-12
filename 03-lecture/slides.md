@@ -467,3 +467,120 @@ greet(e)
 ===
 
 ## Modules, packages, and libraries
+
+===
+
+## Modules, packages, and libraries
+
+---
+
+### Using existing code
+
+Programs often use code written by others or themselves before, packaged as **modules**, **packages**, or **libraries**.
+
+- This allows reusing tested and optimized code.  
+- Organizes code logically.  
+- Facilitates collaboration and distribution.
+
+---
+
+### Julia: Using modules and packages
+
+- Modules group related functions, types, and constants.  
+- Packages are collections of modules with versioning, metadata, and can be installed via the package manager.
+
+Example: Using the `Statistics` standard library module:
+
+```julia
+using Statistics
+
+data = [1, 2, 3, 4, 5]
+mean_value = mean(data)
+println("Mean: ", mean_value)
+```
+
+Installing and using an external package (run in Julia REPL):
+
+```julia
+using Pkg
+Pkg.add("Plots")
+
+using Plots
+plot([1, 2, 3], [4, 6, 5])
+```
+
+---
+
+### Python: Using modules and packages
+
+- Modules are Python files (`.py`) containing functions and classes.  
+- Packages are directories with an `__init__.py` file containing multiple modules.  
+- Python's standard library contains many modules ready to use.
+
+Example: Using the standard library `math` module:
+
+```python
+import math
+
+x = 16
+print(math.sqrt(x))
+```
+
+Installing and using an external package via `pip` (command line):
+
+```bash
+pip install numpy
+```
+
+Using the package in code:
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3])
+print(np.mean(arr))
+```
+
+---
+
+### C++: Using libraries and headers
+
+- Libraries contain compiled code, either static (`.lib`, `.a`) or dynamic (`.dll`, `.so`).  
+- Headers (`.h`, `.hpp`) declare functions and types for use in code.  
+- The standard library provides common utilities (e.g., `<iostream>`, `<vector>`).
+
+Example: Using the standard library to print and use a vector:
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> data = {1, 2, 3, 4, 5};
+  int sum = 0;
+  for (int x : data) {
+    sum += x;
+  }
+  std::cout << "Sum: " << sum << std::endl;
+  return 0;
+}
+```
+
+Using an external library typically requires:
+
+- Installing the library.  
+- Linking the library during compilation.  
+- Including the appropriate headers.
+
+---
+
+### Summary
+
+| Language | How to use existing code                 | Package manager / build tool                |
+|----------|----------------------------------------|---------------------------------------------|
+| Julia    | `using ModuleName` for modules/packages | `Pkg` for installing packages                |
+| Python   | `import module_name`                    | `pip` for installing packages                 |
+| C++      | `#include` headers + linking libraries | Build systems (CMake, Make) + package managers (Conan, vcpkg) |
+
+Using existing code reduces duplication, improves reliability, and leverages community work.
+
