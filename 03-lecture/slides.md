@@ -544,7 +544,8 @@ After installation, a library can be used as follows:
 #include <nlohmann/json.hpp>
 
 int main() {
-  auto j = nlohmann::json::parse(R"({"name":"Alice","age":30})");
+  std::string jsonString = "{\"name\":\"Alice\",\"age\":30}";
+  auto j = nlohmann::json::parse(jsonString);
   std::cout << j["name"] << " is " << j["age"] << " years old.\n";
 
   return 0; 
