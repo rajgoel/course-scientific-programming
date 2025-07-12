@@ -311,6 +311,9 @@ int main() {
 - Derived classes inherit fields and methods from their base class.
 - Derived classes can override methods to change or extend behavior.
 
+> [!TIP]
+> Use inheritance if a object **is** a specialisation of another object, e.g. a car is a vehicle.
+
 ---
 
 **C++:**
@@ -365,27 +368,101 @@ e = Employee("Alice", 30, "E123")
 e.greet()
 ```
 
-===
+---
 
-## Multiple dispatch
+## Composition
+
+Composition is a design principle where objects are built by combining other objects, instead of inheriting from a base class.
+
+> [!NOTE]
+> Instead of inheriting fields and methods, one object contains another as a member.
+
+> [!TIP]
+> Use composition if an object **has** a another object, e.g. a car has an engine.
+
+---
+
+**Python:**
+```python [1-7|9-16|18-19]
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def greet(self):
+    print(f"Hello, my name is {self.name}.")
+
+class Employee:
+  def __init__(self, person, employee_id):
+    self.person = person  # Composition: Employee "has a" Person
+    self.employee_id = employee_id
+
+  def greet(self):
+    self.person.greet()   # delegate to Person's greet
+    print(f"My employee ID is {self.employee_id}.")
+
+e = Employee(Person("Alice", 30) , "E123")
+e.greet()
+```
+
+---
+
+**C++:**
+```cpp [4-11|13-21|24-25]
+#include <print>
+#include <string>
+
+struct Person {
+  std::string name;
+  int age;
+
+  void greet() const {
+    std::println("Hello, my name is {}", name);
+  }
+};
+
+struct Employee {
+  Person person;           // Composition: Employee "has a" Person
+  std::string employee_id;
+
+  void greet() const {
+    person.greet();  // delegate to Person's greet
+    std::println("My employee ID is {}", employee_id);
+  }
+};
+
+int main() {
+  Employee e{{"Alice", 30}, "E123"};
+  e.greet();
+}
+```
 
 ---
 
 **Julia:**
-```julia
+```julia [1-4|6-9|11-18|20-21]
 struct Person
   name::String
   age::Int
 end
 
-greet(p::Person) = println("Hello, my name is ", p.name)
+struct Employee
+  person::Person   # Composition: Employee "has a" Person
+  employee_id::String
+end
 
-p = Person("Alice", 30)
-greet(p)
+function greet(p::Person)
+  println("Hello, my name is ", p.name)
+end
+
+function greet(e::Employee)
+  greet(e.person)  # delegate to Person's greet
+  println("My employee ID is ", e.employee_id)
+end
+
+e = Employee(Person("Alice", 30), "E123")
+greet(e)
 ```
-
-> [!NOTE]
-> Julia separates data and behavior: data is defined in structs, while behavior is implemented in functions that operate on those structs but are not part of them. This design, where a function’s behavior depends on the types of its arguments, is called **multiple dispatch**.
 
 ===
 
