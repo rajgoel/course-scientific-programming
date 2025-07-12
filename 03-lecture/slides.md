@@ -541,8 +541,8 @@ print(x)  # prints 20
 
 ---
 
-```cpp [3|5-19|22-23|25]
-#include <iostream>
+```cpp [3|5-19|22-23|24]
+#include <print>
 
 int global_var = 10;  // global scope
 
@@ -553,20 +553,19 @@ struct MyStruct {
     int local_var = 30;  // local to this method
     if (local_var > 0) {
       int block_var = 40;  // block scope, only accessible inside this if-block
-      std::cout << "block_var: " << block_var << "\n";
+      std::println("block_var: {}", block_var);
     }
     // block_var is NOT accessible here
-    std::cout << "member_var: " << member_var << "\n";
-    std::cout << "local_var: " << local_var << "\n";
-    std::cout << "global_var: " << global_var << "\n";
+    std::println("member_var: {}", member_var);
+    std::println("local_var: {}", local_var);
+    std::println("global_var: {}", global_var);
   }
 };
 
 int main() {
   MyStruct mystruct;
   mystruct.print();
-
-  std::cout << "global_var in main: " << global_var << "\n";
+  std::println("global_var: {}", global_var);
 
   return 0;
 }
@@ -612,7 +611,7 @@ using Pkg
 Pkg.add("Plots")
 ```
 
-After installation, an external packages can be used as follows:
+After installation, an external package can be used as follows:
 
 ```julia
 import Plots
@@ -650,13 +649,13 @@ print(np.mean(arr))
 
 ### C++
 
-In C++, using an external library typically requires:
+In C++, using an external library typically requires to:
 
-- downloading and installing the library,  
-- linking the library during compilation, and  
-- including the appropriate headers.
+- download and install the library,
+- include the appropriate headers in the code, and
+- link the library during compilation.
 
-After installation, a library can be used as follows:
+Library headers can be included as follows:
 
 ```cpp
 #include <iostream>
