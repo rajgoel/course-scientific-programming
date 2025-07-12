@@ -70,7 +70,6 @@ end
 
 A **generic** function accepting all argument types:
 
-**Python:*
 ```python
 def square(x):
     return x * x
@@ -130,6 +129,7 @@ int main() {
   return 0;
 }
 ```
+<!-- .element style="height:500px;" -->
 
 ---
 
@@ -310,7 +310,7 @@ int main() {
 - Derived classes can override methods to change or extend behavior.
 
 > [!TIP]
-> Use inheritance if a object **is** a specialisation of another object, e.g. a car is a vehicle.
+> Inheritance is primarily used if a object **is** a specialisation of another object, e.g., a car is a vehicle.
 
 ---
 
@@ -370,13 +370,10 @@ myemployee.greet()
 
 ## Composition
 
-Composition is a design principle where objects are built by combining other objects, instead of inheriting from a base class.
-
-> [!NOTE]
-> Instead of inheriting fields and methods, one object contains another as a member.
+Composition is a design principle where objects are built by combining other objects. Instead of inheriting from a base class, one object contains another as a member.
 
 > [!TIP]
-> Use composition if an object **has** a another object, e.g. a car has an engine.
+> Composition is primarily used if an object **has** another object, e.g., a car has an engine.
 
 ---
 
@@ -461,6 +458,130 @@ end
 myemployee = Employee(Person("Alice", 30), "E123")
 greet(myemployee)
 ```
+
+===
+
+## Variable scopes
+
+---
+
+**Variable scopes** determine where a variable can be accessed or modified.
+
+> [!IMPORTANT]
+> Scopes differ by language.
+
+---
+
+### Julia
+
+- Variables declared inside functions are local to that function.
+- Variables declared outside of functions are global by default.
+- Use `global` keyword inside functions to modify global variables.
+- Loop variables have local scope within the loop.
+
+---
+
+```julia [1|3-8|9|11-17]
+x = 10  # global
+
+function foo()
+  x = 5   # local to foo
+  println(x)  # prints 5
+end
+
+foo()
+println(x)  # prints 10
+
+function bar()
+  global x
+  x = 20    # modifies global x
+end
+
+bar()
+println(x)  # prints 20
+```
+
+---
+
+### Python
+
+- Variables declared inside a class are are accessible by all methods of the class.
+- Variables assigned inside a function or method are local to that function or method.
+- Variables declared outside functions or classes have global scope.
+- Use the `global` keyword to modify global variables inside functions.
+
+---
+
+```python [1|3-7|8|10-15]
+x = 10  # global
+
+def foo():
+    x = 5  # local
+    print(x)  # prints 5
+
+foo()
+print(x)  # prints 10
+
+def bar():
+    global x
+    x = 20  # modifies global x
+
+bar()
+print(x)  # prints 20
+```
+
+---
+
+### C++
+
+- Variables declared inside a struct or class are accessible by all methods of that struct or class.
+- Variables declared inside functions or methods are local to those functions or methods.
+- Variables declared inside blocks (`{}`) have block scope.
+- Variables declared outside all functions and classes have global scope.
+
+---
+
+```cpp [3|5-19,22-23|25]
+#include <iostream>
+
+int global_var = 10;  // global scope
+
+struct MyStruct {
+  int member_var = 20;  // accessible by all methods of MyStruct
+
+  void print() {
+    int local_var = 30;  // local to this method
+    if (local_var > 0) {
+      int block_var = 40;  // block scope, only accessible inside this if-block
+      std::cout << "block_var: " << block_var << "\n";
+    }
+    // block_var is NOT accessible here
+    std::cout << "member_var: " << member_var << "\n";
+    std::cout << "local_var: " << local_var << "\n";
+    std::cout << "global_var: " << global_var << "\n";
+  }
+};
+
+int main() {
+  MyStruct s;
+  s.print();
+
+  std::cout << "global_var in main: " << global_var << "\n";
+
+  return 0;
+}
+```
+
+---
+
+> [!TIP]
+> In general, variables with global scope should be avoided because they:
+> - increase the risk of name clashes,
+> - increase the risk of unintended side effects,
+> - make debugging and testing harder,
+> - reduce code modularity and clarity.
+>
+> Prefer passing variables explicitly to functions or encapsulating state inside classes or structs.
 
 ===
 
@@ -549,5 +670,6 @@ int main() {
   return 0; 
 }
 ```
+
 
 
