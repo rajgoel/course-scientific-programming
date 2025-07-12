@@ -536,12 +536,12 @@ print(x)  # prints 20
 
 - Variables declared inside a struct or class are accessible by all methods of that struct or class.
 - Variables declared inside functions or methods are local to those functions or methods.
-- Variables declared inside blocks (`{}`) have block scope.
+- Variables declared inside blocks (i.e., between `{` and `}`) have block scope.
 - Variables declared outside all functions and classes have global scope.
 
 ---
 
-```cpp [3|5-19,22-23|25]
+```cpp [3|5-19|22-23|25]
 #include <iostream>
 
 int global_var = 10;  // global scope
@@ -563,8 +563,8 @@ struct MyStruct {
 };
 
 int main() {
-  MyStruct s;
-  s.print();
+  MyStruct mystruct;
+  mystruct.print();
 
   std::cout << "global_var in main: " << global_var << "\n";
 
