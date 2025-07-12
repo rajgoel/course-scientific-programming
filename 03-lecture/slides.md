@@ -131,8 +131,6 @@ int main() {
 }
 ```
 
-
-
 ---
 
 ### Variable access
@@ -210,9 +208,9 @@ struct Person
   age::Int
 end
 
-p = Person("Alice", 30)
-println("Name: ",p.name)
-println("Age: ",p.age)
+myperson = Person("Alice", 30)
+println("Name: ", myperson.name)
+println("Age: ", myperson.age)
 ```
 
 ---
@@ -225,9 +223,9 @@ class Person:
     self.name = name
     self.age = age
 
-p = Person("Alice", 30)
-print("Name:", p.name)
-print("Age:",p.age)
+myperson = Person("Alice", 30)
+print("Name:", myperson.name)
+print("Age:", myperson.age)
 ```
 
 ---
@@ -275,8 +273,8 @@ class Person:
   def greet(self):
     print(f"Hello, my name is {self.name}.")
 
-p = Person("Alice", 30)
-p.greet()
+myperson = Person("Alice", 30)
+myperson.greet()
 ```
 
 ---
@@ -296,8 +294,8 @@ struct Person {
 };
 
 int main() {
-  Person p{"Alice", 30};
-  p.greet();
+  Person myperson{"Alice", 30};
+  myperson.greet();
 }
 ```
 <!-- .element style="height:500px;" -->
@@ -339,8 +337,8 @@ struct Employee : Person {
 };
 
 int main() {
-  Employee e{"Alice", 30, "E123"};
-  e.greet();
+  Employee myemployee{"Alice", 30, "E123"};
+  myemployee.greet();
 }
 ```
 
@@ -364,8 +362,8 @@ class Employee(Person):
   def greet(self):
     print(f"Hello, my name is {self.name} and my employee ID is {self.employee_id}.")
 
-e = Employee("Alice", 30, "E123")
-e.greet()
+myemployee = Employee("Alice", 30, "E123")
+myemployee.greet()
 ```
 
 ---
@@ -401,8 +399,8 @@ class Employee:
     self.person.greet()   # delegate to Person's greet
     print(f"My employee ID is {self.employee_id}.")
 
-e = Employee(Person("Alice", 30) , "E123")
-e.greet()
+myemployee = Employee(Person("Alice", 30) , "E123")
+myemployee.greet()
 ```
 
 ---
@@ -432,8 +430,8 @@ struct Employee {
 };
 
 int main() {
-  Employee e{{"Alice", 30}, "E123"};
-  e.greet();
+  Employee myemployee({"Alice", 30}, "E123");
+  myemployee.greet();
 }
 ```
 
@@ -460,8 +458,8 @@ function greet(e::Employee)
   println("My employee ID is ", e.employee_id)
 end
 
-e = Employee(Person("Alice", 30), "E123")
-greet(e)
+myemployee = Employee(Person("Alice", 30), "E123")
+greet(myemployee)
 ```
 
 ===
