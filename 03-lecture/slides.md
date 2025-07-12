@@ -480,20 +480,20 @@ Using existing code helps
 - leverage tested and optimized functionality.
 
 > [!NOTE]
-> The way code is distributed and shares differs by programming language.
+> The way code is distributed and shared differs by programming language.
 
 ---
 
 ### Julia
 
-In Julia, packages are installed with `Pkg.add`, e.g.:
+In Julia, packages can be installed from within the REPL, e.g.:
 
 ```julia
 using Pkg
 Pkg.add("Plots")
 ```
 
-After installation an external packages can be used as follows:
+After installation, an external packages can be used as follows:
 
 ```julia
 import Plots
@@ -510,28 +510,15 @@ plot([1, 2, 3], [4, 6, 5])
 
 ---
 
-### Python: Using modules and packages
+### Python
 
-- Modules are Python files (`.py`) containing functions and classes.  
-- Packages are directories with an `__init__.py` file containing multiple modules.  
-- Python's standard library contains many modules ready to use.
-
-Example: Using the standard library `math` module:
-
-```python
-import math
-
-x = 16
-print(math.sqrt(x))
-```
-
-Installing and using an external package via `pip` (command line):
+In Python, packages can be installed from within the command line, e.g.:
 
 ```bash
 pip install numpy
 ```
 
-Using the package in code:
+After installation, an external packages can be used as follows:
 
 ```python
 import numpy as np
@@ -542,44 +529,26 @@ print(np.mean(arr))
 
 ---
 
-### C++: Using libraries and headers
+### C++
 
-- Libraries contain compiled code, either static (`.lib`, `.a`) or dynamic (`.dll`, `.so`).  
-- Headers (`.h`, `.hpp`) declare functions and types for use in code.  
-- The standard library provides common utilities (e.g., `<iostream>`, `<vector>`).
+In C++, using an external library typically requires:
 
-Example: Using the standard library to print and use a vector:
-
-```cpp
-#include <iostream>
-#include <vector>
-
-int main() {
-  std::vector<int> data = {1, 2, 3, 4, 5};
-  int sum = 0;
-  for (int x : data) {
-    sum += x;
-  }
-  std::cout << "Sum: " << sum << std::endl;
-  return 0;
-}
-```
-
-Using an external library typically requires:
-
-- Installing the library.  
+- Downloading and installing the library.  
 - Linking the library during compilation.  
 - Including the appropriate headers.
 
----
+After installation, a library can be used as follows:
 
-### Summary
+```cpp
+#include <iostream>
+#include <nlohmann/json.hpp>
 
-| Language | How to use existing code                 | Package manager / build tool                |
-|----------|----------------------------------------|---------------------------------------------|
-| Julia    | `using ModuleName` for modules/packages | `Pkg` for installing packages                |
-| Python   | `import module_name`                    | `pip` for installing packages                 |
-| C++      | `#include` headers + linking libraries | Build systems (CMake, Make) + package managers (Conan, vcpkg) |
+int main() {
+  auto j = nlohmann::json::parse(R"({"name":"Alice","age":30})");
+  std::cout << j["name"] << " is " << j["age"] << " years old.\n";
 
-Using existing code reduces duplication, improves reliability, and leverages community work.
+  return 0; 
+}
+```
+
 
