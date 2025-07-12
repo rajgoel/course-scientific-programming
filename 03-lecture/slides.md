@@ -468,46 +468,45 @@ greet(e)
 
 ## Modules, packages, and libraries
 
-===
-
-## Modules, packages, and libraries
-
 ---
 
 ### Using existing code
 
-Programs often use code written by others or themselves before, packaged as **modules**, **packages**, or **libraries**.
+Code is distributed and shared via **modules**, **packages**, and **libraries**.
 
-- This allows reusing tested and optimized code.  
-- Organizes code logically.  
-- Facilitates collaboration and distribution.
+Using existing code helps
+- avoid reinventing the wheel,
+- speed up development, and
+- leverage tested and optimized functionality.
+
+> [!NOTE]
+> The way code is distributed and shares differs by programming language.
 
 ---
 
-### Julia: Using modules and packages
+### Julia
 
-- Modules group related functions, types, and constants.  
-- Packages are collections of modules with versioning, metadata, and can be installed via the package manager.
-
-Example: Using the `Statistics` standard library module:
-
-```julia
-using Statistics
-
-data = [1, 2, 3, 4, 5]
-mean_value = mean(data)
-println("Mean: ", mean_value)
-```
-
-Installing and using an external package (run in Julia REPL):
+In Julia, packages are installed with `Pkg.add`, e.g.:
 
 ```julia
 using Pkg
 Pkg.add("Plots")
+```
 
+After installation an external packages can be used as follows:
+
+```julia
+import Plots
+Plots.plot([1, 2, 3], [4, 6, 5])
+```
+
+or
+
+```julia
 using Plots
 plot([1, 2, 3], [4, 6, 5])
 ```
+
 
 ---
 
