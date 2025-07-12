@@ -34,7 +34,7 @@ A function typically consists of:
 - The final result produced by the function called the **return value**.
 
 > [!NOTE]
-> Not every function requires inputs, and not every function produces a final result.
+> Not every function requires inputs and not every function produces a final result.
 
 ---
 
@@ -51,6 +51,7 @@ end
 > [!WARNING]
 > If the type of `x` does not support `*`, above will result in a runtime error.
 
+---
 
 A function only accepting integers as argument:
 
@@ -78,6 +79,7 @@ def square(x):
 > [!WARNING]
 > If the type of `x` does not support `*`, above will result in a runtime error.
 
+---
 
 A function only accepting integers as argument:
 
@@ -108,7 +110,7 @@ unsigned int square(unsigned int x) {
 
 ---
 
-[Templates](https://en.wikipedia.org/wiki/Template_(C%2B%2B)) can be used to allow functions operate with generic types.
+[Templates](https://en.wikipedia.org/wiki/Template_(C%2B%2B)) can be used to allow functions to operate with generic types.
 
 ```cpp
 #include <concepts>
@@ -183,8 +185,9 @@ def factorial(n):
 int factorial(int n) {
   if (n == 0) {
     return 1;
-  } else {
-    return n * factorial(n - 1);  // recursive call
+  }
+  else {
+    return n * factorial(n - 1); // recursive call
   }
 }
 ```
@@ -257,9 +260,6 @@ int main() {
 
 [Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) organises code by combining data (fields) and behavior (methods) into objects.
 
-> [!NOTE]
-> In OOP languages like Python and C++, functions (called methods) can be attached to types and operate directly on the data of the type.
-
 > [!WARNING]
 > Julia does not support traditional OOP.
 
@@ -314,7 +314,7 @@ int main() {
 ---
 
 **C++:**
-```cpp
+```cpp [4-11|13-19|21-24]
 #include <print>
 #include <string>
 
@@ -344,7 +344,7 @@ int main() {
 ---
 
 **Python:**
-```python
+```python [1-7|9-15|17-18]
 class Person:
   def __init__(self, name, age):
     self.name = name
