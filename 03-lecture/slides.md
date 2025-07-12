@@ -516,15 +516,15 @@ println(x)  # prints 20
 x = 10  # global
 
 def foo():
-    x = 5  # local
-    print(x)  # prints 5
+  x = 5  # local
+  print(x)  # prints 5
 
 foo()
 print(x)  # prints 10
 
 def bar():
-    global x
-    x = 20  # modifies global x
+  global x
+  x = 20  # modifies global x
 
 bar()
 print(x)  # prints 20
