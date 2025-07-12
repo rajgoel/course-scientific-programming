@@ -533,9 +533,9 @@ print(np.mean(arr))
 
 In C++, using an external library typically requires:
 
-- Downloading and installing the library.  
-- Linking the library during compilation.  
-- Including the appropriate headers.
+- downloading and installing the library,  
+- linking the library during compilation, and  
+- including the appropriate headers.
 
 After installation, a library can be used as follows:
 
