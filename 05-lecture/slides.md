@@ -90,7 +90,7 @@ CSV.write( "output.csv", output_frame;
 ```
 
 > [!NOTE]
-> The '.' operator .
+> The '.' operator is used for element-wise application on an array or collection. 
 
 ---
 
