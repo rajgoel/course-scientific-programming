@@ -169,7 +169,7 @@ using Pkg
 Pkg.add("JSON3")
 ```
 
-```julia
+```julia [1-4|6-8|10-12|14-15]
 using JSON3
 
 # Parse JSON string
@@ -192,7 +192,7 @@ mystring = JSON3.write(myjson)
 
 ### Python
 
-```python
+```python [1-4|6-8|10-12|14-15]
 import json
 
 # Parse JSON string into a dict
