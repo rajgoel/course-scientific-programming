@@ -1,4 +1,4 @@
-# I/O and error handling
+# Input and output
 
 ==
 
@@ -12,7 +12,7 @@ Common text-based formats for input/output (I/O) of programs and for exchanging 
 
 ===
 
-### CSV
+## CSV
 
 **Comma‑separated values (CSV)** refers to a text format used to represent table data, i.e., rows of records, where each record has fields separated by commas (or other delimiters).
 
@@ -143,11 +143,84 @@ C++ does not have a built-in `DataFrame` class.
 
 ===
 
-### JSON
+## JSON
+
+[**JavaScript Object Notation (JSON)**](https://www.json.org) is a data exchange format for structured data that is not necessarily tabular.
+
+JSON is built on two structures:
+
+- A collection of name/value pairs.
+- An ordered list of values.
+
+```json
+{
+  "name": "Alice",
+  "age": 30,
+  "skills": ["Julia", "Python", "C++"]
+}
+```
 
 ---
 
-### XML
+#### Julia
+
+```julia
+using Pkg
+Pkg.add("JSON3")
+```
+
+```julia
+using JSON3
+
+# Parse JSON string
+mystring = """{"name":"Alice","age":30,"skills":["Julia","Python","C++"]}"""
+myjson = JSON3.read(mystring, Dict{String,Any})
+
+# Access fields
+println(myjson.name, " is ", myjson.age, " years old.")
+println("Skills: ", join(myjson.skills, ", "))
+
+# Modify
+myjson["city"] = "Berlin"
+push!(myjson["skills"],"JSON")
+
+# Serialize
+mystring = JSON3.write(myjson)
+```
+
+---
+
+### Python
+
+```python
+import json
+
+# Parse JSON string into a dict
+mystring = '{"name":"Alice","age":30,"skills":["Julia","Python","C++"]}'
+myjson = json.loads(mystring)
+
+# Access fields
+print(f"{myjson['name']} is {myjson['age']} years old.")
+print("Skills:", ", ".join(myjson["skills"]))
+
+# Modify
+myjson["city"] = "Berlin"
+myjson["skills"].append("JSON")
+
+# Serialize
+mystring = json.dumps(myjson)
+```
+
+### C++
+
+C++ does not have a built-in `json` class.
+
+> [!TIP]
+> You may want to use https://github.com/nlohmann/json
+
+===
+
+## XML
 
 ===
 
@@ -155,9 +228,10 @@ C++ does not have a built-in `DataFrame` class.
 
 - http(s), get, post
 - Rest API
+- streams
 
 ===
 
-## Charts
+## Visualisation
 
 

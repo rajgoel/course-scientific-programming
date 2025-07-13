@@ -13,9 +13,9 @@ https://rajgoel.github.io/course-scientific-programming
 | 03      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)     | Project work    |
 | 04      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)            | Project work    |
 | 05      | [Input and output](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)      | Project work    |
-| 06      | [Error handling and exceptions](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture) | Project work    |
-| 07      | [Testing](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)               | Project work    |
-| 08      | [Documentation](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)         | Project work    |
+| 06      | [Error handling and testing](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture) | Project work    |
+| 07      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)               | Project work    |
+| 08      | [Design patterns](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)         | Project work    |
 | 09      | [Design patterns](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)       | Project work    |
 | 10      | [Complexity](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)            | Project work    |
 | 11      | Ask me anything                                                                                    | Ask me anything |
