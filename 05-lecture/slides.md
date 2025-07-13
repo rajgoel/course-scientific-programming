@@ -64,34 +64,84 @@ Pkg.add("CSV")
 using DataFrames, CSV
 
 # Read CSV into DataFrame
-input = CSV.read("input.csv", DataFrame)
+input_frame = CSV.read( "input.csv", DataFrame )
 
 # Remove whitespaces in labels
-rename!(input, names(input) .=> strip.(names(input)) )
+rename!(input_frame, names(input_frame) .=> strip.(names(input_frame)) )
 
-# Obtain statistics
-describe(input)
+# Print statistics
+println( describe(input_frame) )
 
-# Inspect first 5 rows
-first(input, 5)
+# Print first 2 rows
+println( first(input_frame, 2) )
 
 # Filter and select
-output = input[input.Age .> 18, [:Name, :Age]]
+output_frame = input_frame[input_frame.Age .> 18, [:Name, :Age]]
 
 # Add a derived column
-output.Initial = first.(output.Name)
+output_frame.Initial = first.( output_frame.Name )
 
 # Write back to CSV
-CSV.write("output.csv", output;
-  quotechar='"',
-  quotestrings=true
+CSV.write( "output.csv", output_frame;
+  delim = ",",
+  quotechar = '"',
+  quotestrings = true
 )
 ```
 
-> [!WARNING]
-> The output may contain different delimiters and quotation style as the input.
+> [!NOTE]
+> The '.' operator .
 
 ---
+
+### Python
+
+```bash
+pip install pandas
+```
+
+```python
+import pandas as pd
+import csv
+
+# Read CSV into DataFrame
+input_frame = pd.read_csv( "input.csv" )
+
+# Remove whitespace in column labels
+input_frame.columns = input_frame.columns.str.strip()
+
+# Print statistics
+print( input_frame.describe() )
+
+# Inspect first 2 rows
+print( input_frame.head(2) )
+
+# Filter and select
+output_frame = input_frame[input_frame["Age"] > 18][["Name", "Age"]]
+
+# Add a derived column
+output_frame["Initial"] = output_frame["Name"].str[0]
+
+# Write back to CSV with all fields quoted
+output_frame.to_csv(
+    "output.csv",
+    index = False,
+    sep = ',',
+    quotechar = '"',
+    quoting = csv.QUOTE_ALL
+)
+```
+
+---
+
+### C++
+
+C++ does not have a built-in `DataFrame` class.
+
+> [!TIP]
+> You may want to use https://github.com/hosseinmoein/DataFrame
+
+===
 
 ### JSON
 
