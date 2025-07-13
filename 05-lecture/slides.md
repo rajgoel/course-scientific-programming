@@ -60,7 +60,7 @@ Pkg.add("DataFrames")
 Pkg.add("CSV")
 ```
 
-```julia [1-4|6-7|9-10|12-13|15-16|18-19|22-26]
+```julia [1-4|6-7|9-10|12-13|15-16|18-19|21-26]
 using DataFrames, CSV
 
 # Read CSV into DataFrame
@@ -100,7 +100,7 @@ CSV.write( "output.csv", output_frame;
 pip install pandas
 ```
 
-```python
+```python [1-5|7-8|10-11|13-14|16-17|19-20|22-28]
 import pandas as pd
 import csv
 
