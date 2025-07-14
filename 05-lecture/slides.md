@@ -489,4 +489,152 @@ for i in range(24):
 
 ## Visualisation
 
+In Julia, plots can be easily created using `Plots.jl`
+```julia
+import Pkg;
+Pkg.add("Plots")
+```
 
+> [!TIP]
+> For Python and C++ you can use [matplotlib](https://matplotlib.org).
+
+===
+
+### Line plot
+
+<div class="twocolumn">
+<div>
+
+![Plot](05-lecture/lineplot.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+x = 0:0.1:10
+y = sin.(x)
+
+plot(x, y, label = "sin(x)", title = "Line Plot")
+
+savefig("lineplot.svg")
+```
+</div>
+</div>
+
+---
+
+### Scatter plot
+
+<div class="twocolumn">
+<div>
+
+![Plot](05-lecture/scatterplot.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+x = rand(100)
+y = rand(100)
+
+scatter(x, y, title = "Scatter Plot")
+
+savefig("scatterplot.svg")
+```
+</div>
+</div>
+
+---
+
+### Bar plot
+
+<div class="twocolumn">
+<div>
+
+![Plot](05-lecture/barplot.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+categories = ["A", "B", "C"]
+values = [5, 3, 7]
+
+bar(categories, values, title = "Bar Plot")
+
+savefig("barplot.svg")
+```
+</div>
+</div>
+
+---
+
+### Histogram
+
+<div class="twocolumn">
+<div>
+
+![Plot](05-lecture/histogram.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+data = randn(1000)
+histogram(data, bins = 30, title = "Histogram")
+
+savefig("histogram.svg")
+```
+</div>
+</div>
+
+---
+
+### Heatmap
+
+<div class="twocolumn">
+<div>
+
+![Plot](05-lecture/heatmap.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+z = [sin(x/10) * cos(y/10) for x in 0:50, y in 0:50]
+heatmap(z, title = "Heatmap")
+
+savefig("heatmap.svg")
+```
+</div>
+</div>
+
+---
+
+### 3D surface
+
+<div class="twocolumn">
+<div>
+
+![Plot](05-lecture/surface.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+x = y = range(-5, 5, length = 100)
+z = [sin(sqrt(xi^2 + yi^2)) for xi in x, yi in y]
+
+surface(x, y, z, title = "3D Surface Plot")
+
+savefig("surface.svg")
+```
+</div>
+</div>
+ 
