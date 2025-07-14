@@ -271,10 +271,10 @@ using Pkg
 Pkg.add("EzXML")
 ```
 
-```julia [1|3-14|16-17|19-20|22-23|25-26]
+```julia  [1|3-12|14-15|17-18|20-21|23-24|26-27]
 using EzXML
 
-# Parse XML string
+# XML input string
 mystring = """
 <person name="Alice">
   <skills>
@@ -285,6 +285,7 @@ mystring = """
 </person>
 """
 
+# Parse XML from string
 myxml = parsexml(mystring)
 
 # Get the root node of the XML-tree
@@ -307,7 +308,7 @@ println(myname, " knows about ", join(nodecontent.(myskills), ", "))
 
 ### Python
 
-```python  [1|3-14|16-17|19-20|22-23|25-26]
+```python  [1|3-12|14-15|17-18|20-21|23-24]
 import xml.etree.ElementTree as XML
 
 # XML input string
@@ -321,7 +322,7 @@ mystring = """
 </person>
 """
 
-# Parse XML from string
+# Parse XML from string and get root
 myperson = XML.fromstring(mystring)
 
 # Get name of myperson
