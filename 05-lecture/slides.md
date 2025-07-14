@@ -351,11 +351,139 @@ pugixml](https://pugixml.org/) that can be used similarly to the respective Juli
 
 ===
 
+## File system
+
+Many programs read from or write files stored on the local disk. Usually, this is done line by line.
+
+---
+
+### Julia
+
+```julia [1-8|10-14]
+# Check whether input file exists
+input_filename = "input.txt"
+if isfile(input_filename)
+  # Read a text file line by line
+  for line in eachline(input_filename)
+    println(line)
+  end
+end
+
+# Write to output file
+output_filename = "output.txt";
+open("output.txt", "w") do myfile
+  write(myfile, "Hello, file system!")
+end
+```
+
+---
+
+### Python
+
+```python [1|3-9|11-14]
+import os
+
+# Check whether input file exists
+input_filename = "input.txt"
+if os.path.isfile(input_filename):
+  # Read a text file line by line
+  with open(input_filename, "r") as myfile:
+    for line in myfile:
+      print(line, end='')
+
+# Write to output file
+output_filename = "output.txt";
+with open(output_filename, "w") as myfile:
+  myfile.write("Hello, file system!")
+```
+
+---
+
+### C++
+
+```cpp [1-4|7-16|18-22]
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <filesystem>
+
+int main() {
+  // Check whether input file exists
+  std::string input_filename = "input.txt";
+  if (std::filesystem::exists(input_filename)) {
+    std::ifstream my_input_stream(input_filename);
+    std::string line;
+    while (std::getline(my_input_stream, line)) {
+      // Print line to console
+      std::cout << line << std::endl;
+    }
+  }
+
+  // Write to output file
+  std::string output_filename = "output.txt";
+  std::ofstream my_output_stream(output_filename);
+  my_output_stream << "Hello, file system!";
+  my_output_stream.close();
+
+  return 0;
+}
+```
+
+== 
+
 ## Web services
 
-- http(s), get, post
-- Rest API
-- streams
+[Web services](https://en.wikipedia.org/wiki/Web_service) are used for transferring machine-readable file formats such as CSV, JSON, and XML using a web technology such as [HTTP](https://en.wikipedia.org/wiki/HTTP).
+ 
+They allow programs to communicate over the internet and are commonly used to access remote data or functionality via [APIs](https://en.wikipedia.org/wiki/API).
+
+---
+
+### Julia
+
+```julia
+using HTTP
+using JSON3
+
+latitude = 53.55
+longitude = 9.99
+url = "https://api.open-meteo.com/v1/forecast?latitude=$latitude&longitude=$longitude&hourly=temperature_2m"
+
+response = HTTP.get(url)
+data = JSON3.read(String(response.body))
+
+# Access temperature data
+
+for i in 1:24
+  println("The temperature at ", data.hourly.time[i]," is ", data.hourly.temperature_2m[i], data.hourly_units.temperature_2m)
+end
+```
+
+---
+
+### Python
+
+```python
+import requests
+
+latitude = 53.55
+longitude = 9.99
+url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m"
+
+response = requests.get(url)
+data = response.json()
+
+# Access temperature data
+for i in range(24):
+    print(f"The temperature at {data['hourly']['time'][i]} is {data['hourly']['temperature_2m'][i]} {data['hourly_units']['temperature_2m']}")
+```
+
+---
+
+### C+++
+
+> [!TIP]
+> For C++, the [libcurl](https://curl.se/libcurl/) library can be used to make http-requests.
 
 ===
 
