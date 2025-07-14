@@ -16,7 +16,7 @@ Common text-based formats for input and output of programs and for exchanging da
 
 **Comma‑separated values (CSV)** refers to a text format used to represent table data, i.e., rows of records, where each record has fields separated by commas (or other delimiters).
 
-<div class="twocolumn">
+<div class="twocolumn" style="align-items: center;">
 <div>
 
 | Name    | Age | City      |
@@ -429,11 +429,11 @@ int main() {
 }
 ```
 
-== 
+===
 
 ## Web services
 
-[Web services](https://en.wikipedia.org/wiki/Web_service) are used for transferring machine-readable file formats such as CSV, JSON, and XML using a web technology such as [HTTP](https://en.wikipedia.org/wiki/HTTP).
+[Web services](https://en.wikipedia.org/wiki/Web_service) are used for transferring machine-readable file formats such as CSV, JSON, and XML between machines using a web technology such as [HTTP](https://en.wikipedia.org/wiki/HTTP).
  
 They allow programs to communicate over the internet and are commonly used to access remote data or functionality via [APIs](https://en.wikipedia.org/wiki/API).
 
@@ -502,7 +502,7 @@ Pkg.add("Plots")
 
 ### Line plot
 
-<div class="twocolumn">
+<div class="twocolumn" style="align-items: center;">
 <div>
 
 ![Plot](05-lecture/lineplot.svg)
@@ -526,7 +526,7 @@ savefig("lineplot.svg")
 
 ### Scatter plot
 
-<div class="twocolumn">
+<div class="twocolumn" style="align-items: center;">
 <div>
 
 ![Plot](05-lecture/scatterplot.svg)
@@ -550,7 +550,7 @@ savefig("scatterplot.svg")
 
 ### Bar plot
 
-<div class="twocolumn">
+<div class="twocolumn" style="align-items: center;">
 <div>
 
 ![Plot](05-lecture/barplot.svg)
@@ -574,7 +574,7 @@ savefig("barplot.svg")
 
 ### Histogram
 
-<div class="twocolumn">
+<div class="twocolumn" style="align-items: center;">
 <div>
 
 ![Plot](05-lecture/histogram.svg)
@@ -596,7 +596,7 @@ savefig("histogram.svg")
 
 ### Heatmap
 
-<div class="twocolumn">
+<div class="twocolumn" style="align-items: center;">
 <div>
 
 ![Plot](05-lecture/heatmap.svg)
@@ -618,7 +618,7 @@ savefig("heatmap.svg")
 
 ### 3D surface
 
-<div class="twocolumn">
+<div class="twocolumn" style="align-items: center;">
 <div>
 
 ![Plot](05-lecture/surface.svg)
