@@ -222,6 +222,126 @@ C++ does not have a built-in `json` class.
 
 ## XML
 
+[**Extensible Markup Language (XML)**](https://www.w3.org/XML/) is a hierarchical data exchange format based on nested tags. 
+
+```xml
+<person name="Alice">
+  <skills>
+    <skill>Julia</skill>
+    <skill>Python</skill>
+    <skill>C++</skill>
+  </skills>
+</person>
+```
+
+---
+
+### XML Schema Definition (XSD)
+
+XML files are commonly based on an [XML Schema Definition (XSD)](https://www.w3.org/XML/Schema) which defines the structure and data types of an XML document. 
+
+```xsd
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="person">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:sequence>
+        <xs:element name="skills">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="skill" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+```
+<!-- .element style="height:500px;" -->
+
+---
+
+### Julia
+
+```julia
+using Pkg
+Pkg.add("EzXML")
+```
+
+```julia [1-14|16-17|19-20|22]
+using EzXML
+
+# Parse XML string
+mystring = 
+"""<person name="Alice">
+  <skills>
+    <skill>Julia</skill>
+    <skill>Python</skill>
+    <skill>C++</skill>
+  </skills>
+</person>
+"""
+
+myxml = parsexlm(mystring)
+
+# Get the root node of the XML-tree
+myperson = root(myxml)
+
+# Find all skills within the root
+skills = findall("//skill",myperson)
+
+println(myperson["name"], " knows about ", join(nodecontent.(skills), ", "))
+```
+
+> [!NOTE]
+> The schema definition is neither needed nor used here.
+
+---
+
+### Python
+
+```python
+import xml.etree.ElementTree as XML
+
+# XML input string
+mystring = """
+<person name="Alice">
+  <skills>
+    <skill>Julia</skill>
+    <skill>Python</skill>
+    <skill>C++</skill>
+  </skills>
+</person>
+"""
+
+# Parse XML from string
+root = XML.fromstring(mystring)
+
+# Extract name attribute
+name = root.attrib["name"]
+
+# Extract all <Skill> elements
+skills = [skill.text for skill in root.find("skills").findall("skill")]
+
+# Output
+print(f"{name} knows about {', '.join(skills)}")
+```
+
+> [!NOTE]
+> The schema definition is neither needed nor used here.
+
+---
+
+### C++
+
+Several XML-parser libraries exist for C++, e.g. [Xerces-C++ ](https://xerces.apache.org/xerces-c/) or [
+pugixml](https://pugixml.org/) that can be used similarly to the respective Julia and Python libraries.
+
+> [!TIP]
+> [schematic++](https://github.com/rajgoel/schematicpp) can generate a C++ class structure corresponding to a given XML Schema Definition (XSD).
+
+
 ===
 
 ## Web services
