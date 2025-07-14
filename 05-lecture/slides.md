@@ -433,7 +433,7 @@ int main() {
 
 ## Web services
 
-[Web services](https://en.wikipedia.org/wiki/Web_service) are used for transferring machine-readable file formats such as CSV, JSON, and XML between machines using a web technology such as [HTTP](https://en.wikipedia.org/wiki/HTTP).
+[Web services](https://en.wikipedia.org/wiki/Web_service) are used for transferring machine-readable file formats between machines using a web technology such as [HTTP](https://en.wikipedia.org/wiki/HTTP).
  
 They allow programs to communicate over the internet and are commonly used to access remote data or functionality via [APIs](https://en.wikipedia.org/wiki/API).
 
