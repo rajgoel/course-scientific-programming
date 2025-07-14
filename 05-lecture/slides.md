@@ -489,7 +489,7 @@ for i in range(24):
 
 ## Visualisation
 
-In Julia, plots can be easily created using `Plots.jl`
+In Julia, plots can be easily created using [Plots.jl](https://docs.juliaplots.org)
 ```julia
 import Pkg;
 Pkg.add("Plots")
