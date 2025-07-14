@@ -1,10 +1,10 @@
 # Input and output
 
-==
+===
 
 ## Exchange formats
 
-Common text-based formats for input/output (I/O) of programs and for exchanging data between systems are:
+Common text-based formats for input and output of programs and for exchanging data between systems are:
 
 - CSV
 - JSON
@@ -100,7 +100,7 @@ CSV.write( "output.csv", output_frame;
 pip install pandas
 ```
 
-```python [1-5|7-8|10-11|13-14|16-17|19-20|22-28]
+```python [1-5|7-8|10-11|13-14|16-17|19-20|22-29]
 import pandas as pd
 import csv
 
@@ -169,7 +169,7 @@ using Pkg
 Pkg.add("JSON3")
 ```
 
-```julia [1-4|6-8|10-12|14-15]
+```julia [1|3-5|7-9|11-13|15-16]
 using JSON3
 
 # Parse JSON string
@@ -192,7 +192,7 @@ mystring = JSON3.write(myjson)
 
 ### Python
 
-```python [1-4|6-8|10-12|14-15]
+```python [1|3-5|7-9|11-13|15-16]
 import json
 
 # Parse JSON string into a dict
@@ -210,6 +210,8 @@ myjson["skills"].append("JSON")
 # Serialize
 mystring = json.dumps(myjson)
 ```
+
+---
 
 ### C++
 
@@ -269,12 +271,12 @@ using Pkg
 Pkg.add("EzXML")
 ```
 
-```julia [1-14|16-17|19-20|22]
+```julia [1|3-14|16-17|19-20|22-23|25-26]
 using EzXML
 
 # Parse XML string
-mystring = 
-"""<person name="Alice">
+mystring = """
+<person name="Alice">
   <skills>
     <skill>Julia</skill>
     <skill>Python</skill>
@@ -283,15 +285,19 @@ mystring =
 </person>
 """
 
-myxml = parsexlm(mystring)
+myxml = parsexml(mystring)
 
 # Get the root node of the XML-tree
 myperson = root(myxml)
 
-# Find all skills within the root
-skills = findall("//skill",myperson)
+# Get name of myperson
+myname = myperson["name"]
 
-println(myperson["name"], " knows about ", join(nodecontent.(skills), ", "))
+# Find all skills of myperson
+myskills = findall("//skill",myperson)
+
+# Output
+println(myname, " knows about ", join(nodecontent.(myskills), ", "))
 ```
 
 > [!NOTE]
@@ -301,7 +307,7 @@ println(myperson["name"], " knows about ", join(nodecontent.(skills), ", "))
 
 ### Python
 
-```python
+```python  [1|3-14|16-17|19-20|22-23|25-26]
 import xml.etree.ElementTree as XML
 
 # XML input string
@@ -316,16 +322,16 @@ mystring = """
 """
 
 # Parse XML from string
-root = XML.fromstring(mystring)
+myperson = XML.fromstring(mystring)
 
-# Extract name attribute
-name = root.attrib["name"]
+# Get name of myperson
+myname = myperson.attrib["name"]
 
-# Extract all <Skill> elements
-skills = [skill.text for skill in root.find("skills").findall("skill")]
+# Find all skills of myperson
+myskills = [skill.text for skill in myperson.find("skills").findall("skill")]
 
 # Output
-print(f"{name} knows about {', '.join(skills)}")
+print(f"{myname} knows about {', '.join(myskills)}")
 ```
 
 > [!NOTE]
