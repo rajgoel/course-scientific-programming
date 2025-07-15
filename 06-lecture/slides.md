@@ -258,7 +258,7 @@ Testing is used to
 ### Branch coverage and path coverage
 
 
-<div class="twocolommn" style="align-items: center;">
+<div class="twocolumn" style="align-items: center;">
 <div>
 <!--
 @startuml
@@ -291,6 +291,8 @@ stop
 
 ---
 
+### Test frameworks
+
 In Julia, tests can be easily created using [Test.jl](https://docs.julialang.org/en/v1/stdlib/Test/#Basic-Unit-Tests).
 ```
 
@@ -298,4 +300,27 @@ In Julia, tests can be easily created using [Test.jl](https://docs.julialang.org
 > For Python you can use [unittest](https://docs.python.org/3/library/unittest.html), 
 > for C++ you can use [catch2](https://github.com/catchorg/Catch2).
 
+---
 
+### Example: Julia
+
+`myfunction.jl` (your actual code)
+```julia
+function divide(a, b)
+  @assert b != 0 "Denominator must not be zero"
+  return a / b
+end
+```
+
+`mytest.jl` (your test script)
+```julia
+include("myfunction.jl")
+using Test
+
+@testset "Divide tests" begin
+  @test divide(4, 2) == 2
+  @test_throws AssertionError divide(1, 0)
+end
+```
+
+Then run it: `julia mytest.jl`
