@@ -11,11 +11,11 @@
     { "topic": "Code organisation", "src": "slides.md", "folder": "03-lecture" },
     { "topic": "Containers", "src": "slides.md", "folder": "04-lecture" },
     { "topic": "Input and output", "src": "slides.md", "folder": "05-lecture" },
-    { "topic": "Error handling and exceptions", "src": "slides.md", "folder": "06-lecture" },
-    { "topic": "Testing", "src": "slides.md", "folder": "07-lecture" },
-    { "topic": "Documentation", "src": "slides.md", "folder": "08-lecture" },
+    { "topic": "Error handling and testing", "src": "slides.md", "folder": "06-lecture" },
+    { "topic": "Clean code and documentation", "src": "slides.md", "folder": "07-lecture" },
+    { "topic": "Design patterns", "src": "slides.md", "folder": "08-lecture" },
     { "topic": "Design patterns", "src": "slides.md", "folder": "09-lecture" },
-    { "topic": "Complexity", "src": "slides.md", "folder": "10-lecture" }
+    { "topic": "Performance and complexity", "src": "slides.md", "folder": "10-lecture" }
   ]
 }
 

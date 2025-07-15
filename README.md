@@ -8,7 +8,7 @@ https://rajgoel.github.io/course-scientific-programming
 
 | Session | Lecture                                                                                            | Lab             |
 |---------|----------------------------------------------------------------------------------------------------|-----------------|
-| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)          | [Requirements & prerequisites](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    |
+| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)          | [Requirements and prerequisites](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    |
 | 02      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)    | Project work    |
 | 03      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)     | Project work    |
 | 04      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)            | Project work    |
@@ -17,7 +17,7 @@ https://rajgoel.github.io/course-scientific-programming
 | 07      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)               | Project work    |
 | 08      | [Design patterns](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)         | Project work    |
 | 09      | [tbd](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)       | Project work    |
-| 10      | [Performance & complexity](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)            | Project work    |
+| 10      | [Performance and complexity](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)            | Project work    |
 | 11      | Ask me anything                                                                                    | Ask me anything |
 
 ## Grading
