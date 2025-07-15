@@ -260,9 +260,8 @@ docs/
 
 #### Step 2: Write module `MyProgram.jl`
 
-In `MyProgram.jl` write your program using docstrings:
+In `MyProgram.jl` write your module using docstrings:
 ```julia
-"""
 module MyProgram
 
 """
