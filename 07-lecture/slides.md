@@ -327,9 +327,9 @@ This Julia program provides a simple Julia module with a utility function. Speci
 ---
 
 ## API Reference
-\`\`\`@autodocs
+````@autodocs
 Modules = [MyProgram]
-\`\`\`
+````
 ```
 
 ---
