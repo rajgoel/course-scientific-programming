@@ -246,14 +246,14 @@ Pkg.add("Documenter")
 
 #### Step 1: Create a docs folder structure
 
-Your project root should have a `docs` folder, typically with this structure:
+Your project root should have a `docs` folder, e.g., with this structure:
 
 ```bash
 MyProgram.jl          # program for which the documentation is built
 docs/
   ├── make.jl         # script to build the docs
   └── src   
-       └── index.md   # main markdown file for your documentation
+       └── index.md   # main markdown file for documentation
 ```
 
 ---
@@ -282,6 +282,7 @@ end
 
 end # module MyProgram
 ```
+<!-- .element style="height:500px;" -->
 
 ---
 
@@ -309,6 +310,7 @@ makedocs(
     remotes = nothing, # Disable source code links if no git repo
 )
 ```
+<!-- .element style="height:600px;" -->
 
 ---
 
@@ -331,6 +333,7 @@ This Julia program provides a simple Julia module with a utility function. Speci
 Modules = [MyProgram]
 ````
 ```
+<!-- .element style="height:500px;" -->
 
 ---
 
