@@ -1,4 +1,17 @@
-## N/A
+# Performance and complexity 
 
 > [!WARNING]
-> Not yet available
+> Not yet completed
+
+===
+
+## Performance
+
+===
+
+## Profiling
+
+===
+
+## Complexity
+
