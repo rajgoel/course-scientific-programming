@@ -280,7 +280,8 @@ function computeAverage(numbers::Vector{Float64})
 end
 
 end # module MyProgram
-```<!-- .element style="height:500px;" -->
+```
+<!-- .element style="height:600px;" -->
 
 ---
 
@@ -307,7 +308,8 @@ makedocs(
     ],
     remotes = nothing, # Disable source code links if no git repo
 )
-```<!-- .element style="height:600px;" -->
+```
+<!-- .element style="height:600px;" -->
 
 ---
 
