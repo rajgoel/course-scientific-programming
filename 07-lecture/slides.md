@@ -316,7 +316,7 @@ makedocs(
 ## Step 3: Write index.md
 
 In `docs/src/index.md`, write your landing page in markdown:
-````md
+```md
 # Welcome to my documentation
 
 This the documentation of `MyProgram`, generated with Documenter.jl.
@@ -328,10 +328,10 @@ This Julia program provides a simple Julia module with a utility function. Speci
 ---
 
 ## API Reference
-```@autodocs
+&grave;&grave;&grave;@autodocs
 Modules = [MyProgram]
+&grave;&grave;&grave;
 ```
-````
 <!-- .element style="height:500px;" -->
 
 ---
