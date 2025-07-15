@@ -18,23 +18,26 @@ Almost every program can be assumed to have errors.
 
 Logical issues occur when the algorithmic logic of the program does not match the requirements.
 
-Examples:
-- Incorrect expressions
-- Wrong assumptions about input or data
-- Invalid control flow (e.g., wrong branching or looping, early termination or unreachable code)
-- Wrong algorithm for problem
+
+> [!NOTE]
+> **Examples:**
+> - Incorrect expressions
+> - Wrong assumptions about input or data
+> - Invalid control flow (e.g., wrong branching or looping, early termination or unreachable code)
+> - Wrong algorithm for problem
 
 ---
 
 ### Invalid input
 
-The input does not necessarily match the expected format, type, or range. This can be due to accident or intention.
+The input does not necessarily match the expected format, type, or range. This can be due to **accident or intention**.
 
-Examples:
-- Typos
-- Flipped data (e.g., latitude and longitude)
-- Incorrect format (e.g., lower case where upper case is expected, trailing whitespaces)
-- Corrupted or incomplete input (e.g., due to unstable network connection)
+> [!NOTE]
+> **Examples:**
+> - Typos
+> - Flipped data (e.g., latitude and longitude)
+> - Incorrect format (e.g., lower case where upper case is expected, trailing whitespaces)
+> - Corrupted or incomplete input (e.g., due to unstable network connection)
 
 ---
 
@@ -42,9 +45,10 @@ Examples:
 
 The internal variable representation does not fully match its intended semantic meaning.
  
-Examples:
-- Precision loss can lead to wrong results (e.g., floating point comparisons).
-- Over- and underflow leads to incorrect variable values.
+> [!NOTE]
+> **Examples:**
+> - Precision loss can lead to wrong results (e.g., floating point comparisons).
+> - Over- and underflow leads to incorrect variable values.
 
 ---
 
@@ -52,11 +56,12 @@ Examples:
 
 Required resources may not be available when needed.
 
-Examples:
-- Missing files
-- Network disconnection
-- Out-of-memory
-- Insufficient permissions
+> [!NOTE]
+> **Examples:**
+>  Missing files
+> - Network disconnection
+> - Out-of-memory
+> - Insufficient permissions
 
 ===
 
@@ -80,7 +85,7 @@ end
 
 ## Assertions
 
-Assertions are checks that certain conditions in the data are satisfied. They are used to catch bugs in development and ensure that the program logic is correct.
+[Assertions](https://en.wikipedia.org/wiki/Assertion_(software_development)) are checks that certain conditions in the data are satisfied. They are used to catch bugs in development and ensure that the program logic is correct.
 
 > [!TIP]
 > Do **not** use assertions to validate wrong user input and other errors that can be expected at runtime.
@@ -97,7 +102,11 @@ end
 ```
 
 > [!TIP]
-> Assertions can be disabled with: `@eval Main macro assert(args...); nothing; end`. This line must be executed **before** any `@assert` statement is parsed..
+> Assertions can be disabled with: 
+> ````julia
+> @eval Main macro assert(args...); nothing; end
+> ```
+> This line must be executed **before** any `@assert` statement is parsed..
 
 ---
 
@@ -133,7 +142,7 @@ int divide(int a, int b) {
 
 ## Exceptions
 
-Exceptions are signals that an error occurred during program execution. Exceptions interrupt the normal control flow.
+[Exceptions](https://en.wikipedia.org/wiki/Exception_(computer_science)) are signals that an error occurred during program execution. Exceptions interrupt the normal control flow.
 
 > [!TIP] Unlike assertions, exceptions are intended for handling expected runtime issues (e.g., missing files, invalid user input, network errors).
 
