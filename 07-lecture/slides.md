@@ -327,9 +327,10 @@ This the documentation of `MyProgram`, generated with Documenter.jl.
 This Julia program provides a simple Julia module with a utility function. Specifically, it includes a function to compute the average of a list of numbers.
 
 ## API Reference
-&grave;&grave;&grave;@autodocs
+
+```@autodocs
 Modules = [MyProgram]
-&grave;&grave;&grave;
+```
 </code></pre>
 
 ---
