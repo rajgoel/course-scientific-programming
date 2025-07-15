@@ -281,8 +281,7 @@ function computeAverage(numbers::Vector{Float64})
 end
 
 end # module MyProgram
-```
-<!-- .element style="height:500px;" -->
+```<!-- .element style="height:500px;" -->
 
 ---
 
@@ -309,8 +308,7 @@ makedocs(
     ],
     remotes = nothing, # Disable source code links if no git repo
 )
-```
-<!-- .element style="height:600px;" -->
+```<!-- .element style="height:600px;" -->
 
 ---
 
@@ -332,8 +330,7 @@ This Julia program provides a simple Julia module with a utility function. Speci
 ````@autodocs
 Modules = [MyProgram]
 ````
-```
-<!-- .element style="height:500px;" -->
+```<!-- .element style="height:500px;" -->
 
 ---
 
