@@ -129,13 +129,97 @@ int divide(int a, int b) {
 > Assertions can be disabled by defining `NDEBUG` at compile time.
 
 
----
+===
 
 ## Exceptions
 
+Exceptions are signals that an error occurred during program execution. Exceptions interrupt the normal control flow.
+
+> [!TIP] Unlike assertions, exceptions are intended for handling expected runtime issues (e.g., missing files, invalid user input, network errors).
+
 ---
+
+**Julia:**
+```julia
+throw(ErrorException("Something went wrong"))
+```
+
+**Python:**
+```python
+raise Exception("Something went wrong")
+```
+
+**C++:**
+```cpp
+#include <stdexcept>
+
+int main() {
+  throw std::runtime_error("Something went wrong");
+  return 0;
+}
+```
+
+> [!IMPORTANT]
+> Always use meaningful failure messages.
+
+===
 
 ## Try/catch
 
+It is possible to react on exceptions using **try/catch** blocks. This allows the program to handle errors gracefully instead of crashing.
+
+> [!TIP]
+> Use try catch blocks when you can meaningfully recover from an exception.
+
+---
+
+### Julia
+
+```julia
+try
+  # Execute code that may fail
+  throw(ErrorException("Something went wrong"))
+catch myexception
+  # Handle exception
+  println("Caught error: ", myexception)
+end
+```
+
+---
+
+### Python
+
+```python
+try:
+  # Execute code that may fail
+  raise Exception("Something went wrong")
+except Exception as myexception:
+  # Handle exception
+  print("Caught error:", myexception)
+```
+
+> [!IMPORTANT]
+> Python using the keyword `except`, not `catch`.
+
+---
+
+### C++
+
+```cpp
+#include <stdexcept>
+#include <print>
+
+int main() {
+  try {
+    // Execute code that may fail
+    throw std::runtime_error("Something went wrong");
+  }
+  catch (const std::exception& myexception) {
+    // Handle exception
+    std::println("Caught error: {}", myexception.what());
+  }
+  return 0;
+}
+```
 
 
