@@ -170,7 +170,7 @@ Code comments help others (and your future self) understand how to use your code
 
 ## Documentation
 
-Documentation can automatically be generated from specially formated code comments. 
+Documentation can automatically be generated from specially formatted code comments. 
 
 ---
 
@@ -285,7 +285,7 @@ end # module MyProgram
 
 ---
 
-#### Step 3: Write make.jl
+#### Step 3: Write `make.jl`
 
 In `docs/make.jl` write:
 ```julia
@@ -313,7 +313,7 @@ makedocs(
 
 ---
 
-## Step 3: Write index.md
+## Step 4: Write `index.md`
 
 In `docs/src/index.md`, write your landing page in markdown:
 
@@ -335,10 +335,10 @@ Modules = [MyProgram]
 
 ---
 
-## Step 4: Build docs
+## Step 5: Build docs
 
 From your project root folder:
 ```bash
 julia --project=docs docs/make.jl
 ```
-This will generate your documentation site in `docs/build/`.
+This will generate your documentation site in `docs/build/`. You can open the generated `index.html` in a browser.
