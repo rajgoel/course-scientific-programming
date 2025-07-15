@@ -231,4 +231,61 @@ int main() {
 }
 ```
 
+===
+
+## Testing
+
+Testing is used to
+
+- detect bugs early,
+- prevent regressions, 
+- document expected behavior, and
+- increase confidence in the code.
+
+> [!TIP]
+> Testing helps to ensure that your program behaves as expected **and continues to do so when modified**.
+
+---
+
+### Types of tests
+
+- **Unit tests:** test individual functions or components in isolation.
+- **Integration tests:** test how multiple components work together.
+- **System tests:** test the program as a whole.
+
+---
+
+### Branch coverage and path coverage
+
+
+<div class="twocolommn" style="align-items: center;">
+<div>
+<!--
+@startuml
+start
+if () then (x > 0)
+else (x <= 0)
+  :do something;
+endif
+if () then (y <= 0)
+ :do another thing;
+else (y > 0)
+  :do yet another thing;
+endif
+stop
+@enduml
+-->
+
+![UML](06-lecture/testing.svg)<!-- .element style="height:600px;" -->
+</div>
+<div>
+
+- **Branch coverage:** create test such that each edge is used at least once
+- **Path coverage:** create test such that each path from start to end is used at least once
+</div>
+</div>
+
+> [!TIP]
+> - Branch coverage only catches logic errors of independent decisions.
+> - Path coverage is needed when correctness depends on combinations of decisions.
 
