@@ -276,7 +276,7 @@ stop
 @enduml
 -->
 
-![UML](06-lecture/testing.svg)<!-- .element style="height:600px;" -->
+![UML](06-lecture/testing.svg)<!-- .element style="height:500px;" -->
 </div>
 <div>
 
