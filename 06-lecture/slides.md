@@ -294,7 +294,6 @@ stop
 ### Test frameworks
 
 In Julia, tests can be easily created using [Test.jl](https://docs.julialang.org/en/v1/stdlib/Test/#Basic-Unit-Tests).
-```
 
 > [!TIP]
 > For Python you can use [unittest](https://docs.python.org/3/library/unittest.html), 
