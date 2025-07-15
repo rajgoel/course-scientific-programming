@@ -331,7 +331,8 @@ This Julia program provides a simple Julia module with a utility function. Speci
 ```@autodocs
 Modules = [MyProgram]
 ```
-````<!-- .element style="height:500px;" -->
+````
+<!-- .element style="height:500px;" -->
 
 ---
 
