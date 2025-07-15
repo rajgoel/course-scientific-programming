@@ -23,17 +23,20 @@ Good variable names improve readability and reduce the chance of misunderstandin
 
 ---
 
-**Do:**
+### Do
 - Choose descriptive and unambiguous names, prefer clarity over brevity (e.g., use `totalPrice` or `total_price` instead of `tp`)
 - Use `camelCase` or `snake_case` for composed names
 - Stick to a consistent naming convention (e.g., always use `camelCase`)
-- Use nouns for data (speed, temperature, fileName)
-- Boolean variables should use verb + adjective/noun for conditions (e.g, `isFeasible`, `has_content`, `cotainsElement`)
+- Use nouns for data (e.g., `speed`, `temperature`)
+- Boolean variables should use verb + adjective/noun for conditions (e.g, `isFeasible`, `has_content`, `containsElement`)
 
-**Avoid:**
+---
+
+#### Avoid
+
 - Single letters except for trivial iterators (i, j in short loops)
-- Abbreviations (`cnt` vs. `count`, `cfg` vs. `config`)
-- Vague or generic names (data, tmp, foo, bar)
+- Abbreviations (e.g., `cnt` vs. `count`, `cfg` vs. `config`)
+- Vague or generic names (e.g., `data`, `tmp`, `foo`, `bar`)
 
 ===
 
@@ -80,7 +83,8 @@ Clean code is modular, readable, and easy to test and maintain.
 
 - A function should not exceed one screenful (~20–40 lines).
 - Long functions make it harder to understand, test, and reuse code.
-- Avoid multiple nested `if`/`else` or `for`/`while` blocks and use separate functions to avoid deep nesting
+- Avoid multiple nested `if-else`, `for`, or `while` blocks .
+- Use separate functions to avoid deep nesting
 - Separate concerns (input, data processing, and output should be in different functions) 
 
 ---
@@ -111,9 +115,12 @@ function analyzeDataFromFile(filename)
 end
 ```
 
+> [!WARNING]
+> This function is overly complex making it difficult to test and modify specific parts independently.
+
 ---
 
-**Better:*
+**Better:**
 ```julia
 function readNumbers(filename)
   return [parse(Float64, strip(line)) for line in eachline(filename)]
@@ -147,3 +154,6 @@ function analyzeDataFromFile(filename)
   printSummary(average, filtered)
 end
 ```
+
+> [!TIP]
+> Breaking functionality into smaller functions improves readability and makes it easier to test and modify specific parts independently.
