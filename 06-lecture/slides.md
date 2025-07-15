@@ -322,4 +322,21 @@ using Test
 end
 ```
 
-Then run it: `julia mytest.jl`
+Then run tests: `julia mytest.jl`
+
+===
+
+## Test-driven development (TDD)
+
+Test-Driven Development is a software development process where tests are written **before** the code that satisfies them.
+
+- Write a test that describes a small piece of desired functionality.
+- Run the test → It should fail (since the functionality is not implemented yet).
+- Implement the code that makes the test pass.
+- Run the test again → It should pass.
+- Refactor the code (clean up, optimize) without changing behavior.
+- Repeat.
+
+> [!TIP]
+> TDD helps ensuring a comprehensive coverage of tests without actually creating a lot of extra work, since tests grow naturally with the implementation.
+
