@@ -1,8 +1,5 @@
 # Error handling and testing
 
-> [!WARNING]
-> Not yet complete
-
 ===
 
 ## Errors
