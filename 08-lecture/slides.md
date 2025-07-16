@@ -157,7 +157,6 @@ end
 ### Example: $O(\log n)$
 
 ```julia
-"""
 function binarySearch(sortedArray::Vector{<:Number}, target::Number)
   left = 1
   right = length(sortedArray)
@@ -176,7 +175,7 @@ function binarySearch(sortedArray::Vector{<:Number}, target::Number)
   return -1  # not found
 end
 ```
-<!-- .element style="height:600px;" -->
+<!-- .element style="height:500px;" -->
 
 > [!NOTE]
 > Each iteration cuts the search space in half. For an input size of $n$, the maximum number of iterations $k$ before the size of the search space reduces to 1 or less, can be computed by finding the smallest $k$ such that  $\frac{n}{2^k} \leq 1$ or $n \leq 2^k$. Thus, $k = \log_2 n$. For Big-O notation, the base of the logarithm is irrelevant, so the complexity is $O(\log n)$.
