@@ -153,59 +153,7 @@ end
 <!-- .element style="height:600px;" -->
 
 > [!NOTE]
-> Each step in the function body except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
-
----
-
-### Example: $O(2^n)$
-
-```julia
-"""
-recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
-
-Solve the [0/1 knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) using brute-force recursion.
-
-# Arguments
-- `items::Vector{Tuple{<:Number, <:Number}}`: Vector of `(value, weight)` pairs for each item.
-- `capacity::Number`: The maximum weight capacity of the knapsack.
-- `index::Int=1`: Current item index (used internally for recursion).
-
-# Returns
-- The maximum total value achievable without exceeding the knapsack capacity.
-
-# Complexity
-- Exponential time \(O(2^n)\), where \(n\) is the number of items.
-
-# Example
-```julia
-items = [(60, 10), (100, 20), (120, 30)]
-capacity = 50
-solutionValue = recursivelySolveKnapsackProblem(items, capacity)
-println(solutionValue)  # Output: 220
-"""
-function recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1)
-  n = length(items)
-  if index > n || capacity <= 0
-    return 0
-  end
-  
-  value, weight = items[index]
-  
-  if weight > capacity
-    # Skip current item if it doesn't fit
-    return recursivelySolveKnapsackProblem(items, capacity, index + 1)
-  else
-    # Option 1: skip current item
-    withoutItem = recursivelySolveKnapsackProblem(items, capacity, index + 1)
-    # Option 2: include current item
-    withItem = value + recursivelySolveKnapsackProblem(items, capacity - weight, index + 1)
-    return max(withoutItem, withItem)
-  end
-end
-```
-
-> [!NOTE]
-> Each step in the function body except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
+> Each step except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
 
 
 ===
