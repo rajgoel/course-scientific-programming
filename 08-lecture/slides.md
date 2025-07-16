@@ -72,7 +72,7 @@ end
 
 ### Example: $O(n^2)$
 
-```julia [1-5|7-22|9-10|11-20|12-13|14-19|15-16|17-18|20|7-20]
+```julia [1-5|7-22|9-10|11-20|12-13|14-19|15-16|17-18|21|7-22]
 # Compute Euclidean distance between two points (x1, y1) and (x2, y2)
 function distance(x1::Number, y1::Number, x2::Number, y2::Number)
   # O(1): arithmetic and sqrt are constant time
@@ -95,7 +95,10 @@ function distanceMatrix(points::Vector{<:Tuple{<:Number, <:Number}})
   end
   return matrix           # O(1): returning the matrix without copying
 end
-```
+```<!-- .element style="height:500px;" -->
+
+> [!NOTE]
+> Computing a distance matrix is quadratic in time, because the nested loops have a complexity of $O(n) \cdot O(n) \cdot O(1) = O(n^2)$, and no other operation adds a higher complexity.
 
 ---
 
@@ -149,11 +152,6 @@ end
 
 > [!NOTE]
 > Each step in the function body except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
-
-
-
-> [!NOTE]
-> Computing a distance matrix is quadratic in time, because the nested loops have a complexity of $O(n) \cdot O(n) \cdot O(1) = O(n^2)$, and no other operation adds a higher complexity.
 
 ---
 
