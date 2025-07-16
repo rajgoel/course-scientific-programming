@@ -96,6 +96,9 @@ function distanceMatrix(points::Vector{<:Tuple{<:Number, <:Number}})
   return matrix           # O(1): returning the matrix without copying
 end
 ```
+
+---
+
 ### Example: $O(2^n)$
 
 ````julia
@@ -142,7 +145,7 @@ function recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}
     return max(withoutItem, withItem)
   end
 end
-````
+````<!-- .element style="height:600px;" -->
 
 > [!NOTE]
 > Each step in the function body except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.

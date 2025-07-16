@@ -317,7 +317,7 @@ makedocs(
 
 In `docs/src/index.md`, write your landing page in markdown:
 
-<pre style="height:500px;"><code class="language-markdown">
+````markdown
 # Welcome to my documentation
 
 This the documentation of `MyProgram`, generated with Documenter.jl.
@@ -331,7 +331,7 @@ This Julia program provides a simple Julia module with a utility function. Speci
 ```@autodocs
 Modules = [MyProgram]
 ```
-</code></pre>
+````<!-- .element style="height:500px;" -->
 
 ---
 
