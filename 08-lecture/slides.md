@@ -269,6 +269,6 @@ detecting performance bottlenecks and optimizing critical code paths.
 </div>
 
 > [!TIP]
-> For Julia, you can use [Profile.jl](https://docs.julialang.org/en/v1/manual/profile/), for C++ (with GCC) you can use [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html).
+> For Julia, you can use [Profile.jl](https://docs.julialang.org/en/v1/manual/profile/), for C++ (with GCC) you can use [gprof](https://hpc-wiki.info/hpc/Gprof_Tutorial).
 
 
