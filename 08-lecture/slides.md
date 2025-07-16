@@ -190,8 +190,8 @@ end
 | ------------------ | --------------------- | --------------------- | ------------------- | ------------------- |
 | Array              | $O(1)$                  | $O(n)$                  | $O(n)$ (anywhere) | $O(n)$ (anywhere), $O(1)$ (only last) |
 | Doubly Linked List | $O(n)$                  | $O(n)$                  | $O(1)$ (at head/tail) | O(1) (given node)   |
-| Queue              | $O(1)$ (front element)  |                       | $O(1)$ (enqueue)      | $O(1)$ (dequeue)      |
-| Stack              | $O(1)$ (top element)    |                       | $O(1)$ (push)         | $O(1)$ (pop)          |
+| Queue              | $O(1)$ (front element)  |                         | $O(1)$ (enqueue)      | $O(1)$ (dequeue)      |
+| Stack              | $O(1)$ (top element)    |                         | $O(1)$ (push)         | $O(1)$ (pop)          |
 | Map (hash-based)   | $O(1)$ (average)        | $O(1)$ (average)        | $O(1)$ (average)      | O(1) (average)      |
 | Set (hash-based)   | $O(1)$ (average)        | $O(1)$ (average)        | $O(1)$ (average)      | $O(1)$ (average)      |
 
@@ -218,7 +218,7 @@ The performance of a program highly depends on
 Changing the type of a variable or using abstract types can trigger memory reallocation and impact performance.
 
 > [!TIP]
-> Julia-specific performance advice on type stability and container choices can be found [here](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-abstract-container)
+> Julia-specific performance advice on type stability and container choices can be found [here](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-abstract-container).
 
 ===
 
@@ -255,7 +255,7 @@ end
 <div class="twocolumn" style="align-items: center;">
 <div>
 
-![Profile](08-leccture/profile.svg)
+![Profile](08-lecture/profile.svg)
 
 </div>
 <div>
