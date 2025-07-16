@@ -182,6 +182,26 @@ end
 
 ===
 
+### Complexity of container operations
+
+<small>
+
+| Container          | Access (by index/key) | Search (by value/key) | Insertion           | Deletion            |
+| ------------------ | --------------------- | --------------------- | ------------------- | ------------------- |
+| Array              | $O(1)$                  | $O(n)$                  | $O(n)$ (at arbitrary) | $O(n)$ (at arbitrary) |
+| Doubly Linked List | $O(n)$                  | $O(n)$                  | $O(1)$ (at head/tail) | O(1) (given node)   |
+| Queue              | $O(1)$ (front element)  |                       | $O(1)$ (enqueue)      | $O(1)$ (dequeue)      |
+| Stack              | $O(1)$ (top element)    |                       | $O(1)$ (push)         | $O(1)$ (pop)          |
+| Map (hash-based)   | $O(1)$ (average)        | $O(1)$ (average)        | $O(1)$ (average)      | O(1) (average)      |
+| Set (hash-based)   | $O(1)$ (average)        | $O(1)$ (average)        | $O(1)$ (average)      | $O(1)$ (average)      |
+
+</small>
+
+> [!NOTE]
+> Although the average time complexity for access, insertion, and deletion in hash-based maps and sets is $O(1)$, access by index in arrays, and insertion or deletion in doubly linked lists, queues, and stacks are significantly faster due to a smaller constant number of instructions.
+
+===
+
 ## Performance
 
 ===
