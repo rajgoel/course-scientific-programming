@@ -105,7 +105,7 @@ end
 
 ### Example: $O(2^n)$
 
-````julia [1-24|4|19-22|25-43|26-31|33-42|25-43]
+````julia [1-24|4|16-19|22-40|23-28|30-39|22-40]
 """
 recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
 
@@ -118,9 +118,6 @@ Solve the [0/1 knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem)
 
 # Returns
 - The maximum total value achievable without exceeding the knapsack capacity.
-
-# Complexity
-- Exponential time \(O(2^n)\), where \(n\) is the number of items.
 
 # Example
 ```julia
@@ -155,6 +152,34 @@ end
 > [!NOTE]
 > Each step except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
 
+---
+
+### Example: $O(\log n)$
+
+```julia
+"""
+function binarySearch(sortedArray::Vector{<:Number}, target::Number)
+  left = 1
+  right = length(sortedArray)
+
+  while left <= right
+    middle = div(left + right, 2) # returns integer
+    if sortedArray[middle] == target
+      return mid
+    elseif sortedArray[middle] < target
+      left = middle + 1
+    else
+      right = middle - 1
+    end
+  end
+
+  return -1  # not found
+end
+```
+<!-- .element style="height:600px;" -->
+
+> [!NOTE]
+> Each iteration cuts the search space in half. For an input size of $n$, the maximum number of iterations $k$ before the size of the search space reduces to 1 or less, can be computed by finding the smallest $k$ such that  $\frac{n}{2^k} \leq 1$ or $n \leq 2^k$. Thus, $k = \log_2 n$. For Big-O notation, the base of the logarithm is irrelevant, so the complexity is $O(\log n)$.
 
 ===
 
