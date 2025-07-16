@@ -15,9 +15,9 @@ https://rajgoel.github.io/course-scientific-programming
 | 05      | [Input and output](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)      | Project work    |
 | 06      | [Error handling and testing](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture) | Project work    |
 | 07      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)               | Project work    |
-| 08      | [Design patterns](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)         | Project work    |
-| 09      | [tbd](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)       | Project work    |
-| 10      | [Performance and complexity](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)            | Project work    |
+| 08      | [Complexity and performance](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)         | Project work    |
+| 09      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)       | Project work    |
+| 10      | [Design patterns](https://rajgoel.github.io/course-scientific-programming/?topic=10-lecture)            | Project work    |
 | 11      | Ask me anything                                                                                    | Ask me anything |
 
 ## Grading
