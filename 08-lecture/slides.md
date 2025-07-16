@@ -40,7 +40,7 @@ end
 ```
 
 > [!NOTE]
-> The `length` function in Julia (returning the number of elements in a container) is constant in time, because the size is stored internally. Thus, its runtime does not depend on the number of elements.
+> The `length` function in Julia (returning the number of elements in a container) is constant in time, because the size is stored internally. Thus, the runtime does not depend on the number of elements.
 
 ---
 
@@ -66,13 +66,13 @@ end
 ```
 
 > [!NOTE]
-> Both the `sum` function and the element-wise division using the `./` operator are linear in time because they iterate over each of the $n$ elements in the vector.Since `sum(myinput)` is evaluated exactly once before the element-wise division occurs, the total runtime is linear in $n$.
+> Both the `sum` function and the element-wise division using the `./` operator are linear in time because they iterate over each of the $n$ elements in the vector. Since `sum(myinput)` is evaluated exactly once before the element-wise division occurs, the total runtime is linear in $n$.
 
 ---
 
 ### Example: $O(n^2)$
 
-```julia [1-5|7-22|9-10|11-20|12-13|14-19|15-16|17-18|21|7-22]
+```julia [1-22|1-5|7-22|9-10|11-20|12-13|14-19|15-16|17-18|21|1-22]
 # Compute Euclidean distance between two points (x1, y1) and (x2, y2)
 function distance(x1::Number, y1::Number, x2::Number, y2::Number)
   # O(1): arithmetic and sqrt are constant time
