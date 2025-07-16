@@ -7,13 +7,212 @@
 
 ## Complexity
 
+Computational complexity refers to the resources (time, memory) required by an algorithm as input size grows.
+
 ---
 
 ### Big O-notation
 
+Big O-notation is used to describe how an algorithm’s execution time or memory usage **scales relative to input size**, .
+
+> [!TIP]
+> The goal is to characterise growth rate, not to provide an exact count of instructions.
+
+---
+
+### Constant, linear, polynomial, exponential growth
+
+Let $n$ be a measure of the input size of $n$ and let $c$ indicate the run time (or memory usage) for $n=1$. Then,
+ 
+- $O(1)$ indicates that the run time (or memory usage) stays constant, approximately $c \cdot 1$, regardless of $n$,
+- $O(n)$ indicates that the run time (or memory usage) grows linearly with $n$, approximately $c \cdot n$,
+- $O(n^k)$ indicates that the run time (or memory usage) grows polynomially with $n$, approximately $c \cdot n^k$, and
+- $O(k^n)$, where $k$ is a positive constant, indicates that the run time (or memory usage) grows exponentially with $n$, approximately $c \cdot k^n$.
+
+---
+
+### Example: $O(1)$
+
+```julia
+function getSize(myinput::Vector{<:Number})
+  return length(myinput)
+end
+```
+
+> [!NOTE]
+> The `length` function in Julia (returning the number of elements in a container) is constant in time, because the size is stored internally. Thus, its runtime does not depend on the number of elements.
+
+---
+
+### Example: $O(n)$
+
+```julia
+function getTotal(myinput::Vector{<:Number})
+  return sum(myinput)
+end
+```
+
+> [!NOTE]
+> The `sum` function in Julia (returning the sum of elements in a container) is linear in time, because it has to iterate over all elements. 
+
+---
+
+### Example: $O(n)$
+
+```julia
+function normalize(myinput::Vector{<:Number})
+  return myinput ./ sum(myinput)
+end
+```
+
+> [!NOTE]
+> Both the `sum` function and the element-wise division using the `./` operator are linear in time because they iterate over each of the $n$ elements in the vector.Since `sum(myinput)` is evaluated exactly once before the element-wise division occurs, the total runtime is linear in $n$.
+
+---
+
+### Example: $O(n^2)$
+
+```julia [1-5|7-19|8-9|10-19|11-12|13-17|14-15|16-17|19|7-20]
+# Compute Euclidean distance between two points (x1, y1) and (x2, y2)
+function distance(x1::Number, y1::Number, x2::Number, y2::Number)
+  # O(1): arithmetic and sqrt are constant time
+  return sqrt( (x1 - x2)^2 + (y1 - y2)^2 )
+end
+
+# Compute full distance matrix for a vector of points (pairs)
+function distanceMatrix(points::Vector{<:Tuple{<:Number, <:Number}})
+  n = length(points)      # O(1): length stored internally
+  matrix = zeros(n, n)    # O(n^2): allocate n x n matrix
+  for i in 1:n            # Outer loop: n iterations
+    xi = points[i][1]     # O(1): indexing an array, O(1): accessing tuple element
+    yi = points[i][2]     # O(1): indexing an array, O(1): accessing tuple element
+    for j in 1:n          # Inner loop: n iterations
+      xj = points[j][1]   # O(1): indexing an array, O(1): accessing tuple element
+      yj = points[j][2]   # O(1): indexing an array, O(1): accessing tuple element
+      # O(1): distance calculation, O(1): indexing into 2D array
+      matrix[i, j] = distance(xi,yi,xj,yj)
+    end
+  end
+  return matrix           # O(1): returning the matrix without copying
+end
+```
+### Example: $O(2^n)$
+
+<pre style="height:500px;"><code class="language-julia">
+"""
+recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
+
+Solve the [0/1 knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) using brute-force recursion.
+
+# Arguments
+- `items::Vector{Tuple{<:Number, <:Number}}`: Vector of `(value, weight)` pairs for each item.
+- `capacity::Number`: The maximum weight capacity of the knapsack.
+- `index::Int=1`: Current item index (used internally for recursion).
+
+# Returns
+- The maximum total value achievable without exceeding the knapsack capacity.
+
+# Complexity
+- Exponential time \(O(2^n)\), where \(n\) is the number of items.
+
+# Example
+```julia
+items = [(60, 10), (100, 20), (120, 30)]
+capacity = 50
+solutionValue = recursivelySolveKnapsackProblem(items, capacity)
+println(solutionValue)  # Output: 220
+```
+"""
+function recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1)
+  n = length(items)
+  if index > n || capacity <= 0
+    return 0
+  end
+  
+  value, weight = items[index]
+  
+  if weight > capacity
+    # Skip current item if it doesn't fit
+    return recursivelySolveKnapsackProblem(items, capacity, index + 1)
+  else
+    # Option 1: skip current item
+    withoutItem = recursivelySolveKnapsackProblem(items, capacity, index + 1)
+    # Option 2: include current item
+    withItem = value + recursivelySolveKnapsackProblem(items, capacity - weight, index + 1)
+    return max(withoutItem, withItem)
+  end
+end
+<code><pre>
+
+> [!NOTE]
+> Each step in the function body except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
+
+
+
+> [!NOTE]
+> Computing a distance matrix is quadratic in time, because the nested loops have a complexity of $O(n) \cdot O(n) \cdot O(1) = O(n^2)$, and no other operation adds a higher complexity.
+
+---
+
+### Example: $O(2^n)$
+
+```julia
+"""
+recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
+
+Solve the [0/1 knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) using brute-force recursion.
+
+# Arguments
+- `items::Vector{Tuple{<:Number, <:Number}}`: Vector of `(value, weight)` pairs for each item.
+- `capacity::Number`: The maximum weight capacity of the knapsack.
+- `index::Int=1`: Current item index (used internally for recursion).
+
+# Returns
+- The maximum total value achievable without exceeding the knapsack capacity.
+
+# Complexity
+- Exponential time \(O(2^n)\), where \(n\) is the number of items.
+
+# Example
+```julia
+items = [(60, 10), (100, 20), (120, 30)]
+capacity = 50
+solutionValue = recursivelySolveKnapsackProblem(items, capacity)
+println(solutionValue)  # Output: 220
+"""
+function recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1)
+  n = length(items)
+  if index > n || capacity <= 0
+    return 0
+  end
+  
+  value, weight = items[index]
+  
+  if weight > capacity
+    # Skip current item if it doesn't fit
+    return recursivelySolveKnapsackProblem(items, capacity, index + 1)
+  else
+    # Option 1: skip current item
+    withoutItem = recursivelySolveKnapsackProblem(items, capacity, index + 1)
+    # Option 2: include current item
+    withItem = value + recursivelySolveKnapsackProblem(items, capacity - weight, index + 1)
+    return max(withoutItem, withItem)
+  end
+end
+```
+
+> [!NOTE]
+> Each step in the function body except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
+
+
 ===
 
 ## Performance
+
+===
+
+## Benchmarking
+
 
 ===
 
