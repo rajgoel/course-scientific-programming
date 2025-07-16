@@ -26,8 +26,8 @@ Let $n$ be a measure of the input size of $n$ and let $c$ indicate the run time 
  
 - $O(1)$ indicates that the run time (or memory usage) stays constant, approximately $c \cdot 1$, regardless of $n$,
 - $O(n)$ indicates that the run time (or memory usage) grows linearly with $n$, approximately $c \cdot n$,
-- $O(n^k)$ indicates that the run time (or memory usage) grows polynomially with $n$, approximately $c \cdot n^k$, and
-- $O(k^n)$, where $k$ is a positive constant, indicates that the run time (or memory usage) grows exponentially with $n$, approximately $c \cdot k^n$.
+- $O(n^k)$ for a given $k$, indicates that the run time (or memory usage) grows polynomially with $n$, approximately $c \cdot n^k$,
+- $O(k^n)$ for a given $k$, indicates that the run time (or memory usage) grows exponentially with $n$, approximately $c \cdot k^n$.
 
 ---
 
