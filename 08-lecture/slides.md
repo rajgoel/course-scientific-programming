@@ -107,12 +107,12 @@ end
 
 ````julia [1-24|4|16-19|22-40|23-28|30-39|22-40]
 """
-recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
+recursivelySolveKnapsackProblem(items::Vector{<:Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
 
 Solve the [0/1 knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) using brute-force recursion.
 
 # Arguments
-- `items::Vector{Tuple{<:Number, <:Number}}`: Vector of `(value, weight)` pairs for each item.
+- `items::Vector{<:Tuple{<:Number, <:Number}}`: Vector of `(value, weight)` pairs for each item.
 - `capacity::Number`: The maximum weight capacity of the knapsack.
 - `index::Int=1`: Current item index (used internally for recursion).
 
@@ -127,7 +127,7 @@ solutionValue = recursivelySolveKnapsackProblem(items, capacity)
 println(solutionValue)  # Output: 220
 ```
 """
-function recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1)
+function recursivelySolveKnapsackProblem(items::Vector{<:Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1)
   n = length(items)
   if index > n || capacity <= 0
     return 0
@@ -204,13 +204,69 @@ end
 
 ## Performance
 
+The performance of a program highly depends on 
+- the algorithmic complexity and
+- the number of memory allocations and copies.
+
+> [!TIP]
+> Use appropriate data structures and containers to avoid unnecessary complexity and memory (re-)allocations.
+
+---
+
+### Dynamic vs. static types
+
+Changing the type of a variable or using abstract types can trigger memory reallocation and impact performance.
+
+> [!TIP]
+> Julia-specific performance advice on type stability and container choices can be found [here](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-abstract-container)
+
 ===
 
 ## Benchmarking
 
+Benchmarking measures the execution time of code snippets to evaluate performance in practice.
+
+```julia
+import Pkg
+Pkg.add("BenchmarkTools")
+```
+
+```julia
+using BenchmarkTools
+
+function sum_squares(n)
+  s = 0
+  for i in 1:n
+    s += i^2
+  end
+  return s
+end
+
+@btime sum_squares(10000)
+```
+
+> [!TIP]
+> `@btime` excludes compilation time.
 
 ===
 
 ## Profiling
+
+<div class="twocolumn" style="align-items: center;">
+<div>
+
+![Profile](08-leccture/profile.svg)
+
+</div>
+<div>
+
+[Profiling](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) helps identifying which parts of a program consume the most time. It is useful for 
+detecting performance bottlenecks and optimizing critical code paths.
+
+</div>
+</div>
+
+> [!TIP]
+> For Julia, you can use [Profile.jl](https://docs.julialang.org/en/v1/manual/profile/), for C++ (with GCC) you can use [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html).
 
 
