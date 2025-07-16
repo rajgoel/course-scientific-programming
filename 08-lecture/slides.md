@@ -255,12 +255,14 @@ end
 <div class="twocolumn" style="align-items: center;">
 <div>
 
-![Profile](08-lecture/profile.svg)
+![Profile](08-lecture/profile.svg)<!-- .element style="height:500px;" -->
 
 </div>
 <div>
 
-[Profiling](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) helps identifying which parts of a program consume the most time. It is useful for 
+[Profiling](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) helps identifying which parts of a program consume the most time. 
+
+It is useful for 
 detecting performance bottlenecks and optimizing critical code paths.
 
 </div>
