@@ -188,7 +188,7 @@ end
 
 | Container          | Access (by index/key) | Search (by value/key) | Insertion           | Deletion            |
 | ------------------ | --------------------- | --------------------- | ------------------- | ------------------- |
-| Array              | $O(1)$                  | $O(n)$                  | $O(n)$ (anywhere) | $O(n)$ (not last), $O(1)$ (last) |
+| Array              | $O(1)$                  | $O(n)$                  | $O(n)$ (anywhere) | $O(n)$ (anywhere except last), $O(1)$ (last) |
 | Doubly Linked List | $O(n)$                  | $O(n)$                  | $O(1)$ (at head/tail) | O(1) (given node)   |
 | Queue              | $O(1)$ (front element)  |                       | $O(1)$ (enqueue)      | $O(1)$ (dequeue)      |
 | Stack              | $O(1)$ (top element)    |                       | $O(1)$ (push)         | $O(1)$ (pop)          |
