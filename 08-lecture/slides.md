@@ -101,7 +101,7 @@ end
 
 ### Example: $O(2^n)$
 
-````julia [1-24|25-43]
+````julia [1-24|4|19-22|25-43|26-31|33-42]
 """
 recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
 
