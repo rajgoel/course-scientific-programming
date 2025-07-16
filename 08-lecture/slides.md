@@ -98,7 +98,7 @@ end
 ```
 ### Example: $O(2^n)$
 
-<pre style="height:500px;"><code class="language-julia">
+````julia
 """
 recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
 
@@ -142,7 +142,7 @@ function recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}
     return max(withoutItem, withItem)
   end
 end
-<code><pre>
+````
 
 > [!NOTE]
 > Each step in the function body except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
