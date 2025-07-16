@@ -95,7 +95,8 @@ function distanceMatrix(points::Vector{<:Tuple{<:Number, <:Number}})
   end
   return matrix           # O(1): returning the matrix without copying
 end
-```<!-- .element style="height:500px;" -->
+```
+<!-- .element style="height:600px;" -->
 
 > [!NOTE]
 > Computing a distance matrix is quadratic in time, because the nested loops have a complexity of $O(n) \cdot O(n) \cdot O(1) = O(n^2)$, and no other operation adds a higher complexity.
@@ -148,7 +149,8 @@ function recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}
     return max(withoutItem, withItem)
   end
 end
-````<!-- .element style="height:600px;" -->
+````
+<!-- .element style="height:600px;" -->
 
 > [!NOTE]
 > Each step in the function body except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
