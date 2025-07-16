@@ -1,4 +1,21 @@
-## N/A
+# Software engineering
 
 > [!WARNING]
-> Not yet available
+> Not yet complete
+
+---
+
+## CI/CD
+
+---
+
+### Automated testing
+
+---
+
+### Publishing documentation
+
+---
+
+### Refactoring
+

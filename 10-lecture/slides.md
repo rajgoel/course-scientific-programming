@@ -1,17 +1,9 @@
-# Performance and complexity 
+# Design patterns
 
 > [!WARNING]
 > Not yet completed
 
-===
-
-## Performance
 
 ===
 
-## Profiling
-
-===
-
-## Complexity
-
+## Anti-patterns

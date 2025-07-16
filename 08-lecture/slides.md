@@ -1,4 +1,22 @@
-## N/A
+# Complexity and performance
 
 > [!WARNING]
-> Not yet available
+> Not yet complete
+
+===
+
+## Complexity
+
+---
+
+### Big O-notation
+
+===
+
+## Performance
+
+===
+
+## Profiling
+
+
