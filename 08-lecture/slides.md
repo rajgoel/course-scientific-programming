@@ -72,7 +72,7 @@ end
 
 ### Example: $O(n^2)$
 
-```julia [1-5|7-19|8-9|10-19|11-12|13-17|14-15|16-17|19|7-20]
+```julia [1-5|7-22|9-10|11-20|12-13|14-19|15-16|17-18|20|7-20]
 # Compute Euclidean distance between two points (x1, y1) and (x2, y2)
 function distance(x1::Number, y1::Number, x2::Number, y2::Number)
   # O(1): arithmetic and sqrt are constant time
@@ -101,7 +101,7 @@ end
 
 ### Example: $O(2^n)$
 
-````julia
+````julia [1-24|25-43]
 """
 recursivelySolveKnapsackProblem(items::Vector{Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
 
