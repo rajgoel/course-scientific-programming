@@ -607,7 +607,7 @@ Using existing code helps
 In Julia, packages can be installed from within the REPL, e.g.:
 
 ```julia
-using Pkg
+import Pkg
 Pkg.add("Plots")
 ```
 
@@ -678,19 +678,23 @@ int main() {
 A package template can be generated with:
 <div class="twocolumn" style="align-items:center;">
 <div>
+
 ```julia
 import Pkg
 Pkg.generate("MyPackage")
 ```
 </div>
 <div>
+
 Files generated:
+
 ```
 MyPackage/
 ├── Project.toml
 └── src
     └── MyPackage.jl
 ```
+
 </div>
 </div>
 
@@ -698,12 +702,14 @@ where `Project.toml` and `MyPackage.jl` contain
 
 <div class="twocolumn" style="align-items:center;">
 <div>
+
 ```
 name = "MyPackage"
 uuid = "840e47c1-f544-4b43-b071-eeab3fd176be"
 authors = []
 version = "0.1.0"
 ```
+
 </div>
 <div>
 
@@ -724,10 +730,10 @@ end # module MyPackage
 The local package can be used with
 
 ```julia
-import Pkg;
+import Pkg
 Pkg.develop(url="MyPackage/")  # adjust path as needed
 
-using MyPackage
+import MyPackage
 MyPackage.greet()
 ```
  
