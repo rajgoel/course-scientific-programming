@@ -244,25 +244,26 @@ Pkg.add("Documenter")
 
 ---
 
-#### Step 1: Create a docs folder structure
+#### Step 1: Generate a package with this folder structure
 
-Your project root should have a `docs` folder, e.g., with this structure:
-
-```bash
-MyProgram.jl          # program for which the documentation is built
-docs/
-  ├── make.jl         # script to build the docs
-  └── src   
-       └── index.md   # main markdown file for documentation
+```
+MyPackage/
+├── Project.toml
+├── src
+│   └── MyPackage.jl   # code for which the documentation is built
+└── docs
+    ├── make.jl        # script to build the docs
+    └── src
+        └── index.md   # main markdown file for documentation
 ```
 
 ---
 
-#### Step 2: Write module `MyProgram.jl`
+#### Step 2: Write module `MyPackage.jl`
 
-In `MyProgram.jl` write your module using docstrings:
+In `MyPackage.jl` write your module using docstrings:
 ```julia
-module MyProgram
+module MyPackage
 
 """
 computeAverage(numbers::Vector{Float64}) -> Float64
@@ -279,7 +280,7 @@ function computeAverage(numbers::Vector{Float64})
   return sum(numbers) / length(numbers)
 end
 
-end # module MyProgram
+end # module MyPackage
 ```
 <!-- .element style="height:600px;" -->
 
@@ -290,24 +291,21 @@ end # module MyProgram
 In `docs/make.jl` write:
 ```julia
 using Documenter
-
-push!(LOAD_PATH, normpath(@__DIR__, "..")) # Required to find MyProgram.jl 
-
-using MyProgram
+using MyPackage
 
 makedocs(
-    sitename = "MyProgram Documentation",
+    sitename = "MyPackage Documentation",
     format = Documenter.HTML(
       edit_link = nothing, 
-      repolink = "", 
-      inventory_version = "0.1"
+      repolink = ""
     ),
-    modules = [MyProgram],
+    modules = [MyPackage],
     pages = [
         "Home" => "index.md",
     ],
     remotes = nothing, # Disable source code links if no git repo
 )
+
 ```
 <!-- .element style="height:600px;" -->
 
@@ -320,7 +318,7 @@ In `docs/src/index.md`, write your landing page in markdown:
 ````markdown
 # Welcome to my documentation
 
-This the documentation of `MyProgram`, generated with Documenter.jl.
+This the documentation of `MyPackage`, generated with Documenter.jl.
 
 ## Overview
 
@@ -329,7 +327,7 @@ This Julia program provides a simple Julia module with a utility function. Speci
 ## API Reference
 
 ```@autodocs
-Modules = [MyProgram]
+Modules = [MyPackage]
 ```
 ````<!-- .element style="height:500px;" -->
 
@@ -337,7 +335,7 @@ Modules = [MyProgram]
 
 ## Step 5: Build docs
 
-From your project root folder:
+From your package root folder, run:
 ```bash
 julia --project=docs docs/make.jl
 ```
