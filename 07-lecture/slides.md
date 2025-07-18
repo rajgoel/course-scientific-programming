@@ -282,7 +282,7 @@ end
 
 end # module MyPackage
 ```
-<!-- .element style="height:600px;" -->
+<!-- .element style="height:500px;" -->
 
 ---
 
@@ -307,7 +307,7 @@ makedocs(
 )
 
 ```
-<!-- .element style="height:600px;" -->
+<!-- .element style="height:500px;" -->
 
 ---
 
