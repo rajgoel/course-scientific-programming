@@ -329,7 +329,7 @@ This Julia program provides a simple Julia module with a utility function. Speci
 ```@autodocs
 Modules = [MyPackage]
 ```
-````<!-- .element style="height:500px;" -->
+````
 
 ---
 
