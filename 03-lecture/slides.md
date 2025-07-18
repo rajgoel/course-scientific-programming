@@ -671,4 +671,63 @@ int main() {
 ```
 
 
+===
 
+## Creating packages in Julia
+
+A package template can be generated with:
+<div class="twocolumn" style="align-items:center;">
+<div>
+```julia
+import Pkg
+Pkg.generate("MyPackage")
+```
+</div>
+<div>
+Files generated:
+```
+MyPackage/
+├── Project.toml
+└── src
+    └── MyPackage.jl
+```
+</div>
+</div>
+
+where `Project.toml` and `MyPackage.jl` contain
+
+<div class="twocolumn" style="align-items:center;">
+<div>
+```
+name = "MyPackage"
+uuid = "840e47c1-f544-4b43-b071-eeab3fd176be"
+authors = []
+version = "0.1.0"
+```
+</div>
+<div>
+
+```julia
+module MyPackage
+
+greet() = print("Hello World!")
+
+end # module MyPackage
+```
+</div>
+</div>
+
+---
+
+## Using a local package
+
+The local package can be used with
+
+```julia
+import Pkg;
+Pkg.develop(url="MyPackage/")  # adjust path as needed
+
+using MyPackage
+MyPackage.greet()
+```
+ 
