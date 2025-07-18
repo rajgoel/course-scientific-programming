@@ -676,8 +676,6 @@ int main() {
 ## Creating packages in Julia
 
 A package template can be generated with:
-<div class="twocolumn" style="align-items:center;">
-<div>
 
 ```julia
 import Pkg
@@ -686,7 +684,7 @@ Pkg.generate("MyPackage")
 </div>
 <div>
 
-Files generated:
+This creates a directory with these files:
 
 ```
 MyPackage/
@@ -695,13 +693,11 @@ MyPackage/
     └── MyPackage.jl
 ```
 
-</div>
-</div>
+---
 
-where `Project.toml` and `MyPackage.jl` contain
 
-<div class="twocolumn" style="align-items:center;">
-<div>
+
+`Project.toml`:
 
 ```
 name = "MyPackage"
@@ -713,6 +709,8 @@ version = "0.1.0"
 </div>
 <div>
 
+`MyPackage.jl`: 
+
 ```julia
 module MyPackage
 
@@ -720,8 +718,7 @@ greet() = print("Hello World!")
 
 end # module MyPackage
 ```
-</div>
-</div>
+
 
 ---
 
