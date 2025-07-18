@@ -261,7 +261,7 @@ MyPackage/
 
 #### Step 2: Write module `MyPackage.jl`
 
-In `MyPackage.jl` write your module using docstrings:
+In `src/MyPackage.jl` write your module using docstrings:
 ```julia
 module MyPackage
 
