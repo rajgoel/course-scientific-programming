@@ -35,7 +35,7 @@ Key goals are to
 
 
 
-
+## Requirements 
 
 ## Design
 
@@ -59,3 +59,25 @@ Key goals are to
 
 ### Refactoring
 
+## Software Development Workflows
+
+### 1. Issues
+Track tasks, bugs, and discussions.
+
+### 2. Branching
+Work in isolation without breaking the main project.
+
+### 3. Commits
+Save meaningful progress with context.
+
+### 4. Forking
+Contribute to projects you don’t control.
+
+### 5. Pull Requests
+Review code before merging — enable collaboration and quality control.
+
+### 6. Code Review
+Feedback loop for correctness, clarity, and style.
+
+### 7. Merge and Maintain
+Keep the main branch stable, tested, and production-ready.
