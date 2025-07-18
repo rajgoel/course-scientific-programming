@@ -709,7 +709,7 @@ version = "0.1.0"
 </div>
 <div>
 
-`MyPackage.jl`: 
+`src/MyPackage.jl`: 
 
 ```julia
 module MyPackage
@@ -733,4 +733,6 @@ Pkg.develop(url="MyPackage/")  # adjust path as needed
 import MyPackage
 MyPackage.greet()
 ```
- 
+
+> [!TIP]
+> `Pkg.develop` for local packages is essentially the equivalent to `Pkg.add` for published packages.
