@@ -1,9 +1,5 @@
-# Design patterns
+# tbd
 
 > [!WARNING]
 > Not yet completed
 
-
-===
-
-## Anti-patterns
