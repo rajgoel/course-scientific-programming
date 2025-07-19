@@ -218,9 +218,8 @@ The include:
 
 ## UML activity diagrams
 
-[UML activity diagrams](https://en.wikipedia.org/wiki/Activity_diagram) describe workflows, i.e. sequences of operations and decisions.
-
-
+<div class="twocolumn" style="align-items:center;">
+<div>
 <!--
 @startuml
 start
@@ -238,7 +237,16 @@ stop
 @enduml
 -->
 
-![UML](09-lecture/Activity_diagram.svg)
+![UML](09-lecture/Activity_diagram.svg)<!-- .element style="height:600px;" -->
+
+
+</div>
+<div>
+
+[UML activity diagrams](https://en.wikipedia.org/wiki/Activity_diagram) describe workflows, i.e. sequences of operations and decisions.
+
+</div>
+</div>
 
 > [!TIP]
 > UML activity diagrams are especially useful for describing the control flow of algorithms.
