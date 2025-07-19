@@ -88,7 +88,7 @@ This process is called **requirements engineering**.
 - Software **architecture** defines the high-level structure of a software system, i.e. how components are organized and interact.
 - Software **design** is the detailed plan for how those components are implemented.
 
----
+===
 
 ## UML component diagrams
 
@@ -158,6 +158,60 @@ Aborted -r-> [*]
 ===
 
 
+## UML Class Diagrams
+
+[UML class diagrams](https://en.wikipedia.org/wiki/Class_diagram) represent the data and objects model of a program:
+
+<div class="twocolumn" style="align-items:center;">
+<div>
+<!--
+@startuml
+object Simulator {
+  +parameters: Parameters
+  +current_state: State
+  +logger: Logger
+}
+object Parameters {
+  +duration: Int32
+  +arrival_rate: Float64
+  +service_rate: Float64
+  +number_of_servers: Int32
+}
+object State {
+  +time: Float64
+  +queue_length: Int32
+  +busy_servers: Int32
+}
+object Logger {
+  +log: Vector{State}
+}
+Simulator -- Parameters
+Simulator -- State
+Simulator -- Logger
+Logger - State
+@enduml
+-->
+
+![UML](09-lecture/Class_diagram.svg)
+
+</div>
+<div>
+
+- Classes/types (e.g., struct, mutable struct, class)
+- Attributes (fields)
+- Methods (functions operating on the type)
+- Inheritance and composition
+
+</div>
+</div>
+
+> [!NOTE]
+> Methods and inheritance are less important in Julia as it is not an object oriented language.
+
+---
+
+
+---
 
 
 ### Structure
