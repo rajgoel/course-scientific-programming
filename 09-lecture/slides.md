@@ -1,8 +1,5 @@
 # Software engineering
 
-> [!WARNING]
-> Not yet complete
-
 ---
 
 
@@ -253,43 +250,109 @@ stop
 
 ===
 
-### API
+## Implementation
+
+A typical software development workflow looks like this: 
+
+1. **Issues:** Define and track tasks, features, and bugs
+2. **Forking:** Create your own copy of a repository to contribute to projects you do not own.
+3. **Branching:** Develop new features or fixes in isolated branches without affecting the main branch.
+4. **Commits:** Save meaningful progress with context.
+5. **Pull Requests:** Propose changes to be merged into the main branch.
+6. **Code Review:** Peers review your code for correctness, readability, performance, and style.
+7. **Merge and deploy:** Integrate tested code into the main branch and release new version.
+
+
+===
+
+## Continuous integration and continuous deployment (CI/CD)
+
+[CI/CD](https://en.wikipedia.org/wiki/CI/CD) automates the building, testing, and deployment of software:
+
+- **Continuous Integration (CI):** Automatically build and test your code every time you push changes.
+- **Continuous Deployment (CD):** Automatically deploy new versions after passing tests.
+
+> [!TIP]
+> CI/CD is especially helpful in scientific programming to ensure that results are reproducible, models stay valid, and documentation is up to date.
 
 ---
 
-## CI/CD
+## GitHub Actions
+
+GitHub can be configured to automatically runs workflows defined in `.github/workflows/*.yml` of your repository.
+
+> [!NOTE]
+> See https://github.com/rajgoel/MyDemoPackage.jl/ for a sample package.
 
 ---
 
-### Automated testing
+### CI for automatic testing
+
+```yaml
+name: Run tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version: ['1.11']
+        julia-arch: [x64]
+        os: [ubuntu-latest] # [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: ${{ matrix.julia-version }}
+      - uses: julia-actions/julia-buildpkg@latest
+      - uses: julia-actions/julia-runtest@latest
+```
+
+> [!TIP]
+> Fork the project https://github.com/rajgoel/MyDemoPackage.jl/ and make changes to adapt to your needs.
 
 ---
 
-### Publishing documentation
+### CD for automatic deployment of documentation
 
----
+```yaml
+name: Create documentation
+on:
+  push:
+    branches:
+      - main
+    tags: '*'
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: '1.11'
+      - name: Install dependencies
+        run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
+      - name: Build and deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # For authentication with GitHub Actions token
+          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }} # For authentication with SSH deploy key
+        run: julia --project=docs/ docs/make.jl
+```
 
-### Refactoring
+> [!TIP]
+> Fork the project https://github.com/rajgoel/MyDemoPackage.jl/ and make changes to adapt to your needs. For automatic deployment you may need to follow instructions given in the `README.md` of the project.
 
-## Software Development Workflows
+===
 
-### 1. Issues
-Track tasks, bugs, and discussions.
+## Refactoring
 
-### 2. Branching
-Work in isolation without breaking the main project.
+Refactoring means restructuring existing code without changing its external behavior. 
 
-### 3. Commits
-Save meaningful progress with context.
+The goal is to improve:
+- Readability (e.g., clearer names, better organization)
+- Maintainability (e.g., modular design, avoiding duplication)
+- Performance (e.g., replacing inefficient patterns)
 
-### 4. Forking
-Contribute to projects you don’t control.
-
-### 5. Pull Requests
-Review code before merging — enable collaboration and quality control.
-
-### 6. Code Review
-Feedback loop for correctness, clarity, and style.
-
-### 7. Merge and Maintain
-Keep the main branch stable, tested, and production-ready.
+> [!TIP]
+> For every newly implemented functionality try to simplify and improve code quality before continuing. Always run tests after refactoring to ensure nothing breaks.
