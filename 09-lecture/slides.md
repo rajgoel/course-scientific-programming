@@ -127,17 +127,22 @@ A [UML component diagram](https://en.wikipedia.org/wiki/Component_diagram) shows
 
 ===
 
-## State Machines
+## State machines
 
-In scientific computing, especially simulations, many systems pass through a sequence of discrete **states**, each representing the characteristics of the system at a point in time.
+A [state machine](https://en.wikipedia.org/wiki/Finite-state_machine) represents systems by 
 
-A [state machine](https://en.wikipedia.org/wiki/Finite-state_machine) represents systems by such states and **state transitions** defining how the system can moves from one state to another, and the **conditions** or **triggers** that cause these transitions.
+- **states** representing the characteristics of the system at a point in time,
+- **state transitions** defining how the system can moves from one state to another, and 
+- **conditions** or **triggers** that cause these transitions.
+
+> [!NOTE]
+> State machines are quite common in scientific computing, in particular, when simulating complex systems.
 
 ---
 
 ### UML state machine diagrams
 
-A [UML state machine diagram](https://en.wikipedia.org/wiki/UML_state_machine) can be used to represent state machines.
+A [UML state machine diagram](https://en.wikipedia.org/wiki/UML_state_machine) depicts states, transitions, and conditions/triggers.
 
 <!--
 @startuml
@@ -158,9 +163,9 @@ Aborted -r-> [*]
 ===
 
 
-## UML Class Diagrams
+## UML class diagrams
 
-[UML class diagrams](https://en.wikipedia.org/wiki/Class_diagram) represent the data and objects model of a program:
+[UML class diagrams](https://en.wikipedia.org/wiki/Class_diagram) represent the data and objects model of a program.
 
 <div class="twocolumn" style="align-items:center;">
 <div>
@@ -196,10 +201,11 @@ Logger - State
 
 </div>
 <div>
+The include:
 
-- Classes/types (e.g., struct, mutable struct, class)
+- Classes/structs
 - Attributes (fields)
-- Methods (functions operating on the type)
+- Methods (functions operating on the class)
 - Inheritance and composition
 
 </div>
@@ -208,13 +214,36 @@ Logger - State
 > [!NOTE]
 > Methods and inheritance are less important in Julia as it is not an object oriented language.
 
----
+===
+
+## UML activity diagrams
+
+[UML activity diagrams](https://en.wikipedia.org/wiki/Activity_diagram) describe workflows, i.e. sequences of operations and decisions.
 
 
----
+<!--
+@startuml
+start
+:Initialize system state;
+repeat
+  :Wait for event;
+  if () then (arrival)
+    :Add entity to queue;
+  else (departure)
+    :Remove entity from queue;
+  endif
+  :Update system state;
+repeat while () is (continue) not (terminate)
+stop
+@enduml
+-->
 
+![UML](09-lecture/Activity_diagram.svg)
 
-### Structure
+> [!TIP]
+> UML activity diagrams are especially useful for describing the control flow of algorithms.
+
+===
 
 ### API
 
