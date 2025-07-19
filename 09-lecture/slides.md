@@ -141,22 +141,23 @@ A [UML state machine diagram](https://en.wikipedia.org/wiki/UML_state_machine) c
 
 <!--
 @startuml
-left to right direction
-[*] --> Initialized
-Initialized --> Running : start
-Running --> Paused : pause
-Running --> Completed : finish
-Completed --> [*]
-Paused --> Aborted : abort
-Running --> Aborted : abort
-Paused --> Running : resume
-Aborted --> [*]
+[*] -> Initialized
+Initialized -> Running : start
+Running -d-> Paused : pause
+Running -> Completed : finish
+Completed -d-> [*]
+Paused -> Aborted : abort
+Running -> Aborted : abort
+Paused -u-> Running : resume
+Aborted -r-> [*]
 @enduml
 -->
 
 ![UML](09-lecture/State_machine_diagram.svg)
 
----
+===
+
+
 
 
 ### Structure

@@ -1,8 +1,5 @@
 # Clean code and documentation
 
-> [!WARNING]
-> Not yet complete
-
 ===
 
 ## Clean code
