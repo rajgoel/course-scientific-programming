@@ -6,7 +6,7 @@
 ---
 
 
-**Software engineering** is the systematic application of engineering principles to the design, development, testing, documentation, deployment, and maintenance of software systems.
+[Software engineering](https://en.wikipedia.org/wiki/Software_engineering) is the systematic application of engineering principles to the design, development, testing, documentation, deployment, and maintenance of software systems.
 
 ---
 
@@ -25,19 +25,139 @@ Key goals are to
 ## Software development lifecycle
 
 
-- Requirements analysis
-- Design
+- Requirements
+- Architecture and design
 - Implementation (coding)
 - Testing
 - Deployment
-- Maintenance and updates
+- Maintenance
 
+===
 
+## Requirements engineering
 
+Before writing any code, it's essential to clearly define:
 
-## Requirements 
+- what your program is supposed to do,
+- what data it needs,
+- what output it should generate, and
+- how you'll know it's working correctly.
 
-## Design
+This process is called **requirements engineering**.
+
+---
+
+## What is the goal?
+
+- What is the research question?
+- Which problem is to be solved?
+- Which questions are to be answered?
+- What are the assumptions?
+- What are constraints and limitations?
+
+---
+
+## What is the required input?
+
+- What type of data is required?
+- Where does the data come from?
+- What are the expectations for quality, correctness, and completeness?
+- What is the expected format and structure?
+- What kind of pre-processing of input data is required? 
+
+---
+
+## What is the required output?
+
+- What are the expected results?
+- Which data is generated?
+- What format and structure is appropriate?
+
+---
+
+## How do you know it works?
+
+- How will the program be tested?
+- What are the correctness criteria?
+- How can the results be validated or verified?
+
+===
+
+## Architecture and design
+
+- Software **architecture** defines the high-level structure of a software system, i.e. how components are organized and interact.
+- Software **design** is the detailed plan for how those components are implemented.
+
+---
+
+## UML component diagrams
+
+A [UML component diagram](https://en.wikipedia.org/wiki/Component_diagram) shows the components of a larger system and the interfaces used to connect these components.
+
+<!--
+@startuml
+  [Data provider] as DP
+  [Controller] as C
+  [Observer] as O
+  [Model] as M
+  interface "input" as IInput
+  interface "control" as IControl
+  interface "subscribe" as ISubscribe
+  interface "update" as IUpdate
+  DP .right.> IInput
+  IInput -right- M
+  M -down- ISubscribe
+  O .up.> ISubscribe
+  O -up- IUpdate
+  M .down.> IUpdate
+  C .left.> IControl
+  M -right- IControl
+}
+@enduml
+-->
+
+![UML](09-lecture/Component_diagram.svg)
+
+---
+
+### Architectural principles
+
+- **Separation of concerns:** Each component (e.g., data input, model logic, control logic, or output) is responsible for a single well-defined task.
+- **Modularity:** It should be possible to replace or modify components without affecting the whole
+
+===
+
+## State Machines
+
+In scientific computing, especially simulations, many systems pass through a sequence of discrete **states**, each representing the characteristics of the system at a point in time.
+
+A [state machine](https://en.wikipedia.org/wiki/Finite-state_machine) represents systems by such states and **state transitions** defining how the system can moves from one state to another, and the **conditions** or **triggers** that cause these transitions.
+
+---
+
+### UML state machine diagrams
+
+A [UML state machine diagram](https://en.wikipedia.org/wiki/UML_state_machine) can be used to represent state machines.
+
+<!--
+@startuml
+left to right direction
+[*] --> Initialized
+Initialized --> Running : start
+Running --> Paused : pause
+Running --> Completed : finish
+Completed --> [*]
+Paused --> Aborted : abort
+Running --> Aborted : abort
+Paused --> Running : resume
+Aborted --> [*]
+@enduml
+-->
+
+![UML](09-lecture/State_machine_diagram.svg)
+
+---
+
 
 ### Structure
 
