@@ -234,7 +234,7 @@ stop
 @enduml
 -->
 
-![UML](09-lecture/Activity_diagram.svg)<!-- .element style="height:600px;" -->
+![UML](09-lecture/Activity_diagram.svg)<!-- .element style="height:500px;" -->
 
 
 </div>
@@ -254,9 +254,9 @@ stop
 
 A typical software development workflow looks like this: 
 
-1. **Issues:** Define and track tasks, features, and bugs
+1. **Issues:** Define a task, feature, or bug.
 2. **Forking:** Create your own copy of a repository to contribute to projects you do not own.
-3. **Branching:** Develop new features or fixes in isolated branches without affecting the main branch.
+3. **Branching:** Develop new feature or fixes in isolated branches without affecting the main branch.
 4. **Commits:** Save meaningful progress with context.
 5. **Pull Requests:** Propose changes to be merged into the main branch.
 6. **Code Review:** Peers review your code for correctness, readability, performance, and style.
@@ -279,9 +279,9 @@ A typical software development workflow looks like this:
 
 ## GitHub Actions
 
-GitHub can be configured to automatically runs workflows defined in `.github/workflows/*.yml` of your repository.
+GitHub can be configured to automatically runs workflows defined through [YAML](https://en.wikipedia.org/wiki/YAML) files in a folder named `.github/workflows/`.
 
-> [!NOTE]
+> [!TIP]
 > See https://github.com/rajgoel/MyDemoPackage.jl/ for a sample package.
 
 ---
@@ -349,10 +349,11 @@ jobs:
 
 Refactoring means restructuring existing code without changing its external behavior. 
 
-The goal is to improve:
-- Readability (e.g., clearer names, better organization)
-- Maintainability (e.g., modular design, avoiding duplication)
-- Performance (e.g., replacing inefficient patterns)
+> [!NOTE]
+> The goal is to improve:
+> - **Readability** (e.g., clearer names, better organization)
+> - **Maintainability** (e.g., modular design, avoiding duplication)
+> - **Performance** (e.g., replacing inefficient patterns)
 
 > [!TIP]
 > For every newly implemented functionality try to simplify and improve code quality before continuing. Always run tests after refactoring to ensure nothing breaks.
