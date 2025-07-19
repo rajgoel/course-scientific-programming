@@ -116,7 +116,7 @@ A [UML component diagram](https://en.wikipedia.org/wiki/Component_diagram) shows
 @enduml
 -->
 
-![UML](09-lecture/Component_diagram.svg)
+![UML](09-lecture/Component_diagram.svg)<!-- .element style="width:400px;" -->
 
 ---
 
@@ -153,7 +153,7 @@ Aborted -r-> [*]
 @enduml
 -->
 
-![UML](09-lecture/State_machine_diagram.svg)
+![UML](09-lecture/State_machine_diagram.svg)<!-- .element style="width:400px;" -->
 
 ===
 
