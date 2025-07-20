@@ -14,8 +14,7 @@
     { "topic": "Error handling and testing", "src": "slides.md", "folder": "06-lecture" },
     { "topic": "Clean code and documentation", "src": "slides.md", "folder": "07-lecture" },
     { "topic": "Complexity and performance", "src": "slides.md", "folder": "08-lecture" },
-    { "topic": "Software engineering", "src": "slides.md", "folder": "09-lecture" },
-    { "topic": "Miscellaneous", "src": "slides.md", "folder": "10-lecture" }
+    { "topic": "Software engineering", "src": "slides.md", "folder": "09-lecture" }
   ]
 }
 
