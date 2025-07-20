@@ -562,7 +562,7 @@ for k, v in mymap.items():
 **C++:**
 ```cpp [1-3|6-11|13-14|16-17|19-20|22-23|25-28]
 #include <unordered_map>
-#include <iostream>
+#include <print>
 #include <string>
 
 int main() {
@@ -587,7 +587,7 @@ int main() {
 
   // Iterate
   for (const auto& [key, value] : mymap) {
-    std::cout << key << ": " << value << std::endl;
+    std::println("{}: {}", key, value);
   }
 
   return 0;
@@ -655,7 +655,7 @@ for element in myset:
 **C++:**
 ```cpp [1-2|5-6|8-10|12-13|15-16|18-21]
 #include <unordered_set>
-#include <iostream>
+#include <print>
 
 int main() {
   // Creation
@@ -673,7 +673,7 @@ int main() {
 
   // Iterate
   for (auto& element : myset) {
-    std::cout << element << std::endl;
+    std::println("{}", element);
   }
 
   return 0;

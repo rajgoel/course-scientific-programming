@@ -402,7 +402,7 @@ with open(output_filename, "w") as myfile:
 ### C++
 
 ```cpp [1-4|7-16|18-22]
-#include <iostream>
+#include <print>
 #include <fstream>
 #include <string>
 #include <filesystem>
@@ -415,7 +415,7 @@ int main() {
     std::string line;
     while (std::getline(my_input_stream, line)) {
       // Print line to console
-      std::cout << line << std::endl;
+      std::println("{}",line);
     }
   }
 

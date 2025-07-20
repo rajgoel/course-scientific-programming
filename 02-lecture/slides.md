@@ -442,10 +442,11 @@ print("y =", y)
 **C++:**
 ```cpp
 #include <iostream>
+#include <print>
 
 int main() {
   int x; // x must be declared before the input can be assigned to it
-  std::cout << "Enter x: ";
+  std::print("Enter x: ");
   std::cin >> x;
   int y; // y must be declared before a value can be assigned to it
   if (x < 0) {
@@ -455,7 +456,7 @@ int main() {
     y = x;
   }
 
-  std::cout << "y = " << y << std::endl;
+  std::print("y = {}", y);
   return 0;
 }
 ```

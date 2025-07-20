@@ -658,13 +658,13 @@ In C++, using an external library typically requires to:
 Library headers can be included as follows:
 
 ```cpp
-#include <iostream>
+#include <print>
 #include <nlohmann/json.hpp>
 
 int main() {
-  std::string jsonString = "{\"name\":\"Alice\",\"age\":30}";
+  std::string jsonString = R"({"name":"Alice","age":30})";
   auto j = nlohmann::json::parse(jsonString);
-  std::cout << j["name"] << " is " << j["age"] << " years old.\n";
+  std::println("{} is {} years old.", std::string(j["name"]), int(j["age"]));
 
   return 0; 
 }
