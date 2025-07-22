@@ -30,15 +30,29 @@ A bonus of up to 10% of the final score can be obtained by meaningful contributi
 
 ## Module description
 
-N/A
+In this module, students will acquire the necessary programming skills for
+data analysis and scientific computing. The module covers essential topics
+such as data structures, control structures, functions, loops, recursion,
+object-oriented programming, comments, exception handling, and
+algorithms. Through project work, students will gain practical experience with a programming language commonly used in data science, enabling them to efficiently manipulate and process large datasets. They will learn to write well-structured code
+and develop problem-solving skills that are essential for implementing
+algorithms and analyzing data. By mastering scientific programming,
+students will become proficient in translating business problems into
+computational solutions, enhancing their ability to extract valuable insights
+from complex datasets.
 
 ### Learning outcomes
 
-N/A
+On successful completion of this module, students will be able to:
+
+- develop code for processing and analyzing data
+- develop algorithms for manipulating data
 
 ### Literature
 
-N/A
+- Storopoli, Huijzer and Alonso (2021). Julia Data Science. https://juliadatascience.io. ISBN: 9798489859165.
+- Noel Kalicharan (2021): Julia - Bit by Bit
+https://link.springer.com/book/10.1007/978-3-030-73936-2
 
 ## License
 
