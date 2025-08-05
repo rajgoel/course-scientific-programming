@@ -51,21 +51,23 @@ section	.text
    global _start
 	
 _start:	        
-   mov	edx,len     ; length of string, third argument to write()
-   mov	ecx,msg     ; address of string, second argument to write()
-   mov	ebx,1       ; file descriptor (standard output), first argument to write()
    mov	eax,4       ; system call number for write()
-   int	0x80        ; system call trap
+   mov	ebx,1       ; file descriptor (standard output), first argument to write()
+   mov	ecx,msg     ; address of string, second argument to write()
+   mov	edx,len     ; length of string, third argument to write()
+   int	0x80        ; invoke system call
 	
-   mov	ebx,0       ; exit code, first argument to exit()
    mov	eax,1       ; system call number for exit()
-   int	0x80        ; system call trap
+   mov	ebx,0       ; exit code, first argument to exit()
+   int	0x80        ; invoke system call
 
 section	.data
 msg db 'Hello, world!', 0xa  
 len equ $ - msg
 ```
 <!-- .element style="height:21em;" -->
+
+You can try this out on [Compiler Explorer](https://godbolt.org/).
 
 ---
 
@@ -224,7 +226,7 @@ The best way to learn a language is to use the language in a project that you ca
 
 This course aims at explaining programming concepts that are helpful for identifying an appropriate structure for your code. Most of these concepts are language agnostic.
 
-> [!NOTE]
+> [!IMPORTANT]
 > The course assumes that you do use LLMs, in particular, for questions regarding syntax, semantics, error messages, bug fixing.
 
 ===
@@ -285,5 +287,3 @@ Scientific code must be documented in such a way that other researchers can
  
 > [!IMPORTANT]
 > Documentation is also extremely important for yourself, so that you can do above yourself!
-
-
