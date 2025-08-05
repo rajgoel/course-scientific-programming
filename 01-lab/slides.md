@@ -134,7 +134,7 @@ Git is a version control system used to track changes in code and collaborate wi
 
 You can use Git via the command line. Common commands include:
 
-```bash
+```plaintext
 git clone <repository-url>          # copy a repository to your local machine
 git checkout -b <branch-name>       # create and switch to a new branch
 git add <file>                      # stage changes to be committed
@@ -149,7 +149,76 @@ git push -u origin <branch-name>    # upload committed changes to the remote rep
 
 ## Project
 
+---
+
+The project is the core component of this course and determines your final grade.
+
+---
+
+### Group work
+
+Projects are carried out in groups of 3–5 students. Each group will collaboratively plan, implement, document, test, and present a a scientific programming project.
+
+---
+
+### Topic
+
+The topic of the project is self-selected, but must be approved by the instructor. It should involve solving a relevant problem relating to business analytics and data science.
+
+---
+
+### Programming language
+
+The primary language for the project must be **Julia**.
+
+---
+
+### GitHub
+
+All projects must be hosted on GitHub. Group members are expected to use branches, commits, and pull requests to manage and track changes collaboratively.
+
+---
+
+### Evaluation criteria
+
+Project work will be assessed based on the following criteria:
+
+- **Project ambition**  
+  Complexity and scope of the selected topic
+- **Implementation quality**  
+  Correctness, structure, and completeness of the code
+- **Documentation**  
+  Clarity, completeness, and usability of the project documentation
+- **Test coverage**  
+  Evidence of adequate testing to ensure code quality
+
+---
+
+### Project presentation
+
+At the end of the course, each group will present their project to the class. The presentation should:
+
+- Explain the problem being solved
+- Demonstrate the implemented solution
+- Highlight technical challenges and key design decisions
+
+> [!IMPORTANT]
+> The presentation is part of the final project grade.
 
 
+---
 
+### Peer evaluation
+
+Before the final presentation, each group member must submit a <a href="markdown-viewer.html?file=peer_evaluation.md" >peer evaluation form</a> to reflect on the contributions of others in the group.
+
+---
+
+### Individual evaluation
+
+Each student will be evaluated individually based on their:
+
+- Contribution to the repository (e.g., commits, issues, pull requests)
+- Implemented features and their relevance or difficulty
+- Peer evaluation
 

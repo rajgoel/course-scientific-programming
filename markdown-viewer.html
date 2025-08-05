@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body { background-color:white; max-width: 800px; margin: auto; font-family: sans-serif; padding: 2em; }
+    pre, code { background-color: #f0f0f0; padding: 0.5em; overflow-x: auto; }
+    table { display: block; width: 100%; overflow: auto; border-collapse: collapse; border-spacing: 0; border: 0px; }
+    th, td { padding: 6px 13px; border: 1px solid #d0d7de; }
+    tr { background-color: #ffffff; border-top: 1px solid #d0d7de; }
+    tr:nth-child(2n) { background-color: #f6f8fa; }
+    th { font-weight: 600; background-color: #f6f8fa; }
+  </style>
+</head>
+<body>
+  <div id="content">Loading...</div>
+
+  <script>
+    function getParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    async function loadMarkdown(file) {
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error("Failed to load file");
+        const md = await response.text();
+        document.getElementById('content').innerHTML = marked.parse(md);
+      } catch (e) {
+        document.getElementById('content').textContent = 'Error: ' + e.message;
+      }
+    }
+
+    const file = getParam('file');
+    if (file) {
+      loadMarkdown(file);
+    } else {
+      document.getElementById('content').textContent = 'No file specified. Use ?file=yourfile.md';
+    }
+  </script>
+</body>
+</html>
+
