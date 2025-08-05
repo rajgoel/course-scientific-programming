@@ -21,6 +21,6 @@ For each of your group members (excluding yourself), rate their contribution to 
 - **Reliability & Initiative:** Meeting deadlines, taking ownership of tasks.
 - **Overall Contribution:** Your overall impression of their role in the project.
 
-## Submission
+## Deadline
 
-Before the final presentation email this form to the instructor. 
+This form must be emailed to the instructor before the final presentation.

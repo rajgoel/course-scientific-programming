@@ -157,13 +157,19 @@ The project is the core component of this course and determines your final grade
 
 ### Group work
 
-Projects are carried out in groups of 3–5 students. Each group will collaboratively plan, implement, document, test, and present a a scientific programming project.
+Projects are carried out in groups of 3–5 students. 
+
+Each group will collaboratively plan, implement, document, test, and present a scientific programming project.
 
 ---
 
 ### Topic
 
-The topic of the project is self-selected, but must be approved by the instructor. It should involve solving a relevant problem relating to business analytics and data science.
+The topic of the project is self-selected and should solve a problem relevant to business analytics ad data science. 
+
+> [!IMPORTANT]
+> The topic must be approved by the instructor.
+
 
 ---
 
@@ -210,7 +216,7 @@ At the end of the course, each group will present their project to the class. Th
 
 ### Peer evaluation
 
-Before the final presentation, each group member must submit a <a href="markdown-viewer.html?file=peer_evaluation.md" >peer evaluation form</a> to reflect on the contributions of others in the group.
+Before the final presentation, each group member must submit a [peer evaluation form](peer_evaluation.md) to reflect on the contributions of others in the group.
 
 ---
 
