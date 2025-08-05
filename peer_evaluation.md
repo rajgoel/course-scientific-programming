@@ -8,8 +8,8 @@
 For each of your group members (excluding yourself), rate their contribution to the project from **1 (very good)** to **5 (unsatisfactory)**. You may optionally add short comments.
 
 | Group Member | Contribution (1–5) | Comments (optional) |
-|--------------|--------------------|----------------------|
-|              |                    |                      |
+|--------------|--------------------|---------------------|
+|              |                    |                     |
 
 
 
