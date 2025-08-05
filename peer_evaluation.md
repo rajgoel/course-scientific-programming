@@ -15,4 +15,4 @@ For each of your group members (excluding yourself), rate their contribution to 
 
 ## Deadline
 
-This form must be emailed to the instructor before the final presentation.
+This form must be emailed to the instructor before the last session.
