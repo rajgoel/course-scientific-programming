@@ -17,8 +17,8 @@ https://rajgoel.github.io/course-scientific-programming
 | 07      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture) | Project work    |
 | 08      | [Complexity and performance](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)   | Project work    |
 | 09      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)         | Project work    |
-| 10      | Miscellaneous            | Project work    |
-| 11      | Ask me anything          | Ask me anything |
+| 10      | Miscellaneous            | Ask me anything      |
+| 11      | Project presentation     | Project presentation |
 
 ## E-Assignments
 

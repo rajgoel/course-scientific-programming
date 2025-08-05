@@ -65,7 +65,7 @@ The course also benefits from discussions:
 
 - Start a [GitHub Discussion](https://github.com/rajgoel/course-scientific-programming/discussions)
 - Participate in existing discussions
-- Link discussions issues or pull requests where relevant.
+- Link discussions to issues or pull requests where relevant.
 
 ---
 
@@ -90,10 +90,8 @@ All **Pull Requests** that are merged are eligible for a bonus. Depending on the
 
 The command line is a text-based interface that allows users to interact directly with the operating system by typing commands. 
 
-- **Windows:**  
-  Open *PowerShell*.
-- **MacOS/Linux:**  
-  Open *Terminal* . 
+- **Windows:** Open *PowerShell*
+- **MacOS/Linux:** Open *Terminal*
 
 > [!NOTE]
 > The command line can be used to install software and to run development tools such as Julia, Git, and many others. 
@@ -102,19 +100,19 @@ The command line is a text-based interface that allows users to interact directl
 
 ### Julia
 
-Julia is the main programming language used in this course. Install it following the instructions at:: https://julialang.org/install/
+Julia is the main programming language used in this course. Install it following the instructions at: https://julialang.org/install/
 
 ---
 
 ### Python
 
-To experiment with Python you can use the online interpreter available at: https://www.online-python.com/
+To experiment with Python, you can use the online interpreter available at: https://www.online-python.com/
 
 ---
 
 ### C++
 
-To experiment with C++ you can use the online compiler available at: https://www.onlinegdb.com/
+To experiment with C++, you can use the online compiler available at: https://www.onlinegdb.com/
 
 > [!NOTE]
 > Make sure to select *Language: C++23*
@@ -132,7 +130,9 @@ Git is a version control system used to track changes in code and collaborate wi
 
 ---
 
-You can use Git via the command line. Common commands include:
+You can use git via the command line.
+
+Common commands include:
 
 ```plaintext
 git clone <repository-url>          # copy a repository to your local machine
@@ -167,7 +167,7 @@ Each group will collaboratively plan, implement, document, test, and present a s
 
 The topic of the project is self-selected and should solve a problem relevant to business analytics ad data science. 
 
->
+> [!IMPORTANT]
 > The topic must be approved by the instructor.
 
 
@@ -181,13 +181,15 @@ The primary language for the project must be **Julia**.
 
 ### GitHub
 
-All projects must be hosted on GitHub. Group members are expected to use branches, commits, and pull requests to manage and track changes collaboratively.
+All projects must be hosted on GitHub. 
+
+Group members are expected to use branches, commits, and pull requests to manage and track changes collaboratively.
 
 ---
 
 ### Evaluation criteria
 
-Project work will be assessed based on the following criteria:
+The project will be assessed based on the following criteria:
 
 - **Project ambition**  
   Complexity and scope of the selected topic
@@ -202,7 +204,9 @@ Project work will be assessed based on the following criteria:
 
 ### Project presentation
 
-At the end of the course, each group will present their project to the class. The presentation should:
+In the last session of the course, each group will present their project to the class.
+
+The presentation should:
 
 - Explain the problem being solved
 - Demonstrate the implemented solution
@@ -216,15 +220,16 @@ At the end of the course, each group will present their project to the class. Th
 
 ### Peer evaluation
 
-Before the final presentation, each group member must submit a [peer evaluation form](peer_evaluation.md) to reflect on the contributions of others in the group.
+**Before the last session**, each group member must submit a [peer evaluation form](peer_evaluation.md) to reflect on the contributions of others in the group.
 
 ---
 
 ### Individual evaluation
 
-Each student will be evaluated individually based on their:
+Each student will be evaluated individually considering:
 
-- Contribution to the repository (e.g., commits, issues, pull requests)
+- The overall project evaluation
+- The individual contribution to the repository (e.g., commits, issues, pull requests)
 - Implemented features and their relevance or difficulty
 - Peer evaluation
 
