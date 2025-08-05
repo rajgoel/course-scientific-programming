@@ -72,11 +72,11 @@ The course also benefits from discussions:
 
 All **Pull Requests** that are merged are eligible for a bonus. Depending on the quality and impact, the following may also be eligible: 
 
-- **Pull Requests** that are rejected
+- **Pull Requests** that are rejected  
   *Example:* A PR that fixes an issue but is not merged because another approach to fix the issue is taken.
-- **Issues**
+- **Issues**  
   *Example:* Reporting an issue that ultimately leads to improvements.
-- **Discussions**
+- **Discussions**  
   *Example:* Starting or participating in a discussion helping clarify course content.
 
 ===
