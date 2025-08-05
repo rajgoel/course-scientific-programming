@@ -6,7 +6,7 @@
 
 The lecture focuses on **Julia**, **Python**, and **C++** as programming languages suitable for scientific programming.
 
-> !IMPORTANT
+> [!IMPORTANT]
 > While prior knowledge in any programming language is certainly a plus, prior programming experience is not a prerequisite.
 
 ---
@@ -15,7 +15,7 @@ The lecture focuses on **Julia**, **Python**, and **C++** as programming languag
 
 In the lab you will be given the opportunity to acquire or intensify you programming knowledge on a programming project of your choice.
 
-> !IMPORTANT
+> [!IMPORTANT]
 > The ambition of the project should match your prior knowledge.
 
 ---
@@ -24,7 +24,7 @@ In the lab you will be given the opportunity to acquire or intensify you program
 
 On https://e-assignments.net you will find a collection of self-study exercises, helping you to learn how to implement solutions for common tasks in business anylytics and data science.
 
-> !IMPORTANT
+> [!IMPORTANT]
 > You must use your KLU email address to register on https://e-assignments.net.
 
 ---
@@ -33,7 +33,7 @@ On https://e-assignments.net you will find a collection of self-study exercises,
 
 Grading will be based to 100% on project work.
 
-> !IMPORTANT
+> [!IMPORTANT]
 > Your project work will only be graded if you have successfully completed **at least 50% of the e-Assignments**:
 
 ---
