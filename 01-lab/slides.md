@@ -216,7 +216,7 @@ At the end of the course, each group will present their project to the class. Th
 
 ### Peer evaluation
 
-Before the final presentation, each group member must submit a <a href="peer_evaluation.md" data-preview-link>peer evaluation form</a> to reflect on the contributions of others in the group.
+Before the final presentation, each group member must submit a [peer evaluation form](peer_evaluation.md) to reflect on the contributions of others in the group.
 
 ---
 
