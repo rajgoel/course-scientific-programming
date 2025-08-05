@@ -5,22 +5,13 @@
 **Project URL:** ____________________________  
 **Date:** ____________________________
 
-For each of your group members (excluding yourself), rate their contribution to the project on the following criteria from **1 (very good)** to **5 (unsatisfactory)**. You may optionally add short comments.
+For each of your group members (excluding yourself), rate their contribution to the project from **1 (very good)** to **5 (unsatisfactory)**. You may optionally add short comments.
 
-| Group Member | Technical Contribution (1–5) | Collaboration & Communication (1–5) | Reliability & Initiative (1–5) | Overall Contribution (1–5) | Comments (optional) |
-|--------------|------------------------------|------------------------------------|-------------------------------|----------------------------|----------------------|
-|              |                              |                                    |                               |                            |                      |
-|              |                              |                                    |                               |                            |                      |
-|              |                              |                                    |                               |                            |                      |
+| Group Member | Contribution (1–5) | Comments (optional) |
+|--------------|--------------------|----------------------|
+|              |                    |                      |                               
+|--------------|--------------------|----------------------|
 
----
-
-## Criteria explained
-
-- **Technical Contribution:** Code quality, features implemented, problem-solving.
-- **Collaboration & Communication:** Participation in discussions, responsiveness.
-- **Reliability & Initiative:** Meeting deadlines, taking ownership of tasks.
-- **Overall Contribution:** Your overall impression of their role in the project.
 
 ## Deadline
 
