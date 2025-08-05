@@ -22,14 +22,14 @@ https://rajgoel.github.io/course-scientific-programming
 
 ## E-Assignments
 
-A collection of online exercises is available at https://e-assignments.net. 
+A collection of online assignments is available at https://e-assignments.net. You must **successfully complete at least 50%** of the e-Assignments **before the last session**.
 
 ## Grading
 
 Grading will be based to 100% on project work.
 
 > [!IMPORTANT]
-> Your project work will only be graded if you have successfully completed **at least 50% of the e-Assignments**.
+> Your project work will only be graded if you have successfully completed at least 50% of the e-Assignments.
 
 ## Bonus
 
