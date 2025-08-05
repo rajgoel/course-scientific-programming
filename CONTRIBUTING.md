@@ -10,7 +10,9 @@ A typical workflow for contributing:
 
 - Create an **Issue** describing a problem, suggestion, or improvement.
 - Comment on existing issues with helpful information that aids in clarifying or closing the issue.
-- Fork the repository and implement a fix or enhancement addressing an issue.
+- **Fork** the repository
+- Create a new **Branch** in your fork for your fix or feature
+- Implement a fix or feature addressing an issue.
 - Submit a **Pull Request** referencing the related issue.
 
 For minor changes (e.g., typos), a **Pull Request** may be submitted directly without creating an issue.

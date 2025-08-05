@@ -50,7 +50,8 @@ A typical workflow to contribute on [GitHub](]https://github.com/rajgoel/course-
 
 - Create an **Issue**
 - Comment on existing issues
-- **Fork** the repository and implement a fix
+- **Fork** the repository 
+- Create a new **Branch** in your fork for your fix or feature
 - Submit a **Pull Request**
 
 > [!NOTE]
@@ -81,4 +82,74 @@ All **Pull Requests** that are merged are eligible for a bonus. Depending on the
 
 ===
 
+## Software and tools
+
+---
+
+### Command line/terminal
+
+The command line is a text-based interface that allows users to interact directly with the operating system by typing commands. 
+
+- **Windows:**  
+  Open *PowerShell*.
+- **MacOS/Linux:**  
+  Open *Terminal* . 
+
+> [!NOTE]
+> The command line can be used to install software and to run development tools such as Julia, Git, and many others. 
+
+---
+
+### Julia
+
+Julia is the main programming language used in this course. Install it following the instructions at:: https://julialang.org/install/
+
+---
+
+### Python
+
+To experiment with Python you can use the online interpreter available at: https://www.online-python.com/
+
+---
+
+### C++
+
+To experiment with C++ you can use the online compiler available at: https://www.onlinegdb.com/
+
+> [!NOTE]
+> Make sure to select *Language: C++23*
+
+---
+
+### Git
+
+Git is a version control system used to track changes in code and collaborate with others.
+
+- Follow the instructions on https://git-scm.com/downloads to install git on your computer.
+
+> [!NOTE]
+> Git is the software used by platforms like GitHub, GitLab, and Bitbucket.
+
+---
+
+You can use Git via the command line. Common commands include:
+
+```bash
+git clone <repository-url>          # copy a repository to your local machine
+git checkout -b <branch-name>       # create and switch to a new branch
+git add <file>                      # stage changes to be committed
+git commit -m "your commit message" # save staged changes with a descriptive message
+git push -u origin <branch-name>    # upload committed changes to the remote repository and set upstream branch
+```
+
+> [!NOTE]
+> You can find comprehensive guides for Git and GitHub [here](https://www.geeksforgeeks.org/blogs/ultimate-guide-git-github/) and [here](https://www.w3schools.com/git/default.asp?remote=github).
+
+===
+
 ## Project
+
+
+
+
+
