@@ -46,7 +46,7 @@ A bonus of up to **1.0 point on the final course grade** can be obtained by mean
 
 ### Contributing via Issues and Pull Requests (PR)
 
-A typical workflow to contribute on [GitHub](]https://github.com/rajgoel/course-scientific-programming) is:
+A typical workflow to contribute on [GitHub](https://github.com/rajgoel/course-scientific-programming) is:
 
 - Create an **Issue**
 - Comment on existing issues
