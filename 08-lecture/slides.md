@@ -1,7 +1,4 @@
-# Complexity and performance
-
-> [!WARNING]
-> Not yet complete
+# Complexity and performance 
 
 ===
 
