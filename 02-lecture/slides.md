@@ -217,6 +217,28 @@ Comparisons of floating point numbers should **always** be made using a small th
 > - Use $(a + b < c) \vee ( |a + b - c | \leq \varepsilon )$ instead of $a + b \leq c$
 > - ...
 
+---
+
+### Floating point comparisons in Julia
+
+In Julia you can use `≈` and `≉` for approximate comparisons:
+
+```julia
+0.1 + 0.2 ≈ 0.3     # true
+0.1 + 0.2 ≉ 0.3     # false
+```
+
+You can also use approximate inequalities:
+
+```julia
+using ApproximateInequalities
+
+0.1 + 0.2 ⪅ 0.3  # true  
+0.3 ⪆ 0.1 + 0.2  # true
+0.3 ⪉ 0.1 + 0.2  # false
+0.1 + 0.2 ⪊ 0.3  # false
+```
+
 ===
 
 ## Characters
