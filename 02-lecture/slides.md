@@ -12,7 +12,7 @@ Computers store data as sequences of binary digits (bits), grouped into blocks o
 
 ## Booleans
 
-**Booleans** can be represnted using a single bit.
+**Booleans** can be represented using a single bit.
 
 - `1` correspond to **true**
 - `0` corresponds to **false**
@@ -25,13 +25,13 @@ An $n$-bit representation of a non-negative whole number, i.e., an **unsigned in
 
 $$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $$
 
-> [!TIP]
-> The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
-
 > [!NOTE]
 > An 8-bit representation of the unsigned integer 42 is:
 > ![Image](02-lecture/uint8.svg)<!-- .element style="margin-bottom:-40px;" -->
 
+> [!TIP]
+> The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
+<!-- .element: class="fragment appear" -->
 
 ---
 
