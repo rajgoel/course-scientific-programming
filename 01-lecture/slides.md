@@ -287,7 +287,7 @@ for (const v of values) {
 console.log("Sum of array elements =", sum);
 ```
 
-Today, JavaScript is the dominant language for web development, powering both client-side (browsers) and server-side (Node.js) applications.
+Today, JavaScript is the dominant language for web development, for both client-side (browsers) and server-side ([Node.js](https://en.wikipedia.org/wiki/Node.js)) applications.
 
 ---
 
