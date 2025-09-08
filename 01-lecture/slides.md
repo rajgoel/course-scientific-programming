@@ -270,7 +270,7 @@ Today, Java and C# remain important in enterprise applications.
 
 ## JavaScript (1995)
 
-[JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a high-level, interpreted language to be used for web pages.
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a high-level, interpreted language for web pages.
 
 ```js
 const values = [1.0, 2.0, 3.0, 4.0, 5.0];
