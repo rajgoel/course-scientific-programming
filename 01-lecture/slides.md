@@ -149,7 +149,7 @@ program sum_array
 end program sum_array
 ```
 
-Today, Fortran mainly exists in legacy systems and libraries.
+Today, Fortran is mainly used in legacy systems and libraries.
 
 ---
 
@@ -196,7 +196,7 @@ int main() {
 }
 ```
 
-C++ evolved into multi-paradigm language, supporting procedural, object-oriented, generic, and functional programming.
+C++ evolved into a multi-paradigm language, supporting procedural, object-oriented, generic, and functional programming.
 
 ---
 
