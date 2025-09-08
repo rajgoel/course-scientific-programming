@@ -108,7 +108,12 @@ Like spoken languages, programming languages define:
 - [**Syntax**](https://en.wikipedia.org/wiki/Syntax): the structure, grammar rules, and order of statements and expressions.
 - [**Semantics**](https://en.wikipedia.org/wiki/Semantics):  the meaning or behavior associated with syntactic elements.
 
-Moreover, most programming languages are designed for specific use cases and have a default assumption on how they are translated to machine code. 
+> [!NOTE]
+> Most programming languages have some default assumption influencing the design:
+> - specific application domains, 
+> - hardware environments,
+> - varying priorities like performance, safety, or ease of use.
+ 
 
 ---
 
@@ -120,16 +125,6 @@ Moreover, most programming languages are designed for specific use cases and hav
 
 > [!NOTE]
 > There are many other programming languages!
-
----
-
-### Why are there so many languages?
-
-There is no single best language because programming needs vary widely. Different languages were created to address 
-
-- specific application domains, 
-- hardware environments,
-- varying priorities like performance, safety, or ease of use.
 
 ---
 
