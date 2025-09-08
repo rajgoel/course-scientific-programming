@@ -21,7 +21,7 @@ Computers store data as sequences of binary digits (bits), grouped into blocks o
 
 <!-- .slide: data-auto-animate="true" -->
 
-<span data-id="unsigned_int">
+<div data-id="unsigned_int">
 
 ## Unsigned integers
 
@@ -33,13 +33,13 @@ $$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $
 > An 8-bit representation of the unsigned integer 42 is:
 > ![Image](02-lecture/uint8.svg)<!-- .element style="margin-bottom:-40px;" -->
 
-</span>
+</div>
 
 ---
 
 <!-- .slide: data-auto-animate="true" -->
 
-<span data-id="unsigned_int">
+<div data-id="unsigned_int">
 
 ## Unsigned integers
 
@@ -51,7 +51,7 @@ $$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $
 > An 8-bit representation of the unsigned integer 42 is:
 > ![Image](02-lecture/uint8.svg)<!-- .element style="margin-bottom:-40px;" -->
 
-</span>
+</div>
 
 > [!TIP]
 > The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
