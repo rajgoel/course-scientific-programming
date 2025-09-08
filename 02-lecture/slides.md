@@ -170,15 +170,12 @@ It is unclear how to calculate the product of arbitrary fix point numbers.
 
 $$ x= \pm m \cdot b^e $$
 
-where
-
-- $m$ is called the **mantissa**
-- $b$ is the **base** ($b=2$ for computers or $b=10$ for humans) 
-- $e$ is the **exponent** 
+where $m$ is called the **mantissa**, $b$ is the **base**, and $e$ is the **exponent**. 
 
 > [!NOTE]
 > A 32-bit representation with base 2 of a floating point number:
 > ![Image](02-lecture/float.svg)
+> $= (-1)^\textsf{sign} \cdot 2^{\textrm{exponent}-127} \cdot \left( 1 + \displaystyle\sum_{i=1}^{23}b_{23-i} 2^{-i} \right)$
 > <small>Source: <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Wikipedia</a></small>
 
 ---
