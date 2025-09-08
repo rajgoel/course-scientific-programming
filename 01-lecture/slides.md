@@ -215,7 +215,7 @@ sum_values = sum(values)
 print(f"Sum of array elements = {sum_values}")
 ```
 
-Today it is one of the most widely used languages.
+Today, Python is one of the most widely used languages.
 
 ---
 
@@ -232,30 +232,37 @@ public class SumArray {
     public static void main(String[] args) {
         double[] values = {1.0, 2.0, 3.0, 4.0, 5.0};
         double sum = 0.0;
-
         for (double v : values) {
             sum += v;
         }
-
         System.out.println("Sum of array elements = " + sum);
     }
 }
 ```
-<!-- .element: style="width:600px;" -->
+<!-- .element: style="width:600px;height:400px;" -->
 
 </div>
 <div>
 
 **C#:**
 ```
-class MyClass { }
-static void Main() {
-    MyClass obj = new MyClass(); // allocated on heap
-    obj = null;                   // no more references
-    // GC will eventually reclaim obj automatically
+using System;
+
+class SumArray
+{
+    static void Main()
+    {
+        double[] values = {1.0, 2.0, 3.0, 4.0, 5.0};
+        double sum = 0.0;
+        foreach (double v in values)
+        {
+            sum += v;
+        }
+        Console.WriteLine("Sum of array elements = " + sum);
+    }
 }
 ```
-<!-- .element: style="width:600px;" -->
+<!-- .element: style="width:600px;height:400px;" -->
 
 </div>
 </div>
