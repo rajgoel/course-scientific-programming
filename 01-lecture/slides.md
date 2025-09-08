@@ -252,7 +252,35 @@ static void Main() {
 
 ## JavaScript (1995)
 
-[JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a high-level, interpreted language widely used for web pages.
+
+```js
+const values = [1.0, 2.0, 3.0, 4.0, 5.0];
+let sum = 0.0;
+
+for (const v of values) {
+  sum += v;
+}
+
+console.log("Sum of array elements =", sum);
+```
+
+---
+
+## Julia (2012)
+
+[Julia](https://en.wikipedia.org/wiki/Julia_(programming_language)) is a high-level, high-performance language designed for scientific computing and data analysis. 
+
+```julia
+values = [1.0, 2.0, 3.0, 4.0, 5.0]
+sum = 0.0
+
+for v in values
+    sum += v
+end
+
+println("Sum of array elements = ", sum)
+```
 
 ---
 
