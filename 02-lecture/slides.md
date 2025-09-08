@@ -175,7 +175,7 @@ where $m$ is called the **mantissa**, $b$ is the **base**, and $e$ is the **expo
 > [!NOTE]
 > A 32-bit representation with base 2 of a floating point number:
 > ![Image](02-lecture/float.svg)
-> $= (-1)^{b_{31}} \cdot 2^{({b_{30}b_{29}\ldots b_{23})_2-127} \cdot ( 1.b_{22}b_{21}\ldots b_{0} )_2$  
+> `$= (-1)^{b_{31}} \cdot 2^{(b_{30}b_{29}\ldots b_{23})_2-127} \cdot ( 1.b_{22}b_{21}\ldots b_{0} )_2$`  
 > <small>Source: <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Wikipedia</a></small>
 
 ---
