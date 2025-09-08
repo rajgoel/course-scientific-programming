@@ -16,7 +16,8 @@ The [instruction cycle](https://en.wikipedia.org/wiki/Instruction_cycle) of a [c
 2. **Decode** the instruction to determine what to do
 3. **Execute** the instruction (e.g., add two numbers, jump to another instruction)
 
-All modern programs, regardless of complexity, are built on these basic operations.
+> [!NOTE]
+> All modern programs, regardless of complexity, are built on these basic operations.
 
 ---
 
