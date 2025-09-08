@@ -71,14 +71,16 @@ The course also benefits from discussions:
 
 ### Eligibility for bonus
 
-**Each PR that is merged is eligible for a bonus.** Depending on the quality and impact, the following may also be eligible: 
+**Each PR that is merged is eligible for a bonus.** 
 
-- **Pull Requests** that are rejected  
-  *Example:* A PR that fixes an issue but is not merged because another approach to fix the issue is taken.
-- **Issues**  
-  *Example:* Reporting an issue that ultimately leads to improvements.
-- **Discussions**  
-  *Example:* Starting or participating in a discussion helping clarify course content.
+> [!TIP]
+> Depending on the quality and impact, the following may also be eligible:  
+> - **Pull Requests** that are rejected  
+>   *Example:* A PR that fixes an issue but is not merged because another approach to fix the issue is taken.
+> - **Issues**  
+>   *Example:* Reporting an issue that ultimately leads to improvements.
+> - **Discussions**  
+>   *Example:* Starting or participating in a discussion helping clarify course content.
 
 ===
 
