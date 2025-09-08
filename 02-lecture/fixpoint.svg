@@ -6,9 +6,9 @@
     <rect x="100" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="150" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
     <rect x="200" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
-    <rect x="250" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
-    <rect x="300" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
-    <rect x="350" y="0" width="50" height="50" fill="#e0e0e0" stroke="#333" />
+    <rect x="250" y="0" width="50" height="50" fill="#f0f0f0" stroke="#333" />
+    <rect x="300" y="0" width="50" height="50" fill="#f0f0f0" stroke="#333" />
+    <rect x="350" y="0" width="50" height="50" fill="#f0f0f0" stroke="#333" />
 
     <!-- Bit values -->
     <text x="20" y="35" font-size="24" font-weight="bold" fill="#000">0</text>
