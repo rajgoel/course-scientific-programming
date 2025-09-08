@@ -233,8 +233,10 @@ public class SumArray {
     }
 }
 ```
+<!-- .element: style="width:600px;" -->
+
 </div>
-</div>
+<div>
 
 **C#:**
 ```
@@ -245,6 +247,8 @@ static void Main() {
     // GC will eventually reclaim obj automatically
 }
 ```
+<!-- .element: style="width:600px;" -->
+
 </div>
 
 
