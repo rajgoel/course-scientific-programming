@@ -132,6 +132,125 @@ There is no single best language because programming needs vary widely. Differen
 
 ---
 
+### Fortran (1957)
+
+[Fortran](https://en.wikipedia.org/wiki/Fortran) was the dominant programming language for scientific programming until the 1980s.
+
+```fortran
+program sum_array
+    implicit none
+    integer, parameter :: n = 5
+    real :: values(n) = [1.0, 2.0, 3.0, 4.0, 5.0]
+    real :: sum
+    integer :: i
+
+    sum = 0.0
+    do i = 1, n
+        sum = sum + values(i)
+    end do
+
+    print *, "Sum of array elements =", sum
+end program sum_array
+```
+
+---
+
+### C (1972)
+
+[C](https://en.wikipedia.org/wiki/C_(programming_language)) became the dominant general-purpose programming language in the 1980s and remains important until today, especially for operating systems, compilers, and embedded programming.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    float values[5] = {1.0, 2.0, 3.0, 4.0, 5.0};
+    float sum = 0.0;
+    int i;
+
+    for (i = 0; i < n; i++) {
+        sum += values[i];
+    }
+
+    printf("Sum of array elements = %f\n", sum);
+
+    return 0;
+}
+```
+
+---
+
+### C++ (1985)
+
+[C++](https://en.wikipedia.org/wiki/C%2B%2B) was introduced as an extension of C with object-oriented programming features. It evolved into multi-paradigm language, supporting procedural, object-oriented, generic, and functional programming.
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<double> values = {1.0, 2.0, 3.0, 4.0, 5.0};
+    double sum = 0.0;
+
+    for (double v : values) {
+        sum += v;
+    }
+
+    std::cout << "Sum of array elements = " << sum << std::endl;
+    return 0;
+}
+```
+---
+
+### Python (1991)
+
+[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is a high-level, interpreted language designed for readability and rapid development. Today it is one of the most widely used languages.
+
+```python
+values = [1.0, 2.0, 3.0, 4.0, 5.0]
+sum_values = sum(values)
+
+print(f"Sum of array elements = {sum_values}")
+```
+
+---
+
+### Java (1995) / C# (2000)
+
+[Java](https://en.wikipedia.org/wiki/Java_(programming_language)) and [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)) are objected-oriented programming languages with automatic memory management.
+
+<div class="twocolumn>
+<div>
+
+```java
+public class SumArray {
+    public static void main(String[] args) {
+        double[] values = {1.0, 2.0, 3.0, 4.0, 5.0};
+        double sum = 0.0;
+
+        for (double v : values) {
+            sum += v;
+        }
+
+        System.out.println("Sum of array elements = " + sum);
+    }
+}
+```
+</div>
+</div>
+
+```
+class MyClass { }
+static void Main() {
+    MyClass obj = new MyClass(); // allocated on heap
+    obj = null;                   // no more references
+    // GC will eventually reclaim obj automatically
+}
+```
+</div>
+
+---
+
 ### Speed comparison
 
 ![Plot](01-lecture/benchmark.svg)<!-- .element: style="height:800px;" -->
