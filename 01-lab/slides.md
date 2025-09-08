@@ -71,7 +71,7 @@ The course also benefits from discussions:
 
 ### Eligibility for bonus
 
-**Each PR that is merged is eligible for a bonus.** 
+Every PR that is merged is eligible for a bonus.
 
 > [!TIP]
 > Depending on the quality and impact, the following may also be eligible:  
