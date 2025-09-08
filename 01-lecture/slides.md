@@ -132,6 +132,17 @@ There is no single best language because programming needs vary widely. Differen
 
 ---
 
+### Speed comparison
+
+![Plot](01-lecture/benchmark.svg)
+
+<small>Source: [Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_programming_languages)
+
+> [!WARNING]
+> Benchmarks may be misleading.
+
+---
+
 ### How to select a language?
 
 Factors influencing the choice of a language:
