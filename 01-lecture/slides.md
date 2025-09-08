@@ -153,7 +153,7 @@ Factors influencing the choice of a language:
 | Ecosystem        | ★★★★★ | ★★★★☆ | ★★★☆☆ |
 
 > [!NOTE]
-> Ratings are subjective and use-case dependent.
+> Selection and ratings are subjective and use-case dependent.
 
 ---
 
@@ -162,7 +162,7 @@ Factors influencing the choice of a language:
 The main language used in this course is the **Julia** language, because it provides a reasonable trade-off between ease of learning, performance, and ecosystem.
 
 > [!NOTE]
-> Where appropriate examples in **C++** and **Python** are given to show how they compare to **Julia**.
+> Examples in **C++** and **Python** are given to show how they compare to **Julia**.
 
 ---
 
