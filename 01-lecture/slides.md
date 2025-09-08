@@ -215,7 +215,7 @@ print(f"Sum of array elements = {sum_values}")
 
 [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) and [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)) are objected-oriented programming languages with automatic memory management.
 
-<div class="twocolumn>
+<div class="twocolumn">
 <div>
 
 **Java:**
