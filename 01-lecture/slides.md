@@ -167,13 +167,10 @@ int main() {
     float values[5] = {1.0, 2.0, 3.0, 4.0, 5.0};
     float sum = 0.0;
     int i;
-
     for (i = 0; i < n; i++) {
         sum += values[i];
     }
-
     printf("Sum of array elements = %f\n", sum);
-
     return 0;
 }
 ```
@@ -191,15 +188,14 @@ int main() {
 int main() {
     std::vector<double> values = {1.0, 2.0, 3.0, 4.0, 5.0};
     double sum = 0.0;
-
     for (double v : values) {
         sum += v;
     }
-
     std::cout << "Sum of array elements = " << sum << std::endl;
     return 0;
 }
 ```
+
 ---
 
 ### Python (1991)
@@ -222,6 +218,7 @@ print(f"Sum of array elements = {sum_values}")
 <div class="twocolumn>
 <div>
 
+**Java:**
 ```java
 public class SumArray {
     public static void main(String[] args) {
@@ -239,6 +236,7 @@ public class SumArray {
 </div>
 </div>
 
+**C#:**
 ```
 class MyClass { }
 static void Main() {
@@ -248,6 +246,13 @@ static void Main() {
 }
 ```
 </div>
+
+
+---
+
+## JavaScript (1995)
+
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 ---
 
