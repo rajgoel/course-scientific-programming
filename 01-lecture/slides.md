@@ -22,15 +22,15 @@ All modern programs, regardless of complexity, are built on these basic operatio
 
 ### Simple instructions
 
-Computers operate with a small set of basic operations.
+Computers operate with a small set of basic operations, each corresponding to a **machine code instruction** that is directly executed by the CPU.
 
-Examples:
-- **Memory access**: `load`, `store`
-- **Control flow**: `jump`, `branch if equal`
-- **Logic**: `and`, `or`, `not`
-- **Arithmetic**: `add`, `sub`, `mul`, `div`
+> [!NOTE]
+> **Examples:**  
+> - Memory access: `load`, `store`
+> - Control flow: `jump`, `branch if equal`
+> - Logic: `and`, `or`, `not`
+> - Arithmetic: `add`, `sub`, `mul`, `div`
 
-Each of these corresponds to a **machine code instruction** the CPU can directly execute.
 
 ---
 
@@ -46,6 +46,7 @@ Each of these corresponds to a **machine code instruction** the CPU can directly
 
 ### Example: "Hello, world!" on x86 Linux
 
+**x86-assembly:**
 ```x86asm
 section	.text
    global _start
