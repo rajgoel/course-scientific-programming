@@ -71,7 +71,7 @@ The course also benefits from discussions:
 
 ### Eligibility for bonus
 
-All **Pull Requests** that are merged are eligible for a bonus. Depending on the quality and impact, the following may also be eligible: 
+**Each PR that is merged is eligible for a bonus.** Depending on the quality and impact, the following may also be eligible: 
 
 - **Pull Requests** that are rejected  
   *Example:* A PR that fixes an issue but is not merged because another approach to fix the issue is taken.
@@ -165,7 +165,7 @@ Each group will collaboratively plan, implement, document, test, and present a s
 
 ### Topic
 
-The topic of the project is self-selected and should solve a problem relevant to business analytics ad data science. 
+The topic of the project is self-selected and should solve a problem relevant to business analytics and data science. 
 
 > [!IMPORTANT]
 > The topic must be approved by the instructor.
