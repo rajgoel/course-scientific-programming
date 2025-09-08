@@ -153,6 +153,8 @@ program sum_array
 end program sum_array
 ```
 
+Today, Fortran mainly exists in legacy systems and libraries.
+
 ---
 
 ### C (1972)
@@ -258,7 +260,7 @@ static void Main() {
 </div>
 </div>
 
-Today Java and C# remain important in enterprise applications.
+Today, Java and C# remain important in enterprise applications.
 
 
 ---
