@@ -157,7 +157,7 @@ end program sum_array
 
 ### C (1972)
 
-[C](https://en.wikipedia.org/wiki/C_(programming_language)) became the dominant general-purpose programming language in the 1980s and remains important until today, especially for operating systems, compilers, and embedded programming.
+[C](https://en.wikipedia.org/wiki/C_(programming_language)) became the dominant general-purpose programming language in the 1980s and allowed for direct access to memory and hardware. 
 
 ```c
 #include <stdio.h>
@@ -175,11 +175,13 @@ int main() {
 }
 ```
 
+C remains important until today, especially for operating systems, compilers, and embedded programming.
+
 ---
 
 ### C++ (1985)
 
-[C++](https://en.wikipedia.org/wiki/C%2B%2B) was introduced as an extension of C with object-oriented programming features. It evolved into multi-paradigm language, supporting procedural, object-oriented, generic, and functional programming.
+[C++](https://en.wikipedia.org/wiki/C%2B%2B) was introduced as an extension of C with object-oriented programming features. 
 
 ```cpp
 #include <iostream>
@@ -196,11 +198,13 @@ int main() {
 }
 ```
 
+C++ evolved into multi-paradigm language, supporting procedural, object-oriented, generic, and functional programming.
+
 ---
 
 ### Python (1991)
 
-[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is a high-level, interpreted language designed for readability and rapid development. Today it is one of the most widely used languages.
+[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is a high-level, interpreted language designed for readability and rapid development. 
 
 ```python
 values = [1.0, 2.0, 3.0, 4.0, 5.0]
@@ -208,6 +212,8 @@ sum_values = sum(values)
 
 print(f"Sum of array elements = {sum_values}")
 ```
+
+Today it is one of the most widely used languages.
 
 ---
 
@@ -250,13 +256,16 @@ static void Main() {
 <!-- .element: style="width:600px;" -->
 
 </div>
+</div>
+
+Today Java and C# remain important in enterprise applications.
 
 
 ---
 
 ## JavaScript (1995)
 
-[JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a high-level, interpreted language widely used for web pages.
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a high-level, interpreted language to be used for web pages.
 
 ```js
 const values = [1.0, 2.0, 3.0, 4.0, 5.0];
@@ -268,6 +277,8 @@ for (const v of values) {
 
 console.log("Sum of array elements =", sum);
 ```
+
+Today, JavaScript is the dominant language for web development, powering both client-side (browsers) and server-side (Node.js) applications.
 
 ---
 
@@ -285,6 +296,8 @@ end
 
 println("Sum of array elements = ", sum)
 ```
+
+Today, Julia is still growing in adoption, due to the combination of high-performance capabilities and ease of learning.
 
 ---
 
