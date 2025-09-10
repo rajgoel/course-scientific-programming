@@ -203,7 +203,7 @@ and
 ```julia
 0.1 + 0.2 <= 0.3 
 ```
-to fail because rounding leads to this result:
+to fail because precision loss leads to this result:
 ```julia
 0.1 + 0.2 == 0.30000000000000004
 ```
