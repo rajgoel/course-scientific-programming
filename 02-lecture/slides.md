@@ -546,3 +546,8 @@ On modern computers with many CPUs, parallel execution can significantly speed u
 > [!NOTE]
 > Parallel computing is beyond the scope of this course.
 
+===
+
+## Learning resources 
+
+The Youtube channel [doggo dot jl](https://www.youtube.com/@doggodotjl) provides excellent tutorials for learning Julia.
