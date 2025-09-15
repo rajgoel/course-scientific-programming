@@ -203,7 +203,7 @@ and
 ```julia
 0.1 + 0.2 <= 0.3 
 ```
-to fail because rounding leads to this result:
+to fail because precision loss leads to this result:
 ```julia
 0.1 + 0.2 == 0.30000000000000004
 ```
@@ -546,3 +546,8 @@ On modern computers with many CPUs, parallel execution can significantly speed u
 > [!NOTE]
 > Parallel computing is beyond the scope of this course.
 
+===
+
+## Learning resources 
+
+The Youtube channel [doggo dot jl](https://www.youtube.com/@doggodotjl) provides excellent tutorials for learning Julia.
