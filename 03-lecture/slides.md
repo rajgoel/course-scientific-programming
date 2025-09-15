@@ -29,8 +29,8 @@
 
 A function typically consists of:
 
-- Inputs to the function called **arguments**
-- A block of code that performs computation called the **function body**
+- Inputs to the function called **arguments**.
+- A block of code that performs computation called the **function body**.
 - The final result produced by the function called the **return value**.
 
 > [!NOTE]
@@ -80,18 +80,6 @@ def square(x):
 
 ---
 
-A function only accepting integers as argument:
-
-```python
-def square(x: int) -> int:
-  return x * x
-```
-
-> [!NOTE]
-> The return type `int` gives the user a guarantee that the result is an integer (Python does not have an unsigned integer type).
-
----
-
 ### Examples: C++
 
 Regular C++ functions require that argument type and return value are specified explicitly. 
@@ -108,6 +96,8 @@ unsigned int square(unsigned int x) {
 
 
 ---
+
+### Example: Generic function in C++
 
 [Templates](https://en.wikipedia.org/wiki/Template_(C%2B%2B)) can be used to allow functions to operate with generic types.
 
@@ -141,7 +131,7 @@ int main() {
 - Variables defined outside a function can only be accessed inside a function if their **scope** includes the function.
 
 > [!IMPORTANT]
-> Whether and how variables defined outside a function can be accessed depends on the language and program structure. We will learn more on **scopes** later.
+> Whether and how variables defined outside a function can be accessed, depends on the language and program structure. We will learn more on **scopes** later.
 
 ===
 
@@ -310,7 +300,7 @@ int main() {
 - Derived classes can override methods to change or extend behavior.
 
 > [!TIP]
-> Inheritance is primarily used if a object **is** a specialisation of another object, e.g., a car is a vehicle.
+> Inheritance is primarily used if an object **is** a specialisation of another object, e.g., a car is a vehicle.
 
 ---
 
@@ -481,6 +471,8 @@ greet(myemployee)
 
 ---
 
+### Examples: Scopes in Julia
+
 ```julia [1|3-8|9|11-17]
 x = 10  # global
 
@@ -505,12 +497,14 @@ println(x)  # prints 20
 
 ### Python
 
-- Variables declared inside a class are are accessible by all methods of the class.
+- Variables declared inside a class are accessible by all methods of the class.
 - Variables assigned inside a function or method are local to that function or method.
 - Variables declared outside functions or classes have global scope.
 - Use the `global` keyword to modify global variables inside functions.
 
 ---
+
+### Examples: Scopes in Python
 
 ```python [1|3-7|8|10-15]
 x = 10  # global
@@ -540,6 +534,8 @@ print(x)  # prints 20
 - Variables declared outside all functions and classes have global scope.
 
 ---
+
+### Examples: Scopes in C+++
 
 ```cpp [3|5-19|22-23|24]
 #include <print>
@@ -577,7 +573,7 @@ int main() {
 > In general, variables with global scope should be avoided because they:
 > - increase the risk of name clashes,
 > - increase the risk of unintended side effects,
-> - make debugging and testing harder,
+> - make debugging and testing harder, and
 > - reduce code modularity and clarity.
 >
 > Prefer passing variables explicitly to functions or encapsulating state inside classes or structs.
@@ -592,7 +588,7 @@ int main() {
 
 Code is distributed and shared via **modules**, **packages**, and **libraries**.
 
-Using existing code helps
+Using existing code helps to
 - avoid reinventing the wheel,
 - speed up development, and
 - leverage tested and optimized functionality.
@@ -636,7 +632,7 @@ In Python, packages can be installed from within the command line, e.g.:
 pip install numpy
 ```
 
-After installation, an external packages can be used as follows:
+After installation, an external package can be used as follows:
 
 ```python
 import numpy as np
@@ -728,7 +724,7 @@ The local package can be used with
 
 ```julia
 import Pkg
-Pkg.develop(url="MyPackage/")  # adjust path as needed
+Pkg.develop(path="MyPackage/")  # adjust path as needed
 
 import MyPackage
 MyPackage.greet()
