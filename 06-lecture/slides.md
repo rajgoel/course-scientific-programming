@@ -66,7 +66,7 @@ Required resources may not be available when needed.
 
 In general, you cannot trust input data to match the assumptions of your program. To avoid errors, you may want to check assumptions before using the data.
 
-**Example: Julia:**
+**Example: Julia**
 ```julia
 if b != 0 
   println( a / b )
