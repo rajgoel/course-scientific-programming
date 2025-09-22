@@ -38,7 +38,7 @@ Name, Age, City
 </div>
 
 > [!TIP]
-> The CSV format is the easiest way to work with data from spreadsheet software. Whether strings are quoted and the delimiters to be used may need to be adjusted. 
+> The CSV format is the easiest way to work with data from spreadsheet software. Different conventions on whether strings are quoted and the delimiters used may require special care. 
 
 
 ---
@@ -46,7 +46,7 @@ Name, Age, City
 ### DataFrames
 
 - A **DataFrame** is a two-dimensional, **tabular data structure** with labeled rows and columns.
-- Originated in [**R**](https://en.wikipedia.org/wiki/R_(programming_language))
+- Originated in [**R**](https://en.wikipedia.org/wiki/R_(programming_language)).
 - DataFrames are particularly useful when working with spreadsheets and/or CSV files.
 
 ---
@@ -90,7 +90,7 @@ CSV.write( "output.csv", output_frame;
 ```
 
 > [!NOTE]
-> The '.' operator is used for element-wise application on an array or collection. 
+> The `.` operator is used for element-wise application on an array or collection. 
 
 ---
 
