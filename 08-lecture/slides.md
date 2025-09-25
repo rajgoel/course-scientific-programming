@@ -161,7 +161,7 @@ function binarySearch(sortedArray::Vector{<:Number}, target::Number)
   while left <= right
     middle = div(left + right, 2) # returns integer
     if sortedArray[middle] == target
-      return mid
+      return middle
     elseif sortedArray[middle] < target
       left = middle + 1
     else
