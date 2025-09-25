@@ -83,7 +83,6 @@ output_frame.Initial = first.( output_frame.Name )
 
 # Write back to CSV
 CSV.write("output.csv", output_frame;
-    delim = ',',
     quotechar = '"',
     quoting = true
 )
