@@ -4,7 +4,7 @@
 
 ## Clean code
 
-Code is clean if it can be understood easily - by everyone on the team. Clean code can be read and enhanced by others - and by your future self.. 
+Code is clean if it can be understood easily - by everyone on the team. Clean code can be read and enhanced by others - and by your future self.
 
 > [!TIP]
 > When revisiting your own code after a while, you still want to understand what you have been doing. 
