@@ -10,7 +10,7 @@ Computational complexity refers to the resources (time, memory) required by an a
 
 ### Big O-notation
 
-Big O-notation is used to describe how an algorithm’s execution time or memory usage **scales relative to input size**, .
+Big O-notation is used to describe how an algorithm’s execution time or memory usage **scales relative to input size**.
 
 > [!TIP]
 > The goal is to characterise growth rate, not to provide an exact count of instructions.
