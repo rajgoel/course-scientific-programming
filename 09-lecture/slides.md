@@ -129,7 +129,7 @@ A [UML component diagram](https://en.wikipedia.org/wiki/Component_diagram) shows
 A [state machine](https://en.wikipedia.org/wiki/Finite-state_machine) represents systems by 
 
 - **states** representing the characteristics of the system at a point in time,
-- **state transitions** defining how the system can moves from one state to another, and 
+- **state transitions** defining how the system can move from one state to another, and 
 - **conditions** or **triggers** that cause these transitions.
 
 > [!NOTE]
@@ -198,7 +198,7 @@ Logger - State
 
 </div>
 <div>
-The include:
+They include:
 
 - Classes/structs
 - Attributes (fields)
