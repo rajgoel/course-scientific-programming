@@ -198,7 +198,7 @@ Logger - State
 
 </div>
 <div>
-The include:
+They include:
 
 - Classes/structs
 - Attributes (fields)
