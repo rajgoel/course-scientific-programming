@@ -376,7 +376,7 @@ Factors influencing the choice of a language:
 |------------------|----------|----------|----------|------------|
 | Main use cases   | rapid development,<br>glue code | high performance<br>computing | rapid development,<br>scientific computing | web development,<br>dashboards |
 | Ease of learning | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ |
-| Performance      | ★☆☆☆☆ | ★★★★★ | ★★★☆☆ | ★★☆☆☆ |
+| Performance      | ★☆☆☆☆ | ★★★★★ | ★★★★☆ | ★★☆☆☆ |
 | Ecosystem        | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★★★★★ |
 <!-- .element: style="font-size:70%" -->
 
