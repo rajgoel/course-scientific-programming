@@ -307,27 +307,6 @@ Today, Julia is still growing in adoption, due to the combination of high-perfor
 
 ---
 
-### Speed comparison
-
-![Plot](01-lecture/benchmark.svg)<!-- .element: style="height:800px;" -->
-<br><small>Source: [Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_programming_languages)
-
----
-
-### Speed comparison
-
-<div style="height:480px">
-<canvas data-chart="bar" >
-, k-means, k-NN, Neural Networks, Genetic Algorithm
-C++, 0.717, 0.746, 0.675, 0.722
-Julia, 3.062, 2.200, 3.113, 1.074
-Python, 332.0, 261.2, 220.4, 108.7
-</canvas>
-</div>
-<small>Source: Licona-Luque et al. Behind Python: The Languages That Power AI, https://arxiv.org/pdf/2606.18141, 2026</small>
-
----
-
 ### How to select a language?
 
 Factors influencing the choice of a language:
@@ -350,6 +329,32 @@ Factors influencing the choice of a language:
 
 > [!NOTE]
 > Selection and ratings are subjective and use-case dependent.
+
+---
+
+### Speed comparison
+
+<div style="height:480px">
+<canvas data-chart="bar" >
+<!--
+{
+  "data": {
+    "datasets": [ {}, { "hidden": true }, { "hidden": true } ]
+  }
+}
+-->
+, k-means, k-NN, Neural Networks, Genetic Algorithm
+C++, 0.717, 0.746, 0.675, 0.722
+Julia, 3.062, 2.200, 3.113, 1.074
+Python, 332.0, 261.2, 220.4, 108.7
+</canvas>
+</div>
+
+<small>Source: Licona-Luque et al. [Behind Python: The Languages That Power AI, https://arxiv.org/abs/2606.18141](https://arxiv.org/abs/2606.18141), 2026</small>
+
+> [!NOTE]
+> Experiments are conducted using from scratch implementations in the selected languages without any external libraries.
+
 
 ---
 
