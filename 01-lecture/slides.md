@@ -478,6 +478,14 @@ The best way to learn a language is to use the language in a project that you ca
 
 ---
 
+![AI](01-lecture/AI_learning.jpeg)
+<!-- .element: style="height:100%" -->
+
+<small>Source:  Peter Dawyndt, [LinkedIn Post](https://www.linkedin.com/posts/peter-dawyndt-21927a302_why-waste-time-learning-when-ignorance-is-activity-7476263425887801346-GQyB)</small>
+
+
+---
+
 ### Focus of this course
 
 This course aims at explaining programming concepts that are helpful for identifying an appropriate structure for your code. Most of these concepts are language agnostic.
