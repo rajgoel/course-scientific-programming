@@ -34,7 +34,7 @@ On https://e-assignments.net you will find a collection of self-study exercises,
 Grading will be based to 100% on project work.
 
 > [!IMPORTANT]
-> Your project work will only be graded if you have successfully completed **at least 50% of the e-Assignments**.
+> Your project work will only be graded if you have successfully completed **at least 50% of the e-Assignments** before the project deadline.
 
 ---
 

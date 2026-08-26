@@ -9,14 +9,14 @@ https://rajgoel.github.io/course-scientific-programming
 | Session | Lecture                                                                                            | Lab             |
 |---------|----------------------------------------------------------------------------------------------------|-----------------|
 | 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)          | [Prerequisites and requirements](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    |
-| 02      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)    | Project work    |
-| 03      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)     | Project work    |
-| 04      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)            | Project work    |
-| 05      | [Input and output](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)      | Project work    |
-| 06      | [Error handling and testing](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)   | Project work    |
-| 07      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture) | Project work    |
-| 08      | [Complexity and performance](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture)   | Project work    |
-| 09      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)         | Project work    |
+| 02      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)         | Project work    |
+| 03      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)    | Project work    |
+| 04      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)     | Project work    |
+| 05      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)            | Project work    |
+| 06      | [Input and output](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)      | Project work    |
+| 07      | [Error handling and testing](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)   | Project work    |
+| 08      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture) | Project work    |
+| 09      | [Complexity and performance](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)   | Project work    |
 | 10      | Miscellaneous            | Project work         |
 | 11      | Project presentation     | Project presentation |
 
