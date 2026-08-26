@@ -100,6 +100,15 @@ There are different strategies to convert code written in a high-level programmi
 > [!NOTE]
 > Bytecode is used as an intermediate representation of code written in a high-level programming language. To be executed it requires interpretation, [just-in-time compilation](https://en.wikipedia.org/wiki/Just-in-time_compilation), or [ahead-of-time compilation](https://en.wikipedia.org/wiki/Ahead-of-time_compilation).
 
+---
+
+### WebAssembly (Wasm)
+
+[WebAssembly](https://en.wikipedia.org/wiki/WebAssembly) is a bytecode format designed as a **portable compilation target**, executed at near-native speed, e.g., in the browser.
+
+> [!IMPORTANT]
+> Despite its name, WebAssembly is **not** an assembly language and no CPU executes it directly. Code written in languages such as C, C++, Rust, or AssemblyScript must be compiled to WebAssembly.
+
 ===
 
 ## Programming languages
@@ -284,7 +293,7 @@ for (const v of values) {
 console.log("Sum of array elements =", sum);
 ```
 
-Today, JavaScript is the dominant language for web development, for both client-side (browsers) and server-side ([Node.js](https://en.wikipedia.org/wiki/Node.js)) applications.
+Today, JavaScript (including [TypeScript (2012)](https://en.wikipedia.org/wiki/TypeScript)) is the dominant language for web development, for both client-side (browsers) and server-side ([Node.js](https://en.wikipedia.org/wiki/Node.js)) applications.
 
 ---
 
@@ -307,6 +316,24 @@ Today, Julia is still growing in adoption, due to the combination of high-perfor
 
 ---
 
+### AssemblyScript (2017)
+
+[AssemblyScript](https://www.assemblyscript.org/) is an attempt to make WebAssembly accessible to web developers: it uses the syntax of [TypeScript](https://en.wikipedia.org/wiki/TypeScript) with the data types defined by WebAssembly.
+
+```ts
+export function sumArray(values: Float64Array): f64 {
+  let sum: f64 = 0.0;
+  for (let i: i32 = 0; i < values.length; i++) {
+    sum += values[i];
+  }
+  return sum;
+}
+```
+
+Today, AssemblyScript remains a niche language.
+
+---
+
 ### How to select a language?
 
 Factors influencing the choice of a language:
@@ -321,11 +348,12 @@ Factors influencing the choice of a language:
 ### Languages suitable for business analytics and data science
 
 
-| Language         | Python   | C++      | Julia    |
-|------------------|----------|----------|----------|
-| Ease of learning | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆ |
-| Performance      | ★☆☆☆☆ | ★★★★★ | ★★★☆☆ |
-| Ecosystem        | ★★★★★ | ★★★★☆ | ★★★☆☆ |
+| Language         | Python   | C++      | Julia    | JavaScript |
+|------------------|----------|----------|----------|------------|
+| Use cases        | rapid development,<br>glue code | high performance<br>computing | rapid development,<br>scientific computing | web development,<br>dashboards |
+| Ease of learning | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ |
+| Performance      | ★☆☆☆☆ | ★★★★★ | ★★★☆☆ | ★★☆☆☆ |
+| Ecosystem        | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★★★★★ |
 
 > [!NOTE]
 > Selection and ratings are subjective and use-case dependent.
