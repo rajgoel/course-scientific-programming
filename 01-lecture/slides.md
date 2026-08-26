@@ -372,12 +372,12 @@ Factors influencing the choice of a language:
 ### Languages suitable for business analytics and data science
 
 
-| Language         | Python   | C++      | Julia    | JavaScript |
+| Language         | Python   | C++      | Julia    | <span style="color:gray">JavaScript</span> |
 |------------------|----------|----------|----------|------------|
-| Main use cases   | rapid development,<br>glue code | high performance<br>computing | rapid development,<br>scientific computing | web development,<br>dashboards |
-| Ease of learning | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ |
-| Performance      | ★☆☆☆☆ | ★★★★★ | ★★★★☆ | ★★☆☆☆ |
-| Ecosystem        | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★★★★★ |
+| Main use cases   | rapid development,<br>glue code | high performance<br>computing | rapid development,<br>scientific computing | <span style="color:gray">web development,<br>dashboards</span> |
+| Ease of learning | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆ | <span style="color:gray">★★★★☆</span> |
+| Performance      | ★☆☆☆☆ | ★★★★★ | ★★★★☆ | <span style="color:gray">★★☆☆☆</span> |
+| Ecosystem        | ★★★★★ | ★★★★☆ | ★★★☆☆ | <span style="color:gray">★★★★★</span> |
 <!-- .element: style="font-size:70%" -->
 
 > [!NOTE]
