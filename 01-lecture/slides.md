@@ -478,8 +478,12 @@ The best way to learn a language is to use the language in a project that you ca
 
 ---
 
+<!-- .slide: data-fullscreen="yes" -->
+
+### *Why waste time learning when ignorance is instantaneous* — Hobbes
+
 ![AI](01-lecture/AI_learning.jpeg)
-<!-- .element: style="height:100%" -->
+<!-- .element: class="stretch" -->
 
 <small>Source:  Peter Dawyndt, [LinkedIn Post](https://www.linkedin.com/posts/peter-dawyndt-21927a302_why-waste-time-learning-when-ignorance-is-activity-7476263425887801346-GQyB)</small>
 
