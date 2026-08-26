@@ -278,10 +278,14 @@ Today, Java and C# remain important in enterprise applications.
 
 ---
 
-## JavaScript (1995)
+## JavaScript (1995) / TypeScript (2012)
 
-[JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a high-level, interpreted language for web pages.
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a high-level, interpreted language for web pages, and [TypeScript](https://en.wikipedia.org/wiki/TypeScript) extends it with static typing.
 
+<div class="twocolumn">
+<div>
+
+**JavaScript:**
 ```js
 const values = [1.0, 2.0, 3.0, 4.0, 5.0];
 let sum = 0.0;
@@ -292,8 +296,28 @@ for (const v of values) {
 
 console.log("Sum of array elements =", sum);
 ```
+<!-- .element: style="width:600px;height:400px;" -->
 
-Today, JavaScript (including [TypeScript (2012)](https://en.wikipedia.org/wiki/TypeScript)) is the dominant language for web development, for both client-side (browsers) and server-side ([Node.js](https://en.wikipedia.org/wiki/Node.js)) applications.
+</div>
+<div>
+
+**TypeScript:**
+```ts
+const values: number[] = [1.0, 2.0, 3.0, 4.0, 5.0];
+let sum: number = 0.0;
+
+for (const v of values) {
+  sum += v;
+}
+
+console.log("Sum of array elements =", sum);
+```
+<!-- .element: style="width:600px;height:400px;" -->
+
+</div>
+</div>
+
+Today, JavaScript and TypeScript are the dominant languages for web development, for both client-side (browsers) and server-side ([Node.js](https://en.wikipedia.org/wiki/Node.js)) applications.
 
 ---
 
@@ -350,10 +374,11 @@ Factors influencing the choice of a language:
 
 | Language         | Python   | C++      | Julia    | JavaScript |
 |------------------|----------|----------|----------|------------|
-| Use cases        | rapid development,<br>glue code | high performance<br>computing | rapid development,<br>scientific computing | web development,<br>dashboards |
+| Use cases<br>    | rapid development,<br>glue code | high performance<br>computing | rapid development,<br>scientific computing | web development,<br>dashboards |
 | Ease of learning | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ |
 | Performance      | ★☆☆☆☆ | ★★★★★ | ★★★☆☆ | ★★☆☆☆ |
 | Ecosystem        | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★★★★★ |
+<!-- .element: style="font-size:70%" -->
 
 > [!NOTE]
 > Selection and ratings are subjective and use-case dependent.
