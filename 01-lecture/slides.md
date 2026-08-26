@@ -493,7 +493,7 @@ The best way to learn a language is to use the language in a project that you ca
 This course aims at explaining programming concepts that are helpful for identifying an appropriate structure for your code. Most of these concepts are language agnostic.
 
 > [!IMPORTANT]
-> The course assumes that you do use LLMs, in particular, for questions regarding syntax, semantics, error messages, bug fixing.
+> The course assumes that you do use LLMs responsibly, i.e., for questions regarding syntax, semantics, and error messages.
 
 ===
 
