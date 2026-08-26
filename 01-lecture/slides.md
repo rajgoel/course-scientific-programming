@@ -314,6 +314,20 @@ Today, Julia is still growing in adoption, due to the combination of high-perfor
 
 ---
 
+### Speed comparison
+
+<div style="height:480px">
+<canvas data-chart="bar" >
+, k-means, k-NN, Neural Networks, Genetic Algorithm
+C++, 0.717, 0.746, 0.675, 0.722
+Julia, 3.062, 2.200, 3.113, 1.074
+Python, 332.0, 261.2, 220.4, 108.7
+</canvas>
+</div>
+<small>Source: Licona-Luque et al. Behind Python: The Languages That Power AI, https://arxiv.org/pdf/2606.18141, 2026</small>
+
+---
+
 ### How to select a language?
 
 Factors influencing the choice of a language:
