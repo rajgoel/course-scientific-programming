@@ -387,7 +387,7 @@ Factors influencing the choice of a language:
 
 ### Speed comparison
 
-Runtime comparison across selected problem in business analytics and data science.
+Runtime comparison across selected problems in business analytics and data science.
 
 <div style="height:480px">
 <canvas data-chart="bar" >
