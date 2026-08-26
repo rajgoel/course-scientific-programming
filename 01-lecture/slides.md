@@ -342,7 +342,7 @@ Today, Julia is still growing in adoption, due to the combination of high-perfor
 
 ### AssemblyScript (2017)
 
-[AssemblyScript](https://www.assemblyscript.org/) is an attempt to make WebAssembly accessible to web developers: it uses the syntax of [TypeScript](https://en.wikipedia.org/wiki/TypeScript) with the data types defined by WebAssembly.
+[AssemblyScript](https://www.assemblyscript.org/) is an attempt to make WebAssembly accessible to web developers using the syntax of TypeScript (with the data types defined by WebAssembly).
 
 ```ts
 export function sumArray(values: Float64Array): f64 {
@@ -374,7 +374,7 @@ Factors influencing the choice of a language:
 
 | Language         | Python   | C++      | Julia    | JavaScript |
 |------------------|----------|----------|----------|------------|
-| Use cases<br>    | rapid development,<br>glue code | high performance<br>computing | rapid development,<br>scientific computing | web development,<br>dashboards |
+| Main use cases   | rapid development,<br>glue code | high performance<br>computing | rapid development,<br>scientific computing | web development,<br>dashboards |
 | Ease of learning | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆ | ★★★★☆ |
 | Performance      | ★☆☆☆☆ | ★★★★★ | ★★★☆☆ | ★★☆☆☆ |
 | Ecosystem        | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★★★★★ |
