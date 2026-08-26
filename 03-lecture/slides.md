@@ -1,734 +1,553 @@
-# Code organisation
+# Programming basics
 
 ===
 
-## Functions
+## Basic data types
 
 ---
 
-### What is a function?
+Computers store data as sequences of binary digits (bits), grouped into blocks of fixed size (e.g., 8, 16, 32, or 64 bits).
 
-- A function is a reusable block of code that performs a specific task.
-- Functions help organize code, reduce duplication, and improve readability.
+===
+
+## Booleans
+
+**Booleans** can be represented using a single bit.
+
+- `1` correspond to **true**
+- `0` corresponds to **false**
+
+===
+
+<!-- .slide: data-auto-animate="true" -->
+
+<div data-id="unsigned_int">
+
+## Unsigned integers
+
+An $n$-bit representation of a non-negative whole number, i.e., an **unsigned integer**, $x$ is a sequence of bits $b_i$ for $ i \in \lbrace 1, \ldots, n \rbrace$ such that 
+
+$$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $$
+
+> [!NOTE]
+> An 8-bit representation of the unsigned integer 42 is:
+> ![Image](03-lecture/uint8.svg)<!-- .element style="margin-bottom:-40px;" -->
 
 > [!TIP]
-> You can think of functions as implementations of mathematical functions $f: X \rightarrow Y$, input/output procedures, utilities, and similar.
+> The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
+<!-- .element class="fragment" -->
 
 ---
 
-### Why use functions?
-
-- **Decomposition:** Break a large problem into smaller, manageable parts.
-- **Reuse:** Call the same logic from different parts of the program.
-- **Testing:** Easier to test small components than large monolithic programs.
-- **Documentation:** Named functions help describe what the code does.
+### What can go wrong when calculating with unsigned integers?
 
 ---
 
-### Arguments, function body, and return value
+### Overflow 
 
-A function typically consists of:
+**Overflow** occurs when a result exceeds the maximum value that can be represented:
 
-- Inputs to the function called **arguments**.
-- A block of code that performs computation called the **function body**.
-- The final result produced by the function called the **return value**.
+![Image](03-lecture/overflow.svg)
+
+---
+
+### Y2K Problem
+
+The **Y2K (year 2000)** problem was a very prominent example of overflow (in the decimal representation). 
 
 > [!NOTE]
-> Not every function requires inputs and not every function produces a final result.
+> Due to scarcity of memory in old computer programs, years were represented by 2-digits, i.e., the year 1999 was represented as `99`. The next year was represented as `00`.
 
 ---
 
-### Examples: Julia
+### Y2038 Problem
 
-A **generic** function accepting all argument types:
-
-```julia
-function square(x)
-  return x * x
-end
-```
-
-> [!WARNING]
-> If the type of `x` does not support `*`, above will result in a runtime error.
-
----
-
-A function only accepting integers as argument:
-
-```julia
-function square(x::Int)::UInt
-  return x * x
-end
-```
+The **Y2038 (year 2038)** problem, is a less known example of overflow that still may cause problems.
 
 > [!NOTE]
-> The return type `::UInt` gives the user a guarantee that the result is an unsigned integer.
+> Unix-based systems represent time as the number of seconds since `00:00:00 UTC on 1 January 1970`. Traditionally, a signed 32-bit integer with a range $[-2^{31},2^{31}-1]$ was used.
+> The largest time that can be represented with a 32-bit representation before overflow is `03:14:07 UTC on 19 January 2038`. One second later it will be `20:45:52 UTC on 13 December 1901`.
 
 ---
 
-### Examples: Python
 
-A **generic** function accepting all argument types:
+### Underflow 
 
-```python
-def square(x):
-    return x * x
-```
+**Underflow** occurs when a result falls below the minimum value that can be represented:
 
-> [!WARNING]
-> If the type of `x` does not support `*`, above will result in a runtime error.
+![Image](03-lecture/underflow.svg)
 
 ---
 
-### Examples: C++
+### Infinite countdown
 
-Regular C++ functions require that argument type and return value are specified explicitly. 
-
-```cpp
-unsigned int square(int x) {
-  return x * x;
-}
-
-unsigned int square(unsigned int x) {
-  return x * x;
-}
-```
-
-
----
-
-### Example: Generic function in C++
-
-[Templates](https://en.wikipedia.org/wiki/Template_(C%2B%2B)) can be used to allow functions to operate with generic types.
-
-```cpp
-#include <concepts>
-
-template <std::integral T>
-unsigned int square(T x) {
-  return x * x;
-}
-
-int main() {
-  int a = -5;
-  unsigned int b = 7;
-
-  auto x = square(a);  // 25
-  auto y = square(b);  // 49
-
-  return 0;
-}
-```
-<!-- .element style="height:500px;" -->
-
----
-
-### Variable access
-
-- Variables defined inside a function are **local** to that function:
-  - They exist only during the function's execution.
-  - They cannot be accessed from outside the function.
-- Variables defined outside a function can only be accessed inside a function if their **scope** includes the function.
-
-> [!IMPORTANT]
-> Whether and how variables defined outside a function can be accessed, depends on the language and program structure. We will learn more on **scopes** later.
+An underflow problem can occur when repeatedly decrementing a number as long as it is non-negative. With unsigned integers the countdown will be infinite.
 
 ===
 
-## Recursive functions
+## Integers
+
+An $n$-bit representation of a whole number, i.e., a **(signed) integer** $x$ is a sequence of bits $b_i \in \lbrace 0,1\rbrace$ for $ i \in \lbrace 1, \ldots, n \rbrace$ such that 
+
+$$ x =  \class{highlight}{- b_{n-1} \cdot 2^{n-1}} + b_{n-2} \cdot 2^{n-2} + b_{n-3} \cdot 2^{n-3} + \ldots + b_0 \cdot 2^0 $$
+
+> [!NOTE]
+> An 8-bit representation of the integer -42 is:
+> ![Image](03-lecture/int8.svg)<!-- .element style="margin-bottom:-40px;" -->
+
+> [!TIP]
+> The range of numbers that can be represented by the $n$-bit representation is $[-2^{n-1}, 2^{n-1} - 1]$.
+<!-- .element class="fragment" -->
 
 ---
 
-A **recursive function** is a function that calls itself. They are useful for problems that can be broken down into smaller, similar subproblems.
+### Overflow and underflow
 
-> [!IMPORTANT]
-> Every recursive function must have a branch allowing to stop the recursion and prevent loops exceeding the maximal depth possible. 
+Overflow and underflow can happen whenever a number becomes too large or too small.
+
+> [!WARNING]
+> Overflow and underflow can happen when any part of a calculation  produces values outside the representable range, e.g., when calculating $y = ( x^3 )^{\tfrac{1}{3}}$, the value of $x^3$ may cause over- or underflow. 
+
+===
+
+## Fix point numbers
+
+**Fixed point numbers** represent real numbers by allocating $k$ **bits for the fractional part**. The stored integer value  $x^\textrm{int}$ corresponds to the real number 
+$$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^k}$$
+
+
+> [!NOTE]
+> An 8-bit representation with 3 fractional bits of the number 5.25 is:
+> ![Image](03-lecture/fixpoint.svg)<!-- .element style="margin-bottom:-40px;" -->
+
 
 ---
 
-### Example: factorial function
+### What can go wrong when calculating with fix point numbers?
+
+---
+
+### Addition and subtraction
+
+Addition and subtraction work equally well as with integers.
+
+---
+
+### Multiplication 
+
+Assume we have two numbers
+
+ $x^\textrm{real}_1 = \tfrac{x^\textrm{int}_1}{2^3}$ and $x^\textrm{real}_2 = \tfrac{x^\textrm{int}_2}{2^3}$, 
+
+then
+
+$$
+x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \dfrac{x^\textrm{int}_1}{2^3} \cdot \dfrac{x^\textrm{int}_2}{2^3} = \dfrac{ \class{highlight}{\tfrac{x^\textrm{int}_1 \cdot x^\textrm{int}_2}{2^3}}}{2^3}
+$$
+
+> [!WARNING]
+> When determining a fix point number result  with 3 fractional bits, one of the following problems may occur:
+> - $( x^\textrm{int}_1 \cdot x^\textrm{int}_2 )$ may overflow, 
+> - $x^\textrm{int}_1 / 2^3$ may lose precision and even may become 0
+> - $x^\textrm{int}_2 / 2^3$ may lose precision and even may become 0
+
+---
+
+It is unclear how to calculate the product of arbitrary fix point numbers.
+
+> [!CAUTION]
+> Fix point numbers are rarely used, and even multiplying by $1 \cdot 1$ may fail if the number of fractional bits is high!
+
+
+===
+
+## Floating point numbers
+
+<!-- Way of representing real numbers that is better for calculations -->
+
+
+**Floating point numbers** represent real numbers in the form
+
+$$ x= \pm m \cdot b^e $$
+
+where $m$ is called the **mantissa**, $b$ is the **base**, and $e$ is the **exponent**. 
+
+> [!NOTE]
+> A 32-bit representation with base 2 of a floating point number:
+> ![Image](03-lecture/float.svg)
+> `$= (-1)^{b_{31}} \cdot 2^{(b_{30}b_{29}\ldots b_{23})_2-127} \cdot ( 1.b_{22}b_{21}\ldots b_{0} )_2$`  
+> <small>Source: <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Wikipedia</a></small>
+
+---
+
+### What can go wrong when calculating with floating point numbers?
+
+---
+
+### Basic arithmetic operations
+
+Basic arithmetic operations like addition, subtraction, multiplication, and division work well with floating point numbers.
+
+> [!WARNING]
+> Precision loss is inevitable due to rounding errors when representing real numbers as floating point numbers.
+
+---
+
+### Example
+
+A 64-bit floating point representation causes
+```julia
+0.1 + 0.2 == 0.3
+```
+and
+```julia
+0.1 + 0.2 <= 0.3 
+```
+to fail because precision loss leads to this result:
+```julia
+0.1 + 0.2 == 0.30000000000000004
+```
+
+---
+
+### Floating point comparisons
+
+Comparisons of floating point numbers should **always** be made using a small threshold $\varepsilon$ to account for rounding errors.
+
+> [!TIP]
+> - Use $| a + b - c | \leq \varepsilon$ instead of $a + b = c$
+> - Use $(a + b < c) \vee ( |a + b - c | \leq \varepsilon )$ instead of $a + b \leq c$
+> - ...
+
+---
+
+### Floating point comparisons in Julia
+
+In Julia you can use `≈` and `≉` for approximate comparisons:
+
+```julia
+0.1 + 0.2 ≈ 0.3     # true
+0.1 + 0.2 ≉ 0.3     # false
+```
+
+You can also use approximate inequalities:
+
+```julia
+using ApproximateInequalities
+
+0.1 + 0.2 ⪅ 0.3  # true  
+0.3 ⪆ 0.1 + 0.2  # true
+0.3 ⪉ 0.1 + 0.2  # false
+0.1 + 0.2 ⪊ 0.3  # false
+```
+
+===
+
+## Characters
+
+Characters represent individual symbols such as letters, digits, or punctuation marks. They can be stored as an **unsigned integer** code according to a given **encoding standard**.
+
+> [!NOTE]
+> Strings are not basic data types, they are sequences of characters.
+
+---
+
+## Character encoding 
+
+The most common encoding standards for characters are **ASCII** and **Unicode**.
+
+- **ASCII** uses 7 or 8 bits to represent characters, covering basic English letters, digits, and common symbols.
+- **Unicode** extends this to support characters from almost all writing systems worldwide, using variable-length encodings like UTF-8, UTF-16, or UTF-32.
+
+> [!NOTE]
+> **Example:** In ASCII, the letter `A` is represented by the unsigned integer `65`.
+
+===
+
+## Variables
+
+---
+
+Variables are used to store data values in memory. A variable has:
+
+- a name
+- a type (e.g., boolean, integer, float)
+- a value
+
+---
+
+## Typed vs. untyped languages
+
+- **Statically typed:** the type of every variable is known before runtime (e.g., C++)
+  - Type errors are caught at compile time
+  - Can be more efficient and safer
+
+- **Dynamically typed:** variable types are determined at runtime based on how data flows through the program (e.g., Python)
+  - Type errors may occur at runtime
+  - Some type errors may be silently ignored and cause unexpected behaviour
+
+> [!NOTE]
+> Julia is a dynamically typed language, but it allows optional **type annotations** and uses **type inference** to optimise performance.
+
+
+---
+
+## Variable declaration in Julia
+
+In Julia variables can be declared without specifying the type:
+```julia
+flag = true     # inferred type: Bool
+x = 42          # inferred type: Int64
+π = 3.14        # inferred type: Float64
+c = 'A'         # inferred type: Char
+```
+
+The type can also be explicitly specified:
+```julia
+flag::Bool = true
+x::Int64 = 42
+π::Float64 = 3.14
+c::Char = 'A'
+```
+
+> [!NOTE]
+> Julia allows Unicode characters in variable names, so you can use letters from many languages and mathematical symbols as variable names.
+
+---
+
+## Variable declaration in Python
+
+In Python variables are declared without specifying the type:
+```python
+flag = True     # inferred type: bool
+x = 42          # inferred type: int
+pi = 3.14       # inferred type: float
+c = 'A'         # inferred type: str (1-character string)
+```
+
+> [!NOTE]
+> Python does not have a dedicated character data type.
+
+
+---
+
+## Variable declaration in C++
+
+In C++ variables are declared by explicitly specifying the type:
+```cpp
+bool flag = true;
+int x = 42;
+double pi = 3.14;
+char c = 'A';
+```
+
+The type can also be deduced through initialisation:
+```cpp
+auto flag = true; // inferred type: bool 
+auto x = 42;      // inferred type: int
+auto pi = 3.14;   // inferred type: double
+auto c = 'A';     // inferred type: char
+```
+
+> [!NOTE]
+> Type deduction must be possible at compile time.
+
+
+===
+
+## Control flow basics
+
+---
+
+Control flow determines the order in which instructions in a program are executed. 
+
+---
+
+### Linear execution
+
+<div class="twocolumn">
+<div>
+<!--
+@startuml
+start
+:initialise x := 5;
+:initialise y := 3;
+:set z := x * y;
+stop
+@enduml
+-->
+
+![UML](03-lecture/linear.svg)<!-- .element style="height:600px;" -->
+
+</div>
+<div>
 
 **Julia:**
 ```julia
-function factorial(n)
-  if n == 0
-    return 1
-  else
-    return n * factorial(n - 1)  # recursive call
-  end
-end
+x = 5
+y = 3
+z = x * y
 ```
 
 **Python:**
 ```python
-def factorial(n):
-  if n == 0:
-    return 1
-  else:
-    return n * factorial(n - 1)  # recursive call
+x = 5
+y = 3
+z = x * y
 ```
 
 **C++:**
 ```cpp
-int factorial(int n) {
-  if (n == 0) {
-    return 1;
+auto x = 5;
+auto y = 3;
+auto z = x * y;
+```
+
+</div>
+</div>
+
+
+---
+
+### Branching
+
+<div class="twocolumn">
+<div>
+<!--
+@startuml
+start
+:declare y;
+:read x;
+if () then (x<0)
+  :set y := -x;
+else (x >= 0)
+  :set y := x;
+endif
+:write y;
+stop
+@enduml
+-->
+
+![UML](03-lecture/branching.svg)<!-- .element style="height:600px;" -->
+
+</div>
+<div>
+
+**Julia:**
+```julia
+print("Enter x: ")
+x = parse(Int, readline()) # read input and convert to Int
+if x < 0
+  y = -x
+else
+  y = x
+end
+println("y = ", y)
+```
+
+**Python:**
+```python
+x = int(input("Enter x: ")) # read input and convert to int
+if x < 0:
+  y = -x
+else:
+  y = x
+print("y =", y)
+```
+</div>
+</div>
+
+
+> [!IMPORTANT]
+> Numeric comparisons require a numeric type.
+
+---
+
+**C++:**
+```cpp
+#include <iostream>
+#include <print>
+
+int main() {
+  int x; // x must be declared before the input can be assigned to it
+  std::print("Enter x: ");
+  std::cin >> x;
+  int y; // y must be declared before a value can be assigned to it
+  if (x < 0) {
+    y = -x;
   }
   else {
-    return n * factorial(n - 1); // recursive call
+    y = x;
   }
-}
-```
 
-===
-
-## User-defined types
-
-User-defined types allow you to define your own data structures, grouping multiple values. They are typically used to model **structured data**.
-
-> [!TIP]
-> Define user-defined types when you want to represent a concept or entity that has multiple components.
-
----
-
-**Julia:**
-```julia
-struct Person
-  name::String
-  age::Int
-end
-
-myperson = Person("Alice", 30)
-println("Name: ", myperson.name)
-println("Age: ", myperson.age)
-```
-
----
-
-**Python:**
-```python
-class Person:
-  # Explicit definition of constructor
-  def __init__(self, name, age):
-    self.name = name
-    self.age = age
-
-myperson = Person("Alice", 30)
-print("Name:", myperson.name)
-print("Age:", myperson.age)
-```
-
----
-
-**C++:**
-```cpp
-#include <string>
-#include <print>
-
-struct Person {
-  std::string name;
-  int age;
-};
-
-int main() {
-  Person p{"Alice", 30};
-  std::println("Name: {}",p.name);
-  std::println("Age: {}",p.age);
-  
+  std::print("y = {}", y);
   return 0;
-}
-```
-
-> [!NOTE]
-> In C++, `struct` and `class` are largely identical (except for a few details).
-
-===
-
-## Object-oriented programming
-
-[Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) organises code by combining data (fields) and behavior (methods) into objects.
-
-> [!WARNING]
-> Julia does not support traditional OOP.
-
----
-
-**Python:**
-```python
-class Person:
-  def __init__(self, name, age):
-    self.name = name
-    self.age = age
-
-  def greet(self):
-    print(f"Hello, my name is {self.name}.")
-
-myperson = Person("Alice", 30)
-myperson.greet()
-```
-
----
-
-**C++:**
-```cpp
-#include <string>
-#include <print>
-
-struct Person {
-  std::string name;
-  int age;
-
-  void greet() const {
-    std::println("Hello, my name is {}", name);
-  }
-};
-
-int main() {
-  Person myperson{"Alice", 30};
-  myperson.greet();
 }
 ```
 <!-- .element style="height:500px;" -->
 
----
+> [!NOTE]
+> In C++, variable declaration before assigning a value may be required.
 
-### Inheritance
-
-**Inheritance** is a core concept in  object-oriented programming allowing a derived class to reuse, extend, or modify behavior and data of an existing class (base class).
-
-- Derived classes inherit fields and methods from their base class.
-- Derived classes can override methods to change or extend behavior.
-
-> [!TIP]
-> Inheritance is primarily used if an object **is** a specialisation of another object, e.g., a car is a vehicle.
 
 ---
 
-**C++:**
-```cpp [4-11|13-19|21-24]
-#include <print>
-#include <string>
+### Loops
 
-struct Person {
-  std::string name;
-  int age;
+<div class="twocolumn">
+<div>
+<!--
+@startuml
+start
+:initialise i := 0;
+repeat
+  :set i := i + 1;
+repeat while () is ( i < 5 ) not (i >= 5)
+stop
+@enduml
+-->
 
-  void greet() const {
-    std::println("Hello, my name is {}", name);
-  }
-};
+![UML](03-lecture/loop.svg)<!-- .element style="height:600px;" -->
 
-struct Employee : Person {
-  std::string employee_id;
-
-  void greet() const {
-    std::println("Hello, my name is {} and my employee ID is {}", name, employee_id);
-  }
-};
-
-int main() {
-  Employee myemployee{"Alice", 30, "E123"};
-  myemployee.greet();
-}
-```
-
----
-
-**Python:**
-```python [1-7|9-15|17-18]
-class Person:
-  def __init__(self, name, age):
-    self.name = name
-    self.age = age
-
-  def greet(self):
-    print(f"Hello, my name is {self.name}.")
-
-class Employee(Person):
-  def __init__(self, name, age, employee_id):
-    super().__init__(name, age)
-    self.employee_id = employee_id
-
-  def greet(self):
-    print(f"Hello, my name is {self.name} and my employee ID is {self.employee_id}.")
-
-myemployee = Employee("Alice", 30, "E123")
-myemployee.greet()
-```
-
----
-
-## Composition
-
-Composition is a design principle where objects are built by combining other objects. Instead of inheriting from a base class, one object contains another as a member.
-
-> [!TIP]
-> Composition is primarily used if an object **has** another object, e.g., a car has an engine.
-
----
-
-**Python:**
-```python [1-7|9-16|18-19]
-class Person:
-  def __init__(self, name, age):
-    self.name = name
-    self.age = age
-
-  def greet(self):
-    print(f"Hello, my name is {self.name}.")
-
-class Employee:
-  def __init__(self, person, employee_id):
-    self.person = person  # Composition: Employee "has a" Person
-    self.employee_id = employee_id
-
-  def greet(self):
-    self.person.greet()   # delegate to Person's greet
-    print(f"My employee ID is {self.employee_id}.")
-
-myemployee = Employee(Person("Alice", 30) , "E123")
-myemployee.greet()
-```
-
----
-
-**C++:**
-```cpp [4-11|13-21|24-25]
-#include <print>
-#include <string>
-
-struct Person {
-  std::string name;
-  int age;
-
-  void greet() const {
-    std::println("Hello, my name is {}", name);
-  }
-};
-
-struct Employee {
-  Person person;           // Composition: Employee "has a" Person
-  std::string employee_id;
-
-  void greet() const {
-    person.greet();  // delegate to Person's greet
-    std::println("My employee ID is {}", employee_id);
-  }
-};
-
-int main() {
-  Employee myemployee({"Alice", 30}, "E123");
-  myemployee.greet();
-}
-```
-
----
+</div>
+<div>
 
 **Julia:**
-```julia [1-4|6-9|11-18|20-21]
-struct Person
-  name::String
-  age::Int
+```julia
+i = 0
+while i < 5
+  i += 1
 end
-
-struct Employee
-  person::Person   # Composition: Employee "has a" Person
-  employee_id::String
-end
-
-function greet(p::Person)
-  println("Hello, my name is ", p.name)
-end
-
-function greet(e::Employee)
-  greet(e.person)  # delegate to Person's greet
-  println("My employee ID is ", e.employee_id)
-end
-
-myemployee = Employee(Person("Alice", 30), "E123")
-greet(myemployee)
 ```
 
-===
-
-## Variable scopes
-
----
-
-**Variable scopes** determine where a variable can be accessed or modified.
-
-> [!IMPORTANT]
-> Scopes differ by language.
-
----
-
-### Julia
-
-- Variables declared inside functions are local to that function.
-- Variables declared outside of functions are global by default.
-- Use `global` keyword inside functions to modify global variables.
-- Loop variables have local scope within the loop.
-
----
-
-### Examples: Scopes in Julia
-
-```julia [1|3-8|9|11-17]
-x = 10  # global
-
-function foo()
-  x = 5   # local to foo
-  println(x)  # prints 5
-end
-
-foo()
-println(x)  # prints 10
-
-function bar()
-  global x
-  x = 20    # modifies global x
-end
-
-bar()
-println(x)  # prints 20
+**Python:**
+```python
+i = 0
+while i < 5:
+  i += 1
 ```
 
----
-
-### Python
-
-- Variables declared inside a class are accessible by all methods of the class.
-- Variables assigned inside a function or method are local to that function or method.
-- Variables declared outside functions or classes have global scope.
-- Use the `global` keyword to modify global variables inside functions.
-
----
-
-### Examples: Scopes in Python
-
-```python [1|3-7|8|10-15]
-x = 10  # global
-
-def foo():
-  x = 5  # local
-  print(x)  # prints 5
-
-foo()
-print(x)  # prints 10
-
-def bar():
-  global x
-  x = 20  # modifies global x
-
-bar()
-print(x)  # prints 20
-```
-
----
-
-### C++
-
-- Variables declared inside a struct or class are accessible by all methods of that struct or class.
-- Variables declared inside functions or methods are local to those functions or methods.
-- Variables declared inside blocks (i.e., between `{` and `}`) have block scope.
-- Variables declared outside all functions and classes have global scope.
-
----
-
-### Examples: Scopes in C+++
-
-```cpp [3|5-19|22-23|24]
-#include <print>
-
-int global_var = 10;  // global scope
-
-struct MyStruct {
-  int member_var = 20;  // accessible by all methods of MyStruct
-
-  void print() {
-    int local_var = 30;  // local to this method
-    if (local_var > 0) {
-      int block_var = 40;  // block scope, only accessible inside this if-block
-      std::println("block_var: {}", block_var);
-    }
-    // block_var is NOT accessible here
-    std::println("member_var: {}", member_var);
-    std::println("local_var: {}", local_var);
-    std::println("global_var: {}", global_var);
-  }
-};
-
-int main() {
-  MyStruct mystruct;
-  mystruct.print();
-  std::println("global_var: {}", global_var);
-
-  return 0;
+**C++:**
+```cpp
+int i = 0;
+while (i < 5) {
+  i += 1;
 }
 ```
+</div>
+</div>
 
 ---
 
-> [!TIP]
-> In general, variables with global scope should be avoided because they:
-> - increase the risk of name clashes,
-> - increase the risk of unintended side effects,
-> - make debugging and testing harder, and
-> - reduce code modularity and clarity.
->
-> Prefer passing variables explicitly to functions or encapsulating state inside classes or structs.
+### Parallel execution
 
-===
-
-## Modules, packages, and libraries
-
----
-
-### Using existing code
-
-Code is distributed and shared via **modules**, **packages**, and **libraries**.
-
-Using existing code helps to
-- avoid reinventing the wheel,
-- speed up development, and
-- leverage tested and optimized functionality.
+On modern computers with many CPUs, parallel execution can significantly speed up computer programs. However, parallel computing requires special care, particularly with regard to memory management and synchronization.
 
 > [!NOTE]
-> The way code is distributed and shared differs by programming language.
-
----
-
-### Julia
-
-In Julia, packages can be installed from within the REPL, e.g.:
-
-```julia
-import Pkg
-Pkg.add("Plots")
-```
-
-After installation, an external package can be used as follows:
-
-```julia
-import Plots
-Plots.plot([1, 2, 3], [4, 6, 5])
-```
-
-or
-
-```julia
-using Plots
-plot([1, 2, 3], [4, 6, 5])
-```
-
-
----
-
-### Python
-
-In Python, packages can be installed from within the command line, e.g.:
-
-```bash
-pip install numpy
-```
-
-After installation, an external package can be used as follows:
-
-```python
-import numpy as np
-
-arr = np.array([1, 2, 3])
-print(np.mean(arr))
-```
-
----
-
-### C++
-
-In C++, using an external library typically requires to:
-
-- download and install the library,
-- include the appropriate headers in the code, and
-- link the library during compilation.
-
-Library headers can be included as follows:
-
-```cpp
-#include <print>
-#include <nlohmann/json.hpp>
-
-int main() {
-  std::string jsonString = R"({"name":"Alice","age":30})";
-  auto j = nlohmann::json::parse(jsonString);
-  std::println("{} is {} years old.", std::string(j["name"]), int(j["age"]));
-
-  return 0; 
-}
-```
-
+> Parallel computing is beyond the scope of this course.
 
 ===
 
-## Creating packages in Julia
+## Learning resources 
 
-A package template can be generated with:
-
-```julia
-import Pkg
-Pkg.generate("MyPackage")
-```
-</div>
-<div>
-
-This creates a directory with these files:
-
-```
-MyPackage/
-├── Project.toml
-└── src
-    └── MyPackage.jl
-```
-
----
-
-
-
-`Project.toml`:
-
-```
-name = "MyPackage"
-uuid = "840e47c1-f544-4b43-b071-eeab3fd176be"
-authors = []
-version = "0.1.0"
-```
-
-</div>
-<div>
-
-`src/MyPackage.jl`: 
-
-```julia
-module MyPackage
-
-greet() = print("Hello World!")
-
-end # module MyPackage
-```
-
-
----
-
-## Using a local package
-
-The local package can be used with
-
-```julia
-import Pkg
-Pkg.develop(path="MyPackage/")  # adjust path as needed
-
-import MyPackage
-MyPackage.greet()
-```
-
-> [!TIP]
-> `Pkg.develop` for local packages is essentially the equivalent to `Pkg.add` for published packages.
+The Youtube channel [doggo dot jl](https://www.youtube.com/@doggodotjl) provides excellent tutorials for learning Julia.

@@ -1,704 +1,734 @@
-# Containers
+# Code organisation
+
+===
+
+## Functions
 
 ---
 
-Containers are **data structures** capable of holding a collection of elements.
+### What is a function?
+
+- A function is a reusable block of code that performs a specific task.
+- Functions help organize code, reduce duplication, and improve readability.
+
+> [!TIP]
+> You can think of functions as implementations of mathematical functions $f: X \rightarrow Y$, input/output procedures, utilities, and similar.
+
+---
+
+### Why use functions?
+
+- **Decomposition:** Break a large problem into smaller, manageable parts.
+- **Reuse:** Call the same logic from different parts of the program.
+- **Testing:** Easier to test small components than large monolithic programs.
+- **Documentation:** Named functions help describe what the code does.
+
+---
+
+### Arguments, function body, and return value
+
+A function typically consists of:
+
+- Inputs to the function called **arguments**.
+- A block of code that performs computation called the **function body**.
+- The final result produced by the function called the **return value**.
+
+> [!NOTE]
+> Not every function requires inputs and not every function produces a final result.
+
+---
+
+### Examples: Julia
+
+A **generic** function accepting all argument types:
+
+```julia
+function square(x)
+  return x * x
+end
+```
+
+> [!WARNING]
+> If the type of `x` does not support `*`, above will result in a runtime error.
+
+---
+
+A function only accepting integers as argument:
+
+```julia
+function square(x::Int)::UInt
+  return x * x
+end
+```
+
+> [!NOTE]
+> The return type `::UInt` gives the user a guarantee that the result is an unsigned integer.
+
+---
+
+### Examples: Python
+
+A **generic** function accepting all argument types:
+
+```python
+def square(x):
+    return x * x
+```
+
+> [!WARNING]
+> If the type of `x` does not support `*`, above will result in a runtime error.
+
+---
+
+### Examples: C++
+
+Regular C++ functions require that argument type and return value are specified explicitly. 
+
+```cpp
+unsigned int square(int x) {
+  return x * x;
+}
+
+unsigned int square(unsigned int x) {
+  return x * x;
+}
+```
+
+
+---
+
+### Example: Generic function in C++
+
+[Templates](https://en.wikipedia.org/wiki/Template_(C%2B%2B)) can be used to allow functions to operate with generic types.
+
+```cpp
+#include <concepts>
+
+template <std::integral T>
+unsigned int square(T x) {
+  return x * x;
+}
+
+int main() {
+  int a = -5;
+  unsigned int b = 7;
+
+  auto x = square(a);  // 25
+  auto y = square(b);  // 49
+
+  return 0;
+}
+```
+<!-- .element style="height:500px;" -->
+
+---
+
+### Variable access
+
+- Variables defined inside a function are **local** to that function:
+  - They exist only during the function's execution.
+  - They cannot be accessed from outside the function.
+- Variables defined outside a function can only be accessed inside a function if their **scope** includes the function.
 
 > [!IMPORTANT]
-> There are many alternative types of containers and the choice of container highly depends on the use case.
+> Whether and how variables defined outside a function can be accessed, depends on the language and program structure. We will learn more on **scopes** later.
 
 ===
 
-## Array
-
-[Arrays](https://en.wikipedia.org/wiki/Array_(data_structure)) are containers that hold elements of equal size in a contiguous block of memory. They provide direct access to each element using an index operation.
-
-![Figure](04-lecture/array.svg)
-
-> [!NOTE]
-> Given an index, the memory location of each element can be determined without effort.
+## Recursive functions
 
 ---
 
-### Removal of element
+A **recursive function** is a function that calls itself. They are useful for problems that can be broken down into smaller, similar subproblems.
 
-![Figure](04-lecture/array_removal.svg)
-
-
-> [!NOTE]
-> To guarantee contiguous block of memory, a removal of an element may require to **move the memory location of many elements**.
+> [!IMPORTANT]
+> Every recursive function must have a branch allowing to stop the recursion and prevent loops exceeding the maximal depth possible. 
 
 ---
 
-### Insertion of element
-
-![Figure](04-lecture/array_insertion.svg)
-
-> [!NOTE]
-> To guarantee contiguous block of memory, an insertion of an element may require to **move the memory location of all elements**.
-
----
+### Example: factorial function
 
 **Julia:**
-```julia [1-2|4-5|7-8|10-11|13-14|16-17|19-23]
-# Creation
-myarray = [1, 2, 3, 4]
-
-# Access
-x = myarray[1]           # Julia uses 1-based indexing
-
-# Append (copies all data if allocated memory is exceeded)
-push!(myarray, 5)        # myarray becomes [1, 2, 3, 4, 5]
-
-# Pop last element (no copying)
-pop!(myarray)            # myarray becomes [1, 2, 3, 4]
-
-# Insert at position 2 (copies all data if allocated memory is exceeded)
-insert!(myarray, 2, 99)  # myarray becomes [1, 99, 2, 3, 4]
-
-# Remove element at position 3
-deleteat!(myarray, 3)    # myarray becomes [1, 99, 3, 4]
-
-# Iterate
-sum = 0;
-for element in myarray
-  sum += element
+```julia
+function factorial(n)
+  if n == 0
+    return 1
+  else
+    return n * factorial(n - 1)  # recursive call
+  end
 end
 ```
-<!-- .element style="height:600px;" -->
-
----
 
 **Python:**
-```python [1-2|4-5|7-8|10-11|13-14|16-17|19-22]
-# Creation
-myarray = [1, 2, 3, 4]   # Python list stores references in contiguous memory
-
-# Access
-x = myarray[0]           # Python uses 0-based indexing
-
-# Append (copies all data if allocated memory is exceeded)
-myarray.append(5)        # myarray becomes [1, 2, 3, 4, 5]
-
-# Pop last element (no copying)
-myarray.pop()            # myarray becomes [1, 2, 3, 4]
-
-# Insert at index 1 (copies all data if allocated memory is exceeded)
-myarray.insert(1, 99)    # myarray becomes [1, 99, 2, 3, 4]
-
-# Remove element at index 2
-del myarray[2]           # myarray becomes [1, 99, 3, 4]
-
-# Iterate
-sum = 0
-for element in myarray:
-  sum += element
+```python
+def factorial(n):
+  if n == 0:
+    return 1
+  else:
+    return n * factorial(n - 1)  # recursive call
 ```
-
-> [!WARNING]
-> Python lists behave like arrays from a usage perspective, but the official documentation focuses on their interface and not on the underlying implementation details. When performance matters, [Numpy](https://numpy.org/) can be used.
-
----
 
 **C++:**
-```cpp [1|4-5|7-8|10-11|13-14|16-17|19-20|22-23|25-29]
-#include <vector>
-
-int main() {
-  // Creation
-  std::vector<int> myarray = {1, 2, 3, 4};
-
-  // Access
-  auto x = myarray[0];   // C++ uses 0-based indexing
-
-  // Reserve capacity
-  myarray.reserve(5);    // may trigger copying
-
-  // Append (may trigger copying if capacity exceeded)
-  myarray.push_back(5);  // myarray becomes {1, 2, 3, 4, 5}
-
-  // Pop last element
-  myarray.pop_back();    // myarray becomes {1, 2, 3, 4}
-
-  // Insert at position 1 (may trigger copying if capacity exceeded)
-  myarray.insert(myarray.begin() + 1, 99);  // myarray becomes {1, 99, 2, 3, 4}
-
-  // Remove element at position 2
-  myarray.erase(myarray.begin() + 2);       // myarray becomes {1, 99, 3, 4}
-
-  // Iterate
-  int sum = 0;
-  for (auto& element : myarray) {
-    sum += element;
+```cpp
+int factorial(int n) {
+  if (n == 0) {
+    return 1;
   }
-
-  return 0;
+  else {
+    return n * factorial(n - 1); // recursive call
+  }
 }
 ```
-<!-- .element style="height:600px;" -->
 
 ===
 
-## String
+## User-defined types
 
-A string is an array of characters.
+User-defined types allow you to define your own data structures, grouping multiple values. They are typically used to model **structured data**.
 
-![Figure](04-lecture/string.svg)
+> [!TIP]
+> Define user-defined types when you want to represent a concept or entity that has multiple components.
 
 ---
 
 **Julia:**
 ```julia
-mystring = "Hello, world!"
+struct Person
+  name::String
+  age::Int
+end
+
+myperson = Person("Alice", 30)
+println("Name: ", myperson.name)
+println("Age: ", myperson.age)
 ```
+
+---
 
 **Python:**
 ```python
-mystring = "Hello, world!"
+class Person:
+  # Explicit definition of constructor
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+myperson = Person("Alice", 30)
+print("Name:", myperson.name)
+print("Age:", myperson.age)
 ```
+
+---
 
 **C++:**
 ```cpp
 #include <string>
+#include <print>
+
+struct Person {
+  std::string name;
+  int age;
+};
 
 int main() {
-  std::string mystring = "Hello, world!";
+  Person p{"Alice", 30};
+  std::println("Name: {}",p.name);
+  std::println("Age: {}",p.age);
+  
   return 0;
 }
 ```
 
+> [!NOTE]
+> In C++, `struct` and `class` are largely identical (except for a few details).
+
+===
+
+## Object-oriented programming
+
+[Object-oriented programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) organises code by combining data (fields) and behavior (methods) into objects.
+
+> [!WARNING]
+> Julia does not support traditional OOP.
+
 ---
-
-## Tuple
-
-A tuple is an ordered collection of elements, which can be of different types.
-
-![Figure](04-lecture/tuple.svg)
-
----
-
-**Julia:**
-```julia
-mytuple = (1, "hello", 3.14)
-(index, word, value) = mytuple
-```
 
 **Python:**
 ```python
-mytuple = (1, "hello", 3.14)
-index, word, value = mytuple
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def greet(self):
+    print(f"Hello, my name is {self.name}.")
+
+myperson = Person("Alice", 30)
+myperson.greet()
 ```
+
+---
 
 **C++:**
 ```cpp
-#include <tuple>
 #include <string>
+#include <print>
 
-int main() {
-  std::tuple<int, std::string, double> mytuple(1, "hello", 3.14);
-  auto& [ index, word, value ] = mytuple;
-  return 0;
-}
-```
+struct Person {
+  std::string name;
+  int age;
 
-> [!NOTE]
-> In Julia and Python, tuples are immutable, meaning their elements cannot be changed after creation. To modify contents, you must create a new tuple.
-
-===
-
-## Doubly linked lists
-
-Doubly linked lists are containers that hold sequences of elements in non-contiguous blocks of memory. [Doubly linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list) provide direct access to the start and end of the sequence, as well as to the predecessor and successor of any element.
-
-![Figure](04-lecture/list.svg)
-
-> [!NOTE]
-> To find a particular element, a large share of the elements may have to be traversed.
-
----
-
-### Removal of element
-
-![Figure](04-lecture/list_removal.svg)
-
-> [!NOTE]
-> No memory relocation is necessary.
-
----
-
-### Insertion of element
-
-![Figure](04-lecture/list_insertion.svg)
-
-> [!NOTE]
-> No memory relocation is necessary.
-
----
-
-> [!WARNING]
-> Julia and Python do not have a built-in doubly linked list.
-
----
-
-**C++:**
-```cpp [1|4|6-9|11-14|16-23|25-33]
-#include <list>
-
-int main() {
-  std::list<int> mylist = {1, 2, 3, 4};
-
-  // Forward traversal
-  for (auto it = mylist.begin(); it != mylist.end(); ++it) {
-    auto& value = *it;
+  void greet() const {
+    std::println("Hello, my name is {}", name);
   }
-
-  // Backward traversal
-  for (auto it = mylist.rbegin(); it != mylist.rend(); ++it) {
-    auto& value = *it;
-  }
-
-  // Insert 99 before list element with value 3
-  for (auto it = mylist.begin(); it != mylist.end(); ++it) {
-    auto& value = *it;
-    if (value == 3) {
-      mylist.insert(it, 99);  // insert 99 before 3
-      break;                  // interrupt loop
-    }
-  }
-
-  // Remove any list element with value 2
-  for (auto it = mylist.begin(); it != mylist.end(); ) {
-    auto& value = *it;
-    if (value == 2) {
-      it = mylist.erase(it);  // erase returns iterator to next element
-    }
-    else {
-      it++;
-    }
-  }
-
-  return 0;
-}
-```
-<!-- .element style="height:600px;" -->
-
-===
-
-## Stack
-
-[Stacks](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) are containers that follow a **last-in-first-out (LIFO)** principle. Elements are added (pushed) and removed (popped) only from the top of the stack.
-
-![Figure](04-lecture/stack.svg)
-
----
-
-**Julia:**
-```julia [1-3| 5-8|10-11|13-14|16-17]
-using DataStructures
-
-mystack = Stack{Int}()  # create an empty stack of integers
-
-# Push
-push!(mystack, 1)
-push!(mystack, 2)
-push!(mystack, 3)
-
-# Top
-top = first(mystack)    # look at the top element without removing it
-
-# Pop
-popped = pop!(mystack)  # remove and return the top element
-
-# Check if empty
-isempty(mystack)
-```
-
----
-
-> [!WARNING]
-> Python does not have a built-in stack.
-
----
-
-**C++:**
-```cpp [1,4|6-10|12-13|15-16]
-#include <stack>
+};
 
 int main() {
-  std::stack<int> mystack;
-
-  // Push
-  mystack.push(1);
-  mystack.push(2);
-  mystack.push(3);
-
-  // Top
-  int top = mystack.top();
-
-  // Pop
-  mystack.pop();
-
-  return 0;
+  Person myperson{"Alice", 30};
+  myperson.greet();
 }
 ```
-
-
-===
-
-## Queue
-
-[Queues](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) are containers that follow a **first-in-first-out (FIFO)** principle. Elements are added at the back and removed from the front.
-
-![Figure](04-lecture/queue.svg)
-
+<!-- .element style="height:500px;" -->
 
 ---
 
-**Julia:**
-```julia [1,3|5-8|10-11|13-14|16-17]
-using DataStructures
+### Inheritance
 
-myqueue = Queue{Int}()  # create an empty queue
+**Inheritance** is a core concept in  object-oriented programming allowing a derived class to reuse, extend, or modify behavior and data of an existing class (base class).
 
-# Enqueue
-enqueue!(myqueue, 1)
-enqueue!(myqueue, 2)
-enqueue!(myqueue, 3)
+- Derived classes inherit fields and methods from their base class.
+- Derived classes can override methods to change or extend behavior.
 
-# Peek first element of queue (does not remove element)
-x = first(myqueue)
-
-# Dequeue (returns element)
-x = dequeue!(myqueue)
-
-# Check if empty
-isempty(myqueue)
-```
-
----
-
-> [!WARNING]
-> Python does not have a built-in queue.
+> [!TIP]
+> Inheritance is primarily used if an object **is** a specialisation of another object, e.g., a car is a vehicle.
 
 ---
 
 **C++:**
-```cpp [1,4|6-9|11-12|14-15|17-18]
-#include <queue>
-
-int main() {
-  std::queue<int> myqueue;
-
-  // Enqueue
-  myqueue.push(1);
-  myqueue.push(2);
-  myqueue.push(3);
-
-  // Peek front
-  int front = myqueue.front();
-
-  // Dequeue (does not return element)
-  myqueue.pop();
-
-  // Check if empty
-  bool is_empty = myqueue.empty();
-
-  return 0;
-}
-```
-
-===
-
-## Double-ended queue (deque)
-
-[Double-ended queues](https://en.wikipedia.org/wiki/Double-ended_queue) are containers allowing to add and remove elements at the front and the back.
-
-![Figure](04-lecture/deque.svg)
-
----
-
-**Julia:**
-```julia [1-3|5-8|9|11-13|15-17|19-20]
-using DataStructures
-
-mydeque = Deque{Int}()  # create empty deque
-
-# Push to back and front
-push!(mydeque, 1)        # push to back
-push!(mydeque, 2)        # push to back
-push!(mydeque, 3)        # push to back
-pushfirst!(mydeque, 4)   # push to front
-
-# Peek at front and back
-front = first(mydeque)
-back = last(mydeque)
-
-# Pop from front and back
-a = popfirst!(mydeque)
-b = pop!(mydeque)
-
-# Check if empty
-is_empty = isempty(mydeque)
-```
-
----
-
-**Python:**
-```python [1-3|6-8|9|11-13|15-17|19-20]
-from collections import deque
-
-mydeque = deque()
-
-# Push to back and front
-mydeque.append(1)      # push to back
-mydeque.append(2)      # push to back
-mydeque.append(3)      # push to back
-mydeque.appendleft(4)  # push to front
-
-# Peek at front and back
-front = mydeque[0]
-back = mydeque[-1]
-
-# Pop from front and back
-a = mydeque.popleft()
-b = mydeque.pop()
-
-# Check if empty
-is_empty = len(mydeque) == 0
-```
-
----
-
-**C++:**
-```cpp [1,4|7-9|10|12-14|16-18|20-21]
-#include <deque>
-
-int main() {
-  std::deque<int> mydeque;
-
-  // Push to back and front
-  mydeque.push_back(1);  // push to back
-  mydeque.push_back(2);  // push to back
-  mydeque.push_back(3);  // push to back
-  mydeque.push_front(4); // push to front
-
-  // Peek at front and back
-  int front = mydeque.front();
-  int back  = mydeque.back();
-
-  // Pop from front and back
-  mydeque.pop_front();
-  mydeque_back();
-
-  // Check if empty
-  bool is_empty = mydeque.empty();
-
-  return 0;
-}
-```
-
-===
-
-## Map, dictionary, or associative array
-
-[Maps, dictionaries, or associative arrays](https://en.wikipedia.org/wiki/Map_(data_structure)) are containers that store key-value pairs, allowing retrieval, insertion, and deletion based on unique keys.
-
-![Figure](04-lecture/map.svg)
-
-> [!NOTE]
-> Insertion, removal, and access may require traversing through multiple elements and possibly reorganising parts of the data.
-
----
-
-**Julia:**
-```julia [1-2|4-5|7-8|10-11|13-14|16-19]
-# Creation
-mymap = Dict("apple" => 3, "banana" => 5, "cherry" => 2)
-
-# Check whether key exists
-exists = haskey(mymap, "apple")
-
-# Access
-x = mymap["apple"]
-
-# Insert / Update
-mymap["cherry"] = 3
-
-# Remove
-delete!(mymap, "banana")
-
-# Iterate
-for (k, v) in mymap
-  println("key = $k, value = $v")
-end
-```
-
----
-
-**Python:**
-```python [1-2|4-5|7-8|10-11|13-14|16-18]
-# Creation
-mymap = {"apple": 3, "banana": 5, "cherry": 2}
-
-# Check whether key exists
-exists = "apple" in mymap
-
-# Access
-x = mymap["apple"]
-
-# Insert / Update
-mymap["cherry"] = 3
-
-# Remove
-del mymap["banana"]
-
-# Iterate
-for k, v in mymap.items():
-  print(f"key = {k}, value = {v}")
-```
-
----
-
-**C++:**
-```cpp [1-3|6-11|13-14|16-17|19-20|22-23|25-28]
-#include <unordered_map>
+```cpp [4-11|13-19|21-24]
 #include <print>
 #include <string>
 
-int main() {
-  // Creation
-  std::unordered_map<std::string, int> mymap{
-    {"apple", 3},
-    {"banana", 5},
-    {"cherry", 2}
-  };
-  
-  // Check whether key exists
-  auto exists = mymap.contains("apple");
-  
-  // Access
-  auto& x = mymap["apple"];
+struct Person {
+  std::string name;
+  int age;
 
-  // Insert / Update
-  mymap["cherry"] = 3;
-
-  // Remove
-  mymap.erase("banana");
-
-  // Iterate
-  for (const auto& [key, value] : mymap) {
-    std::println("{}: {}", key, value);
+  void greet() const {
+    std::println("Hello, my name is {}", name);
   }
+};
 
-  return 0;
+struct Employee : Person {
+  std::string employee_id;
+
+  void greet() const {
+    std::println("Hello, my name is {} and my employee ID is {}", name, employee_id);
+  }
+};
+
+int main() {
+  Employee myemployee{"Alice", 30, "E123"};
+  myemployee.greet();
 }
-```
-
-===
-
-## Set
-
-[Sets](https://en.wikipedia.org/wiki/Set_(data_structure)) are containers that hold a collection of unique elements. Sets are primarily used to test a value for membership and to remove duplicates.
-
-> [!NOTE]
-> Insertion, removal, and access may require traversing through multiple elements and possibly reorganising parts of the data.
-
----
-
-**Julia:**
-```julia [1-4|6-8|10-11|13-14|16-19]
-using DataStructures
-
-# Creation
-myset = Set([1, 2, 3])
-
-# Insert
-push!(myset, 3)
-push!(myset, 4)
-
-# Remove
-delete!(myset, 2)
-
-# Check membership
-exists = 3 in myset
-
-# Iterate
-for element in myset
-  println(element)
-end
 ```
 
 ---
 
 **Python:**
-```python  [1-2|4-6|8-9|11-12|14-16]
-# Creation
-myset = {1, 2, 3}
+```python [1-7|9-15|17-18]
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
 
-# Insert
-myset.add(3)
-myset.add(4)
+  def greet(self):
+    print(f"Hello, my name is {self.name}.")
 
-# Remove
-myset.remove(2)
+class Employee(Person):
+  def __init__(self, name, age, employee_id):
+    super().__init__(name, age)
+    self.employee_id = employee_id
 
-# Check membership
-exists = 3 in myset
+  def greet(self):
+    print(f"Hello, my name is {self.name} and my employee ID is {self.employee_id}.")
 
-# Iterate
-for element in myset:
-  print(element)
+myemployee = Employee("Alice", 30, "E123")
+myemployee.greet()
+```
+
+---
+
+## Composition
+
+Composition is a design principle where objects are built by combining other objects. Instead of inheriting from a base class, one object contains another as a member.
+
+> [!TIP]
+> Composition is primarily used if an object **has** another object, e.g., a car has an engine.
+
+---
+
+**Python:**
+```python [1-7|9-16|18-19]
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def greet(self):
+    print(f"Hello, my name is {self.name}.")
+
+class Employee:
+  def __init__(self, person, employee_id):
+    self.person = person  # Composition: Employee "has a" Person
+    self.employee_id = employee_id
+
+  def greet(self):
+    self.person.greet()   # delegate to Person's greet
+    print(f"My employee ID is {self.employee_id}.")
+
+myemployee = Employee(Person("Alice", 30) , "E123")
+myemployee.greet()
 ```
 
 ---
 
 **C++:**
-```cpp [1-2|5-6|8-10|12-13|15-16|18-21]
-#include <unordered_set>
+```cpp [4-11|13-21|24-25]
 #include <print>
+#include <string>
+
+struct Person {
+  std::string name;
+  int age;
+
+  void greet() const {
+    std::println("Hello, my name is {}", name);
+  }
+};
+
+struct Employee {
+  Person person;           // Composition: Employee "has a" Person
+  std::string employee_id;
+
+  void greet() const {
+    person.greet();  // delegate to Person's greet
+    std::println("My employee ID is {}", employee_id);
+  }
+};
 
 int main() {
-  // Creation
-  std::unordered_set<int> myset = {1, 2, 3};
-
-  // Insert
-  myset.insert(3);
-  myset.insert(4);
-
-  // Remove
-  myset.erase(2);
-
-  // Check membership
-  auto exists = myset.contains(3);
-
-  // Iterate
-  for (auto& element : myset) {
-    std::println("{}", element);
-  }
-
-  return 0;
+  Employee myemployee({"Alice", 30}, "E123");
+  myemployee.greet();
 }
+```
+
+---
+
+**Julia:**
+```julia [1-4|6-9|11-18|20-21]
+struct Person
+  name::String
+  age::Int
+end
+
+struct Employee
+  person::Person   # Composition: Employee "has a" Person
+  employee_id::String
+end
+
+function greet(p::Person)
+  println("Hello, my name is ", p.name)
+end
+
+function greet(e::Employee)
+  greet(e.person)  # delegate to Person's greet
+  println("My employee ID is ", e.employee_id)
+end
+
+myemployee = Employee(Person("Alice", 30), "E123")
+greet(myemployee)
 ```
 
 ===
 
-## When to use which container
+## Variable scopes
 
-| Container              | When to use                                           | When to avoid                               |
-|------------------------|-------------------------------------------------------|---------------------------------------------|
-| **Array**              | Frequent access of elements by index                  | Frequent insertion or removal in the middle |
-| **Tuple**              | Fixed-size, heterogeneous data                        | Variable sized, homogeneous data            |
-| **Doubly linked list** | Frequent insertion or removal in the middle           | Frequent access of individual elements      |
-| **Stack**              | Last-in, first-out behavior                           | Access of elements other than the top       |
-| **Queue**              | First-in, first-out behavior                          | Access of elements other than front or back |
-| **Deque**              | Frequent addition or removal of elements at both ends | Access of elements in the middle            |
-| **Map / Dictionary**   | Access element by key                                 | Access of elements by index                 |
-| **Set**                | Eliminate duplicates, check membership                | Frequent access of individual elements      |
-<!-- .element style="font-size:32px;" -->
+---
+
+**Variable scopes** determine where a variable can be accessed or modified.
+
+> [!IMPORTANT]
+> Scopes differ by language.
+
+---
+
+### Julia
+
+- Variables declared inside functions are local to that function.
+- Variables declared outside of functions are global by default.
+- Use `global` keyword inside functions to modify global variables.
+- Loop variables have local scope within the loop.
+
+---
+
+### Examples: Scopes in Julia
+
+```julia [1|3-8|9|11-17]
+x = 10  # global
+
+function foo()
+  x = 5   # local to foo
+  println(x)  # prints 5
+end
+
+foo()
+println(x)  # prints 10
+
+function bar()
+  global x
+  x = 20    # modifies global x
+end
+
+bar()
+println(x)  # prints 20
+```
+
+---
+
+### Python
+
+- Variables declared inside a class are accessible by all methods of the class.
+- Variables assigned inside a function or method are local to that function or method.
+- Variables declared outside functions or classes have global scope.
+- Use the `global` keyword to modify global variables inside functions.
+
+---
+
+### Examples: Scopes in Python
+
+```python [1|3-7|8|10-15]
+x = 10  # global
+
+def foo():
+  x = 5  # local
+  print(x)  # prints 5
+
+foo()
+print(x)  # prints 10
+
+def bar():
+  global x
+  x = 20  # modifies global x
+
+bar()
+print(x)  # prints 20
+```
+
+---
+
+### C++
+
+- Variables declared inside a struct or class are accessible by all methods of that struct or class.
+- Variables declared inside functions or methods are local to those functions or methods.
+- Variables declared inside blocks (i.e., between `{` and `}`) have block scope.
+- Variables declared outside all functions and classes have global scope.
+
+---
+
+### Examples: Scopes in C+++
+
+```cpp [3|5-19|22-23|24]
+#include <print>
+
+int global_var = 10;  // global scope
+
+struct MyStruct {
+  int member_var = 20;  // accessible by all methods of MyStruct
+
+  void print() {
+    int local_var = 30;  // local to this method
+    if (local_var > 0) {
+      int block_var = 40;  // block scope, only accessible inside this if-block
+      std::println("block_var: {}", block_var);
+    }
+    // block_var is NOT accessible here
+    std::println("member_var: {}", member_var);
+    std::println("local_var: {}", local_var);
+    std::println("global_var: {}", global_var);
+  }
+};
+
+int main() {
+  MyStruct mystruct;
+  mystruct.print();
+  std::println("global_var: {}", global_var);
+
+  return 0;
+}
+```
 
 ---
 
 > [!TIP]
-> If there is no clear reason to favour a particular container type, the **array** type is a reasonable choice.
+> In general, variables with global scope should be avoided because they:
+> - increase the risk of name clashes,
+> - increase the risk of unintended side effects,
+> - make debugging and testing harder, and
+> - reduce code modularity and clarity.
+>
+> Prefer passing variables explicitly to functions or encapsulating state inside classes or structs.
+
+===
+
+## Modules, packages, and libraries
+
+---
+
+### Using existing code
+
+Code is distributed and shared via **modules**, **packages**, and **libraries**.
+
+Using existing code helps to
+- avoid reinventing the wheel,
+- speed up development, and
+- leverage tested and optimized functionality.
+
+> [!NOTE]
+> The way code is distributed and shared differs by programming language.
+
+---
+
+### Julia
+
+In Julia, packages can be installed from within the REPL, e.g.:
+
+```julia
+import Pkg
+Pkg.add("Plots")
+```
+
+After installation, an external package can be used as follows:
+
+```julia
+import Plots
+Plots.plot([1, 2, 3], [4, 6, 5])
+```
+
+or
+
+```julia
+using Plots
+plot([1, 2, 3], [4, 6, 5])
+```
 
 
+---
+
+### Python
+
+In Python, packages can be installed from within the command line, e.g.:
+
+```bash
+pip install numpy
+```
+
+After installation, an external package can be used as follows:
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3])
+print(np.mean(arr))
+```
+
+---
+
+### C++
+
+In C++, using an external library typically requires to:
+
+- download and install the library,
+- include the appropriate headers in the code, and
+- link the library during compilation.
+
+Library headers can be included as follows:
+
+```cpp
+#include <print>
+#include <nlohmann/json.hpp>
+
+int main() {
+  std::string jsonString = R"({"name":"Alice","age":30})";
+  auto j = nlohmann::json::parse(jsonString);
+  std::println("{} is {} years old.", std::string(j["name"]), int(j["age"]));
+
+  return 0; 
+}
+```
+
+
+===
+
+## Creating packages in Julia
+
+A package template can be generated with:
+
+```julia
+import Pkg
+Pkg.generate("MyPackage")
+```
+</div>
+<div>
+
+This creates a directory with these files:
+
+```
+MyPackage/
+├── Project.toml
+└── src
+    └── MyPackage.jl
+```
+
+---
+
+
+
+`Project.toml`:
+
+```
+name = "MyPackage"
+uuid = "840e47c1-f544-4b43-b071-eeab3fd176be"
+authors = []
+version = "0.1.0"
+```
+
+</div>
+<div>
+
+`src/MyPackage.jl`: 
+
+```julia
+module MyPackage
+
+greet() = print("Hello World!")
+
+end # module MyPackage
+```
+
+
+---
+
+## Using a local package
+
+The local package can be used with
+
+```julia
+import Pkg
+Pkg.develop(path="MyPackage/")  # adjust path as needed
+
+import MyPackage
+MyPackage.greet()
+```
+
+> [!TIP]
+> `Pkg.develop` for local packages is essentially the equivalent to `Pkg.add` for published packages.

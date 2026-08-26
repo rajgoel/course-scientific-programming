@@ -1,271 +1,339 @@
-# Complexity and performance 
+# Clean code and documentation
 
 ===
 
-## Complexity
+## Clean code
 
-Computational complexity refers to the resources (time, memory) required by an algorithm as input size grows.
-
----
-
-### Big O-notation
-
-Big O-notation is used to describe how an algorithm’s execution time or memory usage **scales relative to input size**.
+Code is clean if it can be understood easily - by everyone on the team. Clean code can be read and enhanced by others - and by your future self.
 
 > [!TIP]
-> The goal is to characterise growth rate, not to provide an exact count of instructions.
+> When revisiting your own code after a while, you still want to understand what you have been doing. 
+
+===
+
+### Variable naming
+
+Good variable names improve readability and reduce the chance of misunderstanding the code.
+
+> [!TIP]
+> Use descriptive names that reflect the role or meaning of the variable.
 
 ---
 
-### Constant, linear, polynomial, exponential growth
-
-Let $n$ be a measure of the input size of $n$ and let $c$ indicate the run time (or memory usage) for $n=1$. Then,
- 
-- $O(1)$ indicates that the run time (or memory usage) stays constant, approximately $c \cdot 1$, regardless of $n$,
-- $O(n)$ indicates that the run time (or memory usage) grows linearly with $n$, approximately $c \cdot n$,
-- $O(n^k)$ for a given $k$, indicates that the run time (or memory usage) grows polynomially with $n$, approximately $c \cdot n^k$,
-- $O(k^n)$ for a given $k$, indicates that the run time (or memory usage) grows exponentially with $n$, approximately $c \cdot k^n$.
+### Do
+- Choose descriptive and unambiguous names, prefer clarity over brevity (e.g., use `totalPrice` or `total_price` instead of `tp`)
+- Use `camelCase` or `snake_case` for composed names
+- Stick to a consistent naming convention (e.g., always use `camelCase`)
+- Use nouns for data (e.g., `speed`, `temperature`)
+- Boolean variables should be named using verbs followed by adjectives or nouns that reflect a condition (e.g., `isFeasible`, `hasContent`, `containsElement`).
 
 ---
 
-### Example: $O(1)$
+#### Avoid
 
+- Single letters except for trivial iterators (i, j in short loops)
+- Abbreviations (e.g., `cnt` vs. `count`, `cfg` vs. `config`)
+- Vague or generic names (e.g., `data`, `tmp`, `foo`, `bar`)
+
+===
+
+### Magic numbers
+
+Magic numbers are unexplained constants in code. They hurt readability and make maintenance error-prone. Replace them with named constants that convey meaning.
+
+**Bad:**
 ```julia
-function getSize(myinput::Vector{<:Number})
-  return length(myinput)
+if length(data) > 42
+  println("Too many elements")
 end
 ```
 
-> [!NOTE]
-> The `length` function in Julia (returning the number of elements in a container) is constant in time, because the size is stored internally. Thus, the runtime does not depend on the number of elements.
-
----
-
-### Example: $O(n)$
-
+**Better:**
 ```julia
-function getTotal(myinput::Vector{<:Number})
-  return sum(myinput)
+const MAX_ELEMENTS = 42
+
+if length(data) > MAX_ELEMENTS
+  println("Too many elements")
 end
 ```
 
-> [!NOTE]
-> The `sum` function in Julia (returning the sum of elements in a container) is linear in time, because it has to iterate over all elements. 
+> [!TIP]
+> Named constants improve readability and make changes easier and safer. If `MAX_ELEMENTS` ever needs to change, you only update it in one place.
+
+===
+
+## Code organisation
+
+Clean code is modular, readable, and easy to test and maintain.
 
 ---
 
-### Example: $O(n)$
+### Use functions with a clear scope
 
-```julia
-function normalize(myinput::Vector{<:Number})
-  return myinput ./ sum(myinput)
-end
-```
-
-> [!NOTE]
-> Both the `sum` function and the element-wise division using the `./` operator are linear in time because they iterate over each of the $n$ elements in the vector. Since `sum(myinput)` is evaluated exactly once before the element-wise division occurs, the total runtime is linear in $n$.
+- Each function should do one thing only.
+- Function names should describe what they do (`computeTotal`, `loadData`, `filterValidEntries`) and should start with a verb.
+- Functions should encapsulate logic. Avoid copy-pasting the same code block.
 
 ---
 
-### Example: $O(n^2)$
+### Keep functions short
 
-```julia [1-22|1-5|7-22|9-10|11-20|12-13|14-19|15-16|17-18|21|1-22]
-# Compute Euclidean distance between two points (x1, y1) and (x2, y2)
-function distance(x1::Number, y1::Number, x2::Number, y2::Number)
-  # O(1): arithmetic and sqrt are constant time
-  return sqrt( (x1 - x2)^2 + (y1 - y2)^2 )
-end
+- A function should not exceed one screenful (~20–40 lines).
+- Long functions make it harder to understand, test, and reuse code.
+- Avoid deep nesting of control structures (`if-else`, `for`, `while`) by extracting logic into separate functions.
+- Separate concerns (input, data processing, and output should be in different functions) 
 
-# Compute full distance matrix for a vector of points (pairs)
-function distanceMatrix(points::Vector{<:Tuple{<:Number, <:Number}})
-  n = length(points)      # O(1): length stored internally
-  matrix = zeros(n, n)    # O(n^2): allocate n x n matrix
-  for i in 1:n            # Outer loop: n iterations
-    xi = points[i][1]     # O(1): indexing an array, O(1): accessing tuple element
-    yi = points[i][2]     # O(1): indexing an array, O(1): accessing tuple element
-    for j in 1:n          # Inner loop: n iterations
-      xj = points[j][1]   # O(1): indexing an array, O(1): accessing tuple element
-      yj = points[j][2]   # O(1): indexing an array, O(1): accessing tuple element
-      # O(1): distance calculation, O(1): indexing into 2D array
-      matrix[i, j] = distance(xi,yi,xj,yj)
+---
+
+**Bad:**
+```julia [1|2-5|7-11|13-18|20-21]
+function analyzeDataFromFile(filename)
+  numbers = []
+  for line in eachline(filename)
+    push!(numbers, parse(Float64, strip(line)))
+  end
+
+  total = 0
+  for n in numbers
+    total += n
+  end
+  average = total / length(numbers)
+
+  filtered = []
+  for n in numbers
+    if n > average
+      push!(filtered, n)
     end
   end
-  return matrix           # O(1): returning the matrix without copying
+
+  println("Average: ", average)
+  println("Above average: ", filtered)
 end
 ```
-<!-- .element style="height:600px;" -->
 
-> [!NOTE]
-> Computing a distance matrix is quadratic in time, because the nested loops have a complexity of $O(n) \cdot O(n) \cdot O(1) = O(n^2)$, and no other operation adds a higher complexity.
+> [!WARNING]
+> This function is overly complex making it difficult to test and modify specific parts independently.
 
 ---
 
-### Example: $O(2^n)$
+**Better:**
+```julia
+function readNumbers(filename)
+  return [parse(Float64, strip(line)) for line in eachline(filename)]
+end
+```
 
-````julia [1-24|4|16-19|22-40|23-28|30-39|22-40]
+```julia
+function computeAverage(numbers)
+  return sum(numbers) / length(numbers)
+end
+```
+
+```julia
+function filterAboveAverage(numbers, threshold)
+  return [n for n in numbers if n > threshold]
+end
+```
+
+```julia
+function printSummary(average, filtered)
+  println("Average: ", average)
+  println("Above average: ", filtered)
+end
+```
+
+```julia
+function analyzeDataFromFile(filename)
+  numbers = readNumbers(filename)
+  average = computeAverage(numbers)
+  filtered = filterAboveAverage(numbers, average)
+  printSummary(average, filtered)
+end
+```
+
+> [!TIP]
+> Breaking functionality into smaller functions improves readability and makes it easier to test and modify specific parts independently.
+
+===
+
+## Code comments
+
+Code comments help others (and your future self) understand how to use your code. 
+
+> [!TIP]
+> Use comments to document **what** a function or class does and **how to use** it. Avoid explaining **how it works** in detail if the code is self-explanatory - focus on intent and usage.
+
+===
+
+## Documentation
+
+Documentation can automatically be generated from specially formatted code comments. 
+
+---
+
+### Docstrings
+
+Docstrings are structured string literals that document variables, functions, types, and modules.
+
+- Placed immediately before the definition of a variable, function, type, or module.
+- Usually start with a short summary sentence.
+- Optionally include: a description of arguments and return values, edge cases or assumptions, usage examples.
+
+---
+
+### Docstrings for variables (Julia)
+
+In Julia, use triple double quotes `"""..."""` for docstrings.
+
+
+```julia
 """
-recursivelySolveKnapsackProblem(items::Vector{<:Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1) -> Number
+Maximum number of elements allowed in the dataset.
+"""
+const MAX_ELEMENTS = 42
+```
 
-Solve the [0/1 knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) using brute-force recursion.
+You can access this documentation interactively in the Julia REPL by typing:
+```julia
+?MAX_ELEMENTS
+```
+
+---
+
+### Docstrings for functions (Julia)
+
+
+```julia
+"""
+computeAverage(numbers) -> Float64
+
+Compute the average of a list of numbers.
 
 # Arguments
-- `items::Vector{<:Tuple{<:Number, <:Number}}`: Vector of `(value, weight)` pairs for each item.
-- `capacity::Number`: The maximum weight capacity of the knapsack.
-- `index::Int=1`: Current item index (used internally for recursion).
+- `numbers`: A vector of numbers.
 
 # Returns
-- The maximum total value achievable without exceeding the knapsack capacity.
-
-# Example
-```julia
-items = [(60, 10), (100, 20), (120, 30)]
-capacity = 50
-solutionValue = recursivelySolveKnapsackProblem(items, capacity)
-println(solutionValue)  # Output: 220
-```
+- The arithmetic mean of the input numbers.
 """
-function recursivelySolveKnapsackProblem(items::Vector{<:Tuple{<:Number, <:Number}}, capacity::Number, index::Int=1)
-  n = length(items)
-  if index > n || capacity <= 0
-    return 0
-  end
-  
-  value, weight = items[index]
-  
-  if weight > capacity
-    # Skip current item if it doesn't fit
-    return recursivelySolveKnapsackProblem(items, capacity, index + 1)
-  else
-    # Option 1: skip current item
-    withoutItem = recursivelySolveKnapsackProblem(items, capacity, index + 1)
-    # Option 2: include current item
-    withItem = value + recursivelySolveKnapsackProblem(items, capacity - weight, index + 1)
-    return max(withoutItem, withItem)
-  end
-end
-````
-<!-- .element style="height:600px;" -->
-
-> [!NOTE]
-> Each step except for the recursive calls has a time complexity of $O(1)$. In each of the $n$ indices two calls to the recursive function are made, resulting in an overall complexity of $O(2^n)$.
-
----
-
-### Example: $O(\log n)$
-
-```julia
-function binarySearch(sortedArray::Vector{<:Number}, target::Number)
-  left = 1
-  right = length(sortedArray)
-
-  while left <= right
-    middle = div(left + right, 2) # returns integer
-    if sortedArray[middle] == target
-      return middle
-    elseif sortedArray[middle] < target
-      left = middle + 1
-    else
-      right = middle - 1
-    end
-  end
-
-  return -1  # not found
+function computeAverage(numbers)
+  return sum(numbers) / length(numbers)
 end
 ```
-<!-- .element style="height:500px;" -->
 
-> [!NOTE]
-> Each iteration cuts the search space in half. For an input size of $n$, the maximum number of iterations $k$ before the size of the search space reduces to 1 or less, can be computed by finding the smallest $k$ such that  $\frac{n}{2^k} \leq 1$ or $n \leq 2^k$. Thus, $k = \log_2 n$. For Big-O notation, the base of the logarithm is irrelevant, so the complexity is $O(\log n)$.
-
-===
-
-### Complexity of container operations
-
-<small>
-
-| Container          | Access (by index/key) | Search (by value/key) | Insertion           | Deletion            |
-| ------------------ | --------------------- | --------------------- | ------------------- | ------------------- |
-| Array              | $O(1)$                  | $O(n)$                  | $O(n)$ (anywhere) | $O(n)$ (anywhere), $O(1)$ (only last) |
-| Doubly Linked List | $O(n)$                  | $O(n)$                  | $O(1)$ (at head/tail) | O(1) (given node)   |
-| Queue              | $O(1)$ (front element)  |                         | $O(1)$ (enqueue)      | $O(1)$ (dequeue)      |
-| Stack              | $O(1)$ (top element)    |                         | $O(1)$ (push)         | $O(1)$ (pop)          |
-| Map (hash-based)   | $O(1)$ (average)        | $O(1)$ (average)        | $O(1)$ (average)      | O(1) (average)      |
-| Set (hash-based)   | $O(1)$ (average)        | $O(1)$ (average)        | $O(1)$ (average)      | $O(1)$ (average)      |
-
-</small>
-
-> [!NOTE]
-> Although the average time complexity for access, insertion, and deletion in hash-based maps and sets is $O(1)$, access by index in arrays, and insertion or deletion in doubly linked lists, queues, and stacks are significantly faster due to a smaller constant number of instructions.
-
-===
-
-## Performance
-
-The performance of a program highly depends on 
-- the algorithmic complexity and
-- the number of memory allocations and copies.
-
-> [!TIP]
-> Use appropriate data structures and containers to avoid unnecessary complexity and memory (re-)allocations.
+You can access this documentation interactively in the Julia REPL by typing:
+```julia
+?computeAverage
+```
 
 ---
 
-### Dynamic vs. static types
+### Auto-generated documentation
 
-Changing the type of a variable or using abstract types can trigger memory reallocation and impact performance.
-
-> [!TIP]
-> Julia-specific performance advice on type stability and container choices can be found [here](https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-abstract-container).
-
-===
-
-## Benchmarking
-
-Benchmarking measures the execution time of code snippets to evaluate performance in practice.
+For Julia, you can use [Documenter.jl](https://documenter.juliadocs.org/) to build a website from your docstrings and additional markdown files.
 
 ```julia
 import Pkg
-Pkg.add("BenchmarkTools")
+Pkg.add("Documenter")
 ```
 
-```julia
-using BenchmarkTools
+> [!TIP]
+> For Python you can use [pydoc](https://docs.python.org/3/library/pydoc.html), for C++ you can use [doxygen](https://www.doxygen.nl/). 
 
-function sum_squares(n)
-  s = 0
-  for i in 1:n
-    s += i^2
-  end
-  return s
+---
+
+#### Step 1: Generate a package with this folder structure
+
+```
+MyPackage/
+├── Project.toml
+├── src
+│   └── MyPackage.jl   # code for which the documentation is built
+└── docs
+    ├── make.jl        # script to build the docs
+    └── src
+        └── index.md   # main markdown file for documentation
+```
+
+---
+
+#### Step 2: Write module `MyPackage.jl`
+
+In `src/MyPackage.jl` write your module using docstrings:
+```julia
+module MyPackage
+
+"""
+computeAverage(numbers::Vector{Float64}) -> Float64
+
+Compute the average of a list of numbers.
+
+# Arguments
+- `numbers`: A vector of floating-point numbers.
+
+# Returns
+- The arithmetic mean of the input numbers.
+"""
+function computeAverage(numbers::Vector{Float64})
+  return sum(numbers) / length(numbers)
 end
 
-@btime sum_squares(10000)
+end # module MyPackage
 ```
+<!-- .element style="height:500px;" -->
 
-> [!TIP]
-> `@btime` excludes compilation time.
+---
 
-===
+#### Step 3: Write `make.jl`
 
-## Profiling
+In `docs/make.jl` write:
+```julia
+using Documenter
+using MyPackage
 
-<div class="twocolumn" style="align-items: center;">
-<div>
+makedocs(
+    sitename = "MyPackage Documentation",
+    format = Documenter.HTML(
+      edit_link = nothing, 
+      repolink = ""
+    ),
+    modules = [MyPackage],
+    pages = [
+        "Home" => "index.md",
+    ],
+    remotes = nothing, # Disable source code links if no git repo
+)
 
-![Profile](08-lecture/profile.svg)<!-- .element style="height:500px;" -->
+```
+<!-- .element style="height:500px;" -->
 
-</div>
-<div>
+---
 
-[Profiling](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) helps identifying which parts of a program consume the most time. 
+## Step 4: Write `index.md`
 
-It is useful for 
-detecting performance bottlenecks and optimizing critical code paths.
+In `docs/src/index.md`, write your landing page in markdown:
 
-</div>
-</div>
+````markdown
+# Welcome to my documentation
 
-> [!TIP]
-> For Julia, you can use [Profile.jl](https://docs.julialang.org/en/v1/manual/profile/), for C++ (with GCC) you can use [gprof](https://hpc-wiki.info/hpc/Gprof_Tutorial).
+This the documentation of `MyPackage`, generated with Documenter.jl.
 
+## Overview
 
+This Julia package provides a simple Julia module with a utility function. Specifically, it includes a function to compute the average of a list of numbers.
+
+## API Reference
+
+```@autodocs
+Modules = [MyPackage]
+```
+````
+
+---
+
+## Step 5: Build docs
+
+From your package root folder, run:
+```bash
+julia --project=docs docs/make.jl
+```
+This will generate your documentation site in `docs/build/`. You can open the generated `index.html` in a browser.

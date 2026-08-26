@@ -1,339 +1,339 @@
-# Clean code and documentation
+# Error handling and testing
 
 ===
 
-## Clean code
+## Errors
 
-Code is clean if it can be understood easily - by everyone on the team. Clean code can be read and enhanced by others - and by your future self.
+Almost every program can be assumed to have errors.
 
 > [!TIP]
-> When revisiting your own code after a while, you still want to understand what you have been doing. 
+> Programs should report or crash on errors rather than silently ignoring them. Silent failures make bugs harder to detect and fix.
+
+---
+
+### Logical issues
+
+Logical issues occur when the algorithmic logic of the program does not match the requirements.
+
+
+> [!NOTE]
+> **Examples:**
+> - Incorrect expressions
+> - Wrong assumptions about input or data
+> - Invalid control flow (e.g., wrong branching or looping, early termination or unreachable code)
+> - Wrong algorithm for problem
+
+---
+
+### Invalid input
+
+The input does not necessarily match the expected format, type, or range. This can be due to **accident or intention**.
+
+> [!NOTE]
+> **Examples:**
+> - Typos
+> - Flipped data (e.g., latitude and longitude)
+> - Incorrect format (e.g., lower case where upper case is expected, trailing whitespaces)
+> - Corrupted or incomplete input (e.g., due to unstable network connection)
+
+---
+
+### Representation errors
+
+The internal variable representation does not fully match its intended semantic meaning.
+ 
+> [!NOTE]
+> **Examples:**
+> - Precision loss can lead to wrong results (e.g., floating point comparisons).
+> - Over- and underflow leads to incorrect variable values.
+
+---
+
+### Unavailable resources
+
+Required resources may not be available when needed.
+
+> [!NOTE]
+> **Examples:**
+>  Missing files
+> - Network disconnection
+> - Out-of-memory
+> - Insufficient permissions
 
 ===
 
-### Variable naming
+## Check before use
 
-Good variable names improve readability and reduce the chance of misunderstanding the code.
+In general, you cannot trust input data to match the assumptions of your program. To avoid errors, you may want to check assumptions before using the data.
+
+**Example: Julia**
+```julia
+if b != 0 
+  println( a / b )
+else
+  println("Division by zero")
+end
+```
+ 
+> [!TIP]
+> Checking data may be computationally expensive. For performance reasons, you may want to skip checks if your program logic guarantees validity of data.
+
+===
+
+## Assertions
+
+[Assertions](https://en.wikipedia.org/wiki/Assertion_(software_development)) are checks that certain conditions in the data are satisfied. They are used to catch bugs in development and ensure that the program logic is correct.
 
 > [!TIP]
-> Use descriptive names that reflect the role or meaning of the variable.
+> Do **not** use assertions to validate wrong user input and other errors that can be expected at runtime.
 
 ---
 
-### Do
-- Choose descriptive and unambiguous names, prefer clarity over brevity (e.g., use `totalPrice` or `total_price` instead of `tp`)
-- Use `camelCase` or `snake_case` for composed names
-- Stick to a consistent naming convention (e.g., always use `camelCase`)
-- Use nouns for data (e.g., `speed`, `temperature`)
-- Boolean variables should be named using verbs followed by adjectives or nouns that reflect a condition (e.g., `isFeasible`, `hasContent`, `containsElement`).
-
----
-
-#### Avoid
-
-- Single letters except for trivial iterators (i, j in short loops)
-- Abbreviations (e.g., `cnt` vs. `count`, `cfg` vs. `config`)
-- Vague or generic names (e.g., `data`, `tmp`, `foo`, `bar`)
-
-===
-
-### Magic numbers
-
-Magic numbers are unexplained constants in code. They hurt readability and make maintenance error-prone. Replace them with named constants that convey meaning.
-
-**Bad:**
-```julia
-if length(data) > 42
-  println("Too many elements")
-end
-```
-
-**Better:**
-```julia
-const MAX_ELEMENTS = 42
-
-if length(data) > MAX_ELEMENTS
-  println("Too many elements")
-end
-```
-
-> [!TIP]
-> Named constants improve readability and make changes easier and safer. If `MAX_ELEMENTS` ever needs to change, you only update it in one place.
-
-===
-
-## Code organisation
-
-Clean code is modular, readable, and easy to test and maintain.
-
----
-
-### Use functions with a clear scope
-
-- Each function should do one thing only.
-- Function names should describe what they do (`computeTotal`, `loadData`, `filterValidEntries`) and should start with a verb.
-- Functions should encapsulate logic. Avoid copy-pasting the same code block.
-
----
-
-### Keep functions short
-
-- A function should not exceed one screenful (~20–40 lines).
-- Long functions make it harder to understand, test, and reuse code.
-- Avoid deep nesting of control structures (`if-else`, `for`, `while`) by extracting logic into separate functions.
-- Separate concerns (input, data processing, and output should be in different functions) 
-
----
-
-**Bad:**
-```julia [1|2-5|7-11|13-18|20-21]
-function analyzeDataFromFile(filename)
-  numbers = []
-  for line in eachline(filename)
-    push!(numbers, parse(Float64, strip(line)))
-  end
-
-  total = 0
-  for n in numbers
-    total += n
-  end
-  average = total / length(numbers)
-
-  filtered = []
-  for n in numbers
-    if n > average
-      push!(filtered, n)
-    end
-  end
-
-  println("Average: ", average)
-  println("Above average: ", filtered)
-end
-```
-
-> [!WARNING]
-> This function is overly complex making it difficult to test and modify specific parts independently.
-
----
-
-**Better:**
-```julia
-function readNumbers(filename)
-  return [parse(Float64, strip(line)) for line in eachline(filename)]
-end
-```
+### Julia
 
 ```julia
-function computeAverage(numbers)
-  return sum(numbers) / length(numbers)
-end
-```
-
-```julia
-function filterAboveAverage(numbers, threshold)
-  return [n for n in numbers if n > threshold]
-end
-```
-
-```julia
-function printSummary(average, filtered)
-  println("Average: ", average)
-  println("Above average: ", filtered)
-end
-```
-
-```julia
-function analyzeDataFromFile(filename)
-  numbers = readNumbers(filename)
-  average = computeAverage(numbers)
-  filtered = filterAboveAverage(numbers, average)
-  printSummary(average, filtered)
+function divide(a, b)
+  @assert b != 0 "Denominator must not be zero"
+  return a / b
 end
 ```
 
 > [!TIP]
-> Breaking functionality into smaller functions improves readability and makes it easier to test and modify specific parts independently.
-
-===
-
-## Code comments
-
-Code comments help others (and your future self) understand how to use your code. 
-
-> [!TIP]
-> Use comments to document **what** a function or class does and **how to use** it. Avoid explaining **how it works** in detail if the code is self-explanatory - focus on intent and usage.
-
-===
-
-## Documentation
-
-Documentation can automatically be generated from specially formatted code comments. 
+> Assertions can be disabled with: 
+> ````julia
+> @eval Main macro assert(args...); nothing; end
+> ```
+> This line must be executed **before** any `@assert` statement is parsed..
 
 ---
 
-### Docstrings
+### Python
 
-Docstrings are structured string literals that document variables, functions, types, and modules.
-
-- Placed immediately before the definition of a variable, function, type, or module.
-- Usually start with a short summary sentence.
-- Optionally include: a description of arguments and return values, edge cases or assumptions, usage examples.
-
----
-
-### Docstrings for variables (Julia)
-
-In Julia, use triple double quotes `"""..."""` for docstrings.
-
-
-```julia
-"""
-Maximum number of elements allowed in the dataset.
-"""
-const MAX_ELEMENTS = 42
-```
-
-You can access this documentation interactively in the Julia REPL by typing:
-```julia
-?MAX_ELEMENTS
-```
-
----
-
-### Docstrings for functions (Julia)
-
-
-```julia
-"""
-computeAverage(numbers) -> Float64
-
-Compute the average of a list of numbers.
-
-# Arguments
-- `numbers`: A vector of numbers.
-
-# Returns
-- The arithmetic mean of the input numbers.
-"""
-function computeAverage(numbers)
-  return sum(numbers) / length(numbers)
-end
-```
-
-You can access this documentation interactively in the Julia REPL by typing:
-```julia
-?computeAverage
-```
-
----
-
-### Auto-generated documentation
-
-For Julia, you can use [Documenter.jl](https://documenter.juliadocs.org/) to build a website from your docstrings and additional markdown files.
-
-```julia
-import Pkg
-Pkg.add("Documenter")
+```python
+def divide(a, b):
+  assert b != 0, "Denominator must not be zero"
+  return a / b
 ```
 
 > [!TIP]
-> For Python you can use [pydoc](https://docs.python.org/3/library/pydoc.html), for C++ you can use [doxygen](https://www.doxygen.nl/). 
+> Assertions can be disabled with: `python -O script.py`
 
 ---
 
-#### Step 1: Generate a package with this folder structure
+### C++
 
+```cpp
+#include <cassert>
+
+int divide(int a, int b) {
+  assert(b != 0);
+  return a / b;
+}
 ```
-MyPackage/
-├── Project.toml
-├── src
-│   └── MyPackage.jl   # code for which the documentation is built
-└── docs
-    ├── make.jl        # script to build the docs
-    └── src
-        └── index.md   # main markdown file for documentation
-```
+
+> [!TIP]
+> Assertions can be disabled by defining `NDEBUG` at compile time.
+
+
+===
+
+## Exceptions
+
+[Exceptions](https://en.wikipedia.org/wiki/Exception_(computer_science)) are signals that an error occurred during program execution. Exceptions interrupt the normal control flow.
+
+> [!TIP] Unlike assertions, exceptions are intended for handling expected runtime issues (e.g., missing files, invalid user input, network errors).
 
 ---
 
-#### Step 2: Write module `MyPackage.jl`
-
-In `src/MyPackage.jl` write your module using docstrings:
+**Julia:**
 ```julia
-module MyPackage
+throw(ErrorException("Something went wrong"))
+```
 
-"""
-computeAverage(numbers::Vector{Float64}) -> Float64
+**Python:**
+```python
+raise Exception("Something went wrong")
+```
 
-Compute the average of a list of numbers.
+**C++:**
+```cpp
+#include <stdexcept>
 
-# Arguments
-- `numbers`: A vector of floating-point numbers.
+int main() {
+  throw std::runtime_error("Something went wrong");
+  return 0;
+}
+```
 
-# Returns
-- The arithmetic mean of the input numbers.
-"""
-function computeAverage(numbers::Vector{Float64})
-  return sum(numbers) / length(numbers)
+> [!IMPORTANT]
+> Always use meaningful failure messages.
+
+===
+
+## Try/catch
+
+It is possible to react on exceptions using **try/catch** blocks. This allows the program to handle errors gracefully instead of crashing.
+
+> [!TIP]
+> Use try catch blocks when you can meaningfully recover from an exception.
+
+---
+
+### Julia
+
+```julia
+try
+  # Execute code that may fail
+  throw(ErrorException("Something went wrong"))
+catch myexception
+  # Handle exception
+  println("Caught error: ", myexception)
 end
-
-end # module MyPackage
 ```
-<!-- .element style="height:500px;" -->
 
 ---
 
-#### Step 3: Write `make.jl`
+### Python
 
-In `docs/make.jl` write:
+```python
+try:
+  # Execute code that may fail
+  raise Exception("Something went wrong")
+except Exception as myexception:
+  # Handle exception
+  print("Caught error:", myexception)
+```
+
+> [!IMPORTANT]
+> Python using the keyword `except`, not `catch`.
+
+---
+
+### C++
+
+```cpp
+#include <stdexcept>
+#include <print>
+
+int main() {
+  try {
+    // Execute code that may fail
+    throw std::runtime_error("Something went wrong");
+  }
+  catch (const std::exception& myexception) {
+    // Handle exception
+    std::println("Caught error: {}", myexception.what());
+  }
+  return 0;
+}
+```
+
+===
+
+## Testing
+
+Testing is used to
+
+- detect bugs early,
+- prevent regressions, 
+- document expected behavior, and
+- increase confidence in the code.
+
+> [!TIP]
+> Testing helps to ensure that your program behaves as expected **and continues to do so when modified**.
+
+---
+
+### Types of tests
+
+- **Unit tests:** test individual functions or components in isolation.
+- **Integration tests:** test how multiple components work together.
+- **System tests:** test the program as a whole.
+
+---
+
+### Branch coverage and path coverage
+
+
+<div class="twocolumn" style="align-items: center;">
+<div>
+<!--
+@startuml
+start
+if () then (x > 0)
+else (x <= 0)
+  :do something;
+endif
+if () then (y <= 0)
+ :do another thing;
+else (y > 0)
+  :do yet another thing;
+endif
+stop
+@enduml
+-->
+
+![UML](07-lecture/testing.svg)<!-- .element style="height:500px;" -->
+</div>
+<div>
+
+- **Branch coverage:** create test such that each edge is used at least once
+- **Path coverage:** create test such that each path from start to end is used at least once
+</div>
+</div>
+
+> [!TIP]
+> - Branch coverage only catches logic errors of independent decisions.
+> - Path coverage is needed when correctness depends on combinations of decisions.
+
+---
+
+### Test frameworks
+
+In Julia, tests can be easily created using [Test.jl](https://docs.julialang.org/en/v1/stdlib/Test/#Basic-Unit-Tests).
+
+> [!TIP]
+> For Python you can use [unittest](https://docs.python.org/3/library/unittest.html), 
+> for C++ you can use [catch2](https://github.com/catchorg/Catch2).
+
+---
+
+### Example: Julia
+
+`myfunction.jl` (your actual code)
 ```julia
-using Documenter
-using MyPackage
-
-makedocs(
-    sitename = "MyPackage Documentation",
-    format = Documenter.HTML(
-      edit_link = nothing, 
-      repolink = ""
-    ),
-    modules = [MyPackage],
-    pages = [
-        "Home" => "index.md",
-    ],
-    remotes = nothing, # Disable source code links if no git repo
-)
-
+function divide(a, b)
+  @assert b != 0 "Denominator must not be zero"
+  return a / b
+end
 ```
-<!-- .element style="height:500px;" -->
 
----
+`mytest.jl` (your test script)
+```julia
+include("myfunction.jl")
+using Test
 
-## Step 4: Write `index.md`
-
-In `docs/src/index.md`, write your landing page in markdown:
-
-````markdown
-# Welcome to my documentation
-
-This the documentation of `MyPackage`, generated with Documenter.jl.
-
-## Overview
-
-This Julia package provides a simple Julia module with a utility function. Specifically, it includes a function to compute the average of a list of numbers.
-
-## API Reference
-
-```@autodocs
-Modules = [MyPackage]
+@testset "Divide tests" begin
+  @test divide(4, 2) == 2
+  @test_throws AssertionError divide(1, 0)
+end
 ```
-````
 
----
+Then run tests: `julia mytest.jl`
 
-## Step 5: Build docs
+===
 
-From your package root folder, run:
-```bash
-julia --project=docs docs/make.jl
-```
-This will generate your documentation site in `docs/build/`. You can open the generated `index.html` in a browser.
+## Test-driven development (TDD)
+
+Test-Driven Development is a software development process where tests are written **before** the code that satisfies them.
+
+- Write a test that describes a small piece of desired functionality.
+- Run the test → It should fail (since the functionality is not implemented yet).
+- Implement the code that makes the test pass.
+- Run the test again → It should pass.
+- Refactor the code (clean up, optimize) without changing behavior.
+- Repeat.
+
+> [!TIP]
+> TDD helps ensuring a comprehensive coverage of tests without actually creating a lot of extra work, since tests grow naturally with the implementation.
+

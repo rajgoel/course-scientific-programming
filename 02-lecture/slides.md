@@ -1,553 +1,359 @@
-# Programming basics
+# Software engineering
+
+---
+
+
+[Software engineering](https://en.wikipedia.org/wiki/Software_engineering) is the systematic application of engineering principles to the design, development, testing, documentation, deployment, and maintenance of software systems.
+
+---
+
+## Goals
+
+
+Key goals are to
+
+- manage complexity, 
+- reduce errors, and 
+- improve quality.
+
+---
+
+
+## Software development lifecycle
+
+
+- Requirements
+- Architecture and design
+- Implementation (coding)
+- Testing
+- Deployment
+- Maintenance
 
 ===
 
-## Basic data types
+## Requirements engineering
+
+Before writing any code, it's essential to clearly define:
+
+- what your program is supposed to do,
+- what data it needs,
+- what output it should generate, and
+- how you'll know it's working correctly.
+
+This process is called **requirements engineering**.
 
 ---
 
-Computers store data as sequences of binary digits (bits), grouped into blocks of fixed size (e.g., 8, 16, 32, or 64 bits).
+## What is the goal?
+
+- What is the research question?
+- Which problem is to be solved?
+- Which questions are to be answered?
+- What are the assumptions?
+- What are constraints and limitations?
+
+---
+
+## What is the required input?
+
+- What type of data is required?
+- Where does the data come from?
+- What are the expectations for quality, correctness, and completeness?
+- What is the expected format and structure?
+- What kind of pre-processing of input data is required? 
+
+---
+
+## What is the required output?
+
+- What are the expected results?
+- Which data is generated?
+- What format and structure is appropriate?
+
+---
+
+## How do you know it works?
+
+- How will the program be tested?
+- What are the correctness criteria?
+- How can the results be validated or verified?
 
 ===
 
-## Booleans
+## Architecture and design
 
-**Booleans** can be represented using a single bit.
-
-- `1` correspond to **true**
-- `0` corresponds to **false**
+- Software **architecture** defines the high-level structure of a software system, i.e. how components are organized and interact.
+- Software **design** is the detailed plan for how those components are implemented.
 
 ===
 
-<!-- .slide: data-auto-animate="true" -->
+## UML component diagrams
 
-<div data-id="unsigned_int">
+A [UML component diagram](https://en.wikipedia.org/wiki/Component_diagram) shows the components of a larger system and the interfaces used to connect these components.
 
-## Unsigned integers
-
-An $n$-bit representation of a non-negative whole number, i.e., an **unsigned integer**, $x$ is a sequence of bits $b_i$ for $ i \in \lbrace 1, \ldots, n \rbrace$ such that 
-
-$$ x =  b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \ldots + b_0 \cdot 2^0 $$
-
-> [!NOTE]
-> An 8-bit representation of the unsigned integer 42 is:
-> ![Image](02-lecture/uint8.svg)<!-- .element style="margin-bottom:-40px;" -->
-
-> [!TIP]
-> The range of numbers that can be represented by the $n$-bit representation is $[0,2^n - 1]$.
-<!-- .element class="fragment" -->
-
----
-
-### What can go wrong when calculating with unsigned integers?
-
----
-
-### Overflow 
-
-**Overflow** occurs when a result exceeds the maximum value that can be represented:
-
-![Image](02-lecture/overflow.svg)
-
----
-
-### Y2K Problem
-
-The **Y2K (year 2000)** problem was a very prominent example of overflow (in the decimal representation). 
-
-> [!NOTE]
-> Due to scarcity of memory in old computer programs, years were represented by 2-digits, i.e., the year 1999 was represented as `99`. The next year was represented as `00`.
-
----
-
-### Y2038 Problem
-
-The **Y2038 (year 2038)** problem, is a less known example of overflow that still may cause problems.
-
-> [!NOTE]
-> Unix-based systems represent time as the number of seconds since `00:00:00 UTC on 1 January 1970`. Traditionally, a signed 32-bit integer with a range $[-2^{31},2^{31}-1]$ was used.
-> The largest time that can be represented with a 32-bit representation before overflow is `03:14:07 UTC on 19 January 2038`. One second later it will be `20:45:52 UTC on 13 December 1901`.
-
----
-
-
-### Underflow 
-
-**Underflow** occurs when a result falls below the minimum value that can be represented:
-
-![Image](02-lecture/underflow.svg)
-
----
-
-### Infinite countdown
-
-An underflow problem can occur when repeatedly decrementing a number as long as it is non-negative. With unsigned integers the countdown will be infinite.
-
-===
-
-## Integers
-
-An $n$-bit representation of a whole number, i.e., a **(signed) integer** $x$ is a sequence of bits $b_i \in \lbrace 0,1\rbrace$ for $ i \in \lbrace 1, \ldots, n \rbrace$ such that 
-
-$$ x =  \class{highlight}{- b_{n-1} \cdot 2^{n-1}} + b_{n-2} \cdot 2^{n-2} + b_{n-3} \cdot 2^{n-3} + \ldots + b_0 \cdot 2^0 $$
-
-> [!NOTE]
-> An 8-bit representation of the integer -42 is:
-> ![Image](02-lecture/int8.svg)<!-- .element style="margin-bottom:-40px;" -->
-
-> [!TIP]
-> The range of numbers that can be represented by the $n$-bit representation is $[-2^{n-1}, 2^{n-1} - 1]$.
-<!-- .element class="fragment" -->
-
----
-
-### Overflow and underflow
-
-Overflow and underflow can happen whenever a number becomes too large or too small.
-
-> [!WARNING]
-> Overflow and underflow can happen when any part of a calculation  produces values outside the representable range, e.g., when calculating $y = ( x^3 )^{\tfrac{1}{3}}$, the value of $x^3$ may cause over- or underflow. 
-
-===
-
-## Fix point numbers
-
-**Fixed point numbers** represent real numbers by allocating $k$ **bits for the fractional part**. The stored integer value  $x^\textrm{int}$ corresponds to the real number 
-$$x^\textrm{real} = \tfrac{x^\textrm{int}}{2^k}$$
-
-
-> [!NOTE]
-> An 8-bit representation with 3 fractional bits of the number 5.25 is:
-> ![Image](02-lecture/fixpoint.svg)<!-- .element style="margin-bottom:-40px;" -->
-
-
----
-
-### What can go wrong when calculating with fix point numbers?
-
----
-
-### Addition and subtraction
-
-Addition and subtraction work equally well as with integers.
-
----
-
-### Multiplication 
-
-Assume we have two numbers
-
- $x^\textrm{real}_1 = \tfrac{x^\textrm{int}_1}{2^3}$ and $x^\textrm{real}_2 = \tfrac{x^\textrm{int}_2}{2^3}$, 
-
-then
-
-$$
-x^\textrm{real}_1 \cdot x^\textrm{real}_2 = \dfrac{x^\textrm{int}_1}{2^3} \cdot \dfrac{x^\textrm{int}_2}{2^3} = \dfrac{ \class{highlight}{\tfrac{x^\textrm{int}_1 \cdot x^\textrm{int}_2}{2^3}}}{2^3}
-$$
-
-> [!WARNING]
-> When determining a fix point number result  with 3 fractional bits, one of the following problems may occur:
-> - $( x^\textrm{int}_1 \cdot x^\textrm{int}_2 )$ may overflow, 
-> - $x^\textrm{int}_1 / 2^3$ may lose precision and even may become 0
-> - $x^\textrm{int}_2 / 2^3$ may lose precision and even may become 0
-
----
-
-It is unclear how to calculate the product of arbitrary fix point numbers.
-
-> [!CAUTION]
-> Fix point numbers are rarely used, and even multiplying by $1 \cdot 1$ may fail if the number of fractional bits is high!
-
-
-===
-
-## Floating point numbers
-
-<!-- Way of representing real numbers that is better for calculations -->
-
-
-**Floating point numbers** represent real numbers in the form
-
-$$ x= \pm m \cdot b^e $$
-
-where $m$ is called the **mantissa**, $b$ is the **base**, and $e$ is the **exponent**. 
-
-> [!NOTE]
-> A 32-bit representation with base 2 of a floating point number:
-> ![Image](02-lecture/float.svg)
-> `$= (-1)^{b_{31}} \cdot 2^{(b_{30}b_{29}\ldots b_{23})_2-127} \cdot ( 1.b_{22}b_{21}\ldots b_{0} )_2$`  
-> <small>Source: <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">Wikipedia</a></small>
-
----
-
-### What can go wrong when calculating with floating point numbers?
-
----
-
-### Basic arithmetic operations
-
-Basic arithmetic operations like addition, subtraction, multiplication, and division work well with floating point numbers.
-
-> [!WARNING]
-> Precision loss is inevitable due to rounding errors when representing real numbers as floating point numbers.
-
----
-
-### Example
-
-A 64-bit floating point representation causes
-```julia
-0.1 + 0.2 == 0.3
-```
-and
-```julia
-0.1 + 0.2 <= 0.3 
-```
-to fail because precision loss leads to this result:
-```julia
-0.1 + 0.2 == 0.30000000000000004
-```
-
----
-
-### Floating point comparisons
-
-Comparisons of floating point numbers should **always** be made using a small threshold $\varepsilon$ to account for rounding errors.
-
-> [!TIP]
-> - Use $| a + b - c | \leq \varepsilon$ instead of $a + b = c$
-> - Use $(a + b < c) \vee ( |a + b - c | \leq \varepsilon )$ instead of $a + b \leq c$
-> - ...
-
----
-
-### Floating point comparisons in Julia
-
-In Julia you can use `≈` and `≉` for approximate comparisons:
-
-```julia
-0.1 + 0.2 ≈ 0.3     # true
-0.1 + 0.2 ≉ 0.3     # false
-```
-
-You can also use approximate inequalities:
-
-```julia
-using ApproximateInequalities
-
-0.1 + 0.2 ⪅ 0.3  # true  
-0.3 ⪆ 0.1 + 0.2  # true
-0.3 ⪉ 0.1 + 0.2  # false
-0.1 + 0.2 ⪊ 0.3  # false
-```
-
-===
-
-## Characters
-
-Characters represent individual symbols such as letters, digits, or punctuation marks. They can be stored as an **unsigned integer** code according to a given **encoding standard**.
-
-> [!NOTE]
-> Strings are not basic data types, they are sequences of characters.
-
----
-
-## Character encoding 
-
-The most common encoding standards for characters are **ASCII** and **Unicode**.
-
-- **ASCII** uses 7 or 8 bits to represent characters, covering basic English letters, digits, and common symbols.
-- **Unicode** extends this to support characters from almost all writing systems worldwide, using variable-length encodings like UTF-8, UTF-16, or UTF-32.
-
-> [!NOTE]
-> **Example:** In ASCII, the letter `A` is represented by the unsigned integer `65`.
-
-===
-
-## Variables
-
----
-
-Variables are used to store data values in memory. A variable has:
-
-- a name
-- a type (e.g., boolean, integer, float)
-- a value
-
----
-
-## Typed vs. untyped languages
-
-- **Statically typed:** the type of every variable is known before runtime (e.g., C++)
-  - Type errors are caught at compile time
-  - Can be more efficient and safer
-
-- **Dynamically typed:** variable types are determined at runtime based on how data flows through the program (e.g., Python)
-  - Type errors may occur at runtime
-  - Some type errors may be silently ignored and cause unexpected behaviour
-
-> [!NOTE]
-> Julia is a dynamically typed language, but it allows optional **type annotations** and uses **type inference** to optimise performance.
-
-
----
-
-## Variable declaration in Julia
-
-In Julia variables can be declared without specifying the type:
-```julia
-flag = true     # inferred type: Bool
-x = 42          # inferred type: Int64
-π = 3.14        # inferred type: Float64
-c = 'A'         # inferred type: Char
-```
-
-The type can also be explicitly specified:
-```julia
-flag::Bool = true
-x::Int64 = 42
-π::Float64 = 3.14
-c::Char = 'A'
-```
-
-> [!NOTE]
-> Julia allows Unicode characters in variable names, so you can use letters from many languages and mathematical symbols as variable names.
-
----
-
-## Variable declaration in Python
-
-In Python variables are declared without specifying the type:
-```python
-flag = True     # inferred type: bool
-x = 42          # inferred type: int
-pi = 3.14       # inferred type: float
-c = 'A'         # inferred type: str (1-character string)
-```
-
-> [!NOTE]
-> Python does not have a dedicated character data type.
-
-
----
-
-## Variable declaration in C++
-
-In C++ variables are declared by explicitly specifying the type:
-```cpp
-bool flag = true;
-int x = 42;
-double pi = 3.14;
-char c = 'A';
-```
-
-The type can also be deduced through initialisation:
-```cpp
-auto flag = true; // inferred type: bool 
-auto x = 42;      // inferred type: int
-auto pi = 3.14;   // inferred type: double
-auto c = 'A';     // inferred type: char
-```
-
-> [!NOTE]
-> Type deduction must be possible at compile time.
-
-
-===
-
-## Control flow basics
-
----
-
-Control flow determines the order in which instructions in a program are executed. 
-
----
-
-### Linear execution
-
-<div class="twocolumn">
-<div>
 <!--
 @startuml
-start
-:initialise x := 5;
-:initialise y := 3;
-:set z := x * y;
-stop
-@enduml
--->
-
-![UML](02-lecture/linear.svg)<!-- .element style="height:600px;" -->
-
-</div>
-<div>
-
-**Julia:**
-```julia
-x = 5
-y = 3
-z = x * y
-```
-
-**Python:**
-```python
-x = 5
-y = 3
-z = x * y
-```
-
-**C++:**
-```cpp
-auto x = 5;
-auto y = 3;
-auto z = x * y;
-```
-
-</div>
-</div>
-
-
----
-
-### Branching
-
-<div class="twocolumn">
-<div>
-<!--
-@startuml
-start
-:declare y;
-:read x;
-if () then (x<0)
-  :set y := -x;
-else (x >= 0)
-  :set y := x;
-endif
-:write y;
-stop
-@enduml
--->
-
-![UML](02-lecture/branching.svg)<!-- .element style="height:600px;" -->
-
-</div>
-<div>
-
-**Julia:**
-```julia
-print("Enter x: ")
-x = parse(Int, readline()) # read input and convert to Int
-if x < 0
-  y = -x
-else
-  y = x
-end
-println("y = ", y)
-```
-
-**Python:**
-```python
-x = int(input("Enter x: ")) # read input and convert to int
-if x < 0:
-  y = -x
-else:
-  y = x
-print("y =", y)
-```
-</div>
-</div>
-
-
-> [!IMPORTANT]
-> Numeric comparisons require a numeric type.
-
----
-
-**C++:**
-```cpp
-#include <iostream>
-#include <print>
-
-int main() {
-  int x; // x must be declared before the input can be assigned to it
-  std::print("Enter x: ");
-  std::cin >> x;
-  int y; // y must be declared before a value can be assigned to it
-  if (x < 0) {
-    y = -x;
-  }
-  else {
-    y = x;
-  }
-
-  std::print("y = {}", y);
-  return 0;
+  [Data provider] as DP
+  [Controller] as C
+  [Observer] as O
+  [Model] as M
+  interface "input" as IInput
+  interface "control" as IControl
+  interface "subscribe" as ISubscribe
+  interface "update" as IUpdate
+  DP .right.> IInput
+  IInput -right- M
+  M -down- ISubscribe
+  O .up.> ISubscribe
+  O -up- IUpdate
+  M .down.> IUpdate
+  C .left.> IControl
+  M -right- IControl
 }
-```
-<!-- .element style="height:500px;" -->
+@enduml
+-->
 
-> [!NOTE]
-> In C++, variable declaration before assigning a value may be required.
-
+![UML](02-lecture/Component_diagram.svg)<!-- .element style="height:400px;" -->
 
 ---
 
-### Loops
+### Architectural principles
 
-<div class="twocolumn">
+- **Separation of concerns:** Each component (e.g., data input, model logic, control logic, or output) is responsible for a single well-defined task.
+- **Modularity:** It should be possible to replace or modify components without affecting the whole
+
+===
+
+## State machines
+
+A [state machine](https://en.wikipedia.org/wiki/Finite-state_machine) represents systems by 
+
+- **states** representing the characteristics of the system at a point in time,
+- **state transitions** defining how the system can move from one state to another, and 
+- **conditions** or **triggers** that cause these transitions.
+
+> [!NOTE]
+> State machines are quite common in scientific computing, in particular, when simulating complex systems.
+
+---
+
+### UML state machine diagrams
+
+A [UML state machine diagram](https://en.wikipedia.org/wiki/UML_state_machine) depicts states, transitions, and conditions/triggers.
+
+<!--
+@startuml
+[*] -> Initialized
+Initialized -> Running : start
+Running -d-> Paused : pause
+Running -> Completed : finish
+Completed -d-> [*]
+Paused -> Aborted : abort
+Running -> Aborted : abort
+Paused -u-> Running : resume
+Aborted -r-> [*]
+@enduml
+-->
+
+![UML](02-lecture/State_machine_diagram.svg)<!-- .element style="height:400px;" -->
+
+===
+
+
+## UML class diagrams
+
+[UML class diagrams](https://en.wikipedia.org/wiki/Class_diagram) represent the data and objects model of a program.
+
+<div class="twocolumn" style="align-items:center;">
+<div>
+<!--
+@startuml
+object Simulator {
+  +parameters: Parameters
+  +current_state: State
+  +logger: Logger
+}
+object Parameters {
+  +duration: Int32
+  +arrival_rate: Float64
+  +service_rate: Float64
+  +number_of_servers: Int32
+}
+object State {
+  +time: Float64
+  +queue_length: Int32
+  +busy_servers: Int32
+}
+object Logger {
+  +log: Vector{State}
+}
+Simulator -- Parameters
+Simulator -- State
+Simulator -- Logger
+Logger - State
+@enduml
+-->
+
+![UML](02-lecture/Class_diagram.svg)
+
+</div>
+<div>
+They include:
+
+- Classes/structs
+- Attributes (fields)
+- Methods (functions operating on the class)
+- Inheritance and composition
+
+</div>
+</div>
+
+> [!NOTE]
+> Methods and inheritance are less important in Julia as it is not an object oriented language.
+
+===
+
+## UML activity diagrams
+
+<div class="twocolumn" style="align-items:center;">
 <div>
 <!--
 @startuml
 start
-:initialise i := 0;
+:Initialize system state;
 repeat
-  :set i := i + 1;
-repeat while () is ( i < 5 ) not (i >= 5)
+  :Wait for event;
+  if () then (arrival)
+    :Add entity to queue;
+  else (departure)
+    :Remove entity from queue;
+  endif
+  :Update system state;
+repeat while () is (continue) not (terminate)
 stop
 @enduml
 -->
 
-![UML](02-lecture/loop.svg)<!-- .element style="height:600px;" -->
+![UML](02-lecture/Activity_diagram.svg)<!-- .element style="height:500px;" -->
+
 
 </div>
 <div>
 
-**Julia:**
-```julia
-i = 0
-while i < 5
-  i += 1
-end
-```
+[UML activity diagrams](https://en.wikipedia.org/wiki/Activity_diagram) describe workflows, i.e. sequences of operations and decisions.
 
-**Python:**
-```python
-i = 0
-while i < 5:
-  i += 1
-```
-
-**C++:**
-```cpp
-int i = 0;
-while (i < 5) {
-  i += 1;
-}
-```
 </div>
 </div>
 
----
-
-### Parallel execution
-
-On modern computers with many CPUs, parallel execution can significantly speed up computer programs. However, parallel computing requires special care, particularly with regard to memory management and synchronization.
-
-> [!NOTE]
-> Parallel computing is beyond the scope of this course.
+> [!TIP]
+> UML activity diagrams are especially useful for describing the control flow of algorithms.
 
 ===
 
-## Learning resources 
+## Implementation
 
-The Youtube channel [doggo dot jl](https://www.youtube.com/@doggodotjl) provides excellent tutorials for learning Julia.
+A typical software development workflow looks like this: 
+
+1. **Issues:** Define a task, feature, or bug.
+2. **Forking:** Create your own copy of a repository to contribute to projects you do not own.
+3. **Branching:** Develop new feature or fixes in isolated branches without affecting the main branch.
+4. **Commits:** Save meaningful progress with context.
+5. **Pull Requests:** Propose changes to be merged into the main branch.
+6. **Code Review:** Peers review your code for correctness, readability, performance, and style.
+7. **Merge and deploy:** Integrate tested code into the main branch and release new version.
+
+
+===
+
+## Continuous integration and continuous deployment (CI/CD)
+
+[CI/CD](https://en.wikipedia.org/wiki/CI/CD) automates the building, testing, and deployment of software:
+
+- **Continuous Integration (CI):** Automatically build and test your code every time you push changes.
+- **Continuous Deployment (CD):** Automatically deploy new versions after passing tests.
+
+> [!TIP]
+> CI/CD is especially helpful in scientific programming to ensure that results are reproducible, models stay valid, and documentation is up to date.
+
+---
+
+## GitHub Actions
+
+GitHub can be configured to automatically runs workflows defined through [YAML](https://en.wikipedia.org/wiki/YAML) files in a folder named `.github/workflows/`.
+
+> [!TIP]
+> See https://github.com/rajgoel/MyDemoPackage.jl/ for a sample package.
+
+---
+
+### CI for automatic testing
+
+```yaml
+name: Run tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version: ['1.11']
+        julia-arch: [x64]
+        os: [ubuntu-latest] # [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: ${{ matrix.julia-version }}
+      - uses: julia-actions/julia-buildpkg@latest
+      - uses: julia-actions/julia-runtest@latest
+```
+
+> [!TIP]
+> Fork the project https://github.com/rajgoel/MyDemoPackage.jl/ and make changes to adapt to your needs.
+
+---
+
+### CD for automatic deployment of documentation
+
+```yaml
+name: Create documentation
+on:
+  push:
+    branches:
+      - main
+    tags: '*'
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: '1.11'
+      - name: Install dependencies
+        run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
+      - name: Build and deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # For authentication with GitHub Actions token
+          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }} # For authentication with SSH deploy key
+        run: julia --project=docs/ docs/make.jl
+```
+
+> [!TIP]
+> Fork the project https://github.com/rajgoel/MyDemoPackage.jl/ and make changes to adapt to your needs. For automatic deployment you may need to follow instructions given in the `README.md` of the project.
+
+===
+
+## Refactoring
+
+Refactoring means restructuring existing code without changing its external behavior. 
+
+> [!NOTE]
+> The goal is to improve:
+> - **Readability** (e.g., clearer names, better organization)
+> - **Maintainability** (e.g., modular design, avoiding duplication)
+> - **Performance** (e.g., replacing inefficient patterns)
+
+> [!TIP]
+> For every newly implemented functionality try to simplify and improve code quality before continuing. Always run tests after refactoring to ensure nothing breaks.

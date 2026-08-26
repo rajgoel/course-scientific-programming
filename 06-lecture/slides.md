@@ -1,339 +1,641 @@
-# Error handling and testing
+# Input and output
 
 ===
 
-## Errors
+## Exchange formats
 
-Almost every program can be assumed to have errors.
+Common text-based formats for input and output of programs and for exchanging data between systems are:
 
-> [!TIP]
-> Programs should report or crash on errors rather than silently ignoring them. Silent failures make bugs harder to detect and fix.
-
----
-
-### Logical issues
-
-Logical issues occur when the algorithmic logic of the program does not match the requirements.
-
-
-> [!NOTE]
-> **Examples:**
-> - Incorrect expressions
-> - Wrong assumptions about input or data
-> - Invalid control flow (e.g., wrong branching or looping, early termination or unreachable code)
-> - Wrong algorithm for problem
-
----
-
-### Invalid input
-
-The input does not necessarily match the expected format, type, or range. This can be due to **accident or intention**.
-
-> [!NOTE]
-> **Examples:**
-> - Typos
-> - Flipped data (e.g., latitude and longitude)
-> - Incorrect format (e.g., lower case where upper case is expected, trailing whitespaces)
-> - Corrupted or incomplete input (e.g., due to unstable network connection)
-
----
-
-### Representation errors
-
-The internal variable representation does not fully match its intended semantic meaning.
- 
-> [!NOTE]
-> **Examples:**
-> - Precision loss can lead to wrong results (e.g., floating point comparisons).
-> - Over- and underflow leads to incorrect variable values.
-
----
-
-### Unavailable resources
-
-Required resources may not be available when needed.
-
-> [!NOTE]
-> **Examples:**
->  Missing files
-> - Network disconnection
-> - Out-of-memory
-> - Insufficient permissions
+- CSV
+- JSON
+- XML
 
 ===
 
-## Check before use
+## CSV
 
-In general, you cannot trust input data to match the assumptions of your program. To avoid errors, you may want to check assumptions before using the data.
-
-**Example: Julia**
-```julia
-if b != 0 
-  println( a / b )
-else
-  println("Division by zero")
-end
-```
- 
-> [!TIP]
-> Checking data may be computationally expensive. For performance reasons, you may want to skip checks if your program logic guarantees validity of data.
-
-===
-
-## Assertions
-
-[Assertions](https://en.wikipedia.org/wiki/Assertion_(software_development)) are checks that certain conditions in the data are satisfied. They are used to catch bugs in development and ensure that the program logic is correct.
-
-> [!TIP]
-> Do **not** use assertions to validate wrong user input and other errors that can be expected at runtime.
-
----
-
-### Julia
-
-```julia
-function divide(a, b)
-  @assert b != 0 "Denominator must not be zero"
-  return a / b
-end
-```
-
-> [!TIP]
-> Assertions can be disabled with: 
-> ````julia
-> @eval Main macro assert(args...); nothing; end
-> ```
-> This line must be executed **before** any `@assert` statement is parsed..
-
----
-
-### Python
-
-```python
-def divide(a, b):
-  assert b != 0, "Denominator must not be zero"
-  return a / b
-```
-
-> [!TIP]
-> Assertions can be disabled with: `python -O script.py`
-
----
-
-### C++
-
-```cpp
-#include <cassert>
-
-int divide(int a, int b) {
-  assert(b != 0);
-  return a / b;
-}
-```
-
-> [!TIP]
-> Assertions can be disabled by defining `NDEBUG` at compile time.
-
-
-===
-
-## Exceptions
-
-[Exceptions](https://en.wikipedia.org/wiki/Exception_(computer_science)) are signals that an error occurred during program execution. Exceptions interrupt the normal control flow.
-
-> [!TIP] Unlike assertions, exceptions are intended for handling expected runtime issues (e.g., missing files, invalid user input, network errors).
-
----
-
-**Julia:**
-```julia
-throw(ErrorException("Something went wrong"))
-```
-
-**Python:**
-```python
-raise Exception("Something went wrong")
-```
-
-**C++:**
-```cpp
-#include <stdexcept>
-
-int main() {
-  throw std::runtime_error("Something went wrong");
-  return 0;
-}
-```
-
-> [!IMPORTANT]
-> Always use meaningful failure messages.
-
-===
-
-## Try/catch
-
-It is possible to react on exceptions using **try/catch** blocks. This allows the program to handle errors gracefully instead of crashing.
-
-> [!TIP]
-> Use try catch blocks when you can meaningfully recover from an exception.
-
----
-
-### Julia
-
-```julia
-try
-  # Execute code that may fail
-  throw(ErrorException("Something went wrong"))
-catch myexception
-  # Handle exception
-  println("Caught error: ", myexception)
-end
-```
-
----
-
-### Python
-
-```python
-try:
-  # Execute code that may fail
-  raise Exception("Something went wrong")
-except Exception as myexception:
-  # Handle exception
-  print("Caught error:", myexception)
-```
-
-> [!IMPORTANT]
-> Python using the keyword `except`, not `catch`.
-
----
-
-### C++
-
-```cpp
-#include <stdexcept>
-#include <print>
-
-int main() {
-  try {
-    // Execute code that may fail
-    throw std::runtime_error("Something went wrong");
-  }
-  catch (const std::exception& myexception) {
-    // Handle exception
-    std::println("Caught error: {}", myexception.what());
-  }
-  return 0;
-}
-```
-
-===
-
-## Testing
-
-Testing is used to
-
-- detect bugs early,
-- prevent regressions, 
-- document expected behavior, and
-- increase confidence in the code.
-
-> [!TIP]
-> Testing helps to ensure that your program behaves as expected **and continues to do so when modified**.
-
----
-
-### Types of tests
-
-- **Unit tests:** test individual functions or components in isolation.
-- **Integration tests:** test how multiple components work together.
-- **System tests:** test the program as a whole.
-
----
-
-### Branch coverage and path coverage
-
+**Comma‑separated values (CSV)** refers to a text format used to represent table data, i.e., rows of records, where each record has fields separated by commas (or other delimiters).
 
 <div class="twocolumn" style="align-items: center;">
 <div>
-<!--
-@startuml
-start
-if () then (x > 0)
-else (x <= 0)
-  :do something;
-endif
-if () then (y <= 0)
- :do another thing;
-else (y > 0)
-  :do yet another thing;
-endif
-stop
-@enduml
--->
 
-![UML](06-lecture/testing.svg)<!-- .element style="height:500px;" -->
+| Name    | Age | City      |
+|---------|-----|-----------|
+| Alice   | 30  | Berlin    |
+| Bob     | 25  | Paris     |
+| Charlie | 35  | New York  |
+
 </div>
 <div>
 
-- **Branch coverage:** create test such that each edge is used at least once
-- **Path coverage:** create test such that each path from start to end is used at least once
+```csv
+Name, Age, City
+"Alice", 30, "Berlin"
+"Bob", 25, "Paris"
+"Charlie", 35, "New York"
+```
 </div>
 </div>
 
 > [!TIP]
-> - Branch coverage only catches logic errors of independent decisions.
-> - Path coverage is needed when correctness depends on combinations of decisions.
+> The CSV format is the easiest way to work with data from spreadsheet software. Different conventions on whether strings are quoted and the delimiters used may require special care. 
+
 
 ---
 
-### Test frameworks
+### DataFrames
 
-In Julia, tests can be easily created using [Test.jl](https://docs.julialang.org/en/v1/stdlib/Test/#Basic-Unit-Tests).
+- A **DataFrame** is a two-dimensional, **tabular data structure** with labeled rows and columns.
+- Originated in [**R**](https://en.wikipedia.org/wiki/R_(programming_language)).
+- DataFrames are particularly useful when working with spreadsheets and/or CSV files.
+
+---
+
+
+### Julia
+
+```julia
+using Pkg
+Pkg.add("DataFrames")
+Pkg.add("CSV")
+```
+
+```julia [1-4|6-7|9-10|12-13|15-16|18-19|21-26]
+using DataFrames, CSV
+
+# Read CSV into DataFrame
+input_frame = CSV.read( "input.csv", DataFrame )
+
+# Remove whitespaces in labels
+rename!(input_frame, names(input_frame) .=> strip.(names(input_frame)) )
+
+# Print statistics
+println( describe(input_frame) )
+
+# Print first 2 rows
+println( first(input_frame, 2) )
+
+# Filter and select
+output_frame = input_frame[input_frame.Age .> 18, [:Name, :Age]]
+
+# Add a derived column
+output_frame.Initial = first.( output_frame.Name )
+
+# Write back to CSV
+CSV.write( "output.csv", output_frame;
+  delim = ",",
+  quotechar = '"',
+  quotestrings = true
+)
+```
+
+> [!NOTE]
+> The `.` operator is used for element-wise application on an array or collection. 
+
+---
+
+### Python
+
+```bash
+pip install pandas
+```
+
+```python [1-5|7-8|10-11|13-14|16-17|19-20|22-29]
+import pandas as pd
+import csv
+
+# Read CSV into DataFrame
+input_frame = pd.read_csv( "input.csv" )
+
+# Remove whitespace in column labels
+input_frame.columns = input_frame.columns.str.strip()
+
+# Print statistics
+print( input_frame.describe() )
+
+# Inspect first 2 rows
+print( input_frame.head(2) )
+
+# Filter and select
+output_frame = input_frame[input_frame["Age"] > 18][["Name", "Age"]]
+
+# Add a derived column
+output_frame["Initial"] = output_frame["Name"].str[0]
+
+# Write back to CSV with all fields quoted
+output_frame.to_csv(
+    "output.csv",
+    index = False,
+    sep = ',',
+    quotechar = '"',
+    quoting = csv.QUOTE_ALL
+)
+```
+
+---
+
+### C++
+
+C++ does not have a built-in `DataFrame` class.
 
 > [!TIP]
-> For Python you can use [unittest](https://docs.python.org/3/library/unittest.html), 
-> for C++ you can use [catch2](https://github.com/catchorg/Catch2).
-
----
-
-### Example: Julia
-
-`myfunction.jl` (your actual code)
-```julia
-function divide(a, b)
-  @assert b != 0 "Denominator must not be zero"
-  return a / b
-end
-```
-
-`mytest.jl` (your test script)
-```julia
-include("myfunction.jl")
-using Test
-
-@testset "Divide tests" begin
-  @test divide(4, 2) == 2
-  @test_throws AssertionError divide(1, 0)
-end
-```
-
-Then run tests: `julia mytest.jl`
+> You may want to use https://github.com/hosseinmoein/DataFrame
 
 ===
 
-## Test-driven development (TDD)
+## JSON
 
-Test-Driven Development is a software development process where tests are written **before** the code that satisfies them.
+[**JavaScript Object Notation (JSON)**](https://www.json.org) is a data exchange format for structured data that is not necessarily tabular.
 
-- Write a test that describes a small piece of desired functionality.
-- Run the test → It should fail (since the functionality is not implemented yet).
-- Implement the code that makes the test pass.
-- Run the test again → It should pass.
-- Refactor the code (clean up, optimize) without changing behavior.
-- Repeat.
+JSON is built on two structures:
+
+- A collection of name/value pairs.
+- An ordered list of values.
+
+```json
+{
+  "name": "Alice",
+  "age": 30,
+  "skills": ["Julia", "Python", "C++"]
+}
+```
+
+---
+
+#### Julia
+
+```julia
+using Pkg
+Pkg.add("JSON3")
+```
+
+```julia [1|3-5|7-9|11-13|15-16]
+using JSON3
+
+# Parse JSON string
+mystring = """{"name":"Alice","age":30,"skills":["Julia","Python","C++"]}"""
+myjson = JSON3.read(mystring, Dict{String,Any})
+
+# Access fields
+println(myjson.name, " is ", myjson.age, " years old.")
+println("Skills: ", join(myjson.skills, ", "))
+
+# Modify
+myjson["city"] = "Berlin"
+push!(myjson["skills"],"JSON")
+
+# Serialize
+mystring = JSON3.write(myjson)
+```
+
+---
+
+### Python
+
+```python [1|3-5|7-9|11-13|15-16]
+import json
+
+# Parse JSON string into a dict
+mystring = '{"name":"Alice","age":30,"skills":["Julia","Python","C++"]}'
+myjson = json.loads(mystring)
+
+# Access fields
+print(f"{myjson['name']} is {myjson['age']} years old.")
+print("Skills:", ", ".join(myjson["skills"]))
+
+# Modify
+myjson["city"] = "Berlin"
+myjson["skills"].append("JSON")
+
+# Serialize
+mystring = json.dumps(myjson)
+```
+
+---
+
+### C++
+
+C++ does not have a built-in `json` class.
 
 > [!TIP]
-> TDD helps ensuring a comprehensive coverage of tests without actually creating a lot of extra work, since tests grow naturally with the implementation.
+> You may want to use https://github.com/nlohmann/json
 
+===
+
+## XML
+
+[**Extensible Markup Language (XML)**](https://www.w3.org/XML/) is a hierarchical data exchange format based on nested tags. 
+
+```xml
+<person name="Alice">
+  <skills>
+    <skill>Julia</skill>
+    <skill>Python</skill>
+    <skill>C++</skill>
+  </skills>
+</person>
+```
+
+---
+
+### XML Schema Definition (XSD)
+
+XML files are commonly based on an [XML Schema Definition (XSD)](https://www.w3.org/XML/Schema) which defines the structure and data types of an XML document. 
+
+```xsd
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="person">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:sequence>
+        <xs:element name="skills">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="skill" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+```
+<!-- .element style="height:500px;" -->
+
+---
+
+### Julia
+
+```julia
+using Pkg
+Pkg.add("EzXML")
+```
+
+```julia  [1|3-12|14-15|17-18|20-21|23-24|26-27]
+using EzXML
+
+# XML input string
+mystring = """
+<person name="Alice">
+  <skills>
+    <skill>Julia</skill>
+    <skill>Python</skill>
+    <skill>C++</skill>
+  </skills>
+</person>
+"""
+
+# Parse XML from string
+myxml = parsexml(mystring)
+
+# Get the root node of the XML-tree
+myperson = root(myxml)
+
+# Get name of myperson
+myname = myperson["name"]
+
+# Find all skills of myperson
+myskills = findall("//skill",myperson)
+
+# Output
+println(myname, " knows about ", join(nodecontent.(myskills), ", "))
+```
+
+> [!NOTE]
+> The schema definition is neither needed nor used here.
+
+---
+
+### Python
+
+```python  [1|3-12|14-15|17-18|20-21|23-24]
+import xml.etree.ElementTree as XML
+
+# XML input string
+mystring = """
+<person name="Alice">
+  <skills>
+    <skill>Julia</skill>
+    <skill>Python</skill>
+    <skill>C++</skill>
+  </skills>
+</person>
+"""
+
+# Parse XML from string and get root
+myperson = XML.fromstring(mystring)
+
+# Get name of myperson
+myname = myperson.attrib["name"]
+
+# Find all skills of myperson
+myskills = [skill.text for skill in myperson.find("skills").findall("skill")]
+
+# Output
+print(f"{myname} knows about {', '.join(myskills)}")
+```
+
+> [!NOTE]
+> The schema definition is neither needed nor used here.
+
+---
+
+### C++
+
+Several XML-parser libraries exist for C++, e.g. [Xerces-C++ ](https://xerces.apache.org/xerces-c/) or [
+pugixml](https://pugixml.org/) that can be used similarly to the respective Julia and Python libraries.
+
+> [!TIP]
+> [schematic++](https://github.com/rajgoel/schematicpp) can generate a C++ class structure corresponding to a given XML Schema Definition (XSD).
+
+
+===
+
+## File system
+
+Many programs read from or write files stored on the local disk. Usually, this is done line by line.
+
+---
+
+### Julia
+
+```julia [1-8|10-14]
+# Check whether input file exists
+input_filename = "input.txt"
+if isfile(input_filename)
+  # Read a text file line by line
+  for line in eachline(input_filename)
+    println(line)
+  end
+end
+
+# Write to output file
+output_filename = "output.txt";
+open("output.txt", "w") do myfile
+  write(myfile, "Hello, file system!")
+end
+```
+
+---
+
+### Python
+
+```python [1|3-9|11-14]
+import os
+
+# Check whether input file exists
+input_filename = "input.txt"
+if os.path.isfile(input_filename):
+  # Read a text file line by line
+  with open(input_filename, "r") as myfile:
+    for line in myfile:
+      print(line, end='')
+
+# Write to output file
+output_filename = "output.txt";
+with open(output_filename, "w") as myfile:
+  myfile.write("Hello, file system!")
+```
+
+---
+
+### C++
+
+```cpp [1-4|7-16|18-22]
+#include <print>
+#include <fstream>
+#include <string>
+#include <filesystem>
+
+int main() {
+  // Check whether input file exists
+  std::string input_filename = "input.txt";
+  if (std::filesystem::exists(input_filename)) {
+    std::ifstream my_input_stream(input_filename);
+    std::string line;
+    while (std::getline(my_input_stream, line)) {
+      // Print line to console
+      std::println("{}",line);
+    }
+  }
+
+  // Write to output file
+  std::string output_filename = "output.txt";
+  std::ofstream my_output_stream(output_filename);
+  my_output_stream << "Hello, file system!";
+  my_output_stream.close();
+
+  return 0;
+}
+```
+
+===
+
+## Web services
+
+[Web services](https://en.wikipedia.org/wiki/Web_service) are used for transferring machine-readable file formats between machines using a web technology such as [HTTP](https://en.wikipedia.org/wiki/HTTP).
+ 
+They allow programs to communicate over the internet and are commonly used to access remote data or functionality via [APIs](https://en.wikipedia.org/wiki/API).
+
+---
+
+### Julia
+
+```julia
+using HTTP
+using JSON3
+
+latitude = 53.55
+longitude = 9.99
+url = "https://api.open-meteo.com/v1/forecast?latitude=$latitude&longitude=$longitude&hourly=temperature_2m"
+
+response = HTTP.get(url)
+data = JSON3.read(String(response.body))
+
+# Access temperature data
+
+for i in 1:24
+  println("The temperature at ", data.hourly.time[i]," is ", data.hourly.temperature_2m[i], data.hourly_units.temperature_2m)
+end
+```
+
+---
+
+### Python
+
+```python
+import requests
+
+latitude = 53.55
+longitude = 9.99
+url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m"
+
+response = requests.get(url)
+data = response.json()
+
+# Access temperature data
+for i in range(24):
+    print(f"The temperature at {data['hourly']['time'][i]} is {data['hourly']['temperature_2m'][i]} {data['hourly_units']['temperature_2m']}")
+```
+
+---
+
+### C+++
+
+> [!TIP]
+> For C++, the [libcurl](https://curl.se/libcurl/) library can be used to make http-requests.
+
+===
+
+## Visualisation
+
+In Julia, plots can be easily created using [Plots.jl](https://docs.juliaplots.org).
+
+```julia
+import Pkg;
+Pkg.add("Plots")
+```
+
+> [!TIP]
+> For Python and C++ you can use [matplotlib](https://matplotlib.org).
+
+===
+
+### Line plot
+
+<div class="twocolumn" style="align-items: center;">
+<div>
+
+![Plot](06-lecture/lineplot.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+x = 0:0.1:10
+y = sin.(x)
+
+plot(x, y, label = "sin(x)", title = "Line Plot")
+
+savefig("lineplot.svg")
+```
+</div>
+</div>
+
+---
+
+### Scatter plot
+
+<div class="twocolumn" style="align-items: center;">
+<div>
+
+![Plot](06-lecture/scatterplot.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+x = rand(100)
+y = rand(100)
+
+scatter(x, y, title = "Scatter Plot")
+
+savefig("scatterplot.svg")
+```
+</div>
+</div>
+
+---
+
+### Bar plot
+
+<div class="twocolumn" style="align-items: center;">
+<div>
+
+![Plot](06-lecture/barplot.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+categories = ["A", "B", "C"]
+values = [5, 3, 7]
+
+bar(categories, values, title = "Bar Plot")
+
+savefig("barplot.svg")
+```
+</div>
+</div>
+
+---
+
+### Histogram
+
+<div class="twocolumn" style="align-items: center;">
+<div>
+
+![Plot](06-lecture/histogram.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+data = randn(1000)
+histogram(data, bins = 30, title = "Histogram")
+
+savefig("histogram.svg")
+```
+</div>
+</div>
+
+---
+
+### Heatmap
+
+<div class="twocolumn" style="align-items: center;">
+<div>
+
+![Plot](06-lecture/heatmap.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+z = [sin(x/10) * cos(y/10) for x in 0:50, y in 0:50]
+heatmap(z, title = "Heatmap")
+
+savefig("heatmap.svg")
+```
+</div>
+</div>
+
+---
+
+### 3D surface
+
+<div class="twocolumn" style="align-items: center;">
+<div>
+
+![Plot](06-lecture/surface.svg)
+</div>
+<div>
+
+```julia
+using Plots
+
+x = y = range(-5, 5, length = 100)
+z = [sin(sqrt(xi^2 + yi^2)) for xi in x, yi in y]
+
+surface(x, y, z, title = "3D Surface Plot")
+
+savefig("surface.svg")
+```
+</div>
+</div>
+ 

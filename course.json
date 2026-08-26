@@ -7,14 +7,14 @@
   "topics": [
     { "topic": "Introduction", "src": "slides.md", "folder": "01-lecture" },
     { "topic": "Prerequisites and requirements", "src": "slides.md", "folder": "01-lab" },
-    { "topic": "Programming basics", "src": "slides.md", "folder": "02-lecture" },
-    { "topic": "Code organisation", "src": "slides.md", "folder": "03-lecture" },
-    { "topic": "Containers", "src": "slides.md", "folder": "04-lecture" },
-    { "topic": "Input and output", "src": "slides.md", "folder": "05-lecture" },
-    { "topic": "Error handling and testing", "src": "slides.md", "folder": "06-lecture" },
-    { "topic": "Clean code and documentation", "src": "slides.md", "folder": "07-lecture" },
-    { "topic": "Complexity and performance", "src": "slides.md", "folder": "08-lecture" },
-    { "topic": "Software engineering", "src": "slides.md", "folder": "09-lecture" }
+    { "topic": "Software engineering", "src": "slides.md", "folder": "02-lecture" },
+    { "topic": "Programming basics", "src": "slides.md", "folder": "03-lecture" },
+    { "topic": "Code organisation", "src": "slides.md", "folder": "04-lecture" },
+    { "topic": "Containers", "src": "slides.md", "folder": "05-lecture" },
+    { "topic": "Input and output", "src": "slides.md", "folder": "06-lecture" },
+    { "topic": "Error handling and testing", "src": "slides.md", "folder": "07-lecture" },
+    { "topic": "Clean code and documentation", "src": "slides.md", "folder": "08-lecture" },
+    { "topic": "Complexity and performance", "src": "slides.md", "folder": "09-lecture" }
   ]
 }
 
