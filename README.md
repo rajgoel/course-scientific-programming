@@ -6,30 +6,39 @@ https://rajgoel.github.io/course-scientific-programming
 
 ## Session overview
 
-| Session | Lecture                                                                                            | Lab             |
-|---------|----------------------------------------------------------------------------------------------------|-----------------|
-| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)          | [Prerequisites and requirements](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    |
-| 02      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)         | Project work    |
-| 03      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)    | Project work    |
-| 04      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)     | Project work    |
-| 05      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)            | Project work    |
-| 06      | [Input and output](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)      | Project work    |
-| 07      | [Error handling and testing](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)   | Project work    |
-| 08      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture) | Project work    |
-| 09      | [Complexity and performance](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)   | Project work    |
-| 10      | Miscellaneous            | Project work         |
-| 11      | Project presentation     | Project presentation |
+| Session | Lecture                                                                                            | Lab             | Deadlines |
+|---------|----------------------------------------------------------------------------------------------------|-----------------|------------|
+| 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)          | [Prerequisites and requirements](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    | |
+| 02      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)         | Project plan    | Joined KLU-BADS on GitHub<br> Group maintainer announced<br>**Deadline:** midnight before session 02  (strict) |
+| 03      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)    | Project work    | First Pull Request to group repository by each member<br>**Deadline:** midnight before session 03 (strict) |
+| 04      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)     | Project work    |  `README.md` and `ARCHITECTURE.md` in *main* branch<br>**Deadline:** midnight before session 04  (strict) |
+| 05      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)            | Project work    | |
+| 06      | [Input and output](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)      | Project work    |            |
+| 07      | [Error handling and testing](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)   | Project work    | E-Assignments<br>**Deadline:** midnight before session 07  (strict) |
+| 08      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture) | Project work    |            |
+| 09      | [Complexity and performance](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)   | Project work    |            |
+| 10      | Miscellaneous            | Project work         |            |
+| 11      | Project presentation     | Project presentation | Tested and documented project in *main* branch<br>**Deadline:** midnight before session 11  (strict)  |
 
 ## E-Assignments
 
-A collection of online assignments is available at https://e-assignments.net. You must **successfully complete at least 50%** of the e-Assignments **before the last session**.
+The *Programming Essentials* exercises available at https://e-assignments.net are provided to ensure that each group member will be able to meaningfully contribute to the project. 
+
+You must **successfully complete at least 50%** of the exercises by the deadline stated in the session overview.
+
+## Deadlines
+
+- All deadlines are enforced automatically, and late work will not be assessed. **Make sure to have your work ready well before the deadline to hedge against unforeseen problems!** 
+- Group members share responsibility for meeting the deadlines of group work.
+- Deadline extensions can only be granted in case of 
+exceptional, unforeseen, and **documented** circumstances that are entirely beyond the student's control. The extension must be applied for as soon as such circumstances become known.
 
 ## Grading
 
-Grading will be based to 100% on project work.
+Grading will be based 100% on project work (including time management, in particular adherence to all deadlines stated above).
 
-> [!IMPORTANT]
-> Your project work will only be graded if you have successfully completed at least 50% of the e-Assignments.
+Group members who do not work on the issues or conduct the code reviews assigned to them may receive lower grades than those who do. Contribution concerns must be raised with the instructor before the respective deadlines.
+
 
 ## Bonus
 
@@ -60,4 +69,4 @@ https://link.springer.com/book/10.1007/978-3-030-73936-2
 
 MIT licensed
 
-Copyright (C) 2025 Asvin Goel
+Copyright (C) 2026 Asvin Goel
