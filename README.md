@@ -9,16 +9,16 @@ https://rajgoel.github.io/course-scientific-programming
 | Session | Lecture                                                                                            | Lab             | Deadlines |
 |---------|----------------------------------------------------------------------------------------------------|-----------------|------------|
 | 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)          | [Prerequisites and requirements](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    | |
-| 02      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)         | Project plan    | Joined KLU-BADS on GitHub<br> Group maintainer announced<br>**Deadline:** midnight before session 02  (strict) |
-| 03      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)    | Project work    | First Pull Request to group repository by each member<br>**Deadline:** midnight before session 03 (strict) |
-| 04      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)     | Project work    |  `README.md` and `ARCHITECTURE.md` in *main* branch<br>**Deadline:** midnight before session 04  (strict) |
+| 02      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)         | Project plan    | Joined KLU-BADS on GitHub<br> Group maintainer's user name communicated to instructor<br>**Deadline:** midnight before session 02  (strict) |
+| 03      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)    | Project work    | M1 - Group formation<br>**Deadline:** midnight before session 03 (strict) |
+| 04      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)     | Project work    |  M2 - Project plan<br>**Deadline:** midnight before session 04  (strict) |
 | 05      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)            | Project work    | |
 | 06      | [Input and output](https://rajgoel.github.io/course-scientific-programming/?topic=06-lecture)      | Project work    |            |
 | 07      | [Error handling and testing](https://rajgoel.github.io/course-scientific-programming/?topic=07-lecture)   | Project work    | E-Assignments<br>**Deadline:** midnight before session 07  (strict) |
 | 08      | [Clean code and documentation](https://rajgoel.github.io/course-scientific-programming/?topic=08-lecture) | Project work    |            |
-| 09      | [Complexity and performance](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)   | Project work    |            |
+| 09      | [Complexity and performance](https://rajgoel.github.io/course-scientific-programming/?topic=09-lecture)   | Project work    | M3 - Feature freeze<br>**Deadline:** midnight before session 09  (strict) |
 | 10      | Miscellaneous            | Project work         |            |
-| 11      | Project presentation     | Project presentation | Tested and documented project in *main* branch<br>**Deadline:** midnight before session 11  (strict)  |
+| 11      | Project presentation     | Project presentation | M4 - Final submission<br>**Deadline:** midnight before session 11  (strict)  |
 
 ## E-Assignments
 
