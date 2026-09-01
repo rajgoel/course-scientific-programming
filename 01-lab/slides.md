@@ -295,7 +295,10 @@ The primary language for the project must be **Julia**.
 
 ---
 
-### GitHub
+### Repositories
 
-All projects are hosted on GitHub. Group members are expected to use branches, issues, commits, and pull requests to manage and track changes collaboratively.
+All projects are hosted on GitHub and all group members must gain access to the repository.
+
+> [!IMPORTANT]
+> Group members are expected to use issues, branches, commits, pull requests, and code reviews.
 
