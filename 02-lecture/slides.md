@@ -1,20 +1,9 @@
-# Software engineering
+# Software development
 
 ---
 
 
-[Software engineering](https://en.wikipedia.org/wiki/Software_engineering) is the systematic application of engineering principles to the design, development, testing, documentation, deployment, and maintenance of software systems.
-
----
-
-## Goals
-
-
-Key goals are to
-
-- manage complexity, 
-- reduce errors, and 
-- improve quality.
+[Software development](https://en.wikipedia.org/wiki/Software_development) is the process of designing, creating, testing, and maintaining software applications to meet specific user needs or business objectives.
 
 ---
 
@@ -22,7 +11,9 @@ Key goals are to
 ## Software development lifecycle
 
 
-- Requirements
+- Defining goals
+- Evaluating feasibility
+- Analyzing requirements
 - Architecture and design
 - Implementation (coding)
 - Testing
@@ -85,9 +76,9 @@ This process is called **requirements engineering**.
 - Software **architecture** defines the high-level structure of a software system, i.e. how components are organized and interact.
 - Software **design** is the detailed plan for how those components are implemented.
 
-===
+---
 
-## UML component diagrams
+### UML component diagrams
 
 A [UML component diagram](https://en.wikipedia.org/wiki/Component_diagram) shows the components of a larger system and the interfaces used to connect these components.
 
@@ -115,6 +106,10 @@ A [UML component diagram](https://en.wikipedia.org/wiki/Component_diagram) shows
 
 ![UML](02-lecture/Component_diagram.svg)<!-- .element style="height:400px;" -->
 
+
+> [!TIP]
+> Component diagrams can be created with [https://plantuml.com/component-diagram](https://plantuml.com/component-diagram)
+
 ---
 
 ### Architectural principles
@@ -124,7 +119,7 @@ A [UML component diagram](https://en.wikipedia.org/wiki/Component_diagram) shows
 
 ===
 
-## State machines
+### State machines
 
 A [state machine](https://en.wikipedia.org/wiki/Finite-state_machine) represents systems by 
 
@@ -157,10 +152,13 @@ Aborted -r-> [*]
 
 ![UML](02-lecture/State_machine_diagram.svg)<!-- .element style="height:400px;" -->
 
-===
 
+> [!TIP]
+> State machine diagrams can be created with [https://plantuml.com/state-diagram](https://plantuml.com/state-diagram)
 
-## UML class diagrams
+---
+
+### UML class diagrams
 
 [UML class diagrams](https://en.wikipedia.org/wiki/Class_diagram) represent the data and objects model of a program.
 
@@ -208,12 +206,12 @@ They include:
 </div>
 </div>
 
-> [!NOTE]
-> Methods and inheritance are less important in Julia as it is not an object oriented language.
+> [!TIP]
+> Class diagrams can be created with [https://plantuml.com/class-diagram](https://plantuml.com/class-diagram)
 
-===
+---
 
-## UML activity diagrams
+### UML activity diagrams
 
 <div class="twocolumn" style="align-items:center;">
 <div>
@@ -246,7 +244,7 @@ stop
 </div>
 
 > [!TIP]
-> UML activity diagrams are especially useful for describing the control flow of algorithms.
+> Class diagrams can be created with [https://plantuml.com/activity-diagram-beta](https://plantuml.com/activity-diagram-beta)
 
 ===
 

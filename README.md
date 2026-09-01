@@ -9,7 +9,7 @@ https://rajgoel.github.io/course-scientific-programming
 | Session | Lecture                                                                                            | Lab             | Deadlines |
 |---------|----------------------------------------------------------------------------------------------------|-----------------|------------|
 | 01      | [Introduction](https://rajgoel.github.io/course-scientific-programming/?topic=01-lecture)          | [Prerequisites and requirements](https://rajgoel.github.io/course-scientific-programming/?topic=01-lab)    | |
-| 02      | [Software engineering](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)         | Project plan    | Joined KLU-BADS on GitHub.<br> Group maintainer's user name communicated to instructor.<br>**Deadline:** midnight before session 02  (strict) |
+| 02      | [Software development](https://rajgoel.github.io/course-scientific-programming/?topic=02-lecture)         | Project plan    | Joined KLU-BADS on GitHub.<br> Group maintainer's user name communicated to instructor.<br>**Deadline:** midnight before session 02  (strict) |
 | 03      | [Programming basics](https://rajgoel.github.io/course-scientific-programming/?topic=03-lecture)    | Project work    | M1 - Group formation<br>**Deadline:** midnight before session 03 (strict) |
 | 04      | [Code organisation](https://rajgoel.github.io/course-scientific-programming/?topic=04-lecture)     | Project work    |  M2 - Project plan<br>**Deadline:** midnight before session 04  (strict) |
 | 05      | [Containers](https://rajgoel.github.io/course-scientific-programming/?topic=05-lecture)            | Project work    | |
