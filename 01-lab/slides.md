@@ -244,7 +244,7 @@ git push -u origin <branch-name>    # upload committed changes to the remote rep
 ```
 
 > [!TIP]
-> You can find a comprehensive guide for Git [here](https://www.w3schools.com/git).
+> You can find a comprehensive guide for Git [here](https://www.w3schools.com/git) and [here](https://git-scm.com/book/en/v2).
 
 ---
 
@@ -259,7 +259,7 @@ GitHub is a collaboration platform based on git. In addition to git, it allows y
 - ...
 
 > [!TIP]
-> You can find a comprehensive guide for Git and GitHub [here](https://www.geeksforgeeks.org/blogs/ultimate-guide-git-github/).
+> You can find a comprehensive guide for Git and GitHub [here](https://docs.github.com/en/get-started/start-your-journey) and [here](https://www.geeksforgeeks.org/blogs/ultimate-guide-git-github/).
 
 ===
 
