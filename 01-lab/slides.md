@@ -255,7 +255,7 @@ GitHub is a collaboration platform based on git. In addition to git, it allows y
 
 - Create **Issues** and set *Assignees*, *Labels*, and *Milestones* to issues
 - Create **Pull Requests** and request *Reviewers* 
-- Manage issues and pull requests** in the browser
+- Manage **issues and pull requests** in the browser
 - Run workflows to automatically run tests and build documentation
 - ...
 
