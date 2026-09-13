@@ -14,7 +14,7 @@ Computers store data as sequences of binary digits (bits), grouped into blocks o
 
 **Booleans** can be represented using a single bit.
 
-- `1` correspond to **true**
+- `1` corresponds to **true**
 - `0` corresponds to **false**
 
 ===
