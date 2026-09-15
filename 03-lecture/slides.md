@@ -155,8 +155,8 @@ $$
 
 It is unclear how to calculate the product of arbitrary fix point numbers.
 
-> [!CAUTION]
-> Fix point numbers are rarely used, and even multiplying by $1 \cdot 1$ may fail if the number of fractional bits is high!
+> [!WARNING]
+> Fix point numbers are rarely used, and even multiplying $1 \cdot 1$ may fail if the number of fractional bits is high!
 
 
 ===
